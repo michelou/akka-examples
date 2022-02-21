@@ -1,0 +1,109 @@
+// overrides default "build"
+buildDir file("target")
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+project.ext {
+    mainSourceTree = fileTree(dir: "src/main/scala", include: "**/*.scala")
+    testSourceTree = fileTree(dir: "src/test/scala", include: "**/*.scala")
+
+    classesDir = file("${buildDir}/classes")
+    testClassesDir = file("${buildDir}/test-classes")
+
+    buildClasspath = files(sourceSets.main.runtimeClasspath, classesDir)
+
+    userProfile = System.getenv("USERPROFILE")
+    userHome = userProfile != null ? userProfile.replaceAll("\\\\", "/") : System.getenv("HOME")
+    testLibsTree = fileTree(dir: "${userHome}/.m2/repository", include: "**/junit-4.13.2.jar")
+    testClasspath = files(buildClasspath, testLibsTree, testClassesDir)
+}
+
+clean.doLast {
+    buildDir.deleteDir()
+}
+
+tasks.withType(JavaCompile) {
+    // https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.CompileOptions.html
+    options.deprecation true
+    options.encoding "UTF8"
+}
+
+task compileScala(type: JavaExec) {
+    dependsOn compileJava
+
+    description "Compile Scala source files"
+
+    classpath = buildClasspath
+
+    jvmArgs "-Dscala.usejavacp=true"
+
+    mainClass = "dotty.tools.dotc.Main"
+
+    String sources = mainSourceTree.files.join("\" \"").replaceAll("\\\\", "/")
+    args "-deprecation", "-encoding", "UTF8", "-d", classesDir, sources
+}
+
+compileScala.doFirst {
+    if (!classesDir.exists()) classesDir.mkdirs()
+}
+
+build {
+    dependsOn compileScala
+}
+
+task run(type: JavaExec) {
+    dependsOn build
+
+    description "Execute Scala main class $mainClassName"
+
+    classpath = buildClasspath
+
+    jvmArgs "-Xms1024m", "-Xss2m", "-Dfile.encoding=UTF-8"
+
+    // systemProperty "message" "Hello"
+
+    if (mainClassName?.trim()) mainClass = mainClassName
+    else mainClass = "Main"
+    if (args == null) args ""
+}
+
+task compileTest(type: JavaExec) {
+    dependsOn compileScala
+
+    description "Compile Scala test source files"
+
+    classpath = testClasspath
+
+    jvmArgs "-Dscala.usejavacp=true"
+
+    mainClass = "dotty.tools.dotc.Main"
+
+    String sources = testSourceTree.files.join("\" \"").replaceAll("\\\\", "/")
+    args "-deprecation", "-encoding", "UTF8", "-d", testClassesDir, sources
+}
+
+compileTest.doFirst {
+    if (!testClassesDir.exists()) testClassesDir.mkdirs()
+}
+
+test {
+    dependsOn compileTest
+    println "test (NYI)"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation "org.scala-lang:scala3-compiler_3:3.1.1"
+    implementation 'com.typesafe.akka:akka-actor-typed_2.13:2.6.18'
+    implementation 'ch.qos.logback:logback-classic:1.2.10'
+    testImplementation 'com.typesafe.akka:akka-actor-testkit-typed_2.13:2.6.18'
+    testImplementation 'junit:junit:4.13.2'
+    implementation "org.specs2:specs2-junit_2.13:4.13.2"
+}

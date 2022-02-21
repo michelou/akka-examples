@@ -1,0 +1,44 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.adb text linguist-language=Ada
+*.adc text
+*.ads text linguist-language=Ada
+*.c text linguist-language=C
+*.cpp text
+*.h text
+*.hpp text
+*.java text linguist-language=Java
+*.json text
+*.js text
+*.md text linguist-documentation=true
+*.sbt text linguist-language=Scala
+*.scala text linguist-language=Scala
+*.txt text
+*.xml text
+*.yaml text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.bat eol=crlf linguist-detectable=false
+*.cmd eol=crlf
+*.ps1 eol=crlf
+*.sln text eol=crlf
+
+# Declare files that will always have LF line endings on checkout.
+*.sh eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.class binary
+*.dll binary
+*.gif binary
+*.jar binary
+*.jpg binary
+*.m4a binary
+*.pdf binary
+*.png binary
+*.rtf binary
+*.zip binary
+
+docs/* linguist-documentation

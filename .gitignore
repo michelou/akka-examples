@@ -1,0 +1,10 @@
+*.exe
+*.hi
+*.ho
+
+*.log
+*.obj
+
+*_LOCAL/
+*_LOCAL.md
+*_LOCAL.txt

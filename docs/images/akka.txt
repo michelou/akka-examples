@@ -1,0 +1,1 @@
+Source: https://akka.io/resources/images/akka_full_color.svg
