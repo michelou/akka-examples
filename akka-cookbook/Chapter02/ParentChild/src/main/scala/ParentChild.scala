@@ -8,21 +8,21 @@ object ParentChild {
     val actorSystem = ActorSystem("ParentChild")
     val parent = actorSystem.actorOf(Props[ParentActor](), "parent")
     parent ! CreateChild
-    Thread.sleep(100)
     
     terminate(actorSystem)
   }
 
-  private def terminate(actor: ActorSystem): Unit =
+  private def terminate(system: ActorSystem): Unit =
     try {
+      Thread.sleep(1000)
       println(">>> Press ENTER to exit <<<")
       System.in.read()
     }
     catch {
-      case _: java.io.IOException => /* ignored */
+      case _: Exception => /* ignored */
     }
     finally {
-      actor.terminate()
+      system.terminate()
     }
 
 }

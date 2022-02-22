@@ -1,7 +1,6 @@
 package com.packt.chapter01
 
 import akka.actor.Actor
-import akka.actor.AbstractActor.Receive
 
 class BecomeUnbecomeActor extends Actor {
 

@@ -1,7 +1,6 @@
 package com.packt.chapter01
 
-import akka.actor.ActorSystem
-import akka.actor.Props
+import akka.actor.{ActorSystem, Props}
 
 object BehaviourAndState {
 
@@ -11,22 +10,21 @@ object BehaviourAndState {
     println(s"actor.path=${actor.path}")
 
     actor ! 2
-    Thread.sleep(100)
 
     terminate(actorSystem)
   }
 
   private def terminate(actor: ActorSystem): Unit =
     try {
+      Thread.sleep(1000)
       println(">>> Press ENTER to exit <<<")
       System.in.read()
     }
     catch {
-      case _: java.io.IOException => /* ignored */
+      case _: IOException => /* ignored */
     }
     finally {
       actor.terminate()
     } 
 
 }
-

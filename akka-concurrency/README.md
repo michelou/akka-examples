@@ -18,7 +18,7 @@ Code examples are written in [Scala] and can be built/run with the following too
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter05/BadShakespearean/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./Chapter05/BadShakespearean/build.bat) | *none*             |  &nbsp;        | Windows only |
 <div style="font-size:80%;">
-<sup><b>a)</b></sup>: Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/>&nbsp;
+<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/>&nbsp;
 </div>
 
 > **:mag_right:** Some text quotes from Wyatt's book :
@@ -120,7 +120,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </tr>
 <tr style="padding:0;">
 <td>(&le;2.4) <code>system.<a href="https://doc.akka.io/docs/akka/2.4/project/migration-guide-2.3.x-2.4.x.html#Actor_system_shutdown">shutdown()</a></code></td>
-<td><code>system.terminate()</code></td>
+<td><code>system.<a href="https://doc.akka.io/api/akka/current/akka/actor/ActorSystem.html#terminate():scala.concurrent.Future[akka.actor.Terminated]">terminate()</a</code></td>
 </tr>
 </table>
 See the online documentation for further informations: 

@@ -10,9 +10,21 @@ object Main {
 
     actor ! "Hello"
     actor ! 42
-    Thread.sleep(100)
 
-    system.terminate()
+    terminate(system)
   }
+
+  private def terminate(system: ActorSystem): Unit =
+    try {
+      Thread.sleep(1000)
+      println(">>> Press ENTER to exit <<<")
+      System.in.read()
+    }
+    catch {
+      case _: Exception => /* ignored */
+    }
+    finally {
+      system.terminate()
+    }
 
 }

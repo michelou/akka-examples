@@ -5,6 +5,17 @@
 *.log
 *.obj
 
+.bloop/
+.bsp/
+.gradle/
+.idea/
+.metals/
+.project/
+.settings/
+.vscode/
+build/
+target/
+
 *_LOCAL/
 *_LOCAL.md
 *_LOCAL.txt

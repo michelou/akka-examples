@@ -8,7 +8,7 @@ maven.apache.org/xsd/maven-4.0.0.xsd">
     <artifactId>ProcessOrderScala</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>ProcessOrderScala</name>
+    <name>ProcessOrderApp</name>
 
     <parent>
         <groupId>akka-examples</groupId>

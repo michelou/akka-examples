@@ -17,7 +17,7 @@ Code examples can be built/run with the following tools:
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter01/HelloAkka/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./Chapter01/HelloAkka/build.bat) | *none*             |  &nbsp;        | Windows only |
 <div style="font-size:80%;">
-<sup><b>a)</b></sup>: Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
+<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
 </div>
 
 ## <span id="helloakka">`HelloAkka`</span>

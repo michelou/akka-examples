@@ -15,21 +15,21 @@ object CustomMailbox {
 
     actor1 ! ("hello", actor)
     actor2 ! ("hello", actor)
-    Thread.sleep(100)
   
     terminate(actorSystem)
   }
 
-  private def terminate(actor: ActorSystem): Unit =
+  private def terminate(system: ActorSystem): Unit =
     try {
+      Thread.sleep(1000)
       println(">>> Press ENTER to exit <<<")
       System.in.read()
     }
     catch {
-      case _: java.io.IOException => /* ignored */
+      case _: Exception => /* ignored */
     }
     finally {
-      actor.terminate()
+      system.terminate()
     }
 
 }

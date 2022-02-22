@@ -12,12 +12,12 @@ Code examples can be built/run with the following tools:
 
 | Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
-| [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any<sup><b>a)</b></sup> |
+| [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any <sup><b>a)</b></sup> |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./Chapter02/FirstAkkaApplication/build.bat) | *none*             |  &nbsp;        | Windows only |
 <div style="font-size:80%;">
-<sup><b>a)</b></sup>: Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
+<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
 </div>
 
 ## <span id="first_scala">`FirstAkkaApplication`</span>
@@ -88,7 +88,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </tr>
 <tr style="padding:0;">
 <td>(&le;2.4) <code>_system.<a href="https://doc.akka.io/docs/akka/2.4/project/migration-guide-2.3.x-2.4.x.html#Actor_system_shutdown">shutdown()</a></code></td>
-<td><code>_system.terminate()</code></td>
+<td><code>_system.<a href="https://doc.akka.io/api/akka/current/akka/actor/ActorSystem.html#terminate():scala.concurrent.Future[akka.actor.Terminated]">terminate()</a></code></td>
 </tr>
 </table>
 <div style="margin:0 0 8px 16px;font-size:80%;">

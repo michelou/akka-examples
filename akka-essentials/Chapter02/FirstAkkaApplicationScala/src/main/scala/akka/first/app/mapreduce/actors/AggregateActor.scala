@@ -1,10 +1,9 @@
 package akka.first.app.mapreduce.actors
 
+import akka.actor.Actor
+import akka.first.app.mapreduce.{ReduceData, Result}
 import scala.collection.immutable.Map
 import scala.collection.mutable.HashMap
-import akka.actor.Actor
-import akka.first.app.mapreduce.ReduceData
-import akka.first.app.mapreduce.Result
 
 class AggregateActor extends Actor {
   val finalReducedMap = new HashMap[String, Int]

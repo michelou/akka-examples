@@ -1,7 +1,6 @@
 package akka.first.app.mapreduce.actors
 
-import akka.actor.Actor
-import akka.actor.ActorRef
+import akka.actor.{Actor, ActorRef}
 import akka.first.app.mapreduce.MapData
 import akka.first.app.mapreduce.WordCount
 import scala.collection.mutable.ArrayBuffer
