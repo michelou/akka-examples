@@ -12,4 +12,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion,
   "ch.qos.logback" % "logback-classic" % logbackVersion,
   "junit" % "junit" % "4.13.2" % Test,
-  "com.novocode" % "junit-interface" % "0.11" % Test)
+  "com.novocode" % "junit-interface" % "0.11" % Test
+)

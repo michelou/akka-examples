@@ -21,7 +21,8 @@ set __SCALA_BINARY_VERSION=2.13
 
 set __AKKA_VERSION=2.6.18
 set __SCALA_VERSION=2.13.8
-set __SLF4J_VERSION=1.7.35
+set __SCALATEST_VERSION=3.2.11
+set __SLF4J_VERSION=1.7.36
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
@@ -43,8 +44,6 @@ call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
-
-set __SCALATEST_VERSION=3.2.11
 
 @rem https://mvnrepository.com/artifact/org.scalatest/scalatest
 call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"

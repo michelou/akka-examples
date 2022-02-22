@@ -14,7 +14,7 @@ class MyActor extends Actor {
       println("Hi")
     // Literal Int match
     case 42 =>
-      println("I don't know the question." +
+      println("I don't know the question. " +
               "Go ask the Earth Mark II.")
     // Matches any string at all
     case s: String =>

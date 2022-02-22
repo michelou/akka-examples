@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>akka-examples</groupId>
-    <artifactId>akka-cookbook</artifactId>
+    <artifactId>akka-concurrency</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -27,7 +27,6 @@
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>
 
-        <m2.scala-library.jar>${m2.directory}/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar</m2.scala-library.jar>
         <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_2.13/${akka.version}/akka-actor_2.13-${akka.version}.jar</m2.akka-actor.jar>
         <m2.config.jar>${m2.directory}/com/typesafe/config/${config.version}/config-${config.version}.jar</m2.config.jar>
     </properties>

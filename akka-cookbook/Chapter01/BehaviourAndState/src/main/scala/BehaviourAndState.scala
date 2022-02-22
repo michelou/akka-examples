@@ -21,7 +21,7 @@ object BehaviourAndState {
       System.in.read()
     }
     catch {
-      case _: IOException => /* ignored */
+      case _: Exception => /* ignored */
     }
     finally {
       actor.terminate()

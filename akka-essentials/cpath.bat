@@ -39,17 +39,14 @@ call :add_jar "com.typesafe.akka" "akka-actor-typed_%__SCALA_BINARY_VERSION%" "%
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-slf4j
 call :add_jar "com.typesafe.akka" "akka-slf4j_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
-@rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.2"
-
-@rem https://mvnrepository.com/artifact/org.scalatest/scalatest
-call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"
-
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest
+call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"
 
 goto end
 

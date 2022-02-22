@@ -12,6 +12,7 @@ Code examples can be built/run with the following tools:
 | Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
 | [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter01/HelloAkka/build.xml) | [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
+| [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter01/HelloAkka/build.gradle) | [`common.gradle`](./common.gradle) | Any |
 | [**`make.exe`**][make_cli] | [`Makefile`](./Chapter01/HelloAkka/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter01/HelloAkka/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter01/HelloAkka/build.sbt) | &nbsp;        | Any |
@@ -32,7 +33,7 @@ akka://HelloAkka
 >>> Press ENTER to exit <<<
 </pre>
 
-> **:mag_right:** Commands [**`ant.bat`**][apache_ant_cli] ([`build.xml`](./Chapter01/HelloAkka/build.xml)) [**`make`**][make_cli] ([`Makefile`](./Chapter01/HelloAkka/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter01/HelloAkka/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter01/HelloAkka/build.sbt)) produce the same output; for instance :
+> **:mag_right:** Commands [**`ant.bat`**][apache_ant_cli] ([`build.xml`](./Chapter01/HelloAkka/build.xml)), [**`gradle.bat`**][gradle_cli] ([`build.gradle`](./Chapter01/HelloAkka/build.gradle)), [**`make`**][make_cli] ([`Makefile`](./Chapter01/HelloAkka/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter01/HelloAkka/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter01/HelloAkka/build.sbt)) produce the same output; for instance :
 > <pre style="font-size:80%;">
 > <b>&gt; <a href="https://www.gnu.org/software/make/manual/html_node/Running.html">make</a> -s run</b>
 > akka://HelloAkka
@@ -41,8 +42,40 @@ akka://HelloAkka
 
 ## <span id="behaviourandstate">`BehaviourAndState`</span>
 
-[`build.sbt`](./Chapter01/BehaviourAndState/build.sbt) and [`build.bat`](./Chapter01/BehaviourAndState/build.bat).
+Batch file [`build.bat`](./Chapter01/BehaviourAndState/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
+<pre style="font-size:80%;">
+<b>&gt; <a href="./Chapter01/BehaviourAndState/build.bat">build</a> -verbose run</b>
+Compile 2 Scala source files to directory "target\classes"
+[BehaviourAndState-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+actor.path=akka://BehaviourAndState/user/summingActor
+my state as sum is 2
+>>> Press ENTER to exit <<<
+
+[BehaviourAndState-akka.actor.default-dispatcher-5] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+</pre>
+
+## <span id="controlawaremailbox">`ControlAwareMailbox`</span>
+
+*WIP*
+
+## <span id="custommailbox">`CustomMailbox`</span>
+
+*WIP*
+
+## <span id="pioritymailbox">`PriorityMailbox`</span>
+
+*WIP*
+
+<!------------------- Chapter 2 ---------------------->
+
+## <span id="actorlifecycle">`ActorLifeCycle`</span>
+
+*WIP*
+
+## <span id="parentchild">`ParentChild`</span>
+
+*WIP*
 
 ***
 
@@ -53,5 +86,6 @@ akka://HelloAkka
 
 [apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
+[gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html
