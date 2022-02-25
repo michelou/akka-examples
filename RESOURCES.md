@@ -29,10 +29,12 @@
 
 ## <span id="books">Books</span>
 
+- [Scala Reactive Programming][book_posa] by Rambagu Posa, February 2018.<br/><span>(Packt, ISBN 978-1-7872-8864-5, 499 pages)<br/>GitHub: <a href="https://github.com/packtpublishing/scala-reactive-programming"><code>PacktPublishing/Scala-Reactive-Programming</code></a></span>
 - &#128077; [Akka Cookbook][book_ortiz] by Hector V. Ortiz, May 2017.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7852-8818-0, 414 pages)<br/><b>GitHub</b>: [`PackPublishing/Akka-Cookbook`](https://github.com/PacktPublishing/Akka-Cookbook).</span>
 - [Reative Design Patterns][book_kuhn] by Roland Kuhn et al., February 2017.</br><span>(Manning, ISBN 978-1-6172-9180-7, 392 pages)</span>
 - [Mastering Akka][book_baxter] by Christian Baxter, October 2016.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7864-6502-3, 436 pages)</span>
 - [Akka in Action][book_roestenburg] by Raymong Roestenburg et al., September 2016.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9101-2, 448 pages)</span>
+- [Reactive Programming with Scala and Akka][book_sathy] by Prasanna K. Sathyanarayanan, 2016.<br/><span>(Packt, ISBN 978-1-7839-8434-3, pages)</span>
 - [Learning Akka][book_goodwin] by Jason Goodwin, December 2015.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7843-9300-7, 274 pages)</span>
 - &#128077; [Akka Concurrency][book_wyatt] by Derek Wyatt, May 2013.<br/><span style="font-size:80%;">(Artima, 521 pages)</span>.
 - [Effective Akka][book_allen] by Jamie Allen, August 2013.<br/><span style="font-size:80%;">(O`Reilly, ISBN 978-1-449-36007-8, 74 pages)<br/><b>GitHub</b>: <a href="https://github.com/jamie-allen/effective_akka"><code>jamie-allen/effective_akka</code></a></span>
@@ -72,6 +74,8 @@
 [book_kuhn]: https://www.manning.com/books/reactive-design-patterns
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
+[book_posa]: https://www.packtpub.com/product/scala-reactive-programming/9781787288645
 [book_roestenburg]: https://www.manning.com/books/akka-in-action
+[book_sathy]: https://www.abebooks.com/servlet/BookDetailsPL?bi=31094581086
 [book_wyatt]: https://www.artima.com/shop/akka_concurrency
 [video_breck]: https://youtu.be/qaiwalDyayA
