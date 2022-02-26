@@ -40,7 +40,9 @@ public class CalculatorApp {
         terminate(_system);
     }
 
-
+    /**
+     * Terminates the actor system ignoring the checked exceptions.
+     */
     private static void terminate(ActorSystem system) {
         try {
             Thread.sleep(1000);

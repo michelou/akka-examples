@@ -6,8 +6,8 @@ public class MyActor extends AbstractActor {
     
     public Receive createReceive() {
         return receiveBuilder()
-            .match(Object.class, d -> {
-                System.out.println("MyActor: d=" + d);
+            .matchAny(message -> {
+                System.out.println("MyActor: message=" + message);
             })
             .build();
     }

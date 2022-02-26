@@ -12,7 +12,8 @@ The code examples presented below are written both in Java and in [Scala] and ca
 
 | Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
-| [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any <sup><b>a)</b></sup> |
+| [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter02/FirstAkkaApplication/build.gradle) | [`common.gradle`](./common.gradle) | Any <sup><b>a)</b></sup> |
+| [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./Chapter02/FirstAkkaApplication/build.bat) | *none*             |  &nbsp;        | Windows only |
@@ -22,7 +23,7 @@ The code examples presented below are written both in Java and in [Scala] and ca
 
 ## <span id="first_scala">`FirstAkkaApplication`</span>
 
-Code example `FirstAkkaApplication`<sup id="anchor_01">[1](#footnote_01)</sup> is an [Akka] application written in Java (e.g. [`MapReduceApplication.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/MapReduceApplication.java), [`MasterActor.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MasterActor.java)).
+Code example `FirstAkkaApplication`<sup id="anchor_01">[1](#footnote_01)</sup> is an [Akka] application written in Java (e.g. [`MapReduceApplication.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/MapReduceApplication.java), [`MasterActor.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MasterActor.java)<sup id="anchor_02">[2](#footnote_02)</sup>).
 
 Batch file [**`build.bat`**](./Chapter02/FirstAkkaApplication/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -33,7 +34,7 @@ Compile 9 Java source files to directory "target\classes"
 {over=1, quick=1, belong=1, lazy=1, best=1, man's=1, brown=1, fox=2, fell=1, tried=1, same=1, friend=1, family=1, dog=4, jump=1}
 </pre>
 
-Commands [**`make`**][make_cli] ([`Makefile`](./Chapter02/FirstAkkaApplication/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt)) produce the same output; for instance :
+Commands [**`gradle.bat`**][gradle_cli] ([`build.gradle`](./Chapter02/FirstAkkaApplication/build.gradle)), [**`make`**][make_cli] ([`Makefile`](./Chapter02/FirstAkkaApplication/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt)) produce the same output; for instance :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://www.gnu.org/software/make/manual/html_node/Running.html">make</a> -s run</b>
@@ -158,6 +159,44 @@ See the online documentation for further informations:
 </ul>
 </dd></dl>
 
+<span id="footnote_02">[2]</span> ***FirstAkkaApplication*: 2 versions** [↩](#anchor_02)
+
+<dl><dd>
+We actually provide two versions of <code>FirstAkkaApplication</code>:
+</dd>
+<dd>
+<ul>
+<li>in <a href="./Chapter02/FirstAkkaApplication/"><code>FirstAkkaApplication</code></a> the 4 actors are defined as subclasses of <code>UntypedAbstractActor</code> and do overwrite method <code>onReceive(Object message)</code>.
+<pre style="font-size:80%;">
+<b>public class</b> MapActor <b>extends</b> UntypedAbstractActor {
+    // ...
+    @Override
+    <b>public void</b> onReceive(Object message) <b>throws</b> Exception {
+        <b>if</b> (message instanceof String) {
+            // ...
+        } <b>else</b>
+            unhandled(message);
+    }
+}
+</pre>
+</li>
+<li>in <a href="./Chapter02/FirstAkkaApplication2/"><code>FirstAkkaApplication2</code></a> the 4 actors are defined as subclasses of <code>AbstractActor</code> and do implement method <code>createReceive()</code>.
+<pre style="font-size:80%;">
+<b>public class</b> MapActor <b>extends</b> AbstractActor {
+    // ...
+    <b>public</b> Receive createReceive() {
+        <b>return</b> receiveBuilder()
+            .match(String.class, word -> { /* ... */ })
+            .matchAny(message -> { unhandled(message); })
+            .build();
+    }
+}
+</pre>
+</li>
+</ul>
+</dd>
+</dd></dl>
+
 ***
 
 *[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
@@ -168,6 +207,7 @@ See the online documentation for further informations:
 [akka]: https://akka.io/
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
+[gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html
 [scala]: https://www.scala-lang.org/

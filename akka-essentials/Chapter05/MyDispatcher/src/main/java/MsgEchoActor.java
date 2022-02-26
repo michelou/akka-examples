@@ -6,8 +6,8 @@ public class MsgEchoActor extends AbstractActor {
     
     public Receive createReceive() {
         return receiveBuilder()
-            .match(Object.class, d -> {
-                System.out.println("MsgEchoActor: d=" + d);
+            .matchAny(message -> {
+                System.out.println("MsgEchoActor: message=" + message);
             })
             .build();
     }

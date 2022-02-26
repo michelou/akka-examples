@@ -36,6 +36,9 @@ object ExtraPattern {
     terminate(system)
   }
 
+  /**
+   * Terminates the actor system ignoring the checked exceptions.
+   */
   private def terminate(actor: ActorSystem): Unit =
     try {
       Thread.sleep(1000)

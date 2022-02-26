@@ -1,6 +1,6 @@
 package akka.first.app.mapreduce.actors;
 
-import akka.actor.UntypedAbstractActor;
+import akka.actor.AbstractActor;
 import akka.first.app.mapreduce.messages.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,19 +9,22 @@ import java.util.Map;
  * The Aggregate actor receives the reduced data list from the Master actor
  * and aggregates it into one big list.
  */
-public class AggregateActor extends UntypedAbstractActor {
+public class AggregateActor extends AbstractActor {
     private Map<String, Integer> finalReducedMap =
         new HashMap<String, Integer>();
 
-    @Override
-    public void onReceive(Object message) throws Exception {
-        if (message instanceof ReduceData) {
-            ReduceData reduceData = (ReduceData) message;
-            aggregateInMemoryReduce(reduceData.getReduceDataList());
-        } else if (message instanceof Result) {
-            getSender().tell(finalReducedMap.toString(), getSelf());
-        } else
-            unhandled(message);
+    public Receive createReceive() {
+        return receiveBuilder()
+            .match(ReduceData.class, reduceData -> {
+                aggregateInMemoryReduce(reduceData.getReduceDataList());
+            })
+            .match(Result.class, result -> {
+                getSender().tell(finalReducedMap.toString(), getSelf());
+            })
+            .match(Object.class, message -> {
+                unhandled(message);
+            })
+            .build();
     }
 
     private void aggregateInMemoryReduce(Map<String, Integer> reducedList) {

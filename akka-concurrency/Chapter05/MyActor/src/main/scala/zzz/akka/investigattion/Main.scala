@@ -14,6 +14,9 @@ object Main {
     terminate(system)
   }
 
+  /**
+   * Terminates the actor system ignoring the checked exceptions.
+   */
   private def terminate(system: ActorSystem): Unit =
     try {
       Thread.sleep(1000)
