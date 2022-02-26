@@ -17,6 +17,10 @@ maven.apache.org/xsd/maven-4.0.0.xsd">
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <mainClass>akka.first.app.mapreduce.MapReduceApplication</mainClass>
+    </properties>
+
     <build>
         <sourceDirectory>src/main</sourceDirectory>
         <testSourceDirectory>src/test</testSourceDirectory>
@@ -46,7 +50,7 @@ maven.apache.org/xsd/maven-4.0.0.xsd">
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>akka.first.app.mapreduce.MapReduceApplication</mainClass>
+                    <mainClass>${mainClass}</mainClass>
                     <arguments>
                         <argument></argument>
                     </arguments>

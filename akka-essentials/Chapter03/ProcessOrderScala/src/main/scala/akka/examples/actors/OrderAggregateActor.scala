@@ -7,9 +7,9 @@ class OrderAggregateActor extends Actor {
 
   def receive: Receive = {
     case histo: OrderHistory =>
-      println(s"OrderAggregate: Received histo $histo");
+      println(s"OrderAggregateActor: Received histo $histo");
     case x =>
-      println(s"OrderAggregate: x=$x")
+      println(s"OrderAggregateActor: x=$x")
   }
 
 }

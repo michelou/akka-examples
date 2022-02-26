@@ -20,9 +20,9 @@ public class MapReduceApplication {
             Props.create(MasterActor.class),
             "master"
         );
-        master.tell("The quick brown fox tried to jump over the lazy dog and fell on the dog", null);
-        master.tell("Dog is man's best friend", null);
-        master.tell("Dog and Fox belong to the same family", null);
+        master.tell("The quick brown fox tried to jump over the lazy dog and fell on the dog", ActorRef.noSender());
+        master.tell("Dog is man's best friend", ActorRef.noSender());
+        master.tell("Dog and Fox belong to the same family", ActorRef.noSender());
         Thread.sleep(5000);
 
         Timeout timeout = new Timeout(Duration.create(5, TimeUnit.SECONDS));

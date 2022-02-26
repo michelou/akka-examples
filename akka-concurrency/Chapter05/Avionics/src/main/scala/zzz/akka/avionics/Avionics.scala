@@ -2,8 +2,8 @@ package zzz.akka.avionics
 
 import akka.actor.{Props, Actor, ActorRef, ActorSystem}
 import akka.pattern.ask
-import scala.concurrent.Await
 import akka.util.Timeout
+import scala.concurrent.Await
 import scala.concurrent.duration._
 
 // The futures created by the ask syntax need an

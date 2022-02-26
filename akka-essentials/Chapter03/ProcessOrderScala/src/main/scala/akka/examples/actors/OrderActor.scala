@@ -6,9 +6,9 @@ import akka.examples.Order
 class OrderActor extends Actor {
 
   private val orderData: Map[Int, Order] = Map(
-     1 -> Order(1, "Screw driver"),
-     2 -> Order(2, "Hammer"),
-     3 -> Order(3, "Jigsaw")
+     1000 -> Order("Screw driver"),
+     2000 -> Order("Hammer"),
+     3000 -> Order("Jigsaw")
   )
 
   def receive: Receive = {

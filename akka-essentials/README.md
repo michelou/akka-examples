@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-Code examples can be built/run with the following tools:
+The code examples presented below are written both in Java and in [Scala] and can be built/run with the following tools:
 
 | Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
@@ -33,28 +33,81 @@ Compile 9 Java source files to directory "target\classes"
 {over=1, quick=1, belong=1, lazy=1, best=1, man's=1, brown=1, fox=2, fell=1, tried=1, same=1, friend=1, family=1, dog=4, jump=1}
 </pre>
 
-> **:mag_right:** Commands [**`make`**][make_cli] ([`Makefile`](./Chapter02/FirstAkkaApplication/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt)) produce the same output :
-> <pre style="font-size:80%;">
-> <b>&gt; <a href="https://www.gnu.org/software/make/manual/html_node/Running.html">make</a> -s run</b>
-> {over=1, quick=1, belong=1, lazy=1, best=1, man's=1, brown=1, fox=2, fell=1, tried=1, same=1, friend=1, family=1, dog=4, jump=1}
-> </pre>
-
-## <span id="first_scala">`FirstAkkaApplicationScala`</span>
-
-Code example `FirstAkkaApplicationScala` is the same [Akka] application written in [Scala] (e.g. [`MapReduceApplication.scala`](./Chapter02/FirstAkkaApplicationScala/src/main/scala/akka/first/app/mapreduce/MapReduceApplication.scala), [`MasterActor.scala`](./Chapter02/FirstAkkaApplicationScala/src/main/scala/akka/first/app/mapreduce/actors/MasterActor.scala)).
-
-Batch file [**`build.bat`**](./Chapter02/FirstAkkaApplicationScala/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
+Commands [**`make`**][make_cli] ([`Makefile`](./Chapter02/FirstAkkaApplication/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt)) produce the same output; for instance :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="FirstAkkaAppicationScala/build.bat">build</a> run</b>
-[MapReduceApp-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-HashMap(over -> 1, quick -> 1, belong -> 1, lazy -> 1, best -> 1, man's -> 1, brown -> 1, fox -> 2, fell -> 1, tried -> 1, same -> 1, friend -> 1, family -> 1, dog -> 4, jump -> 1)
+<b>&gt; <a href="https://www.gnu.org/software/make/manual/html_node/Running.html">make</a> -s run</b>
+{over=1, quick=1, belong=1, lazy=1, best=1, man's=1, brown=1, fox=2, fell=1, tried=1, same=1, friend=1, family=1, dog=4, jump=1}
 </pre>
 
-> **:mag_right:** Commands [**`make`**][make_cli] ([`Makefile`](./Chapter02/FirstAkkaApplicationScala/Makefile)), [**`mvn`**][apache_maven_cli] ([`pom.xml`](./Chapter02/FirstAkkaApplicationScala/pom.xml)) and [**`sbt`**][sbt_cli] ([`build.sbt`](./Chapter02/FirstAkkaApplicationScala/build.sbt)) produce the same output :
+> **:mag_right:** `FirstAkkaApplicationScala` is the same [Akka] application written in [Scala] (e.g. [`MapReduceApplication.scala`](./Chapter02/FirstAkkaApplicationScala/src/main/scala/akka/first/app/mapreduce/MapReduceApplication.scala), [`MasterActor.scala`](./Chapter02/FirstAkkaApplicationScala/src/main/scala/akka/first/app/mapreduce/actors/MasterActor.scala)). For instance [**`build.bat`**](./Chapter02/FirstAkkaApplicationScala/build.bat) generates the following output:
+> &nbsp;
 > <pre style="font-size:80%;">
-> <b>&gt; <a href="https://www.gnu.org/software/make/manual/html_node/Running.html">make</a> -s run</b>
+> <b>&gt; <a href="./Chapter02/FirstAkkaAppicationScala/build.bat">build</a> run</b>
+> [MapReduceApp-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
 > HashMap(over -> 1, quick -> 1, belong -> 1, lazy -> 1, best -> 1, man's -> 1, brown -> 1, fox -> 2, fell -> 1, tried -> 1, same -> 1, friend -> 1, family -> 1, dog -> 4, jump -> 1)
+> </pre>
+
+## <span id="process_order">`ProcessOrder`</span>
+
+Code example `ProcessOrder` is an [Akka] application written in Java (e.g. [`ProcessOrderApp.java`](./Chapter03/ProcessOrder/src/main/java/ProcessOrderApp.java), [`ProcessOrderActor.java`](./Chapter03/ProcessOrder/src/main/java/actors/ProcessOrderActor.java)).
+
+Batch file [**`build.bat`**](./Chapter03/ProcessOrder/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./Chapter03/ProcessOrder/build.bat">build</a> -verbose run</b>
+Compile 8 Java source files to directory "target\classes"
+[ProcessOrder-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+OrderActor: userId=1
+OrderAggregate: akka.actor.Status$Failure
+</pre>
+
+> **:mag_right:** Code example `ProcessOrderScala` is the same [Akka] application written in [Scala] (e.g. [`MapReduceApplication.scala`](./Chapter03/ProcessOrderScala/src/main/scala/akka/first/app/mapreduce/MapReduceApplication.scala), [`MasterActor.scala`](./Chapter03/ProcessOrderScala/src/main/scala/akka/first/app/mapreduce/actors/MasterActor.scala)). For instance [**`build.bat`**](./Chapter03/ProcessOrderScala/build.bat) generates the following output :
+> &nbsp;
+> <pre style="font-size:80%;">
+> <b>&gt; <a href="./Chapter03/ProcessOrderScala/build.bat">build</a> run</b>
+> ...
+> </pre>
+
+## <span id="ping_pong">`PingPong`</span>
+
+Code example `PingPong` is an [Akka] application written in Java (e.g. [`PingPongApp.java`](./Chapter03/PingPong/src/main/java/PingPongApp.java), [`PingPongActor.java`](./Chapter03/PingPong/src/main/java/PingPongActor.java)).
+
+Batch file [**`build.bat`**](./Chapter03/PingPong/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./Chapter03/PingPong/build.bat">build</a> -verbose run</b>
+Compile 2 Java source files to directory "target\classes"
+[PingPong-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+PING
+PONG
+PING
+PONG
+PING
+PONG
+PING
+PONG
+PING
+PONG
+PING
+</pre>
+
+> **:mag_right:** `PingPongScala` is the same [Akka] application written in [Scala] (e.g. [`MapReduceApplication.scala`](./Chapter03/PingPongScala/src/main/scala/PingPongApp.scala), [`PingPongActor.scala`](./Chapter03/PingPongScala/src/main/scala//MasterActor.scala)). For instance [**`build.bat`**](./Chapter03/PingPongScala/build.bat) generates the following output :
+> &nbsp;
+> <pre style="font-size:80%;">
+> <b>&gt; <a href="./Chapter03/PingPongScala/build.bat">build</a> run</b>
+> [PingPong-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+> PING
+> PONG
+> PING
+> PONG
+> PING
+> PONG
+> PING
+> PONG
+> PING
+> PONG
+> PING
 > </pre>
 
 ## <span id="footnotes">Footnotes</span>

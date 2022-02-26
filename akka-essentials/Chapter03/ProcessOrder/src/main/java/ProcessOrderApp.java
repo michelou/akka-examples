@@ -20,15 +20,28 @@ public class ProcessOrderApp {
             "master"
         );
         int userId = 1;
-        master.tell(userId, null);
-        Thread.sleep(5000);
+        master.tell(userId, ActorRef.noSender());
 /*
         Timeout timeout = new Timeout(Duration.create(5, TimeUnit.SECONDS));
         Future<Object> future = Patterns.ask(master, new Result(), timeout);
         String result = (String) Await.result(future, timeout.duration());
         System.out.println(result);
 */
-        _system.terminate();
+        terminate(_system);
+    }
+
+    private static void terminate(ActorSystem system) {
+        try {
+            Thread.sleep(2000);
+            System.out.println(">>> Press ENTER to exit <<<");
+            System.in.read();
+        }
+        catch (Exception e) {
+            /* ignored */
+        }
+        finally {
+            system.terminate();
+        }
     }
 
 }

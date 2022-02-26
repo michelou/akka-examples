@@ -12,20 +12,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
 
+        <!-- Scala settings -->
+        <scala.groupId>org.scala-lang</scala.groupId>
+        <scala.version>2.13.8</scala.version>
+        <scala.local.install>true</scala.local.install>
+
         <!-- Maven plugin versions -->
         <akka.version>2.6.18</akka.version>
         <config.version>1.4.2</config.version>
-        <scala.version>2.13.8</scala.version>
-        <scala.maven.version>1.0.0</scala.maven.version>
-        <maven.compiler.version>3.9.0</maven.compiler.version>
         <exec.maven.version>3.0.0</exec.maven.version>
+        <maven.compiler.version>3.10.0</maven.compiler.version>
+        <maven.jar.version>3.2.2</maven.jar.version>
+        <scala.maven.version>1.0.0</scala.maven.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>
 
-        <m2.scala-library.jar>${m2.directory}/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar</m2.scala-library.jar>
         <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_2.13/${akka.version}/akka-actor_2.13-${akka.version}.jar</m2.akka-actor.jar>
+        <m2.akka-testkit.jar>${m2.directory}/com/typesafe/akka/akka-testkit_2.13/${akka.version}/akka-testkit_2.13-${akka.version}.jar</m2.akka-testkit.jar>
         <m2.config.jar>${m2.directory}/com/typesafe/config/${config.version}/config-${config.version}.jar</m2.config.jar>
+        <m2.scala-library.jar>${m2.directory}/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar</m2.scala-library.jar>
     </properties>
 
     <dependencies>
@@ -46,6 +52,13 @@
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.13</artifactId>
             <version>${akka.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_2.13</artifactId>
+            <version>${akka.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

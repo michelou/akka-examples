@@ -8,20 +8,28 @@
   </tr>
 </table>
 
+> **:mag_right:** The [Akka API documentation](https://doc.akka.io/api/akka/current/index.html).
+
 ## <span id="articles">Articles</span>
 
 - [Akka Streams — Getting Started][article_cano] by Sergio Cano, August 2021.
 
 ## <span id="blogs">Blogs</span>
 
-- [Akka Streams Backpressure ][blog_ciocirlan_backpressure] by Daniel Ciocîrlan, November 2021.
-- [Akka Typed: Adapting Messages][blog_ciocirlan_adapter] by Daniel Ciocîrlan, March 2021.
+- [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
+  - [Akka Streams Backpressure ][blog_rockthejvm_backpressure], November 2021.
+  - [Akka Typed: Adapting Messages][blog_rockthejvm_adapter], March 2021.
+  - [Akka Typed: How the Pipe Pattern Prevents Anti-Patterns][blog_rockthejvm_pipe], October 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 3][blog_oueslati_3] by Mohamed Oueslati, July 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 2][blog_oueslati_2] by Mohamed Oueslati, July 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 1][blog_oueslati_1] by Mohamed Oueslati, June 2020.
-- [The Power of Akka Streams][blog_skrbic_power] by Aleksandar Skrbic, April 2020. 
-- [Data processing with Akka Actors: Part I][blog_skrbic_2] by Aleksandar Skrbic, April 2020.
+- [The Power of Akka Streams][blog_skrbic_power] by Aleksandar Skrbic, April 2020.
+<!-- ??? disappeard since addition ???
+- [Data processing with Akka Actors: Part II][blog_skrbic_2] by Aleksandar Skrbic, April 2020.
 - [Data processing with Akka Actors: Part I][blog_skrbic_1] by Aleksandar Skrbic, April 2020.
+-->
+- [Tuning your Akka to Get the Most from your Actor-Based System – Part II][blog_shemesh2] by Dani Shemesh, January 2020.
+- [Tuning your Akka to Get the Most from your Actor-Based System – Part I][blog_shemesh1] by Dani Shemesh, January 2020.
 - [Rethinking Streaming Workloads with Akka Streams: Part II][blog_breck_2] by Colin Breck, July 2019.
 - [Rethinking Streaming Workloads with Akka Streams: Part I][blog_breck] by Colin Breck, May 2019.
 - [Introduction to Akka Streams][blog_agarwal] by Archit Agarwal, February 2019.
@@ -60,11 +68,14 @@
 [blog_balinzo]: https://dariobalinzo.medium.com/hpc-with-scala-and-akka-actors-38e43aa87634
 [blog_breck]: https://blog.colinbreck.com/rethinking-streaming-workloads-with-akka-streams-part-i/
 [blog_breck_2]: https://blog.colinbreck.com/rethinking-streaming-workloads-with-akka-streams-part-ii/
-[blog_ciocirlan_adapter]: https://blog.rockthejvm.com/akka-message-adapter/
-[blog_ciocirlan_backpressure]: https://blog.rockthejvm.com/akka-streams-backpressure/
 [blog_oueslati_1]: https://blog.soat.fr/2020/06/architecture-et-programmation-reactives-avec-akka-et-scala-partie-1/
 [blog_oueslati_2]: https://blog.soat.fr/2020/07/architecture-et-programmation-reactives-avec-akka-et-scala-partie-2/
 [blog_oueslati_3]: https://blog.soat.fr/2020/07/architecture-et-programmation-reactives-avec-akka-et-scala-partie-3/
+[blog_rockthejvm_adapter]: https://blog.rockthejvm.com/akka-message-adapter/
+[blog_rockthejvm_backpressure]: https://blog.rockthejvm.com/akka-streams-backpressure/
+[blog_rockthejvm_pipe]: https://blog.rockthejvm.com/pipe-pattern/
+[blog_shemesh1]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-i/
+[blog_shemesh2]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-ii/
 [blog_skrbic_1]: https://aleksandarskrbic.github.io/akka-actors-1/
 [blog_skrbic_2]: https://aleksandarskrbic.github.io/akka-actors-2/
 [blog_skrbic_power]: https://aleksandarskrbic.github.io/power-of-akka-streams/

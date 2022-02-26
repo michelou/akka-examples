@@ -32,18 +32,18 @@ object ExtraPattern {
 
     accountBalanceRetriever ! GetCustomerAccountBalances(1L)
     accountBalanceRetriever ! GetCustomerAccountBalances(2L)
-    Thread.sleep(1000)
 
     terminate(system)
   }
 
   private def terminate(actor: ActorSystem): Unit =
     try {
+      Thread.sleep(1000)
       println(">>> Press ENTER to exit <<<")
       System.in.read()
     }
     catch {
-      case _: java.io.IOException => /* ignored */
+      case _: Exception => /* ignored */
     }
     finally {
       actor.terminate()

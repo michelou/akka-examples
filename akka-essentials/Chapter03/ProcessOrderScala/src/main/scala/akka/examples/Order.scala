@@ -1,7 +1,11 @@
 package akka.examples
 
-case class Order(val orderId: Int, val description: String)
+case class Order(val description: String) {
+  val orderId: Long = Order.currId()
+}
 
 object Order {
-  val BAD_ORDER = Order(-1, "")
+  private var id = -1L
+  private def currId(): Long = { val id0 = id; id += 1; id0 }
+  val BAD_ORDER = Order("")
 }
