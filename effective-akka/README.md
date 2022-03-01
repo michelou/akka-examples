@@ -12,7 +12,8 @@ Code examples can be built/run with the following tools:
 
 | Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
-| [**`make.exe`**][make_cli] | [`Makefile`](./ExtraPattern/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any <sup><b>a)</b></sup> |
+| [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./ExtraPattern/build.gradle) | [`common.gradle`](./common.gradle) | Any <sup><b>a)</b></sup> |
+| [**`make.exe`**][make_cli] | [`Makefile`](./ExtraPattern/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./ExtraPattern/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./ExtraPattern/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./ExtraPattern/build.bat) | *none*             |  &nbsp;        | Windows only |
@@ -53,6 +54,7 @@ SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 [akka]: https://akka.io/
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
+[gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html
 [scala]: https://www.scala-lang.org/

@@ -40,6 +40,7 @@ set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 set "_SOURCE_DIR=%_ROOT_DIR%src"
 set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_CLASSES_DIR=%_TARGET_DIR%\classes"
+set "_TEST_CLASSES_DIR=%_TARGET_DIR%\test-classes"
 
 if not exist "%JAVA_HOME%\bin\java.exe" (
     echo %_ERROR_LABEL% Java SDK installation not found 1>&2
@@ -134,6 +135,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="compile" ( set _COMMANDS=!_COMMANDS! compile
     ) else if "%__ARG%"=="help" ( set _COMMANDS=help
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! compile run
+    ) else if "%__ARG%"=="test" ( set _COMMANDS=!_COMMANDS! compile test
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -332,6 +334,118 @@ call "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS%
 if not %ERRORLEVEL%==0 (
     set _EXITCODE=1
     goto :eof
+)
+goto :eof
+
+:test
+call :test_compile
+if not %_EXITCODE%==0 goto :eof
+
+call :test_run
+if not %_EXITCODE%==0 goto :eof
+
+goto :eof
+
+:test_compile
+if not exist "%_TEST_CLASSES_DIR%" mkdir "%_TEST_CLASSES_DIR%"
+
+set "__TIMESTAMP_FILE=%_TEST_CLASSES_DIR%\.latest-build"
+
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_DIR%\test\java\*.java" "%_SOURCE_DIR%\test\scala\*.scala"
+if %_ACTION_REQUIRED%==0 goto :eof
+
+call :test_compile_scala
+if not %_EXITCODE%==0 goto :eof
+
+call :test_compile_java
+if not %_EXITCODE%==0 goto :eof
+
+echo.> "%__TIMESTAMP_FILE%"
+goto :eof
+
+:test_compile_scala
+set "__SOURCES_FILE=%_TARGET_DIR%\test_scalac_sources.txt"
+if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
+set __N=0
+for /f %%i in ('dir /s /b "%_SOURCE_DIR%\test\java\*.java" "%_SOURCE_DIR%\test\scala\*.scala" 2^>NUL') do (
+    echo %%i >> "%__SOURCES_FILE%"
+    set /a __N+=1
+)
+if %__N%==0 (
+    echo %_WARNING_LABEL% No Scala test source file found 1>&2
+    goto :eof
+) else if %__N%==1 ( set __N_FILES=%__N% Scala test source file
+) else ( set __N_FILES=%__N% Scala test source files
+)
+call :libs_cpath
+if not %_EXITCODE%==0 goto :eof
+
+set "__OPTS_FILE=%_TARGET_DIR%\test_scalac_opts.txt"
+echo -deprecation -classpath "%_LIBS_CPATH:\=\\%%_CLASSES_DIR:\=\\%" -d "%_TEST_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%" 1>&2
+) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+)
+call "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
+:test_compile_java
+set "__SOURCES_FILE=%_TARGET_DIR%\test_javac_sources.txt"
+if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
+set __N=0
+for /f %%i in ('dir /s /b "%_SOURCE_DIR%\test\java\*.java" 2^>NUL') do (
+    echo %%i >> "%__SOURCES_FILE%"
+    set /a __N+=1
+)
+if %__N%==0 (
+    echo %_WARNING_LABEL% No Java test source file found 1>&2
+    goto :eof
+) else if %__N%==1 ( set __N_FILES=%__N% Java test source file
+) else ( set __N_FILES=%__N% Java test source files
+)
+call :libs_cpath
+if not %_EXITCODE%==0 goto :eof
+
+set "__OPTS_FILE=%_TARGET_DIR%\test_javac_opts.txt"
+echo -deprecation -classpath "%_LIBS_CPATH:\=\\%%_CLASSES_DIR:\=\\%;%_TEST_CLASSES_DIR:\=\\%" -d "%_TEST_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%" 1>&2
+) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+)
+call "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
+:test_run
+call :libs_cpath includeScalaLibs
+if not %_EXITCODE%==0 goto :eof
+
+set __TEST_JAVA_OPTS=-classpath "%_LIBS_CPATH%%_CLASSES_DIR%;%_TEST_CLASSES_DIR%"
+
+@rem see https://github.com/junit-team/junit4/wiki/Getting-started
+for /f "usebackq" %%f in (`dir /s /b "%_TEST_CLASSES_DIR%\*Test.class" 2^>NUL`) do (
+    for %%i in (%%~dpf) do set __PKG_NAME=%%i
+    set __PKG_NAME=!__PKG_NAME:%_TEST_CLASSES_DIR%\=!
+    if defined __PKG_NAME ( set "__MAIN_CLASS=!__PKG_NAME:\=.!%%~nf"
+    ) else ( set "__MAIN_CLASS=%%~nf"
+    )
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVA_CMD%" %__TEST_JAVA_OPTS% org.junit.runner.JUnitCore !__MAIN_CLASS! 1>&2
+    ) else if %_VERBOSE%==1 ( echo Execute test !__MAIN_CLASS! 1>&2
+    )
+    call "%_JAVA_CMD%" %__TEST_JAVA_OPTS% org.junit.runner.JUnitCore !__MAIN_CLASS!
+    if not !ERRORLEVEL!==0 (
+        set _EXITCODE=1
+        goto :eof
+    )
 )
 goto :eof
 

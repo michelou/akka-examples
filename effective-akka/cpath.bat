@@ -46,7 +46,7 @@ call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
 call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.scalatest/scalatest
-call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"
+call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
 
 goto end
 

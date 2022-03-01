@@ -3,7 +3,7 @@ package org.jamieallen.effectiveakka.pattern.extra
 import akka.actor.{Actor, ActorLogging, ActorSystem, Props}
 import akka.testkit.{TestKit, TestProbe, ImplicitSender}
 import org.jamieallen.effectiveakka.common._
-import org.jamieallen.effectiveakka.pattern.extra.AccountBalanceRetrieverFinal._
+import org.jamieallen.effectiveakka.pattern.extra.AccountBalanceRetriever._
 import org.scalatest.WordSpecLike
 import org.scalatest.matchers.MustMatchers
 import scala.concurrent.duration._

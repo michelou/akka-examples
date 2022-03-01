@@ -42,6 +42,9 @@
                             <goal>compile</goal>
                         </goals>
                         <configuration>
+                            <compilerArgs>
+                                <compilerArg>-deprecation</compilerArg>
+                            </compilerArgs>
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${m2.config.jar}</additionalClasspathElement>
                                 <additionalClasspathElement>${m2.akka-actor.jar}</additionalClasspathElement>

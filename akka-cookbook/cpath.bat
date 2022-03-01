@@ -48,6 +48,13 @@ call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
 @rem https://mvnrepository.com/artifact/org.scalatest/scalatest
 call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"
 
+@rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+@rem JUnit 4 dependency
+call :add_jar "org.hamcrest" "hamcrest" "2.2"
+
+@rem https://mvnrepository.com/artifact/junit/junit
+call :add_jar "junit" "junit" "4.13.2"
+
 goto end
 
 @rem #########################################################################
