@@ -8,7 +8,7 @@ import akka.japi.Option;
 import scala.concurrent.Future;
 
 public class Calculator implements CalculatorInt {
-    Integer counter = 0;
+    private Integer counter = 0;
 
     //Non-blocking request response
     public Future<Integer> add(Integer first, Integer second) {
@@ -30,7 +30,8 @@ public class Calculator implements CalculatorInt {
         return Option.some(++counter);
     }
 
-    LoggingAdapter log = Logging.getLogger(TypedActor.context().system(), this);
+    private LoggingAdapter log =
+        Logging.getLogger(TypedActor.context().system(), this);
 
     //Allows to tap into the Actor PreStart hook
     public void preStart() {

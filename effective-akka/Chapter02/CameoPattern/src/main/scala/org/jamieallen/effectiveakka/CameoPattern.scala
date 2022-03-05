@@ -2,12 +2,12 @@ package org.jamieallen.effectiveakka
 
 import akka.actor.{ActorSystem, Props}
 import org.jamieallen.effectiveakka.common._
-import org.jamieallen.effectiveakka.pattern.extra._
+import org.jamieallen.effectiveakka.pattern.cameo._
 
-object ExtraPattern {
+object CameoPattern {
 
   def main(args: Array[String]): Unit = {
-    val system = ActorSystem("ExtraPattern")
+    val system = ActorSystem("CameoPattern")
 
     val savingsAccountsActor = system.actorOf(
       Props[SavingsAccountsActor](),
@@ -46,7 +46,7 @@ object ExtraPattern {
       System.in.read()
     }
     catch {
-      case _: Exception => /* ignored */
+      case _: /*Interrupted,IO*/Exception => /* ignored */
     }
     finally {
       actor.terminate()

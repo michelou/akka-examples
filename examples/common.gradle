@@ -18,7 +18,7 @@ project.ext {
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
     akkaVersion = "2.6.18"
-    specs2Version = "4.13.2"
+    specs2Version = "4.14.1"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"
@@ -26,14 +26,15 @@ project.ext {
         else {
             implementation "org.scala-lang:scala-compiler:$scalaVersion"
         }
+        implementation "com.typesafe:config:1.4.2"
         implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
         implementation "com.typesafe.akka:akka-actor-typed_${scalaBinaryVersion}:$akkaVersion"
-        // testImplementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
+        // test scope
+        testImplementation 'ch.qos.logback:logback-classic:1.2.10'
+        testImplementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
         testImplementation 'com.typesafe.akka:akka-actor-testkit-typed_${scalaBinaryVersion}:$akkaVersion'
-        implementation "com.typesafe:config:1.4.2"
-        implementation 'ch.qos.logback:logback-classic:1.2.10'
         testImplementation 'junit:junit:4.13.2'
-        implementation "org.specs2:specs2-junit_${scalaBinaryVersion}:$specs2Version"
+        testImplementation "org.specs2:specs2-junit_${scalaBinaryVersion}:$specs2Version"
     }
 
     mainSourceTree = fileTree(dir: "src/main/scala", include: "**/*.scala")

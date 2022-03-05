@@ -20,6 +20,7 @@
     <property name="cfr.version" value="0.151" />
     <property name="akka.version" value="2.6.18" />
     <property name="config.version" value="1.4.2" />
+    <property name="scalatest.version" value="3.2.11" />
 
     <target name="init.local" if="use.local">
         <property name="scala3.home" value="${env.SCALA3_HOME}" />
@@ -74,6 +75,11 @@
         <path id="build.classpath">
             <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
+            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-testkit_2.13-${akka.version}.jar" />
+            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest_2.13-${scalatest.version}.jar" />
+            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest-mustmatchers_2.13-${scalatest.version}.jar" />
+            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest-shouldmatchers_2.13-${scalatest.version}.jar" />
+            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest-wordspec_2.13-${scalatest.version}.jar" />
             <pathelement location="${build.dir}" />
         </path>
         <path id="basedir.ref">
@@ -124,6 +130,7 @@
                 <jvmarg value="-Xms768m" />
                 <jvmarg value="-Dscala.usejavacp=true" />
                 <arg value="-deprecation" />
+                <arg value="-language:postfixOps" />
                 <arg value="-d" />
                 <arg value="@{destdir}" />
                 <arg value="-classpath" />

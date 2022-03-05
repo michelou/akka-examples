@@ -45,8 +45,29 @@ call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
 
+@rem test scope
+
+@rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
+call :add_jar "com.typesafe.akka" "akka-testkit_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
+
 @rem https://mvnrepository.com/artifact/org.scalatest/scalatest
 call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-core
+call :add_jar "org.scalatest" "scalatest-core_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers
+call :add_jar "org.scalatest" "scalatest-mustmatchers_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec
+call :add_jar "org.scalatest" "scalatest-wordspec_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+@rem JUnit 4 depends on Hamcrest 1.3
+call :add_jar "org.hamcrest" "hamcrest-core" "1.3"
+
+@rem https://mvnrepository.com/artifact/junit/junit
+call :add_jar "junit" "junit" "4.13.2"
 
 goto end
 

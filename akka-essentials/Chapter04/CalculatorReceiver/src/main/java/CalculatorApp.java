@@ -30,11 +30,14 @@ public class CalculatorApp {
 
         Timeout timeout = new Timeout(Duration.create(5, SECONDS));
 
-        // Invoke the method and wait for result
-        Future<Integer> future = calculator.add(14, 6);
-        Integer result = Await.result(future, timeout.duration());
-        System.out.println("result=" + result);
-
+        // Invoke the method 'add' and wait for result
+        try {
+            Future<Integer> future = calculator.add(14, 6);
+            Integer result = Await.result(future, timeout.duration());
+            System.out.println("result=" + result);
+        } catch (/*Interrupted,Timeout*/Exception e) {
+            System.err.println(e.getMessage());
+        }
         TypedActor.get(_system).stop(calculator);
 
         terminate(_system);
@@ -49,7 +52,7 @@ public class CalculatorApp {
             System.out.println(">>> Press ENTER to exit <<<");
             System.in.read();
         }
-        catch (Exception e) {
+        catch (/*Interrupted,IO*/Exception e) {
             /* ignored */
         }
         finally {

@@ -53,6 +53,9 @@ if not %_EXITCODE%==0 goto end
 call :scala
 if not %_EXITCODE%==0 goto end
 
+call :scala3
+if not %_EXITCODE%==0 goto end
+
 call :make
 if not %_EXITCODE%==0 goto end
 
@@ -341,6 +344,39 @@ if defined __SCALAC_CMD (
 )
 if not exist "%_SCALA_HOME%\bin\scalac.bat" (
     echo %_ERROR_LABEL% Scala executable not found ^(%_SCALA_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
+@rem output parameter: _SCALA3_HOME
+:scala3
+set _SCALA3_HOME=
+
+set __SCALAC_CMD=
+for /f %%f in ('where scalac.bat 2^>NUL') do set "__SCALAC_CMD=%%f"
+if defined __SCALAC_CMD (
+    for /f "tokens=1-3,4,*" %%s in ('"%__SCALAC_CMD%" -version 2^>^&1') do (
+        set __VERSION=%%v
+        if not "!__VERSION:~0,1!"=="3" set __SCALAC_CMD=
+    )
+)
+if defined __SCALAC_CMD (
+    for /f "delims=" %%f in ("%__SCALAC_CMD%") do set "__BIN_DIR=%%~dpf"
+    for /f "delims=" %%f in ("!__BIN_DIR!\.") do set "_SCALA3_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Scala 3 executable found in PATH 1>&2
+) else if defined SCALA3_HOME (
+    set "_SCALA3_HOME=%SCALA3_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA3_HOME 1>&2
+) else (
+    set _PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!_PATH!\scala3-3*" 2^>NUL') do set _SCALA3_HOME=!_PATH!\%%f
+    if defined _SCALA3_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala 3 installation directory !_SCALA_HOME!
+    )
+)
+if not exist "%_SCALA3_HOME%\bin\scalac.bat" (
+    echo %_ERROR_LABEL% Scala 3 executable not found ^(%_SCALA3_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -678,6 +714,7 @@ if %__VERBOSE%==1 (
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined SBT_HOME echo    "SBT_HOME=%SBT_HOME%" 1>&2
     if defined SCALA_HOME echo    "SCALA_HOME=%SCALA_HOME%" 1>&2
+    if defined SCALA3_HOME echo    "SCALA3_HOME=%SCALA3_HOME%" 1>&2
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do echo    %%i 1>&2
 )
@@ -699,6 +736,7 @@ endlocal & (
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined SBT_HOME set "SBT_HOME=%_SBT_HOME%"
         if not defined SCALA_HOME set "SCALA_HOME=%_SCALA_HOME%"
+        if not defined SCALA3_HOME set "SCALA3_HOME=%_SCALA3_HOME%"
         set "PATH=%PATH%%_ANT_PATH%%_GRADLE_PATH%%_GRPCURL_PATH%%_SBT_PATH%%_MAKE_PATH%%_MAVEN_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%:" (

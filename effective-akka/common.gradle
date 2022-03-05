@@ -1,0 +1,137 @@
+// overrides default "build"
+buildDir file("target")
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+project.ext {
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.1.1"
+    isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
+    isScala3 = scalaVersion.startsWith("3")
+    scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
+
+    repositories {
+        mavenCentral()
+    }
+
+    scalaBinaryVersion = isScala3 ? "3" : "2.13"
+    akkaVersion = "2.6.18"
+    dependencies {
+        if (isScala3) {
+            implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"
+        }
+        else {
+            implementation "org.scala-lang:scala-compiler:$scalaVersion"
+        }
+        implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
+        // implementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
+        implementation "com.typesafe:config:1.4.2"
+    }
+
+    mainSourceTree = fileTree(dir: "src/main/scala", include: "**/*.scala")
+    testSourceTree = fileTree(dir: "src/test/scala", include: "**/*.scala")
+
+    classesDir = file("${buildDir}/classes")
+    testClassesDir = file("${buildDir}/test-classes")
+
+    if (isLocalInstall) {
+        scalaHome = System.getenv(isScala3 ? "SCALA3_HOME" : "SCALA_HOME")
+        logger.info("scalaHome       = $scalaHome")
+
+        libraryPath = file(scalaHome + "/lib")
+        libraryFiles = files { libraryPath.listFiles() }
+        libraryFiles = libraryFiles.filter { File f -> f.name.matches("(.*)\\.jar") }
+        toolClasspath = files(libraryFiles)
+    } else {
+        toolClasspath = files()
+    }
+    buildClasspath = files(toolClasspath, sourceSets.main.runtimeClasspath, classesDir)
+    testClasspath  = files(buildClasspath, testClassesDir)
+
+    logger.info("scalacMainClass = $scalacMainClass")
+    logger.info("buildClasspath  = ${buildClasspath.getAsPath()}")
+    logger.info("testClasspath   = ${testClasspath.getAsPath()}")
+}
+
+clean.doLast {
+    buildDir.deleteDir()
+}
+
+tasks.withType(JavaCompile) {
+    // https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.CompileOptions.html
+    options.deprecation true
+    options.encoding "UTF8"
+}
+
+task compileScala(type: JavaExec) {
+    dependsOn compileJava
+
+    description "Compile Scala source files"
+
+    classpath = buildClasspath
+
+    jvmArgs "-Dscala.usejavacp=true"
+
+    mainClass = scalacMainClass
+
+    String sourceFiles = mainSourceTree.files.join("\" \"").replaceAll("\\\\", "/")
+    args "-deprecation", "-encoding", "UTF8", "-d", classesDir, sourceFiles
+}
+
+compileScala.doFirst {
+    if (!classesDir.exists()) classesDir.mkdirs()
+}
+
+compileScala.onlyIf {
+    ! mainSourceTree.isEmpty()
+}
+
+build {
+    dependsOn compileScala
+}
+
+task run(type: JavaExec) {
+    dependsOn build
+
+    description "Execute Scala main class $mainClassName"
+
+    classpath = buildClasspath
+
+    jvmArgs "-Xms1024m", "-Xss2m", "-Dfile.encoding=UTF-8"
+
+    // systemProperty "message" "Hello"
+
+    if (mainClassName?.trim()) mainClass = mainClassName
+    else mainClass = "Main"
+    if (args == null) args ""
+}
+
+task testCompileScala(type: JavaExec) {
+    dependsOn compileScala
+
+    description "Compile Scala test source files"
+
+    classpath = testClasspath
+
+    jvmArgs "-Dscala.usejavacp=true"
+
+    mainClass = scalacMainClass
+
+    String sourceFiles = testSourceTree.files.join("\" \"").replaceAll("\\\\", "/")
+    args "-deprecation", "-encoding", "UTF8", "-d", testClassesDir, sourceFiles
+}
+
+testCompileScala.doFirst {
+    if (!testClassesDir.exists()) testClassesDir.mkdirs()
+}
+
+testCompileScala.onlyIf {
+    ! testSourceTree.isEmpty()
+}
+
+test {
+    dependsOn testCompileScala
+    println "test: not yet implemented"
+}

@@ -13,9 +13,9 @@
         <java.version>11</java.version>
 
         <!-- Scala settings -->
-        <scala.groupId>org.scala-lang</scala.groupId>
-        <scala.version>2.13.8</scala.version>
+        <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
+        <scala.version>2.13.8</scala.version>
 
         <!-- Maven plugin versions -->
         <akka.version>2.6.18</akka.version>
@@ -32,15 +32,15 @@
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <scala.maven.version>1.0.0</scala.maven.version>
         <scalatest.version>3.2.11</scalatest.version>
-        <slf4j.version>1.7.35</slf4j.version>
+        <slf4j.version>1.7.36</slf4j.version>
         <specs2.version>4.13.2</specs2.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>
 
-        <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_3/${akka.version}/akka-actor_3-${akka.version}.jar</m2.akka-actor.jar>
-        <m2.akka-actor-typed.jar>${m2.directory}/com/typesafe/akka/akka-actor-typed_3/${akka.version}/akka-actor-typed_3-${akka.version}.jar</m2.akka-actor-typed.jar>
-        <m2.scalatest.jar>${m2.directory}/org/scalatest/scalatest_3/${scalatest.version}/scalatest_3-${scalatest.version}.jar</m2.scalatest.jar>
+        <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_2.13/${akka.version}/akka-actor_2.13-${akka.version}.jar</m2.akka-actor.jar>
+        <m2.akka-actor-typed.jar>${m2.directory}/com/typesafe/akka/akka-actor-typed_3/${akka.version}/akka-actor-typed_2.13-${akka.version}.jar</m2.akka-actor-typed.jar>
+        <m2.scalatest.jar>${m2.directory}/org/scalatest/scalatest_2.13/${scalatest.version}/scalatest_2.13-${scalatest.version}.jar</m2.scalatest.jar>
         <m2.slf4j-api.jar>${m2.directory}/org/slf4j/slf4j-api/${slf4j.version}/slf4j-api-${slf4j.version}.jar</m2.slf4j-api.jar>
         <m2.slf4j-simple.jar>${m2.directory}/org/slf4j/slf4j-simple/${slf4j.version}/slf4j-simple-${slf4j.version}.jar</m2.slf4j-simple.jar>
         <m2.test-interface.jar>${m2.directory}/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar</m2.test-interface.jar>
@@ -87,16 +87,22 @@
             <artifactId>config</artifactId>
             <version>${config.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_${scala.binary.version}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor-typed_2.13</artifactId>
+            <artifactId>akka-actor-typed_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor-testkit-typed_2.13</artifactId>
+            <artifactId>akka-actor-testkit-typed_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
             <scope>test</scope>
         </dependency>
@@ -190,25 +196,25 @@
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-common -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-common_2.13</artifactId>
+            <artifactId>specs2-common_${scala.binary.version}</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-core -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-core_2.13</artifactId>
+            <artifactId>specs2-core_${scala.binary.version}</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-junit -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-junit_2.13</artifactId>
+            <artifactId>specs2-junit_${scala.binary.version}</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-matcher -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-matcher_2.13</artifactId>
+            <artifactId>specs2-matcher_${scala.binary.version}</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->

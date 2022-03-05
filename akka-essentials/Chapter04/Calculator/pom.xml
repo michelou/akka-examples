@@ -33,6 +33,9 @@ maven.apache.org/xsd/maven-4.0.0.xsd">
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <compilerArgs>
+                        <compilerArg>-deprecation</compilerArg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->

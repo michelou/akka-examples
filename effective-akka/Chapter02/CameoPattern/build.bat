@@ -40,6 +40,7 @@ set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 set "_SOURCE_DIR=%_ROOT_DIR%src"
 set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_CLASSES_DIR=%_TARGET_DIR%\classes"
+set "_TEST_CLASSES_DIR=%_TARGET_DIR%\test-classes"
 
 if not exist "%JAVA_HOME%\bin\java.exe" (
     echo %_ERROR_LABEL% Java SDK installation not found 1>&2
@@ -134,6 +135,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="compile" ( set _COMMANDS=!_COMMANDS! compile
     ) else if "%__ARG%"=="help" ( set _COMMANDS=help
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! compile run
+    ) else if "%__ARG%"=="test" ( set _COMMANDS=!_COMMANDS! compile test
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -147,7 +149,7 @@ goto args_loop
 if %_DEBUG%==1 ( set _STDOUT_REDIRECT=
 ) else ( set _STDOUT_REDIRECT=1^>NUL
 )
-set _MAIN_CLASS=org.jamieallen.effectiveakka.ExtraPattern
+set _MAIN_CLASS=org.jamieallen.effectiveakka.CameoPattern
 set _MAIN_ARGS=
 
 if %_DEBUG%==1 (
@@ -182,9 +184,9 @@ echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
-echo     %__BEG_O%compile%__END%     compile Java source files
+echo     %__BEG_O%compile%__END%     compile Scala source files
 echo     %__BEG_O%run%__END%         execute main class "%__BEG_O%%_MAIN_CLASS%%__END%"
-echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%JUnit%__END%
+echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%Scalatest%__END%
 goto :eof
 
 :clean
@@ -310,7 +312,7 @@ goto :eof
 
 @rem output parameter: _LIBS_CPATH
 :libs_cpath
-for %%f in ("%~dp0\.") do set "__BATCH_FILE=%%~dpfcpath.bat"
+for %%f in ("%~dp0\..") do set "__BATCH_FILE=%%~dpfcpath.bat"
 if not exist "%__BATCH_FILE%" (
     echo %_ERROR_LABEL% Batch file "%__BATCH_FILE%" not found 1>&2
     set _EXITCODE=1
@@ -330,6 +332,89 @@ set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS% 1>&2
 call "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS%
 if not %ERRORLEVEL%==0 (
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
+:test
+call :test_compile
+if not %_EXITCODE%==0 goto :eof
+
+call :libs_cpath includeScalaLibs
+if not %_EXITCODE%==0 goto :eof
+
+set __TEST_JAVA_OPTS=-classpath "%_LIBS_CPATH%%_CLASSES_DIR%;%_TEST_CLASSES_DIR%"
+
+@rem see https://github.com/junit-team/junit4/wiki/Getting-started
+set __N=0
+set __FAILED=0
+for /f "usebackq" %%f in (`dir /s /b "%_TEST_CLASSES_DIR%\*Spec.class" 2^>NUL`) do (
+    for %%i in (%%~dpf) do set __PKG_NAME=%%i
+    set __PKG_NAME=!__PKG_NAME:%_TEST_CLASSES_DIR%\=!
+    if defined __PKG_NAME ( set "__MAIN_CLASS=!__PKG_NAME:\=.!%%~nf"
+    ) else ( set "__MAIN_CLASS=%%~nf"
+    )
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVA_CMD%" %__TEST_JAVA_OPTS% !__MAIN_CLASS! 1>&2
+    ) else if %_VERBOSE%==1 ( echo Execute test class "!__MAIN_CLASS!" 1>&2
+    )
+    call "%_JAVA_CMD%" %__TEST_JAVA_OPTS% !__MAIN_CLASS! %_STDOUT_REDIRECT%
+    if not !ERRORLEVEL!==0 (
+        set _EXITCODE=1
+        set /a __FAILED+=1
+        @rem goto :eof
+    )
+    set /a __N+=1
+)
+set /a __ECHO_MSG=%_VERBOSE%+%_DEBUG%
+if %__ECHO_MSG%==0 goto :eof
+if %__N%==0 ( echo %_WARNING_LABEL% No test found 1>&2
+) else if %__N%==1 ( echo %__FAILED% of 1 test failed
+) else ( echo %__FAILED% of %__N% tests failed
+)
+goto :eof
+
+:test_compile
+if not exist "%_TEST_CLASSES_DIR%" mkdir "%_TEST_CLASSES_DIR%" 1>NUL
+
+set "__TEST_TIMESTAMP_FILE=%_TEST_CLASSES_DIR%\.latest-build"
+
+call :action_required "%__TEST_TIMESTAMP_FILE%" "%_SOURCE_DIR%\test\scala\*.scala"
+if %_ACTION_REQUIRED%==0 goto :eof
+
+call :test_compile_scala
+if not %_EXITCODE%==0 goto :eof
+
+echo. > "%__TEST_TIMESTAMP_FILE%"
+goto :eof
+
+:test_compile_scala
+set "__SOURCES_FILE=%_TARGET_DIR%\scalac_test_sources.txt"
+if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
+set __N=0
+for /f %%i in ('dir /s /b "%_SOURCE_DIR%\test\scala\*.scala" 2^>NUL') do (
+    echo %%i >> "%__SOURCES_FILE%"
+    set /a __N+=1
+)
+if %__N%==0 (
+    echo %_WARNING_LABEL% No Scala test source file found 1>&2
+    goto :eof
+) else if %__N%==1 ( set __N_FILES=%__N% Scala test source file
+) else ( set __N_FILES=%__N% Scala test source files
+)
+call :libs_cpath includeScalaLibs
+if not %_EXITCODE%==0 goto :eof
+
+set "__OPTS_FILE=%_TARGET_DIR%\scalac_test_opts.txt"
+set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%;%_TEST_CLASSES_DIR%"
+echo -deprecation -language:postfixOps -classpath "%__CPATH:\=\\%" -d "%_TEST_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%" 1>&2
+) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+)
+call "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )

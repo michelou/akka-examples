@@ -35,6 +35,9 @@
         <m2.scala-library.jar>${m2.directory}/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar</m2.scala-library.jar>
         <m2.scalatest.jar>${m2.directory}/org/scalatest/scalatest_2.13/${scalatest.version}/scalatest_2.13-${scalatest.version}.jar</m2.scalatest.jar>
         <m2.scalatest-funspec.jar>${m2.directory}/org/scalatest/scalatest-funspec_2.13/${scalatest.version}/scalatest-funspec_2.13-${scalatest.version}.jar</m2.scalatest-funspec.jar>
+        <m2.scalatest-mustmatchers.jar>${m2.directory}/org/scalatest/scalatest-mustmatchers_2.13/${scalatest.version}/(scalatest-mustmatchers_2.13-${scalatest.version}.jar</m2.scalatest-mustmatchers.jar>
+        <m2.scalatest-shouldmatchers.jar>${m2.directory}/org/scalatest/scalatest-shouldmatchers_2.13/${scalatest.version}/(scalatest-shouldmatchers_2.13-${scalatest.version}.jar</m2.scalatest-shouldmatchers.jar>
+        <m2.scalatest-wordspec.jar>${m2.direcory}/org/scalatest/scalatest-wordspec_2.13/${scalatest.version}/(scalatest-wordspec_2.13-${scalatest.version}.jar</m2.scalatest-wordspec.jar>
     </properties>
 
     <dependencies>
@@ -67,6 +70,27 @@
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.13</artifactId>
+            <version>${scalatest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest-mustmatchers_2.13</artifactId>
+            <version>${scalatest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-shouldmatchers -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest-shouldmatchers_2.13</artifactId>
+            <version>${scalatest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest-wordspec_2.13</artifactId>
             <version>${scalatest.version}</version>
             <scope>test</scope>
         </dependency>

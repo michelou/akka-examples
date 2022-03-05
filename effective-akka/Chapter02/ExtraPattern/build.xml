@@ -8,7 +8,7 @@
     <property name="main.class" value="org.jamieallen.effectiveakka.${ant.project.name}" />
 
     <!-- task 'init' and macro 'dotc' are defined in parent build.xml -->
-    <import file="../build.xml" />
+    <import file="../../build.xml" />
 
     <target name="compile" depends="init">
         <mkdir dir="${build.dir}" />

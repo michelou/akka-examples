@@ -43,13 +43,22 @@ RM         = rm
 TOUCH      = touch
 endif
 
-SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.8.jar)
-CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
-AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.6.18.jar)
+SCALA_LIB_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.8.jar)
+CONFIG_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
+AKKA_ACTOR_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.6.18.jar)
+AKKA_ACTOR_TYPED_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor-typed_2.13-2.6.18.jar)
+SLF4J_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-1.7.36.jar)
+SLF4J_SIMPLE_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-1.7.36.jar)
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)
 endif
 ifeq (,$(wildcard $(AKKA_ACTOR_JAR)))
 $(error Variable AKKA_ACTOR_JAR is not set)
+endif
+ifeq (,$(wildcard $(AKKA_ACTOR_TYPED_JAR)))
+$(error Variable AKKA_ACTOR_TYPED_JAR is not set)
+endif
+ifeq (,$(wildcard $(SLF4J_JAR)))
+$(error Variable SLF4J_JAR is not set)
 endif

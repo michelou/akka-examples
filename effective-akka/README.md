@@ -8,27 +8,28 @@
   </tr>
 </table>
 
-Code examples can be built/run with the following tools:
+Code examples presented below can be built/run with the following tools:
 
 | Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
-| [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./ExtraPattern/build.gradle) | [`common.gradle`](./common.gradle) | Any <sup><b>a)</b></sup> |
-| [**`make.exe`**][make_cli] | [`Makefile`](./ExtraPattern/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
-| [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./ExtraPattern/pom.xml) | [`pom.xml`](./pom.xml) | Any |
-| [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./ExtraPattern/build.sbt) | &nbsp;        | Any |
-| [**`build.bat`**](./ExtraPattern/build.bat) | *none*             |  &nbsp;        | Windows only |
+| [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter02/ExtraPattern/build.xml) | [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
+| [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter02/ExtraPattern/build.gradle) | [`common.gradle`](./common.gradle) | Any |
+| [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/ExtraPattern/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
+| [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter02/ExtraPattern/pom.xml) | [`pom.xml`](./pom.xml) | Any |
+| [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/ExtraPattern/build.sbt) | &nbsp;        | Any |
+| [**`build.bat`**](./Chapter02/ExtraPattern/build.bat) | *none*             |  &nbsp;        | Windows only |
 <div style="font-size:80%;">
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
 </div>
 
 ### <span id="extra_pattern">`ExtraPattern`</span>
 
-Code example `ExtraPattern` is the same [Akka] application written in [Scala] (e.g. [`ExtraPattern.scala`](./ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/ExtraPattern.scala), [`AccountBalanceRetriever.scala`](./ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/AccountBalanceRetriever.scala)).
+Code example `ExtraPattern` is the same [Akka] application written in [Scala] (e.g. [`ExtraPattern.scala`](./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/ExtraPattern.scala), [`AccountBalanceRetriever.scala`](./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/AccountBalanceRetriever.scala)).
 
-Batch file [**`build.bat`**](./ExtraPattern/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
+Batch file [**`build.bat`**](./Chapter02/ExtraPattern/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="./ExtraPattern/build.bat">build</a> -verbose run</b>
+<b>&gt; <a href="./Chapter02/ExtraPattern/build.bat">build</a> -verbose run</b>
 Compile 6 Scala source files to directory "target\classes"
 [ExtraPattern-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
 CheckingAccounts   : Received GetCustomerAccountBalances for ID: 1
@@ -44,14 +45,19 @@ SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 
 *WIP*
 
+### <span id="cameo_pattern">`CameoPattern`</span>
+
+*WIP*
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
 [akka]: https://akka.io/
+[apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html

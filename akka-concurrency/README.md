@@ -134,11 +134,12 @@ See the online documentation for further informations:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
+[akka]: https://akka.io/
 [apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html

@@ -1,12 +1,22 @@
 package akka.examples
 
-import akka.actor.TypedActor
+import akka.actor.ActorSystem//TypedActor
+import akka.actor.typed.Behavior
+import akka.actor.typed.scaladsl.{AbstractBehavior, ActorContext, Behaviors}
 import akka.dispatch.Futures
-import akka.event.Logging
-import scala.concurrent.{Future, Promise}
+//import akka.event.Logging
+//import akka.event.LogSource
+import scala.concurrent.Future
 
-class Calculator extends CalculatorInt {
-  var counter: Int = 0
+object Calculator {
+  def apply(): Behavior[Nothing] =
+    Behaviors.setup[Nothing](context => new Calculator(context))
+}
+
+class Calculator(context: ActorContext[Nothing])
+    extends AbstractBehavior[Nothing](context) with CalculatorInt {
+
+  private var counter: Int = 0
 
   def add(first: Int, second: Int): Future[Int] =
     Futures.successful(first + second)
@@ -21,12 +31,17 @@ class Calculator extends CalculatorInt {
     Some(counter)
   }
 
-  val log = Logging(TypedActor.context.system, TypedActor.self.getClass())
+  //private val log = Logging(ActorSystem("Calculator"), this)
 
   def preStart(): Unit =
-    log.info ("Actor Started")
+    context.log.info ("Actor Started")
 
   def postStop(): Unit =
-    log.info ("Actor Stopped")
+    context.log.info ("Actor Stopped")
+
+  override def onMessage(msg: Nothing): Behavior[Nothing] = {
+    // no need to handle any messages
+    Behaviors.unhandled
+  }
 
 }
