@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-@rem output parameter: _CPATH
+@rem output parameters: _CPATH, _CPATH_LAGOM
 
 if not defined _DEBUG set _DEBUG=%~1
 if not defined _MVN_CMD set _MVN_CMD=mvn.cmd
@@ -15,9 +15,12 @@ set "__LOCAL_REPO=%USERPROFILE%\.m2\repository"
 set "__TEMP_DIR=%TEMP%\lib"
 if not exist "%__TEMP_DIR%" mkdir "%__TEMP_DIR%"
 
-set _LIBS_CPATH=
-
 set __SCALA_BINARY_VERSION=2.13
+
+@rem #########################################################################
+@rem ## Libraries to be added to _LIBS_CPATH1
+
+set _LIBS_CPATH=
 
 set __AKKA_VERSION=2.6.18
 set __SCALA_VERSION=2.13.8
@@ -47,16 +50,37 @@ call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
 
 @rem test scope
 
-@rem https://mvnrepository.com/artifact/org.scalatest/scalatest
-call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
-
 @rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
-@rem JUnit 4 dependency
-call :add_jar "org.hamcrest" "hamcrest" "2.2"
+@rem JUnit 4 depends on Hamcrest 1.3
+call :add_jar "org.hamcrest" "hamcrest-core" "1.3"
 
 @rem https://mvnrepository.com/artifact/junit/junit
 call :add_jar "junit" "junit" "4.13.2"
 
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest
+call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+set "_LIBS_CPATH1=%_LIBS_CPATH%"
+
+@rem #########################################################################
+@rem ## Libraries to be added to _LIBS_CPATH2
+
+set _LIBS_CPATH=
+
+set __LAGOM_VERSION=1.6.7
+
+@rem https://mvnrepository.com/artifact/com.lightbend.lagom/lagom-api
+call :add_jar "com.lightbend.lagom" "lagom-api_%__SCALA_BINARY_VERSION%" "%__LAGOM_VERSION%"
+
+@rem https://mvnrepository.com/artifact/com.lightbend.lagom/lagom-scaladsl-api
+call :add_jar "com.lightbend.lagom" "lagom-scaladsl-api_%__SCALA_BINARY_VERSION%" "%__LAGOM_VERSION%"
+
+@rem test scope
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest
+call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+set "_LIBS_CPATH2=%_LIBS_CPATH%"
 goto end
 
 @rem #########################################################################
@@ -106,5 +130,6 @@ goto :eof
 
 :end
 endlocal & (
-    set "_CPATH=%_LIBS_CPATH%"
+    set "_CPATH=%_LIBS_CPATH1%"
+    set "_CPATH_LAGOM=%_LIBS_CPATH2%"
 )

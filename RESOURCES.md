@@ -24,13 +24,11 @@
 - [Architecture et programmation réactives avec Akka et Scala – Partie 2][blog_oueslati_2] by Mohamed Oueslati, July 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 1][blog_oueslati_1] by Mohamed Oueslati, June 2020.
 - [The Power of Akka Streams][blog_skrbic_power] by Aleksandar Skrbic, April 2020.
-<!-- ??? disappeard since addition ???
-- [Data processing with Akka Actors: Part II][blog_skrbic_2] by Aleksandar Skrbic, April 2020.
-- [Data processing with Akka Actors: Part I][blog_skrbic_1] by Aleksandar Skrbic, April 2020.
--->
 - [Tuning your Akka to Get the Most from your Actor-Based System – Part II][blog_shemesh2] by Dani Shemesh, January 2020.
 - [Tuning your Akka to Get the Most from your Actor-Based System – Part I][blog_shemesh1] by Dani Shemesh, January 2020.
 - [Rethinking Streaming Workloads with Akka Streams: Part II][blog_breck_2] by Colin Breck, July 2019.
+- [Understanding Factories To Create Actors In Akka](http://www.shivamkapoor.com/blogs/technology/2019/06/25/understanding-factories-to-create-actors-in-akka/) by Shivan Kapoor, June 2019.
+- [Rescheduling Akka Schedulers](http://www.shivamkapoor.com/blogs/technology/2019/06/15/rescheduling-akka-schedulers/) by Shivan Kapoor, June 2019.
 - [Rethinking Streaming Workloads with Akka Streams: Part I][blog_breck] by Colin Breck, May 2019.
 - [Introduction to Akka Streams][blog_agarwal] by Archit Agarwal, February 2019.
 - [Hpc with Scala and Akka Actors][blog_balinzo] by Dario Balinzo, December 2018.
@@ -58,7 +56,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
@@ -76,8 +74,6 @@
 [blog_rockthejvm_pipe]: https://blog.rockthejvm.com/pipe-pattern/
 [blog_shemesh1]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-i/
 [blog_shemesh2]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-ii/
-[blog_skrbic_1]: https://aleksandarskrbic.github.io/akka-actors-1/
-[blog_skrbic_2]: https://aleksandarskrbic.github.io/akka-actors-2/
 [blog_skrbic_power]: https://aleksandarskrbic.github.io/power-of-akka-streams/
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_baxter]: https://www.packtpub.com/product/mastering-akka/9781786465023

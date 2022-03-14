@@ -24,7 +24,7 @@ object Main {
       System.in.read()
     }
     catch {
-      case _: Exception => /* ignored */
+      case _: /*Interrupted,IO*/Exception => /* ignored */
     }
     finally {
       system.terminate()

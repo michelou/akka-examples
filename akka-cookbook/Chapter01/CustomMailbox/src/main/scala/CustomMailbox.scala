@@ -19,6 +19,9 @@ object CustomMailbox {
     terminate(actorSystem)
   }
 
+  /**
+   * Terminates the actor system ignoring the checked exceptions.
+   */
   private def terminate(system: ActorSystem): Unit =
     try {
       Thread.sleep(1000)
@@ -26,7 +29,7 @@ object CustomMailbox {
       System.in.read()
     }
     catch {
-      case _: Exception => /* ignored */
+      case _: /*Interrupted,IO*/Exception => /* ignored */
     }
     finally {
       system.terminate()

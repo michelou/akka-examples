@@ -2,14 +2,14 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://akka.io/"><img src="docs/images/akka.svg" width="100" alt="C++ logo"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://akka.io/" rel="external"><img src="docs/images/akka.svg" width="100" alt="C++ logo"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://akka.io/" rel="external" title="Akka">Akka</a> code examples coming from various websites and books.<br/>
   It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.
   </td>
   </tr>
 </table>
 
-[Ada][ada_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other topics we are continuously investigating.
+[Ada][ada_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other topics we are continuously investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -28,7 +28,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*February 2022*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*March 2022*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.12\      <i>( 40 MB)</i>
@@ -94,7 +94,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -112,6 +112,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
+[cpp_examples]: https://github.com/michelou/cpp-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git

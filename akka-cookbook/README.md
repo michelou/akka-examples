@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-cookbook\</code></strong></a> contains <a href="https://akka.io/" alt="Akka">Akka</a> examples presented in Ortiz's book <a href="https://www.packtpub.com/product/akka-cookbook/9781785288180"><i>Akka Cookbook</i></a> (<a href="https://www.packtpub.com/" rel="external" title="Packt Publishing">Packt</a>, 2017).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" alt="Akka">Akka</a> on a Windows machine.</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-cookbook\</code></strong></a> contains <a href="https://akka.io/" alt="Akka" rel="external">Akka</a> examples presented in Ortiz's book <a href="https://www.packtpub.com/product/akka-cookbook/9781785288180"><i>Akka Cookbook</i></a> (<a href="https://www.packtpub.com/" rel="external" title="Packt Publishing">Packt</a>, 2017).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" alt="Akka" rel="external">Akka</a> on a Windows machine.</td>
   </tr>
 </table>
 
@@ -76,6 +76,18 @@ my state as sum is 2
 ## <span id="parentchild">`ParentChild`</span>
 
 *WIP*
+
+## <span id="footnotes">Footnotes</span>
+
+<span id="footnote_01">[1]</span> ***Lagom Documentation*** [↩](#anchor_01)
+
+<dl><dd>
+From the <a href="https://www.lagomframework.com/documentation/1.6.x/">Lagom 1.6.x documentation</a> :
+<ul>
+<li><a href="https://www.lagomframework.com/documentation/1.6.x/java/api/">Java API docs</a></li>
+<li><a href="https://www.lagomframework.com/documentation/1.6.x/scala/api/com/lightbend/lagom/scaladsl/">Scala API docs</a> (<code>com.lightbend.lagom.scaladsl</code>)</li>
+</ul>
+</dd></dl>
 
 ***
 

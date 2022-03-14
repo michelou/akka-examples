@@ -14,7 +14,7 @@ if not %_EXITCODE%==0 goto end
 @rem #########################################################################
 @rem ## Main
 
-for %%i in (akka-concurrency akka-cookbook akka-essentials alexandreesl-examples effective-akka examples) do (
+for %%i in (akka-concurrency akka-cookbook akka-essentials alexandreesl-examples effective-akka examples typed-tutorial) do (
     call :clean_projects "%_ROOT_DIR%%%i"
     if not !_EXITCODE!==0 goto end
 )
@@ -25,7 +25,7 @@ goto end
 
 :env
 set _BASENAME=%~n0
-set "_ROOT_DIR=%~dp0"
+for /f "delims=" %%f in ("%~dp0.") do set "_ROOT_DIR=%%~dpf"
 
 set _DEBUG_LABEL=[%_BASENAME%]
 set _ERROR_LABEL=Error:
