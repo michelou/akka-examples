@@ -27,7 +27,11 @@ Code examples are written in [Scala] and can be built/run with the following too
 > - ***Section 5.1*** When you send a message to an actor, you’re only sending it to its ActorRef; you never get to interact with the actor in any direct way.
 > - ***Section 5.5*** Akka makes it impossible to even construct an actor, or any derivation thereof.
 
-## <span id="badshakespearean">`BadShakespearean`</span>
+## <span id="ch05">Chapter 5</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+
+### <span id="ch05_badshakespearean">`BadShakespearean`</span>
+
+Code example [`BadShakespearean`](./Chapter05/BadShakespearean/) is composed of the two source files [`BadShakespeareanActor.scala`](./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanActor.scala) and [`BadShakespeareanMain.scala`](./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanMain.scala).
 
 Batch file [**`build.bat`**](./Chapter05/BadShakespearean/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -51,7 +55,9 @@ Him: Yup
 > [INFO] [02/21/2022 15:52:44.964] [main] [CoordinatedShutdown(akka://BadShakespearean)] Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 > </pre>
 
-## <span id="avionics">`Avionics`</span>
+### <span id="ch05_avionics">`Avionics`</span>
+
+Code example [`Avionics`](./Chapter05/Avionics/) is composed of the 4 source files [`Altimeter.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Altimeter.scala), [`Avionics.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Avionics.scala), [`ControlSurfaces.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/ControlSurfaces.scala) and [`Plane.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Plane.scala).
 
 Batch file [**`build.bat`**](./Chapter05/Avionics/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -67,9 +73,9 @@ Compile 4 Scala source files to directory "target\classes"
 [PlaneSimulation-...-5] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
-## <span id="avionics_event">`AvionicsEvent`</span>
+### <span id="ch05_avionics_event">`AvionicsEvent`</span>
 
-The code example adds the Scala source file [`EventSource.scala`](./Chapter05/AvionicsEvent//src/main/scala/zzz/akka/avionics/EventSource.scala); see paragraph **Getting updates from the altimeter** in section 5.5 of Wyatt's book for more details.
+This example adds the Scala source file [`EventSource.scala`](./Chapter05/AvionicsEvent//src/main/scala/zzz/akka/avionics/EventSource.scala) to the previous example (see paragraph **Getting updates from the altimeter** in section 5.5 of Wyatt's book for more details).
 
 Batch file [**`build.bat`**](./Chapter05/AvionicsEvent/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -102,6 +108,39 @@ Compile 5 Scala source files to directory "target\classes"
 [PlaneSimulation-...-7] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
+## <span id="ch06">Chapter 6</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+
+### <span id="ch06_avionics">`Avionics`</span>
+
+This example adds a [ScalaTest] suite to example [`AvionicsEvent`](#ch05_avionics_event) of Chapter 5. The test source file is [`TestEventSource.scala`](./Chapter06/Avionics/src/test/scala/zzz/akka/avionics/TestEventSource.scala) <sup id="anchor_03">[3](#footnote_03)</sup>.
+
+Batch file [**`build.bat`**](./Chapter05/Avionics/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./Chapter06/Avionics/build.bat">build</a> -verbose clean test</b>
+Delete directory "target"
+Compile 5 Scala source files to directory "target\classes"
+Compile 1 Scala test source file to directory "target\test-classes"
+Execute ScalaTest suite "zzz.akka.avionics.EventSourceSpec"
+[EventSourceSpec-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+Run starting. Expected test count is: 3
+EventSourceSpec:
+EventSource
+- should allow us to register a listener
+- should allow us to unregister a listener
+- should send the event to our test actor
+[EventSourceSpec-akka.actor.default-dispatcher-4] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+Run completed in 994 milliseconds.
+Total number of tests run: 3
+Suites: completed 1, aborted 0
+Tests: succeeded 3, failed 0, canceled 0, ignored 0, pending 0
+All tests passed.
+</pre>
+
+## <span id="ch07">Chapter 7</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+
+*WIP*
+
 ## <span id="footnotes">Footnotes</span>
 
 <span id="footnote_01">[1]</span> ***Source code updates*** [↩](#anchor_01)
@@ -132,6 +171,36 @@ See the online documentation for further informations:
 </ul>
 </dd></dl>
 
+<span id="footnote_02">[2]</span> ***Dead Letter Office*** [↩](#anchor_02)
+
+<dl><dd>
+When the sender of a message is <code>null</code>, <a href="https://akka.io/" rel="external">Akka</a> attaches a default sender called the <i>dead letter office</i>, which is a single actor instance per <a href="https://doc.akka.io/docs/akka/current/general/actor-systems.html" rel="external">ActorSystem</a> and can be accessed directly from the <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html"><code>akka.actor.ActorSystem</code></a> via method <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html#deadLetters()" rel="external"><code>deadLetters</code></a>.
+</dd></dl>
+
+<span id="footnote_03">[3]</span> ***ScalaTest API 3.2 Removals*** [↩](#anchor_03)
+
+<dl><dd>
+The <a href="https://www.scalatest.org/release_notes/3.2.0"><i>ScalaTest/Scalactic 3.2.0 Release Notes</i></a> announces many <b><i>deprecation expirations</i></b>, a consequence of the new ScalaTest 3.2 modularization (and the associated artifact reorganization).
+</dd>
+<dd>
+Code examples from Wyatt's book <a href="https://www.artima.com/shop/akka_concurrency"><i>Akka Concurrency</i></a> are thus impacted by those removals, for instance :
+</dd>
+<dd>
+<table>
+<tr>
+  <th>removed in 3.20</th>
+  <th>new&nbsp;name</th>
+</tr>
+<tr>
+  <td><code>org.scalatest.MustMatchers</code></td>
+  <td><code>org.scalatest.matchers.must.Matchers</code></td>
+</tr>
+<tr>
+  <td><code>org.scalatest.WordSpec</code></td>
+  <td><code>org.scalatest.wordspec.AnyWordSpec</code></td></tr>
+</table>
+</dd></dl>
+
 ***
 
 *[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
@@ -145,4 +214,5 @@ See the online documentation for further informations:
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [scala]: https://www.scala-lang-org/
+[scalatest]: https://www.scalatest.org/
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html

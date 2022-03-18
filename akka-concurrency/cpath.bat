@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-@rem output parameter: _CPATH
+@rem output parameter: _CPATH, _CPATH_TEST
 
 if not defined _DEBUG set _DEBUG=%~1
 if not defined _MVN_CMD set _MVN_CMD=mvn.cmd
@@ -45,10 +45,42 @@ call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 call :add_jar "org.slf4j" "slf4j-simple" "%__SLF4J_VERSION%"
 
+set "_LIBS_CPATH1=%_LIBS_CPATH%"
+
 @rem test scope
+
+set _LIBS_CPATH=
+
+@rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
+call :add_jar "com.typesafe.akka" "akka-testkit_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scala-lang.modules/scala-xml
+@rem ScalaTest 3.2 dependency
+call :add_jar "org.scala-lang.modules" "scala-xml_%__SCALA_BINARY_VERSION%" "2.0.1"
+
+@rem https://mvnrepository.com/artifact/org.scalactic/scalactic
+call :add_jar "org.scalactic" "scalactic_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.scalatest/scalatest
 call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-compatible
+call :add_jar "org.scalatest" "scalatest-compatible" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-core
+call :add_jar "org.scalatest" "scalatest-core_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-matchers-core
+call :add_jar "org.scalatest" "scalatest-matchers-core_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers
+call :add_jar "org.scalatest" "scalatest-mustmatchers_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-shouldmatchers
+call :add_jar "org.scalatest" "scalatest-shouldmatchers_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec
+call :add_jar "org.scalatest" "scalatest-wordspec_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core
 @rem JUnit 4 depends on Hamcrest 1.3
@@ -56,6 +88,8 @@ call :add_jar "org.hamcrest" "hamcrest-core" "1.3"
 
 @rem https://mvnrepository.com/artifact/junit/junit
 call :add_jar "junit" "junit" "4.13.2"
+
+set "_LIBS_CPATH2=%_LIBS_CPATH%"
 
 goto end
 
@@ -106,5 +140,6 @@ goto :eof
 
 :end
 endlocal & (
-    set "_CPATH=%_LIBS_CPATH%"
+    set "_CPATH=%_LIBS_CPATH1%"
+    set "_CPATH_TEST=%_LIBS_CPATH2%"
 )
