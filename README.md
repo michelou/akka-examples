@@ -32,9 +32,9 @@ For instance our development environment looks as follows (*March 2022*) <sup id
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.12\      <i>( 40 MB)</i>
-C:\opt\apache-maven-3.8.4\      <i>( 10 MB)</i>
+C:\opt\apache-maven-3.8.5\      <i>( 10 MB)</i>
 C:\opt\Git-2.35.1\              <i>(282 MB)</i>
-C:\opt\gradle-7.4\              <i>(121 MB)</i>
+C:\opt\gradle-7.4.1\            <i>(121 MB)</i>
 C:\opt\grpcurl-1.8.6\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.4.1_1\  <i>(300 MB)</i>
 C:\opt\scala-2.13.8\            <i>( 24 MB)</i>
@@ -50,6 +50,7 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 alexandreesl-examples\{<a href="alexandreesl-examples/README.md">README.md</a>, <a href="alexandreesl-examples/akka-stream-lab/">akka-stream-lab</a>}
 akka\     <i>(Git submodule)</i>
+akka-concurrency\{<a href="akka-concurrency/README.md">README.md</a>, <a href="akka-concurrency/Chapter05/Avionics/">Avionics</a>, <a href="akka-concurrency/Chapter05/BadSharespearean/">BadSharespearean</a>, etc.}
 akka-cookbook\{<a href="akka-cookbook/README.md">README.md</a>, <a href="akka-cookbook/Chapter01/HelloAkka/">HelloAkka</a>, <a href="akka-cookbook/Chapter01/PriorityMailbox/">PriorityMailbox</a>, etc.}
 akka-essentials\{<a href="akka-essentials/README.md">README.md</a>, <a href="akka-essentials/Chapter02/FirstAkkaApplication/">FirstAkkaApplication</a>, etc.}
 docs\
@@ -64,6 +65,7 @@ where
 
 - directory **`alexandreesl-examples\`** contains [Akka] code examples from [Alexandre's blog post][blog_alexandreesl].
 - directory **`akka\`** contains our fork of the [akka/akka](https://github.com/akka/akka) repository as a [Github submodule](.gitmodules).
+- directory **`akka-concurrency\`** contains [Akka] code examples from [Wyatt's book][book_wyatt].
 - directory **`akka-cookbook\`** contains [Akka] code examples from [Ortiz's book][book_ortiz].
 - directory **`akka-essentials\`** contains [Akka] code examples from [Gupta's book][book_gupta].
 - directory [**`docs\`**](docs/) contains [Scala 3][scala3_home] related papers/articles (see file [**`docs\README.md`**](docs/README.md)).
@@ -83,9 +85,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi">apache-ant-1.10.12-bin.zip</a>                          <i>(  9 MB)</i>
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.4-bin.zip</a>                          <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.5-bin.zip</a>                          <i>( 10 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.6_windows_x86_64.zip</a>                    <i>(  6 MB)</i>
-<a href="https://gradle.org/install/">gradle-7.4-bin.zip</a>                                  <i>(103 MB)</i>
+<a href="https://gradle.org/install/">gradle-7.4.1-bin.zip</a>                                <i>(103 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.14.1_1.zip</a>  <i>(188 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.35.1-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.8.zip</a>                                    <i>( 21 MB)</i>
@@ -108,10 +110,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.8.4/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.8.5/release-notes.html
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
+[book_wyatt]: https://www.artima.com/shop/akka_concurrency
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
