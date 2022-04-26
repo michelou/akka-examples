@@ -4,9 +4,9 @@ version := "1.0"
 
 scalaVersion := "2.13.8"
 
-lazy val akkaVersion = "2.6.18"
+lazy val akkaVersion = "2.6.19"
 lazy val configVersion = "1.4.2"
-lazy val logbackVersion = "1.2.10"
+lazy val logbackVersion = "1.2.11"
 
 libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % logbackVersion,

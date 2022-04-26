@@ -2,7 +2,7 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://akka.io/"><img style="border:0;" src="../docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://akka.io/" rel="external"><img style="border:0;" src="../docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://akka.io/" alt="Akka">Akka</a> code examples coming from various websites - mostly from the <a href="https://akka.io/" rel="external">Akka project</a>.
   </td>
   </tr>
@@ -109,7 +109,7 @@ We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](h
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

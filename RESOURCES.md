@@ -8,7 +8,8 @@
   </tr>
 </table>
 
-> **:mag_right:** The [Akka API documentation](https://doc.akka.io/api/akka/current/index.html).
+> **:mag_right:** Quick links:
+> - The [Akka API documentation](https://doc.akka.io/api/akka/current/index.html).
 
 ## <span id="articles">Articles</span>
 
@@ -56,7 +57,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
