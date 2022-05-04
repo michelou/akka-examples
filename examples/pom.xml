@@ -18,11 +18,11 @@
         <scala.version>2.13.8</scala.version>
 
         <!-- Maven plugin versions -->
-        <akka.version>2.6.18</akka.version>
+        <akka.version>2.6.19</akka.version>
         <config.version>1.4.2</config.version>
         <exec.maven.version>3.0.0</exec.maven.version>
         <ivy.version>2.5.0</ivy.version>
-        <jmh.version>1.34</jmh.version>
+        <jmh.version>1.35</jmh.version>
         <junit.version>4.13.2</junit.version>
         <junit.platform.version>1.8.2</junit.platform.version>
         <jupiter.version>5.8.2</jupiter.version>
@@ -31,9 +31,9 @@
         <maven.jar.version>3.2.2</maven.jar.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <scala.maven.version>1.0.0</scala.maven.version>
-        <scalatest.version>3.2.11</scalatest.version>
+        <scalatest.version>3.2.12</scalatest.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <specs2.version>4.13.2</specs2.version>
+        <specs2.version>5.0.0</specs2.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>
@@ -196,25 +196,25 @@
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-common -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-common_${scala.binary.version}</artifactId>
+            <artifactId>specs2-common_3</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-core -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-core_${scala.binary.version}</artifactId>
+            <artifactId>specs2-core_3</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-junit -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-junit_${scala.binary.version}</artifactId>
+            <artifactId>specs2-junit_3</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-matcher -->
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2-matcher_${scala.binary.version}</artifactId>
+            <artifactId>specs2-matcher_3</artifactId>
             <version>${specs2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->

@@ -17,8 +17,8 @@
         <os family="windows" />
     </condition>
 
-    <property name="cfr.version" value="0.151" />
-    <property name="akka.version" value="2.6.18" />
+    <property name="cfr.version" value="0.152" />
+    <property name="akka.version" value="2.6.19" />
     <property name="config.version" value="1.4.2" />
 
     <target name="init.local" if="use.local">

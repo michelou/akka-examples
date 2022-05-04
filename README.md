@@ -25,10 +25,11 @@ Optionally one may also install the following software:
 - [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Gradle 7.4][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
+- [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*April 2022*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*May 2022*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.12\      <i>( 40 MB)</i>
@@ -36,9 +37,9 @@ C:\opt\apache-maven-3.8.5\      <i>( 10 MB)</i>
 C:\opt\Git-2.36.0\              <i>(282 MB)</i>
 C:\opt\gradle-7.4.2\            <i>(121 MB)</i>
 C:\opt\grpcurl-1.8.6\           <i>( 22 MB)</i>
-C:\opt\jdk-temurin-11.0.4.1_1\  <i>(300 MB)</i>
+C:\opt\jdk-temurin-11.0.15_10\  <i>(300 MB)</i>
 C:\opt\scala-2.13.8\            <i>( 24 MB)</i>
-</pre>
+</pre>0
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][linux_opt] directory on Unix).
@@ -88,7 +89,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.8.5-bin.zip</a>                          <i>( 10 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.6_windows_x86_64.zip</a>                    <i>(  6 MB)</i>
 <a href="https://gradle.org/install/">gradle-7.4.2-bin.zip</a>                                <i>(103 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.14.1_1.zip</a>  <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.15_10.zip</a>   <i>(188 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.36.0-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.8.zip</a>                                    <i>( 21 MB)</i>
 </pre>
@@ -96,7 +97,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -152,6 +153,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [scala3_home]: https://dotty.epfl.ch
 [spring_examples]: https://github.com/michelou/spring-examples
+[temurin_opendjk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-14-bugfixes.html
+[temurin_opendjk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-October/009368.html
+[temurin_opendjk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
 [vs2019_relnotes]: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes

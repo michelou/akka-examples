@@ -18,9 +18,11 @@
 ## <span id="blogs">Blogs</span>
 
 - [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
+  - [Akka Typed: Actor Discovery][blog_rockthejvm_discovery], March 2022.
   - [Akka Streams Backpressure ][blog_rockthejvm_backpressure], November 2021.
   - [Akka Typed: Adapting Messages][blog_rockthejvm_adapter], March 2021.
   - [Akka Typed: How the Pipe Pattern Prevents Anti-Patterns][blog_rockthejvm_pipe], October 2020.
+- [How we optimized our Akka application using Datadog’s Continuous Profiler][blog_zhuk] by Vladimir Zhuk, September 2021.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 3][blog_oueslati_3] by Mohamed Oueslati, July 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 2][blog_oueslati_2] by Mohamed Oueslati, July 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 1][blog_oueslati_1] by Mohamed Oueslati, June 2020.
@@ -57,7 +59,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
@@ -72,10 +74,12 @@
 [blog_oueslati_3]: https://blog.soat.fr/2020/07/architecture-et-programmation-reactives-avec-akka-et-scala-partie-3/
 [blog_rockthejvm_adapter]: https://blog.rockthejvm.com/akka-message-adapter/
 [blog_rockthejvm_backpressure]: https://blog.rockthejvm.com/akka-streams-backpressure/
+[blog_rockthejvm_discovery]: https://blog.rockthejvm.com/akka-actor-discovery/
 [blog_rockthejvm_pipe]: https://blog.rockthejvm.com/pipe-pattern/
 [blog_shemesh1]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-i/
 [blog_shemesh2]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-ii/
 [blog_skrbic_power]: https://aleksandarskrbic.github.io/power-of-akka-streams/
+[blog_zhuk]: https://www.datadoghq.com/blog/engineering/how-we-optimized-our-akka-application-using-datadogs-continuous-profiler/
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_baxter]: https://www.packtpub.com/product/mastering-akka/9781786465023
 [book_goodwin]: https://www.packtpub.com/product/learning-akka/9781784393007
