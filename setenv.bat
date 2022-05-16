@@ -47,6 +47,9 @@ if not %_EXITCODE%==0 goto end
 call :java11
 if not %_EXITCODE%==0 goto end
 
+call :kafka 3
+if not %_EXITCODE%==0 goto end
+
 call :kotlin_jvm
 if not %_EXITCODE%==0 goto end
 
@@ -285,6 +288,41 @@ set __JAVA_VERSION=
 for /f "tokens=1,*" %%i in ('%__JAVAC_CMD% -version 2^>^&1') do set __JAVA_VERSION=%%j
 if not "!__JAVA_VERSION:~0,2!"=="11" goto :eof
 set _IS_JAVA11=1
+goto :eof
+
+@rem output parameters: _KAFKA_HOME, _KAFKA_PATH
+:kafka
+set _KAFKA_HOME=
+set _KAFKA_PATH=
+
+if not "%~1"=="" ( set __DIR_NAME=kafka_2.13-%~1
+) else ( set __DIR_NAME=kafka_2.13-2
+)
+set __KAFKA_START_CMD=
+for /f "delims=" %%f in ('where kafka-server-start.bat 2^>NUL') do set "__KAFKA_START_CMD=%%f"
+if defined __KAFKA_START_CMD (
+    for %%i in ("%__KAFKA_START_CMD%") do set "__KAFKA_BIN_DIR=%%~dpi"
+    for %%f in ("!__KAFKA_BIN_DIR!\.") do set "_KAFKA_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Kafka start script found in PATH 1>&2
+    @rem keep __KAFKA_START_CMD undefined since executable already in path
+    goto :eof
+) else if defined KAFKA_HOME (
+    set "_KAFKA_HOME=%KAFKA_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable KAFKA_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__DIR_NAME%*" 2^>NUL') do set "_KAFKA_HOME=!__PATH!\%%f"
+    if not defined _KAFKA_HOME (
+        set "__PATH=%ProgramFiles%"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__DIR_NAME%*" 2^>NUL') do set "_KAFKA_HOME=!__PATH!\%%f"
+    )
+)
+if not exist "%_KAFKA_HOME%\bin\windows\kafka-server-start.bat" (
+    echo %_ERROR_LABEL% Javac executable not found ^("%_KAFKA_HOME%"^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_KAFKA_PATH=;%_KAFKA_HOME%\bin\windows"
 goto :eof
 
 @rem output parameter: _KOTLIN_HOME
@@ -709,6 +747,7 @@ if %__VERBOSE%==1 (
     if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     if defined GRPCURL_HOME echo    "GRPCURL_HOME=%GRPCURL_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
+    if defined KAFKA_HOME echo    "KAFKA_HOME=%KAFKA_HOME%" 1>&2
     if defined KOTLIN_HOME echo    "KOTLIN_HOME=%KOTLIN_HOME%" 1>&2
     if defined MAKE_HOME echo    "MAKE_HOME=%MAKE_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
@@ -731,6 +770,7 @@ endlocal & (
         if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined GRPCURL_HOME set "GRPCURL_HOME=%_GRPCURL_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
+        if not defined KAFKA_HOME set "KAFKA_HOME=%_KAFKA_HOME%"
         if not defined KOTLIN_HOME set "KOTLIN_HOME=%_KOTLIN_HOME%"
         if not defined MAKE_HOME set "MAKE_HOME=%_MAKE_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
