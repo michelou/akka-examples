@@ -4,12 +4,12 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://akka.io/" rel="external"><img src="docs/images/akka.svg" width="100" alt="C++ logo"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://akka.io/" rel="external" title="Akka">Akka</a> code examples coming from various websites and books.<br/>
-  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.
+  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a> for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.
   </td>
   </tr>
 </table>
 
-[Ada][ada_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other topics we are continuously investigating.
+[Ada][ada_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other topics we are continuously investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -17,7 +17,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 - [Git 2.36][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
-- [Temurin OpenJDK 11 LTS][temurin_openjdk11] <sup id="anchor_01">[[1]](#footnote_01)</sup> ([*release notes*][temurin_openjdk11_relnotes])
+- [Temurin OpenJDK 11 LTS][temurin_opendjk11] ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
 
 Optionally one may also install the following software:
 
@@ -25,7 +25,6 @@ Optionally one may also install the following software:
 - [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Gradle 7.4][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
-- [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
@@ -34,7 +33,7 @@ For instance our development environment looks as follows (*May 2022*) <sup id="
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.12\      <i>( 40 MB)</i>
 C:\opt\apache-maven-3.8.5\      <i>( 10 MB)</i>
-C:\opt\Git-2.36.0\              <i>(282 MB)</i>
+C:\opt\Git-2.36.1\              <i>(282 MB)</i>
 C:\opt\gradle-7.4.2\            <i>(121 MB)</i>
 C:\opt\grpcurl-1.8.6\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.15_10\  <i>(300 MB)</i>
@@ -90,7 +89,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.6_windows_x86_64.zip</a>                    <i>(  6 MB)</i>
 <a href="https://gradle.org/install/">gradle-7.4.2-bin.zip</a>                                <i>(103 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.15_10.zip</a>   <i>(188 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.36.0-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.36.1-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.8.zip</a>                                    <i>( 21 MB)</i>
 </pre>
 </dd></dl>
@@ -121,7 +120,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
@@ -152,9 +151,15 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.8
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [scala3_home]: https://dotty.epfl.ch
+[spark_examples]: https://github.com/michelou/spark-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 [temurin_opendjk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-14-bugfixes.html
-[temurin_opendjk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-October/009368.html
+<!--
+11.0.13 => https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-October/009368.html
+11.0.14 => https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2022-January/011643.html
+11.0.15 => https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2022-April/014104.html
+-->
+[temurin_opendjk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2022-April/014104.html
 [temurin_opendjk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
