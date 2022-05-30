@@ -11,7 +11,7 @@ SCALA_FLAGS  = -classpath "$(CPATH)"
 ##############################################################################
 ## main rules
 
-SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/scala" -name *.scala 2>/dev/null)
+SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/scala" -type f -name *.scala 2>/dev/null)
 RESOURCES = $(shell $(FIND) "$(SOURCE_DIR)/main/resources" -name *.conf -o -name *.xml 2>/dev/null)
 TARGET    = $(TARGET_DIR)/.latest-build
 
@@ -55,7 +55,7 @@ help:
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) $(CLASSES_DIR) -name *.tasty 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -type f -name *.tasty 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))

@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://akka.io/"><img style="border:0;" src="../docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>akka-essentials\</code></strong> contains <a href="https://akka.io/" alt="Akka">Akka</a> code examples from Gupta's book <a href="https://www.packtpub.com/product/akka-essentials/9781849518284"><i>Akka Essentials</i></a> (Packt, 2012).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" alt="Akka">Akka</a> on a Windows machine.
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>akka-essentials\</code></strong> contains <a href="https://akka.io/" rel="external">Akka</a> code examples from Gupta's book <a href="https://www.packtpub.com/product/akka-essentials/9781849518284" rel="external"><i>Akka Essentials</i></a> (Packt, 2012).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -71,7 +71,7 @@ OrderAggregate: akka.actor.Status$Failure
 > ...
 > </pre>
 
-## <span id="ping_pong">`PingPong`</span>
+## <span id="ping_pong">`PingPong`</span>[**&#x25B4;**](#top)
 
 Code example `PingPong` is an [Akka] application written in Java (e.g. [`PingPongApp.java`](./Chapter03/PingPong/src/main/java/PingPongApp.java), [`PingPongActor.java`](./Chapter03/PingPong/src/main/java/PingPongActor.java)).
 
@@ -112,7 +112,7 @@ PING
 > PING
 > </pre>
 
-## <span id="footnotes">Footnotes</span>
+## <span id="footnotes">Footnotes</span>[**&#x25B4;**](#top)
 
 <span id="footnote_01">[1]</span> ***Source code updates*** [↩](#anchor_01)
 
@@ -200,7 +200,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

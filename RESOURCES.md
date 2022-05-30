@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-> **:mag_right:** Quick links:
+> **:mag_right:** Quick links for programmers :
 > - The [Akka API documentation](https://doc.akka.io/api/akka/current/index.html).
 
 ## <span id="articles">Articles</span>
@@ -18,6 +18,7 @@
 ## <span id="blogs">Blogs</span>
 
 - [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
+  - [A Scala project with Akka, Cats and Cassandra][blog_rockthejvm_cassandra], April 2022.
   - [Akka Typed: Actor Discovery][blog_rockthejvm_discovery], March 2022.
   - [Akka Streams Backpressure ][blog_rockthejvm_backpressure], November 2021.
   - [Akka Typed: Adapting Messages][blog_rockthejvm_adapter], March 2021.
@@ -59,7 +60,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
@@ -74,6 +75,7 @@
 [blog_oueslati_3]: https://blog.soat.fr/2020/07/architecture-et-programmation-reactives-avec-akka-et-scala-partie-3/
 [blog_rockthejvm_adapter]: https://blog.rockthejvm.com/akka-message-adapter/
 [blog_rockthejvm_backpressure]: https://blog.rockthejvm.com/akka-streams-backpressure/
+[blog_rockthejvm_cassandra]: https://blog.rockthejvm.com/akka-cassandra-project/
 [blog_rockthejvm_discovery]: https://blog.rockthejvm.com/akka-actor-discovery/
 [blog_rockthejvm_pipe]: https://blog.rockthejvm.com/pipe-pattern/
 [blog_shemesh1]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-i/

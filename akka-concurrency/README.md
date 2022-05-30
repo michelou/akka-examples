@@ -2,8 +2,8 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-concurrency\</code></strong></a> contains <a href="https://akka.io/" alt="Akka">Akka</a> examples presented in Wyatt's book <a href="https://www.artima.com/shop/akka_concurrency"><i>Akka Concurrency</i></a> (<a href="https://www.artima.com/books/" rel="external" title="Artima">Artima</a>, 2013).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" alt="Akka">Akka</a> on a Windows machine.</td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/" rel="external"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-concurrency\</code></strong></a> contains <a href="https://akka.io/" rel="external">Akka</a> examples presented in Wyatt's book <a href="https://www.artima.com/shop/akka_concurrency" rel="external"><i>Akka Concurrency</i></a> (<a href="https://www.artima.com/books/" rel="external" title="Artima">Artima</a>, 2013).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.</td>
   </tr>
 </table>
 
@@ -203,7 +203,7 @@ Code examples from Wyatt's book <a href="https://www.artima.com/shop/akka_concur
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

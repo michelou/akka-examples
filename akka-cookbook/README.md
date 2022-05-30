@@ -2,8 +2,8 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-cookbook\</code></strong></a> contains <a href="https://akka.io/" alt="Akka" rel="external">Akka</a> examples presented in Ortiz's book <a href="https://www.packtpub.com/product/akka-cookbook/9781785288180"><i>Akka Cookbook</i></a> (<a href="https://www.packtpub.com/" rel="external" title="Packt Publishing">Packt</a>, 2017).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" alt="Akka" rel="external">Akka</a> on a Windows machine.</td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/" rel="external"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-cookbook\</code></strong></a> contains <a href="https://akka.io/" rel="external">Akka</a> examples presented in Ortiz's book <a href="https://www.packtpub.com/product/akka-cookbook/9781785288180"><i>Akka Cookbook</i></a> (<a href="https://www.packtpub.com/" rel="external">Packt</a>, 2017).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.</td>
   </tr>
 </table>
 
@@ -40,7 +40,7 @@ akka://HelloAkka
 > >>> Press ENTER to exit <<<
 > </pre>
 
-## <span id="behaviourandstate">`BehaviourAndState`</span>
+## <span id="behaviourandstate">`BehaviourAndState`</span>[**&#x25B4;**](#top)
 
 Batch file [`build.bat`](./Chapter01/BehaviourAndState/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -91,7 +91,7 @@ From the <a href="https://www.lagomframework.com/documentation/1.6.x/">Lagom 1.6
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
