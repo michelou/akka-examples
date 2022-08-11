@@ -51,7 +51,7 @@ SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -203,7 +203,7 @@ Code examples from Wyatt's book <a href="https://www.artima.com/shop/akka_concur
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
