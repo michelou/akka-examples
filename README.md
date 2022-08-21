@@ -154,8 +154,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <!--
 11.0.14 -> https://www.oracle.com/java/technologies/javase/11-0-14-bugfixes.html
 11.0.15 -> https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
+11.0.16 -> https://www.oracle.com/java/technologies/javase/11-0-16-bugfixes.html
 -->
-[temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
+[temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-16-bugfixes.html
 <!--
 11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html
 11.0.4  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-July/001423.html

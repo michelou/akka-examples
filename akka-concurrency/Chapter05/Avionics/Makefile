@@ -11,8 +11,8 @@ SCALA_FLAGS  = -classpath "$(CPATH)"
 ##############################################################################
 ## main rules
 
-SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/scala" -type f -name *.scala 2>/dev/null)
-RESOURCES = $(shell $(FIND) "$(SOURCE_DIR)/main/resources" -name *.conf -o -name *.xml 2>/dev/null)
+SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/scala" -type f -name "*.scala" 2>/dev/null)
+RESOURCES = $(shell $(FIND) "$(SOURCE_DIR)/main/resources" -type f -name "*.conf" -o -name "*.xml" 2>/dev/null)
 TARGET    = $(TARGET_DIR)/.latest-build
 
 OPTS_FILE    = $(TARGET_DIR)/scalac_opts.txt
@@ -30,7 +30,7 @@ $(TARGET): $(SOURCES)
 	@$(ECHO) $(SCALAC_FLAGS) -d "$(CLASSES_DIR)" > "$(OPTS_FILE)"
 	@$(ECHO) $(SOURCES) > "$(SOURCES_FILE)"
 	"$(SCALAC)" "@$(OPTS_FILE)" "@$(SOURCES_FILE)"
-	[ -z "$(RESOURCES)" ] || "$(CP)" $(RESOURCES) "$(CLASSES_DIR)"
+	for f in $(RESOURCES); do "$(CP)" "$$f" "$(CLASSES_DIR)"; done
 	@$(TOUCH) "$(TARGET)"
 
 clean:
@@ -55,7 +55,7 @@ help:
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -type f -name *.tasty 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -type f -name "*.tasty" 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))
