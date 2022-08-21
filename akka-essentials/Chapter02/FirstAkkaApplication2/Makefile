@@ -55,7 +55,7 @@ help:
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -name *.java 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -name "*.java" 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))
