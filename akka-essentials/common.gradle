@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.1.2"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.2.1-RC1"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -17,7 +17,7 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.6.19"
+    akkaVersion = "2.6.20"
     specs2Version = "5.0.7"
     dependencies {
         if (isScala3) {

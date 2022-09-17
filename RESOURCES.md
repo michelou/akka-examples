@@ -37,7 +37,7 @@
 - [Introduction to Akka Streams][blog_agarwal] by Archit Agarwal, February 2019.
 - [Hpc with Scala and Akka Actors][blog_balinzo] by Dario Balinzo, December 2018.
 
-## <span id="books">Books</span>
+## <span id="books">Books</span>[**&#x25B4;**](#top)
 
 - [Scala Reactive Programming][book_posa] by Rambagu Posa, February 2018.<br/><span>(Packt, ISBN 978-1-7872-8864-5, 499 pages)<br/>GitHub: <a href="https://github.com/packtpublishing/scala-reactive-programming"><code>PacktPublishing/Scala-Reactive-Programming</code></a></span>
 - &#128077; [Akka Cookbook][book_ortiz] by Hector V. Ortiz, May 2017.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7852-8818-0, 414 pages)<br/><b>GitHub</b>: [`PackPublishing/Akka-Cookbook`](https://github.com/PacktPublishing/Akka-Cookbook).</span>
@@ -60,7 +60,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
