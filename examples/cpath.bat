@@ -19,10 +19,10 @@ set _LIBS_CPATH=
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.6.19
+set __AKKA_VERSION=2.6.20
 set __SCALA_VERSION=2.13.8
-set __SCALATEST_VERSION=3.2.13
-set __SLF4J_VERSION=1.7.36
+set __SCALATEST_VERSION=3.2.14
+set __SLF4J_VERSION=2.0.3
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
@@ -54,7 +54,7 @@ call :add_jar "com.typesafe.akka" "akka-testkit_%__SCALA_BINARY_VERSION%" "%__AK
 call :add_jar "com.typesafe.akka" "akka-actor-testkit-typed_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.scalatest/scalatest
-call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"
+call :add_jar "org.scalatest" "scalatest_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
 @rem JUnit 4 dependency

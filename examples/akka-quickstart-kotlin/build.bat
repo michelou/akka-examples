@@ -31,10 +31,11 @@ goto end
 @rem #########################################################################
 @rem ## Subroutines
 
-@rem output parameters: _CLASSES_DIR, _ROOT_DIR, _TARGET_DIR
+@rem output parameters: _BASENAME, _CLASSES_DIR, _ROOT_DIR, _TARGET_DIR
 :env
 set _BASENAME=%~n0
 set "_ROOT_DIR=%~dp0"
+set _TIMER=0
 
 call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
@@ -42,6 +43,7 @@ set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
 set "_SOURCE_DIR=%_ROOT_DIR%src"
+set "_SOURCE_MAIN_DIR=%_ROOT_DIR%src\main"
 set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_CLASSES_DIR=%_TARGET_DIR%\classes"
 
@@ -108,8 +110,8 @@ set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
 goto :eof
 
-
 @rem input parameter: %*
+@rem output parameters: _COMMANDS, _TIMER, _VERBOSE
 :args
 set _COMMANDS=
 set _HELP=0
@@ -220,18 +222,24 @@ if not %_EXITCODE%==0 goto :eof
 call :compile_kotlin
 if not %_EXITCODE%==0 goto :eof
 
+if exist "%_SOURCE_MAIN_DIR%\resources\*" (
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% xcopy "%_SOURCE_MAIN_DIR%\resources\*" "%_CLASSES_DIR%" 1^>NUL 1>&2
+    ) else if %_VERBOSE%==1 ( echo Copy resource files to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+    )
+    xcopy /q /y "%_SOURCE_MAIN_DIR%\resources\*" "%_CLASSES_DIR%" 1>NUL
+)
 goto :eof
 
 :compile_java
 set "__TIMESTAMP_FILE=%_CLASSES_DIR%\.latest-build"
 
-call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_DIR%\main\java\*.java"
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_MAIN_DIR%\java\*.java"
 if %_ACTION_REQUIRED%==0 goto :eof
 
 set "__SOURCES_FILE=%_TARGET_DIR%\javac_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f %%i in ('dir /s /b "%_SOURCE_DIR%\main\java\*.java" 2^>NUL') do (
+for /f %%i in ('dir /s /b "%_SOURCE_MAIN_DIR%\java\*.java" 2^>NUL') do (
     echo %%i >> "%__SOURCES_FILE%"
     set /a __N+=1
 )
@@ -262,13 +270,13 @@ goto :eof
 :compile_kotlin
 set "__TIMESTAMP_FILE=%_CLASSES_DIR%\.latest-build-kotlin"
 
-call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_DIR%\main\kotlin\*.kt"
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_MAIN_DIR%\kotlin\*.kt"
 if %_ACTION_REQUIRED%==0 goto :eof
 
 set "__SOURCES_FILE=%_TARGET_DIR%\kotlinc_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f %%i in ('dir /s /b "%_SOURCE_DIR%\main\kotlin\*.kt" 2^>NUL') do (
+for /f %%i in ('dir /s /b "%_SOURCE_MAIN_DIR%\kotlin\*.kt" 2^>NUL') do (
     echo %%i >> "%__SOURCES_FILE%"
     set /a __N+=1
 )

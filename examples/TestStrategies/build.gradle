@@ -1,0 +1,10 @@
+plugins {
+    id "java"
+}
+
+// depends on file gradle.properties
+apply from: "../common.gradle"
+
+run {
+  standardInput = System.in
+}
