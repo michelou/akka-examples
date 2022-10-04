@@ -15,7 +15,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.37][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.38][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
@@ -33,7 +33,7 @@ For instance our development environment looks as follows (*October 2022*) <sup 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.12\      <i>( 40 MB)</i>
 C:\opt\apache-maven-3.8.6\      <i>( 10 MB)</i>
-C:\opt\Git-2.37.3\              <i>(289 MB)</i>
+C:\opt\Git-2.38.0\              <i>(317 MB)</i>
 C:\opt\gradle-7.5.1\            <i>(121 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.16_8\   <i>(300 MB)</i>
@@ -89,8 +89,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://gradle.org/install/">gradle-7.5.1-bin.zip</a>                               <i>(103 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.16_8.zip</a>   <i>(188 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.37.3-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.8.zip</a>                                   <i>( 21 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.38.0-64-bit.7z.exe</a>                   <i>( 46 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.9.zip</a>                                   <i>( 21 MB)</i>
 </pre>
 </dd></dl>
 
@@ -121,7 +121,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.3.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.38.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions

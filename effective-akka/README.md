@@ -47,6 +47,23 @@ SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 
 ### <span id="cameo_pattern">`CameoPattern`</span>
 
+<pre style="font-size:80%;">
+<b>&gt; <a href="./Chapter02/CameoPattern/build.bat">build</a> -verbose run</b>
+Compile 7 Scala source files to directory "target\classes"
+[CameoPattern-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+SavingsAccounts    : Received GetCustomerAccountBalances for ID: 1
+MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 1
+CheckingAccounts   : Received GetCustomerAccountBalances for ID: 1
+SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
+MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 2
+CheckingAccounts   : Received GetCustomerAccountBalances for ID: 2
+[CameoPattern-akka.actor.default-dispatcher-10] INFO akka.actor.DeadLetterActorRef -  akkaDeadLetter Message [org.jamieallen.effectiveakka.common.AccountBalances] from Actor[akka://CameoPattern/user/extra-retriever/cameo-message-handler-1#-946328889] to Actor[akka://CameoPattern/deadLetters] was not delivered. [1] dead letters encountered. If this is not an expected behavior then Actor[akka://CameoPattern/deadLetters] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+[CameoPattern-akka.actor.default-dispatcher-10] INFO akka.actor.DeadLetterActorRef -  akkaDeadLetter Message [org.jamieallen.effectiveakka.common.AccountBalances] from Actor[akka://CameoPattern/user/extra-retriever/cameo-message-handler-2#162633198] to Actor[akka://CameoPattern/deadLetters] was not delivered. [2] dead letters encountered. If this is not an expected behavior then Actor[akka://CameoPattern/deadLetters] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+>>> Press ENTER to exit <<<
+
+[CameoPattern-akka.actor.default-dispatcher-10] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+</pre>
+
 *WIP*
 
 ***

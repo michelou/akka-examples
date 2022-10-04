@@ -295,8 +295,8 @@ goto :eof
 set _KAFKA_HOME=
 set _KAFKA_PATH=
 
-if not "%~1"=="" ( set __DIR_NAME=kafka_2.13-%~1
-) else ( set __DIR_NAME=kafka_2.13-2
+if not "%~1"=="" ( set __DIR_NAME=kafka_2.13-*
+) else ( set __DIR_NAME=kafka_2.13-%~1
 )
 set __KAFKA_START_CMD=
 for /f "delims=" %%f in ('where kafka-server-start.bat 2^>NUL') do set "__KAFKA_START_CMD=%%f"
@@ -318,7 +318,7 @@ if defined __KAFKA_START_CMD (
     )
 )
 if not exist "%_KAFKA_HOME%\bin\windows\kafka-server-start.bat" (
-    echo %_ERROR_LABEL% Javac executable not found ^("%_KAFKA_HOME%"^) 1>&2
+    echo %_ERROR_LABEL% Kafka batch file not found ^("%_KAFKA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )

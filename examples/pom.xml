@@ -15,7 +15,7 @@
         <!-- Scala settings -->
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
-        <scala.version>2.13.8</scala.version>
+        <scala.version>2.13.9</scala.version>
 
         <!-- Maven plugin versions -->
         <akka.version>2.6.20</akka.version>

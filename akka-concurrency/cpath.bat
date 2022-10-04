@@ -21,7 +21,7 @@ set __SCALA_BINARY_VERSION=2.13
 
 set __AKKA_VERSION=2.6.20
 set __SCALA_VERSION=2.13.9
-set __SCALATEST_VERSION=3.2.13
+set __SCALATEST_VERSION=3.2.14
 set __SLF4J_VERSION=2.0.3
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library

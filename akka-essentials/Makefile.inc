@@ -43,12 +43,12 @@ RM         = rm
 TOUCH      = touch
 endif
 
-SCALA_LIB_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.8.jar")
+SCALA_LIB_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.9.jar")
 CONFIG_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-1.4.2.jar")
 AKKA_ACTOR_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-actor_2.13-2.6.20.jar")
 AKKA_ACTOR_TYPED_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-actor-typed_2.13-2.6.20.jar")
-SLFJ4_API_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j" -name "slf4j-api-1.7.36.jar")
-SLFJ4_SIMPLE_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j" -name "slf4j-simple-1.7.36.jar")
+SLFJ4_API_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j" -name "slf4j-api-2.0.3.jar")
+SLFJ4_SIMPLE_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j" -name "slf4j-simple-2.0.3.jar")
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)
