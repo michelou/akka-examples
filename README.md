@@ -37,7 +37,7 @@ C:\opt\Git-2.38.0\              <i>(317 MB)</i>
 C:\opt\gradle-7.5.1\            <i>(121 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.16_8\   <i>(300 MB)</i>
-C:\opt\scala-2.13.8\            <i>( 24 MB)</i>
+C:\opt\scala-2.13.9\            <i>( 24 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -147,7 +147,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.8
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.9
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [scala3_home]: https://dotty.epfl.ch
 [spark_examples]: https://github.com/michelou/spark-examples
