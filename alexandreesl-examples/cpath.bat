@@ -19,10 +19,10 @@ set _LIBS_CPATH=
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.6.19
-set __SCALA_VERSION=2.13.8
-set __SCALATEST_VERSION=3.2.12
-set __SLF4J_VERSION=1.7.36
+set __AKKA_VERSION=2.6.20
+set __SCALA_VERSION=2.13.9
+set __SCALATEST_VERSION=3.2.14
+set __SLF4J_VERSION=2.0.3
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
@@ -52,19 +52,19 @@ call :add_jar "org.scalatest" "scalatest_3" "%__SCALATEST_VERSION%"
 call :add_jar "io.spray" "spray-json_%__SCALA_BINARY_VERSION%" "1.3.6"
 
 @rem https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams
-call :add_jar "org.reactivestreams" "reactive-streams" "1.0.3"
+call :add_jar "org.reactivestreams" "reactive-streams" "1.0.4"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.scala-logging/scala-logging
-call :add_jar "com.typesafe.scala-logging" "scala-logging_%__SCALA_BINARY_VERSION%" "3.9.4"
+call :add_jar "com.typesafe.scala-logging" "scala-logging_%__SCALA_BINARY_VERSION%" "3.9.5"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-stream
 call :add_jar "com.typesafe.akka" "akka-stream_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-stream-kafka
-call :add_jar "com.typesafe.akka" "akka-stream-kafka_%__SCALA_BINARY_VERSION%" "3.0.0"
+call :add_jar "com.typesafe.akka" "akka-stream-kafka_%__SCALA_BINARY_VERSION%" "3.0.1"
 
 @rem https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
-call :add_jar "org.apache.kafka" "kafka-clients" "3.1.0"
+call :add_jar "org.apache.kafka" "kafka-clients" "3.3.1"
 
 goto end
 

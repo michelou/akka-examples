@@ -43,9 +43,9 @@ RM         = rm
 TOUCH      = touch
 endif
 
-SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.8.jar)
+SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.9.jar)
 CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
-AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.6.19.jar)
+AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.6.20.jar)
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)

@@ -56,7 +56,7 @@ call :add_jar "com.typesafe.akka" "akka-testkit_%__SCALA_BINARY_VERSION%" "%__AK
 
 @rem https://mvnrepository.com/artifact/org.scala-lang.modules/scala-xml
 @rem ScalaTest 3.2 dependency
-call :add_jar "org.scala-lang.modules" "scala-xml_%__SCALA_BINARY_VERSION%" "2.0.1"
+call :add_jar "org.scala-lang.modules" "scala-xml_%__SCALA_BINARY_VERSION%" "2.1.0"
 
 @rem https://mvnrepository.com/artifact/org.scalactic/scalactic
 call :add_jar "org.scalactic" "scalactic_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"
