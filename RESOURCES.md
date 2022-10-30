@@ -2,7 +2,7 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;;min-width:120px;"><a href="https://akka.io/"><img src="docs/images/akka.svg" width="120" alt="Akka"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;;min-width:120px;"><a href="https://akka.io/" rel="external"><img src="docs/images/akka.svg" width="120" alt="Akka"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This document gathers <a href="https://akka.io/" rel="external">Akka</a> related resources that caught our attention.
   </td>
   </tr>
@@ -60,7 +60,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
