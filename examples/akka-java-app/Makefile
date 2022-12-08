@@ -18,7 +18,7 @@ TARGET    = $(TARGET_DIR)/.latest-build
 OPTS_FILE    = $(TARGET_DIR)/javac_opts.txt
 SOURCES_FILE = $(TARGET_DIR)/javac_sources.txt
 
-MAIN_CLASS = com.example.AkkaQuickstart
+MAIN_CLASS = com.gkatzioura.Application
 MAIN_ARGS ?= 
 
 all: build

@@ -71,7 +71,7 @@ OrderAggregate: akka.actor.Status$Failure
 > ...
 > </pre>
 
-## <span id="ping_pong">`PingPong`</span>[**&#x25B4;**](#top)
+## <span id="ping_pong">`PingPong`</span> [**&#x25B4;**](#top)
 
 Code example `PingPong` is an [Akka] application written in Java (e.g. [`PingPongApp.java`](./Chapter03/PingPong/src/main/java/PingPongApp.java), [`PingPongActor.java`](./Chapter03/PingPong/src/main/java/PingPongActor.java)).
 
@@ -112,7 +112,7 @@ PING
 > PING
 > </pre>
 
-## <span id="footnotes">Footnotes</span>[**&#x25B4;**](#top)
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
 <span id="footnote_01">[1]</span> ***Source code updates*** [↩](#anchor_01)
 
@@ -154,6 +154,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </div>
 See the online documentation for further informations: 
 <ul>
+<li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.6.x-2.7.x.html" rel="external">Migration Guide 2.6.x to 2.7.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.5.x-2.6.x.html">Migration Guide 2.5.x to 2.6.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/2.5.32/project/migration-guide-2.4.x-2.5.x.html">Migration Guide 2.4.x to 2.5.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/2.4/project/migration-guide-2.3.x-2.4.x.html">Migration Guide 2.3.x to 2.4.x</a></li>
@@ -200,7 +201,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

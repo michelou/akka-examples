@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>akka-examples</groupId>
-    <artifactId>akka-quickstart-java</artifactId>
+    <artifactId>akka-java-app</artifactId>
     <version>1.0</version>
 
     <parent>
@@ -15,11 +15,17 @@
     </parent>
 
     <properties>
-        <mainClass>com.example.AkkaQuickstart</mainClass>
+        <mainClass>com.gkatzioura.Application</mainClass>
     </properties>
 
     <dependencies>
         <!-- see parent pom.xml -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -37,18 +43,12 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>${exec.maven.version}</version>
-                <executions>
-                    <execution>
-                        <phase>exec</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
-                    <mainClass>${mainClass}</mainClass>
+                    <executable>java</executable>
                     <arguments>
-                        <argument></argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>${mainClass}</argument>
                     </arguments>
                 </configuration>
             </plugin>

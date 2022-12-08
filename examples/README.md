@@ -20,8 +20,7 @@ We have implemented this code example in 3 different progamming languages :
 Here are 3 command executions for the Java code example :
 
 <pre style="font-size:80%;">
-<b>&gt; cd</b>
-%USERPROFILE%\workspace-perso\akka-examples\examples\akka-quickstart-jav
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd" rel="external">cd</a> akka-quickstart-java</b>
 &nbsp;
 <b>&gt; <a href="akka-quickstart-java/build.bat">build</a> -verbose run</b>
 Compile 4 Java source files to directory "target\classes"
@@ -36,7 +35,7 @@ Compile 4 Java source files to directory "target\classes"
 
 [helloakka-akka.actor.default-dispatcher-3] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 &nbsp;
-<b>&gt; gradle -q run</b>
+<b>&gt; <a href="https://docs.gradle.org/current/userguide/command_line_interface.html" rel="external">gradle</a> -q run</b>
 SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
 SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
 SLF4J: See also http://www.slf4j.org/codes.html#replay
@@ -50,7 +49,7 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 [2022-02-10 17:54:31,299] [INFO] [com.example.GreeterBot] [helloakka-akka.actor.default-dispatcher-3] [akka://helloakka/user/Charles] - Greeting 3 for Charles
 <=========----> 75% EXECUTING [3s]
 &nbsp;
-<b>&gt; mvn -q compile exec:java</b>
+<b>&gt; <a href="https://maven.apache.org/ref/3-LATEST/maven-embedder/cli.html" rel="external">mvn</a> -q compile exec:java</b>
 SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are[2022-02-10 17:50:47,070] [INFO] [akka.event.slf4j.Slf4jLogger] [helloakka-akka.actor.default-dispatcher-3] [] - Slf4jLogger started
 &nbsp;
 SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
@@ -88,7 +87,7 @@ C:\opt\grpcurl-1.8.7\grpcurl.exe
 We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/grpc-service.html#_exercise_the_service)):
 
 <pre style="font-size:80%;">
-<b>&gt; a href="https://github.com/fullstorydev/grpcurl#invoking-rpcs">grpcurl</a> -d "{\"cartId\":\"cart1\", \"itemId\":\"t-shirt\", \"quantity\":2}" -plaintext 127.0.0.1:8101 shoppingcart.ShoppingCartService.AddItem</b>
+<b>&gt; <a href="https://github.com/fullstorydev/grpcurl#invoking-rpcs">grpcurl</a> -d "{\"cartId\":\"cart1\", \"itemId\":\"t-shirt\", \"quantity\":2}" -plaintext 127.0.0.1:8101 shoppingcart.ShoppingCartService.AddItem</b>
 {
   "items": [
     {
@@ -109,7 +108,7 @@ We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](h
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -72,7 +72,7 @@
 
     <target name="init" depends="init.local, init.ivy">
         <path id="build.classpath">
-            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.8.jar" />
+            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.10.jar" />
             <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
             <pathelement location="${build.dir}" />

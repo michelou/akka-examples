@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.2.1-RC1"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.2.2-RC1"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"

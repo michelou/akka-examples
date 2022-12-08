@@ -1,0 +1,5 @@
+Webpages:
+   https://egkatzioura.com/2020/10/26/java-based-akka-application-part-1-getting-started-with-your-base-project/
+   https://egkatzioura.com/2020/10/28/java-based-akka-application-part-2-adding-some-tests/
+
+Source: https://github.com/gkatzioura/egkatzioura.wordpress.com/tree/master/akka-java-app

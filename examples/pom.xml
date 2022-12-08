@@ -15,10 +15,10 @@
         <!-- Scala settings -->
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
-        <scala.version>2.13.9</scala.version>
+        <scala.version>2.13.10</scala.version>
 
         <!-- Maven plugin versions -->
-        <akka.version>2.6.20</akka.version>
+        <akka.version>2.7.0</akka.version>
         <config.version>1.4.2</config.version>
         <exec.maven.version>3.1.0</exec.maven.version>
         <ivy.version>2.5.0</ivy.version>
