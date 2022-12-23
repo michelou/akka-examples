@@ -48,8 +48,8 @@ CONFIG_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config
 AKKA_ACTOR_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.7.0.jar)
 AKKA_ACTOR_TYPED_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor-typed_2.13-2.7.0.jar)
 LOMBOK_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/org/projectlombok" -name lombok-1.18.24.jar)
-SLF4J_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-2.0.5.jar)
-SLF4J_SIMPLE_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-2.0.5.jar)
+SLF4J_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-2.0.6.jar)
+SLF4J_SIMPLE_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-2.0.6.jar)
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)

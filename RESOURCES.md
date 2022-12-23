@@ -23,6 +23,7 @@
   - [Akka Streams Backpressure ][blog_rockthejvm_backpressure], November 2021.
   - [Akka Typed: Adapting Messages][blog_rockthejvm_adapter], March 2021.
   - [Akka Typed: How the Pipe Pattern Prevents Anti-Patterns][blog_rockthejvm_pipe], October 2020.
+  - [Akka Typed Actors: Stateful and Stateless][blog_rockthejvm_stateful], October 2020.
 - [How we optimized our Akka application using Datadog’s Continuous Profiler][blog_zhuk] by Vladimir Zhuk, September 2021.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 3][blog_oueslati_3] by Mohamed Oueslati, July 2020.
 - [Architecture et programmation réactives avec Akka et Scala – Partie 2][blog_oueslati_2] by Mohamed Oueslati, July 2020.
@@ -37,8 +38,9 @@
 - [Introduction to Akka Streams][blog_agarwal] by Archit Agarwal, February 2019.
 - [Hpc with Scala and Akka Actors][blog_balinzo] by Dario Balinzo, December 2018.
 
-## <span id="books">Books</span>[**&#x25B4;**](#top)
+## <span id="books">Books</span> [**&#x25B4;**](#top)
 
+- [Akka in Action][book_abraham] (2<sup>nd</sup> Edition) by Francisco Lopez-Sancho Abrahm, Spring 2023.<br/><span>(Manning, ISBN 978-1-6172-9921-6, 425 pages)</span>
 - [Scala Reactive Programming][book_posa] by Rambagu Posa, February 2018.<br/><span>(Packt, ISBN 978-1-7872-8864-5, 499 pages)<br/>GitHub: <a href="https://github.com/packtpublishing/scala-reactive-programming"><code>PacktPublishing/Scala-Reactive-Programming</code></a></span>
 - &#128077; [Akka Cookbook][book_ortiz] by Hector V. Ortiz, May 2017.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7852-8818-0, 414 pages)<br/><b>GitHub</b>: [`PackPublishing/Akka-Cookbook`](https://github.com/PacktPublishing/Akka-Cookbook).</span>
 - [Reative Design Patterns][book_kuhn] by Roland Kuhn et al., February 2017.</br><span>(Manning, ISBN 978-1-6172-9180-7, 392 pages)</span>
@@ -78,10 +80,12 @@
 [blog_rockthejvm_cassandra]: https://blog.rockthejvm.com/akka-cassandra-project/
 [blog_rockthejvm_discovery]: https://blog.rockthejvm.com/akka-actor-discovery/
 [blog_rockthejvm_pipe]: https://blog.rockthejvm.com/pipe-pattern/
+[blog_rockthejvm_stateful]: https://blog.rockthejvm.com/stateful-stateless-actors/
 [blog_shemesh1]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-i/
 [blog_shemesh2]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-ii/
 [blog_skrbic_power]: https://aleksandarskrbic.github.io/power-of-akka-streams/
 [blog_zhuk]: https://www.datadoghq.com/blog/engineering/how-we-optimized-our-akka-application-using-datadogs-continuous-profiler/
+[book_abraham]: https://www.manning.com/books/akka-in-action-second-edition
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_baxter]: https://www.packtpub.com/product/mastering-akka/9781786465023
 [book_goodwin]: https://www.packtpub.com/product/learning-akka/9781784393007

@@ -40,7 +40,7 @@ akka://HelloAkka
 > >>> Press ENTER to exit <<<
 > </pre>
 
-## <span id="behaviourandstate">`BehaviourAndState`</span>[**&#x25B4;**](#top)
+## <span id="behaviourandstate">`BehaviourAndState`</span> [**&#x25B4;**](#top)
 
 Batch file [`build.bat`](./Chapter01/BehaviourAndState/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 

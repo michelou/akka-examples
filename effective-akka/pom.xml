@@ -15,6 +15,7 @@
         <!-- Scala settings -->
         <scala.groupId>org.scala-lang</scala.groupId>
         <scala.version>2.13.10</scala.version>
+        <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 
         <!-- Maven plugin versions -->
@@ -30,15 +31,15 @@
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>
 
-        <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_2.13/${akka.version}/akka-actor_2.13-${akka.version}.jar</m2.akka-actor.jar>
-        <m2.akka-testkit.jar>${m2.directory}/com/typesafe/akka/akka-testkit_2.13/${akka.version}/akka-testkit_2.13-${akka.version}.jar</m2.akka-testkit.jar>
+        <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_${scala.binary.version}/${akka.version}/akka-actor_${scala.binary.version}-${akka.version}.jar</m2.akka-actor.jar>
+        <m2.akka-testkit.jar>${m2.directory}/com/typesafe/akka/akka-testkit_${scala.binary.version}/${akka.version}/akka-testkit_${scala.binary.version}-${akka.version}.jar</m2.akka-testkit.jar>
         <m2.config.jar>${m2.directory}/com/typesafe/config/${config.version}/config-${config.version}.jar</m2.config.jar>
         <m2.scala-library.jar>${m2.directory}/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar</m2.scala-library.jar>
-        <m2.scalatest.jar>${m2.directory}/org/scalatest/scalatest_2.13/${scalatest.version}/scalatest_2.13-${scalatest.version}.jar</m2.scalatest.jar>
-        <m2.scalatest-funspec.jar>${m2.directory}/org/scalatest/scalatest-funspec_2.13/${scalatest.version}/scalatest-funspec_2.13-${scalatest.version}.jar</m2.scalatest-funspec.jar>
-        <m2.scalatest-mustmatchers.jar>${m2.directory}/org/scalatest/scalatest-mustmatchers_2.13/${scalatest.version}/(scalatest-mustmatchers_2.13-${scalatest.version}.jar</m2.scalatest-mustmatchers.jar>
-        <m2.scalatest-shouldmatchers.jar>${m2.directory}/org/scalatest/scalatest-shouldmatchers_2.13/${scalatest.version}/(scalatest-shouldmatchers_2.13-${scalatest.version}.jar</m2.scalatest-shouldmatchers.jar>
-        <m2.scalatest-wordspec.jar>${m2.direcory}/org/scalatest/scalatest-wordspec_2.13/${scalatest.version}/(scalatest-wordspec_2.13-${scalatest.version}.jar</m2.scalatest-wordspec.jar>
+        <m2.scalatest.jar>${m2.directory}/org/scalatest/scalatest_${scala.binary.version}/${scalatest.version}/scalatest_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest.jar>
+        <m2.scalatest-funspec.jar>${m2.directory}/org/scalatest/scalatest-funspec_${scala.binary.version}/${scalatest.version}/scalatest-funspec_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest-funspec.jar>
+        <m2.scalatest-mustmatchers.jar>${m2.directory}/org/scalatest/scalatest-mustmatchers_${scala.binary.version}/${scalatest.version}/(scalatest-mustmatchers_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest-mustmatchers.jar>
+        <m2.scalatest-shouldmatchers.jar>${m2.directory}/org/scalatest/scalatest-shouldmatchers_${scala.binary.version}/${scalatest.version}/(scalatest-shouldmatchers_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest-shouldmatchers.jar>
+        <m2.scalatest-wordspec.jar>${m2.direcory}/org/scalatest/scalatest-wordspec_${scala.binary.version}/${scalatest.version}/(scalatest-wordspec_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest-wordspec.jar>
     </properties>
 
     <dependencies>
@@ -57,41 +58,41 @@
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_2.13</artifactId>
+            <artifactId>akka-actor_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-testkit_2.13</artifactId>
+            <artifactId>akka-testkit_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.13</artifactId>
+            <artifactId>scalatest_${scala.binary.version}</artifactId>
             <version>${scalatest.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest-mustmatchers_2.13</artifactId>
+            <artifactId>scalatest-mustmatchers_${scala.binary.version}</artifactId>
             <version>${scalatest.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-shouldmatchers -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest-shouldmatchers_2.13</artifactId>
+            <artifactId>scalatest-shouldmatchers_${scala.binary.version}</artifactId>
             <version>${scalatest.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest-wordspec_2.13</artifactId>
+            <artifactId>scalatest-wordspec_${scala.binary.version}</artifactId>
             <version>${scalatest.version}</version>
             <scope>test</scope>
         </dependency>

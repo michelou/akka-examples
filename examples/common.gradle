@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.2.2-RC1"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.2.2-RC2"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -17,8 +17,8 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.6.20"
-    specs2Version = "5.0.7"
+    akkaVersion = "2.7.0"
+    specs2Version = isScala3 ? "5.2.0" : "4.19.0"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"
@@ -30,7 +30,7 @@ project.ext {
         implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
         implementation "com.typesafe.akka:akka-actor-typed_${scalaBinaryVersion}:$akkaVersion"
         // test scope
-        testImplementation 'ch.qos.logback:logback-classic:1.2.10'
+        testImplementation 'ch.qos.logback:logback-classic:1.4.3'
         testImplementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
         testImplementation 'com.typesafe.akka:akka-actor-testkit-typed_${scalaBinaryVersion}:$akkaVersion'
         testImplementation 'junit:junit:4.13.2'
