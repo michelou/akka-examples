@@ -19,7 +19,7 @@ Code examples presented below can be built/run with the following tools:
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/ExtraPattern/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./Chapter02/ExtraPattern/build.bat) | *none*             |  &nbsp;        | Windows only |
 <div style="font-size:80%;">
-<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
+<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/>&nbsp;
 </div>
 
 ### <span id="extra_pattern">`ExtraPattern`</span>
@@ -68,7 +68,7 @@ CheckingAccounts   : Received GetCustomerAccountBalances for ID: 2
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
