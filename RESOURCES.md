@@ -41,7 +41,7 @@
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Akka in Action][book_abraham] (2<sup>nd</sup> Edition) by Francisco Lopez-Sancho Abrahm, Spring 2023.<br/><span>(Manning, ISBN 978-1-6172-9921-6, 425 pages)</span>
-- [Scala Reactive Programming][book_posa] by Rambagu Posa, February 2018.<br/><span>(Packt, ISBN 978-1-7872-8864-5, 499 pages)<br/>GitHub: <a href="https://github.com/packtpublishing/scala-reactive-programming"><code>PacktPublishing/Scala-Reactive-Programming</code></a></span>
+- [Scala Reactive Programming][book_posa] by Rambagu Posa, February 2018.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7872-8864-5, 499 pages)<br/><b>GitHub</b>: <a href="https://github.com/packtpublishing/scala-reactive-programming"><code>PacktPublishing/Scala-Reactive-Programming</code></a></span>
 - &#128077; [Akka Cookbook][book_ortiz] by Hector V. Ortiz, May 2017.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7852-8818-0, 414 pages)<br/><b>GitHub</b>: [`PackPublishing/Akka-Cookbook`](https://github.com/PacktPublishing/Akka-Cookbook).</span>
 - [Reative Design Patterns][book_kuhn] by Roland Kuhn et al., February 2017.</br><span>(Manning, ISBN 978-1-6172-9180-7, 392 pages)</span>
 - [Mastering Akka][book_baxter] by Christian Baxter, October 2016.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7864-6502-3, 436 pages)</span>

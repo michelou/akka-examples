@@ -27,7 +27,7 @@ Code examples are written in [Scala] and can be built/run with the following too
 > - ***Section 5.1*** When you send a message to an actor, you’re only sending it to its ActorRef; you never get to interact with the actor in any direct way.
 > - ***Section 5.5*** Akka makes it impossible to even construct an actor, or any derivation thereof.
 
-## <span id="ch05">Chapter 5</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+## <span id="ch05">Chapter 5</span> [**&#x25B4;**](#top)
 
 ### <span id="ch05_badshakespearean">`BadShakespearean`</span>
 
@@ -108,7 +108,7 @@ Compile 5 Scala source files to directory "target\classes"
 [PlaneSimulation-...-7] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
-## <span id="ch06">Chapter 6</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+## <span id="ch06">Chapter 6</span> [**&#x25B4;**](#top)
 
 ### <span id="ch06_avionics">`Avionics`</span>
 
@@ -137,7 +137,7 @@ Tests: succeeded 3, failed 0, canceled 0, ignored 0, pending 0
 All tests passed.
 </pre>
 
-## <span id="ch07">Chapter 7</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+## <span id="ch07">Chapter 7</span> [**&#x25B4;**](#top)
 
 *WIP*
 

@@ -2,12 +2,12 @@ name := "TestStrategies"
 
 version := "1.0"
 
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.10"
 
-lazy val akkaVersion = "2.6.19"
+lazy val akkaVersion = "2.7.0"
 lazy val configVersion = "1.4.2"
 lazy val logbackVersion = "1.2.11"
-lazy val scalatestVersion = "3.2.13"
+lazy val scalatestVersion = "3.2.15"
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % configVersion,
