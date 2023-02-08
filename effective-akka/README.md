@@ -22,7 +22,7 @@ Code examples presented below can be built/run with the following tools:
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/>&nbsp;
 </div>
 
-### <span id="extra_pattern">`ExtraPattern`</span>
+### <span id="extra_pattern">`ExtraPattern` Example</span>
 
 Code example `ExtraPattern` is the same [Akka] application written in [Scala] (e.g. [`ExtraPattern.scala`](./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/ExtraPattern.scala), [`AccountBalanceRetriever.scala`](./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/AccountBalanceRetriever.scala)).
 
@@ -45,7 +45,7 @@ SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 
 *WIP*
 
-### <span id="cameo_pattern">`CameoPattern`</span>
+### <span id="cameo_pattern">`CameoPattern` Example</span>
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./Chapter02/CameoPattern/build.bat">build</a> -verbose run</b>
@@ -68,7 +68,7 @@ CheckingAccounts   : Received GetCustomerAccountBalances for ID: 2
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

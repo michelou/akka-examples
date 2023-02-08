@@ -73,7 +73,7 @@
 
     <target name="init" depends="init.local, init.ivy">
         <path id="build.classpath">
-            <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
+            <!--<fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />-->
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-testkit_2.13-${akka.version}.jar" />
             <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest_2.13-${scalatest.version}.jar" />

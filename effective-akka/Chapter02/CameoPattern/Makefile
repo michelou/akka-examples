@@ -4,8 +4,8 @@ SOURCE_DIR  = src
 TARGET_DIR  = target
 CLASSES_DIR = $(TARGET_DIR)/classes
 
-CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(CLASSES_DIR)
-SCALAC_FLAGS = -deprecation -feature -language:postfixOps -classpath "$(CPATH)"
+CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(SLF4J_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
+SCALAC_FLAGS = -deprecation -feature -language:postfixOps
 SCALA_FLAGS  = -classpath "$(CPATH)"
 
 ##############################################################################
@@ -27,9 +27,10 @@ build: $(TARGET)
 
 $(TARGET): $(SOURCES) $(RESOURCES)
 	[ -d "$(CLASSES_DIR)" ] || "$(MKDIR)" -p "$(CLASSES_DIR)"
-	@$(ECHO) $(SCALAC_FLAGS) -d "$(CLASSES_DIR)" > "$(OPTS_FILE)"
-	@$(ECHO) $(SOURCES) > "$(SOURCES_FILE)"
-	"$(SCALAC)" "@$(OPTS_FILE)" "@$(SOURCES_FILE)"
+	# @$(ECHO) $(SCALAC_FLAGS) -classpath "$(CPATH)" -d "$(CLASSES_DIR)" > "$(OPTS_FILE)"
+	# @$(ECHO) $(SOURCES) > "$(SOURCES_FILE)"
+	# "$(SCALAC)" "@$(OPTS_FILE)" "@$(SOURCES_FILE)"
+	"$(SCALAC)" $(SCALAC_FLAGS) -classpath "$(CPATH)" -d "$(CLASSES_DIR)" $(SOURCES)
 	for f in $(RESOURCES); do "$(CP)" "$$f" "$(CLASSES_DIR)"; done
 	@$(TOUCH) "$(TARGET)"
 
@@ -49,7 +50,7 @@ help:
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
 	@$(ECHO) "    help   display this help message"
-	@$(ECHO) "    run    execute main program $(MAIN_CLASS)"
+	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 	@$(ECHO) "    test   execute unit tests with Scalatest"
 
 ##############################################################################
@@ -78,7 +79,7 @@ doc: build $(DOC_TARGET)
 ##############################################################################
 ## test rules
 
-TEST_SOURCES     = $(shell [ -d "$(SOURCE_DIR)/test" ] && $(FIND) "$(SOURCE_DIR)/test" -type f -name *.scala)
+TEST_SOURCES     = $(shell [ -d "$(SOURCE_DIR)/test" ] && $(FIND) "$(SOURCE_DIR)/test" -type f -name "*.scala")
 TEST_CLASSES_DIR = $(TARGET_DIR)/test-classes
 TEST_TARGET      = $(TARGET_DIR)/.latest-test-build
 
@@ -89,10 +90,11 @@ TEST_MAIN_CLASS = org.jamieallen.effectiveakka.CameoSpec
 TEST_CPATH      = $(CPATH)$(PSEP)$(AKKA_TESTKIT_JAR)$(PSEP)$(SCALATEST_JAR)$(PSEP)$(CLASSES_DIR)$(PSEP)$(TEST_CLASSES_DIR)
 
 $(TEST_TARGET): $(TEST_SOURCES)
-	[ -d "$(TEST_CLASSES_DIR)" ] || $(MKDIR) -p "$(TEST_CLASSES_DIR)"
-	@$(ECHO) $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)" > "$(TEST_OPTS_FILE)"
-	@$(ECHO) $(TEST_SOURCES) > "$(TEST_SOURCES_FILE)"
-	"$(SCALAC)" "@$(TEST_OPTS_FILE)" "@$(TEST_SOURCES_FILE)"
+	[ -d "$(TEST_CLASSES_DIR)" ] || "$(MKDIR)" -p "$(TEST_CLASSES_DIR)"
+	# @$(ECHO) $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)" > "$(TEST_OPTS_FILE)"
+	# @$(ECHO) $(TEST_SOURCES) > "$(TEST_SOURCES_FILE)"
+	# "$(SCALAC)" "@$(TEST_OPTS_FILE)" "@$(TEST_SOURCES_FILE)"
+	"$(SCALAC)" $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)"
 	@$(TOUCH) "$(TEST_TARGET)"
 
 test: $(TARGET) $(TEST_TARGET)

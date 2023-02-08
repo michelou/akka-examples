@@ -47,10 +47,18 @@ SCALA_LIB_JAR    = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-li
 CONFIG_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
 AKKA_ACTOR_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.7.0.jar)
 AKKA_TESTKIT_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-testkit_2.13-2.7.0.jar)
+SLF4J_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-2.0.6.jar)
+SLF4J_SIMPLE_JAR = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-2.0.6.jar)
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)
 endif
 ifeq (,$(wildcard $(AKKA_ACTOR_JAR)))
 $(error Variable AKKA_ACTOR_JAR is not set)
+endif
+ifeq (,$(wildcard $(AKKA_TESTKIT_JAR)))
+$(error Variable AKKA_TESTKIT_JAR is not set)
+endif
+ifeq (,$(wildcard $(SLF4J_JAR)))
+$(error Variable SLF4J_JAR is not set)
 endif
