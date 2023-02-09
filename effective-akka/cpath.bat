@@ -19,9 +19,12 @@ set "_TEMP_DIR=%TEMP%\lib"
 if not exist "%_TEMP_DIR%" mkdir "%_TEMP_DIR%"
 if %_DEBUG%==1 echo[%~n0] "_TEMP_DIR=%_TEMP_DIR%"
 
-set _LIBS_CPATH=
-
 set __SCALA_BINARY_VERSION=2.13
+
+@rem #########################################################################
+@rem ## Libraries to be added to _LIBS_CPATH
+
+set _LIBS_CPATH=
 
 set __AKKA_VERSION=2.7.0
 set __SCALA_VERSION=2.13.10

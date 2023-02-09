@@ -243,13 +243,14 @@ if %__N%==0 (
 call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
 
-set "__OPTS_FILE=%_TARGET_DIR%\scalac_opts.txt"
-echo -deprecation -language:postfixOps -classpath "%_LIBS_CPATH:\=\\%%_CLASSES_DIR:\=\\%" -d "%_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
+@rem set "__OPTS_FILE=%_TARGET_DIR%\scalac_opts.txt"
+@rem echo -deprecation -language:postfixOps -classpath "%_LIBS_CPATH:\=\\%%_CLASSES_DIR:\=\\%" -d "%_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
+set __SCALAC_OPTS=-deprecation -language:postfixOps -classpath "%_LIBS_CPATH%%_CLASSES_DIR%" -d "%_CLASSES_DIR%"
 
-if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%" 1>&2
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" %__SCALAC_OPTS% "@%__SOURCES_FILE%" 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
 )
-call "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
+call "%_SCALAC_CMD%" %__SCALAC_OPTS% "@%__SOURCES_FILE%"
 if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
@@ -329,9 +330,12 @@ if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 
-if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS% 1>&2
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS% 1>&2
+) else if %_VERBOSE%==1 ( echo Execute Scala main class "%_MAIN_CLASS%" 1>&2 
+)
 call "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS%
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to execute Scala main class "%_MAIN_CLASS%" 1>&2 
     set _EXITCODE=1
     goto :eof
 )

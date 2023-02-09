@@ -1,6 +1,6 @@
 # <span id="top">Akka Resources</span> <span style="size:20%;"><a href="README.md">↩</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;;min-width:120px;"><a href="https://akka.io/" rel="external"><img src="docs/images/akka.svg" width="120" alt="Akka"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This document gathers <a href="https://akka.io/" rel="external">Akka</a> related resources that caught our attention.
@@ -14,6 +14,7 @@
 ## <span id="articles">Articles</span>
 
 - [Akka Streams — Getting Started][article_cano] by Sergio Cano, August 2021.
+- [A Comparison of the Basic Principles and Behavioural Aspects of Akka, JaCaMo and Jade Development Frameworks][article_cossentino] by Massimo Cossentino &amp; al., June 2018.
 
 ## <span id="blogs">Blogs</span>
 
@@ -32,6 +33,13 @@
 - [Tuning your Akka to Get the Most from your Actor-Based System – Part II][blog_shemesh2] by Dani Shemesh, January 2020.
 - [Tuning your Akka to Get the Most from your Actor-Based System – Part I][blog_shemesh1] by Dani Shemesh, January 2020.
 - [Rethinking Streaming Workloads with Akka Streams: Part II][blog_breck_2] by Colin Breck, July 2019.
+- [Tour of Akka Typed](https://manuel.bernhardt.io/posts/) by Manuel Bernhardt :
+  - [Part 6: Cluster Singleton and Routers](https://manuel.bernhardt.io/2019/12/03/tour-of-akka-typed-cluster-singleton-and-routers/), December 2019.
+  - [Part 5: Cluster Sharding](https://manuel.bernhardt.io/2019/11/09/tour-of-akka-typed-cluster-sharding/), November 2019.
+  - [Part 4: Event Sourcing](https://manuel.bernhardt.io/2019/10/07/tour-of-akka-typed-event-sourcing/), October 2019.
+  - [Part 3: Ssupervision and Signals](https://manuel.bernhardt.io/2019/09/05/tour-of-akka-typed-supervision-and-signals/), September 2019.
+  - [Part 2: Message Adapters, Ask Pattern and Actor Discovery](https://manuel.bernhardt.io/2019/08/07/tour-of-akka-typed-message-adapters-ask-pattern-and-actor-discovery/), August 2019.
+  - [Part 1: Protocols and Behaviors](https://manuel.bernhardt.io/2019/07/11/tour-of-akka-typed-protocols-and-behaviors/), July 2019.
 - [Understanding Factories To Create Actors In Akka](http://www.shivamkapoor.com/blogs/technology/2019/06/25/understanding-factories-to-create-actors-in-akka/) by Shivan Kapoor, June 2019.
 - [Rescheduling Akka Schedulers](http://www.shivamkapoor.com/blogs/technology/2019/06/15/rescheduling-akka-schedulers/) by Shivan Kapoor, June 2019.
 - [Rethinking Streaming Workloads with Akka Streams: Part I][blog_breck] by Colin Breck, May 2019.
@@ -54,7 +62,8 @@
 
 ## <span id="tools">Tools</span>
 
-- [Kamon APM](https://kamon.io/solutions/monitoring-for-akka/) - a monitoring tool for Akka backends and APIs.
+- [AkkaProf](https://www.dag.inf.usi.ch/software/akkaprof) &ndash; a profiling tool for [Akka] actors.
+- [Kamon APM](https://kamon.io/solutions/monitoring-for-akka/) &ndash; a monitoring tool for [Akka] backends and APIs.
 
 ## <span id="videos">Videos</span>
 
@@ -67,7 +76,9 @@
 
 <!-- href links -->
 
+[akka]: https://akka.io/
 [article_cano]: https://medium.com/@canosergio90/akka-streams-getting-started-32b5ebc60604
+[article_cossentino]: https://ceur-ws.org/Vol-2215/
 [blog_agarwal]: https://arcagarwal.medium.com/introduction-to-akka-streams-5155bd070e37
 [blog_balinzo]: https://dariobalinzo.medium.com/hpc-with-scala-and-akka-actors-38e43aa87634
 [blog_breck]: https://blog.colinbreck.com/rethinking-streaming-workloads-with-akka-streams-part-i/

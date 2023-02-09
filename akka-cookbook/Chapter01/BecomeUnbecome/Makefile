@@ -49,7 +49,7 @@ help:
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
 	@$(ECHO) "    help   display this help message"
-	@$(ECHO) "    run    execute main program $(MAIN_CLASS)"
+	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
 ## doc rules
@@ -78,3 +78,6 @@ doc: build $(DOC_TARGET)
 ## phony
 
 .PHONY: all build clean doc help run
+
+.SUFFIXES:
+.SUFFIXES: .class .conf .scala
