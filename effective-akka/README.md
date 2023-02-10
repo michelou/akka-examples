@@ -40,7 +40,7 @@ CheckingAccounts   : Received GetCustomerAccountBalances for ID: 2
 MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 2
 SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 >>> Press ENTER to exit <<<
-
+&nbsp;
 [ExtraPattern-akka.actor.default-dispatcher-7] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
@@ -59,6 +59,7 @@ SavingsAccounts    : Received GetCustomerAccountBalances for ID: 2
 [INFO] [akkaDeadLetter][02/09/2023 21:16:47.622] [ExtraPattern-akka.actor.default-dispatcher-7] [akka://ExtraPattern/deadLetters] Message [org.jamieallen.effectiveakka.common.AccountBalances] from Actor[akka://ExtraPattern/user/extra-retriever/$b#1994845275] to Actor[akka://ExtraPattern/deadLetters] was not delivered. [1] dead letters encountered. If this is not an expected behavior then Actor[akka://ExtraPattern/deadLetters] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
 [INFO] [akkaDeadLetter][02/09/2023 21:16:47.622] [ExtraPattern-akka.actor.default-dispatcher-7] [akka://ExtraPattern/deadLetters] Message [org.jamieallen.effectiveakka.common.AccountBalances] from Actor[akka://ExtraPattern/user/extra-retriever/$a#1147423554] to Actor[akka://ExtraPattern/deadLetters] was not delivered. [2] dead letters encountered. If this is not an expected behavior then Actor[akka://ExtraPattern/deadLetters] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
 >>> Press ENTER to exit <<<
+&nbsp;
 [INFO] [02/09/2023 21:16:50.363] [main] [CoordinatedShutdown(akka://ExtraPattern)] Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
@@ -80,7 +81,7 @@ CheckingAccounts   : Received GetCustomerAccountBalances for ID: 2
 [CameoPattern-akka.actor.default-dispatcher-10] INFO akka.actor.DeadLetterActorRef -  akkaDeadLetter Message [org.jamieallen.effectiveakka.common.AccountBalances] from Actor[akka://CameoPattern/user/extra-retriever/cameo-message-handler-1#-946328889] to Actor[akka://CameoPattern/deadLetters] was not delivered. [1] dead letters encountered. If this is not an expected behavior then Actor[akka://CameoPattern/deadLetters] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
 [CameoPattern-akka.actor.default-dispatcher-10] INFO akka.actor.DeadLetterActorRef -  akkaDeadLetter Message [org.jamieallen.effectiveakka.common.AccountBalances] from Actor[akka://CameoPattern/user/extra-retriever/cameo-message-handler-2#162633198] to Actor[akka://CameoPattern/deadLetters] was not delivered. [2] dead letters encountered. If this is not an expected behavior then Actor[akka://CameoPattern/deadLetters] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
 >>> Press ENTER to exit <<<
-
+&nbsp;
 [CameoPattern-akka.actor.default-dispatcher-10] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 

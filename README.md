@@ -76,9 +76,9 @@ where
 - directory **`akka-concurrency\`** contains [Akka] code examples from [Wyatt's book][book_wyatt].
 - directory **`akka-cookbook\`** contains [Akka] code examples from [Ortiz's book][book_ortiz].
 - directory **`akka-essentials\`** contains [Akka] code examples from [Gupta's book][book_gupta].
-- directory [**`docs\`**](docs/) contains [Scala 3][scala3_home] related papers/articles (see file [**`docs\README.md`**](docs/README.md)).
+- directory [**`docs\`**](docs/) contains [Akka] related papers/articles.
 - directory **`effective-akka\`** contains [Akka] code examples from [Allen's book][book_allen].
-- directory [**`examples\`**](examples/) contains [Scala 3][scala3_home] examples grabbed from various websites (see file [**`examples\README.md`**](examples/README.md)).
+- directory [**`examples\`**](examples/) contains [Akka] examples grabbed from various websites (see file [**`examples\README.md`**](examples/README.md)).
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
 - file [**`setenv.bat`**](setenv.bat) is the batch command for setting up our environment.
