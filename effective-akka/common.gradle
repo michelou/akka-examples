@@ -18,16 +18,27 @@ project.ext {
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
     akkaVersion = "2.7.0"
+    scalatestVersion = "3.2.15"
     dependencies {
-        if (isScala3) {
+        if (isScala3) { 
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"
         }
         else {
             implementation "org.scala-lang:scala-compiler:$scalaVersion"
         }
-        implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
-        // implementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
         implementation "com.typesafe:config:1.4.2"
+        implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
+        // test scope
+        testImplementation 'ch.qos.logback:logback-classic:1.4.5'
+        testImplementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
+        // https://mvnrepository.com/artifact/org.scalatest/scalatest
+        testImplementation "org.scalatest:scalatest_${scalaBinaryVersion}:$scalatestVersion"
+        // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
+        testImplementation "org.scalatest:scalatest-core_${scalaBinaryVersion}:$scalatestVersion"
+        // https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers
+        testImplementation "org.scalatest:scalatest-mustmatchers_${scalaBinaryVersion}:$scalatestVersion"
+        // https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec
+        testImplementation "org.scalatest:scalatest-wordspec_${scalaBinaryVersion}:$scalatestVersion"
     }
 
     mainSourceTree = fileTree(dir: "src/main/scala", include: "**/*.scala")
@@ -66,7 +77,7 @@ tasks.withType(JavaCompile) {
 }
 
 task compileScala(type: JavaExec) {
-    dependsOn compileJava
+    dependsOn compileJava, compileTestJava
 
     description "Compile Scala source files"
 
@@ -77,7 +88,7 @@ task compileScala(type: JavaExec) {
     mainClass = scalacMainClass
 
     String sourceFiles = mainSourceTree.files.join("\" \"").replaceAll("\\\\", "/")
-    args "-deprecation", "-encoding", "UTF8", "-d", classesDir, sourceFiles
+    args "-deprecation", "-language:postfixOps", "-d", classesDir, sourceFiles
 }
 
 compileScala.doFirst {
@@ -108,7 +119,7 @@ task run(type: JavaExec) {
     if (args == null) args ""
 }
 
-task testCompileScala(type: JavaExec) {
+task compileTestScala(type: JavaExec) {
     dependsOn compileScala
 
     description "Compile Scala test source files"
@@ -120,18 +131,18 @@ task testCompileScala(type: JavaExec) {
     mainClass = scalacMainClass
 
     String sourceFiles = testSourceTree.files.join("\" \"").replaceAll("\\\\", "/")
-    args "-deprecation", "-encoding", "UTF8", "-d", testClassesDir, sourceFiles
+    args "-deprecation", "-feature", "-language:postfixOps", "-d", testClassesDir, sourceFiles
 }
 
-testCompileScala.doFirst {
+compileTestScala.doFirst {
     if (!testClassesDir.exists()) testClassesDir.mkdirs()
 }
 
-testCompileScala.onlyIf {
+compileTestScala.onlyIf {
     ! testSourceTree.isEmpty()
 }
 
 test {
-    dependsOn testCompileScala
+    dependsOn compileTestScala
     println "test: not yet implemented"
 }

@@ -4,7 +4,7 @@ SOURCE_DIR  = src
 TARGET_DIR  = target
 CLASSES_DIR = $(TARGET_DIR)/classes
 
-CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(AKKA_ACTOR_TYPED_JAR)$(PSEP)$(SLF4J_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
+CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(AKKA_ACTOR_TYPED_JAR)$(PSEP)$(AKKA_SLF4J_JAR)$(PSEP)$(SLF4J_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
 SCALAC_FLAGS = -deprecation -feature -classpath "$(CPATH)"
 SCALA_FLAGS  = -classpath "$(CPATH)"
 
@@ -49,7 +49,7 @@ help:
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
 	@$(ECHO) "    help   display this help message"
-	@$(ECHO) "    run    execute main program $(MAIN_CLASS)"
+	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
 ## doc rules

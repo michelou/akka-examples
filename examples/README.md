@@ -1,6 +1,6 @@
 # <span id="top">Akka examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://akka.io/" rel="external"><img style="border:0;" src="../docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://akka.io/" alt="Akka">Akka</a> code examples coming from various websites - mostly from the <a href="https://akka.io/" rel="external">Akka project</a>.
@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-## <span id="akka-quickstart">`akka-quickstart`</span>
+## <span id="akka-quickstart">`akka-quickstart` Example</span>
 
 We have implemented this code example in 3 different progamming languages :
 |      | Source files     | Batch      | Grade      | Maven      |
@@ -65,7 +65,7 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 [2022-02-10 17:50:49,880] [INFO] [akka.actor.CoordinatedShutdown] [helloakka-akka.actor.default-dispatcher-5] [CoordinatedShutdown(akka://helloakka)] - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
-## <span id="shopping-cart-service">`shopping-cart-service`</span>
+## <span id="shopping-cart-service">`shopping-cart-service` Example</span>
 
 We add 3 socks to a cart (see section [**6.1 Exercise the service**](https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/grpc-service.html#_exercise_the_service)):
 
@@ -108,7 +108,7 @@ We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](h
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -43,12 +43,18 @@ RM         = rm
 TOUCH      = touch
 endif
 
+## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
+AKKA_VERSION = 2.7.0
+## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+SLF4J_VERSION = 2.0.6
+
 SCALA_LIB_JAR    = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.10.jar)
 CONFIG_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
-AKKA_ACTOR_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.7.0.jar)
-AKKA_TESTKIT_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-testkit_2.13-2.7.0.jar)
-SLF4J_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-2.0.6.jar)
-SLF4J_SIMPLE_JAR = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-2.0.6.jar)
+AKKA_ACTOR_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-$(AKKA_VERSION).jar)
+AKKA_SLF4J_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-slf4j_2.13-$(AKKA_VERSION).jar)
+AKKA_TESTKIT_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-testkit_2.13-$(AKKA_VERSION).jar)
+SLF4J_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-$(SLF4J_VERSION).jar)
+SLF4J_SIMPLE_JAR = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-$(SLF4J_VERSION).jar)
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)
@@ -56,8 +62,8 @@ endif
 ifeq (,$(wildcard $(AKKA_ACTOR_JAR)))
 $(error Variable AKKA_ACTOR_JAR is not set)
 endif
-ifeq (,$(wildcard $(AKKA_TESTKIT_JAR)))
-$(error Variable AKKA_TESTKIT_JAR is not set)
+ifeq (,$(wildcard $(AKKA_SLF4J_JAR)))
+$(error Variable AKKA_SLF4J_JAR is not set)
 endif
 ifeq (,$(wildcard $(SLF4J_JAR)))
 $(error Variable SLF4J_JAR is not set)

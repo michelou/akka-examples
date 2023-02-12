@@ -19,6 +19,7 @@
 ## <span id="blogs">Blogs</span>
 
 - [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
+  - [Optimizing Kafka Clients: A Hands-On Guide][blog_rockthejvm_optimizing], January 2023.
   - [A Scala project with Akka, Cats and Cassandra][blog_rockthejvm_cassandra], April 2022.
   - [Akka Typed: Actor Discovery][blog_rockthejvm_discovery], March 2022.
   - [Akka Streams Backpressure ][blog_rockthejvm_backpressure], November 2021.
@@ -90,6 +91,7 @@
 [blog_rockthejvm_backpressure]: https://blog.rockthejvm.com/akka-streams-backpressure/
 [blog_rockthejvm_cassandra]: https://blog.rockthejvm.com/akka-cassandra-project/
 [blog_rockthejvm_discovery]: https://blog.rockthejvm.com/akka-actor-discovery/
+[blog_rockthejvm_optimizing]: https://blog.rockthejvm.com/optimizing-kafka-clients-a-hands-on-guide/
 [blog_rockthejvm_pipe]: https://blog.rockthejvm.com/pipe-pattern/
 [blog_rockthejvm_stateful]: https://blog.rockthejvm.com/stateful-stateless-actors/
 [blog_shemesh1]: https://www.fyber.com/engineering/tuning-your-akka-to-get-the-most-from-your-actor-based-system-part-i/
