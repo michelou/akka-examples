@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://akka.io/" rel="external"><img src="docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://akka.io/" rel="external" title="Akka">Akka</a> code examples coming from various websites and books.<br/>
-  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a> for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.
+  It also includes several build scripts (<a href="https://ant.apache.org/manual/using.html" rel="external">Ant files</a>, <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://makefiletutorial.com/" rel="external">Make scripts</a>) for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -23,6 +23,7 @@ Optionally one may also install the following software:
 
 - [Apache Ant 1.10][apache_ant] (requires Java 8) ([*release notes*][apache_ant_relnotes])
 - [Apache Maven 3.9][apache_maven] ([requires Java 8 or newer][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
+- [GNU Make 3.81][gmake_install]
 - [Gradle 8.0][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 
@@ -45,6 +46,7 @@ C:\opt\Git-2.39.2\              <i>(314 MB)</i>
 C:\opt\gradle-8.0\              <i>(129 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\  <i>(300 MB)</i>
+C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\scala-2.13.10\           <i>( 24 MB)</i>
 </pre>
 
@@ -110,16 +112,16 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://ant.apache.org/bindownload.cgi">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
+<a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.0-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.0-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(188 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 46 MB)</i>
+<a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(188 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 46 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
 </pre>
 </dd></dl>
-
 
 ***
 
@@ -151,6 +153,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.2.txt
 [github_markdown]: https://github.github.com/gfm/
+[gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
