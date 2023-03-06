@@ -43,7 +43,7 @@ For instance our development environment looks as follows (*March 2023*) <sup id
 C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
 C:\opt\apache-maven-3.9.0\      <i>( 10 MB)</i>
 C:\opt\Git-2.39.2\              <i>(314 MB)</i>
-C:\opt\gradle-8.0.1\            <i>(131 MB)</i>
+C:\opt\gradle-8.0.2\            <i>(131 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\  <i>(300 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
@@ -114,7 +114,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.0-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.0.1-bin.zip</a>                               <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.0.2-bin.zip</a>                               <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(188 MB)</i>
