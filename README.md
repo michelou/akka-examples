@@ -37,13 +37,13 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*February 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*March 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
 C:\opt\apache-maven-3.9.0\      <i>( 10 MB)</i>
 C:\opt\Git-2.39.2\              <i>(314 MB)</i>
-C:\opt\gradle-8.0.1\            <i>(131 MB)</i>
+C:\opt\gradle-8.0.2\            <i>(131 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\  <i>(300 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
@@ -94,7 +94,7 @@ where
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java version</th></tr>
-<tr><td><a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a></td><td>19</td></tr>
+<tr><td><a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup>(<b>1</b>)</sup></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.5/release-notes.html" rel="external">7.5</a></td><td>18</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.3/release-notes.html" rel="external">7.3</a></td><td>17</td></tr>
@@ -104,6 +104,7 @@ where
 <tr><td><a href="https://docs.gradle.org/6.0/release-notes.html" rel="external">6.0</a></td><td>13</td></tr>
 </table>
 </dd></dl>
+<span><sup>(<b>1</b>)</sup> Version 8.0.2 is required for use with Scala 2.13 (see <a href="https://github.com/gradle/gradle/issues/23962">issue 23962</a>).<br/>&nbsp;</span>
 
 <span id="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_02)
 
@@ -114,7 +115,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.0-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.0.1-bin.zip</a>                               <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.0.2-bin.zip</a>                               <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(188 MB)</i>
@@ -125,7 +126,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -157,7 +158,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.0/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.0.2/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
