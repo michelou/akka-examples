@@ -45,7 +45,7 @@ endif
 
 SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.10.jar)
 CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
-AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.7.0.jar)
+AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-2.8.0-M6.jar)
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)

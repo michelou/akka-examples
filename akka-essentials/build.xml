@@ -18,7 +18,7 @@
     </condition>
 
     <property name="cfr.version" value="0.152" />
-    <property name="akka.version" value="2.7.0" />
+    <property name="akka.version" value="2.8.0-M6" />
     <property name="config.version" value="1.4.2" />
 
     <target name="init.local" if="use.local">
@@ -48,7 +48,7 @@
     </target>
 
     <target name="init.ivy" unless="use.local">
-        <!-- installed: C:/opt/apache-ant-1.10.10/lib/ivy-2.5.0.jar -->
+        <!-- installed: C:/opt/apache-ant-1.10.13/lib/ivy-2.5.1.jar -->
         <taskdef resource="org/apache/ivy/ant/antlib.xml"
             uri="antlib:org.apache.ivy.ant" />
         <ivy:resolve file="../../ivy.xml" showprogress="false" log="download-only" />

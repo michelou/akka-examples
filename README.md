@@ -19,6 +19,9 @@ This project depends on the following external software for the **Microsoft Wind
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
+> **&#9755;** ***Maven packages***<br/>
+> We present the Maven package dependencies in document [`PACKAGES.md`](./PACKAGES.md).
+
 Optionally one may also install the following software:
 
 - [Apache Ant 1.10][apache_ant] (requires Java 8) ([*release notes*][apache_ant_relnotes])
@@ -66,6 +69,7 @@ akka-essentials\{<a href="akka-essentials/README.md">README.md</a>, <a href="akk
 docs\
 effective-akka\{<a href="effective-akka/README.md">README.md</a>, <a href="effective-akka/ExtraPattern/">ExtraPattern</a>, etc.>}
 examples\{<a href="examples/README.md">README.md</a>, <a href="examples/akka-quickstart-java/">akka-quickstart-java</a>, <a href="examples/akka-quickstart-kotlin/">akka-quickstart-kotlin</a>, ..}
+<a href="PACKAGES.md">PACKAGES.md</a>
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -81,6 +85,7 @@ where
 - directory [**`docs\`**](docs/) contains [Akka] related papers/articles.
 - directory **`effective-akka\`** contains [Akka] code examples from [Allen's book][book_allen].
 - directory [**`examples\`**](examples/) contains [Akka] examples grabbed from various websites (see file [**`examples\README.md`**](examples/README.md)).
+- file [**`PACKAGES.md`**](PACKAGES.md) presents the [Maven][maven_repository] packages our projects depend on.
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
 - file [**`setenv.bat`**](setenv.bat) is the batch command for setting up our environment.
@@ -177,6 +182,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [man1_rmdir]: https://www.linux.org/docs/man1/rmdir.html
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
+[maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala_releases]: https://www.scala-lang.org/files/archive/
