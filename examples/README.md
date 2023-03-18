@@ -65,7 +65,7 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 [2022-02-10 17:50:49,880] [INFO] [akka.actor.CoordinatedShutdown] [helloakka-akka.actor.default-dispatcher-5] [CoordinatedShutdown(akka://helloakka)] - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
-## <span id="shopping-cart-service">`shopping-cart-service` Example</span>
+## <span id="shopping-cart-service">`shopping-cart-service` Example</span> [**&#x25B4;**](#top)
 
 We add 3 socks to a cart (see section [**6.1 Exercise the service**](https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/grpc-service.html#_exercise_the_service)):
 
@@ -98,6 +98,36 @@ We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](h
 }
 </pre>
 
+## <span id="receptionist">`Receptionist` Example</span>
+
+The `Receptionist` example is adapted from [Alvin's tutorial]( https://alvinalexander.com/scala/akka-typed-how-lookup-find-actor-receptionist/) on Typed Akka.
+
+Command [**`build.bat`**](./Receptionist/build.bat) `clean run` generates the [Akka] application from the source files [`Brain.scala`](./Receptionist/src/main/scala/Brain.scala), [`Mouth.scala`](./Receptionist/src/main/scala/Mouth.scala), [`ReceptionistApp.scala`](./Receptionist/src/main/scala/ReceptionistApp.scala) and [`Supervisor.scala`](./Receptionist/src/main/scala/Supervisor.scala) and executes it :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./Receptionist/build.bat">build</a> -verbose clean run</b>
+Delete directory "target"
+Compile 4 Scala source files to directory "target\classes"
+Copy resource files to directory "target\classes"
+Run Scala program "akka.examples.ReceptionistApp"
+[Supervisor-akka.actor.default-dispatcher-3] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J: See also https://www.slf4j.org/codes.html#replay
+[Supervisor-akka.actor.internal-dispatcher-4] DEBUG akka.actor.typed.internal.receptionist.LocalReceptionist - Actor was registered: ServiceKey[akka.examples.Mouth$MessageToMouth](Mouth) Actor[akka://Supervisor/user/Mouth#-1231001945]Supervisor got a Start message
+
+Brain: got a FindTheMouth message
+listingAdapter:listing: Listing(ServiceKey[akka.examples.Mouth$MessageToMouth](Mouth),Set(Actor[akka://Supervisor/user/Mouth#-1231001945]),Set(Actor[akka://Supervisor/user/Mouth#-1231001945]),true)
+Brain: got a ListingResponse message
+Mouth: got a msg: Brain says hello to Mouth
+listingAdapter:listing: Listing(ServiceKey[akka.examples.Mouth$MessageToMouth](Mouth),Set(Actor[akka://Supervisor/user/Mouth#-1231001945]),Set(Actor[akka://Supervisor/user/Mouth#-1231001945]),true)
+Brain: got a ListingResponse message
+Mouth: got a msg: Brain says hello to Mouth
+[Supervisor-akka.actor.default-dispatcher-5] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+[Supervisor-akka.actor.internal-dispatcher-4] DEBUG akka.actor.typed.internal.receptionist.LocalReceptionist - Registered actor terminated: [ServiceKey[akka.examples.Mouth$MessageToMouth](Mouth)] Actor[akka://Supervisor/user/Mouth#-1231001945]
+[Supervisor-akka.actor.internal-dispatcher-4] DEBUG akka.actor.typed.internal.receptionist.LocalReceptionist - Subscribed actor terminated: [ServiceKey[akka.examples.Mouth$MessageToMouth](Mouth)] Actor[akka://Supervisor/user/Brain/$$a-adapter#741795935]
+</pre>
+
 ## <span id="footnotes">Footnotes</span>
 
 <span id="footnote_01">[1]</span> ***grpcurl*** [↩](#anchor_01)
@@ -112,3 +142,5 @@ We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](h
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
+
+[akka]: https://akka.io/

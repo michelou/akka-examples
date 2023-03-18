@@ -365,13 +365,23 @@ call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
+set __SCALA_OPTS=-cp "%__CPATH%"
 
-if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SCALA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS% 1>&2
-call "%_SCALA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS%
+@rem Scala 2 command does not support Java options passed as argument
+set __JAVA_OPTS=%JAVA_OPTS%
+if %_DEBUG%==0 set JAVA_OPTS=%JAVA_OPTS% -Dorg.slf4j.simpleLogger.defaultLogLevel=debug
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALA_CMD%" %__SCALA_OPTS% %_MAIN_CLASS% 1>&2
+) else if %_VERBOSE%==1 ( echo Run Scala program "%_MAIN_CLASS%" 1>&2
+)
+call "%_SCALA_CMD%" %__SCALA_OPTS% %_MAIN_CLASS%
 if not %ERRORLEVEL%==0 (
+    set JAVA_OPTS=%__JAVA_OPTS%
+    echo %_ERROR_LABEL% Failed to run Scala program "%_MAIN_CLASS%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
+set JAVA_OPTS=%__JAVA_OPTS%
 goto :eof
 
 @rem output parameter: _DURATION
