@@ -44,16 +44,16 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.7.0
+AKKA_VERSION = 2.8.0
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-SLF4J_VERSION = 2.0.6
+SLF4J_VERSION = 2.0.7
 
 SCALA_LIB_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.10.jar)
 CONFIG_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
 AKKA_ACTOR_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-$(AKKA_VERSION).jar)
 AKKA_ACTOR_TYPED_JAR = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor-typed_2.13-$(AKKA_VERSION).jar)
 AKKA_SLF4J_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-slf4j_2.13-$(AKKA_VERSION).jar)
-LOMBOK_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/org/projectlombok" -name lombok-1.18.24.jar)
+LOMBOK_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/org/projectlombok" -name lombok-1.18.26.jar)
 SLF4J_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name slf4j-api-$(SLF4J_VERSION).jar)
 SLF4J_SIMPLE_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name slf4j-simple-$(SLF4J_VERSION).jar)
 

@@ -19,10 +19,10 @@
         <scala.local.install>true</scala.local.install>
 
         <!-- Maven plugin versions -->
-        <akka.version>2.7.0</akka.version>
+        <akka.version>2.8.0</akka.version>
         <config.version>1.4.2</config.version>
         <exec.maven.version>3.1.0</exec.maven.version>
-        <maven.compiler.version>3.10.1</maven.compiler.version>
+        <maven.compiler.version>3.11.0</maven.compiler.version>
         <maven.jar.version>3.3.0</maven.jar.version>
         <scala.maven.version>1.0.0</scala.maven.version>
 

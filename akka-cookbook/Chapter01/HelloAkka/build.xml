@@ -7,6 +7,10 @@
     <property name="build.dir" value="${target.dir}/classes" />
     <property name="main.class" value="com.packt.chapter01.${ant.project.name}" />
 
+    <property name="test.java-source.dir" value="${basedir}/src/test/java" />
+    <property name="test.scala-source.dir" value="${basedir}/src/test/scala" />
+	<property name="test.main.class" value="com.packt.chapter01.${ant.project.name}Test" />
+
     <!-- task 'init' and macro 'dotc' are defined in parent build.xml -->
     <import file="../../build.xml" />
 
@@ -44,5 +48,19 @@
     <target name="clean">
         <delete dir="${target.dir}"/>
     </target>
+
+    <target name="-test-compile" depends="test.init">
+        <mkdir dir="${build.dir}" />
+		<javac srcdir="${test.java-source.dir}"
+		       destdir="${build.dir}"
+               classpathref="build.classpath" />
+        <dotc srcdir="${test.scala-source.dir}"
+              destdir="${build.dir}"
+              classpathref="build.classpath" />
+    </target>
+
+    <target name="test" depends="-test-compile, compile">
+	    <java classname="${test.main.class}" />
+	</target>
 
 </project>

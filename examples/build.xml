@@ -18,8 +18,8 @@
     </condition>
 
     <property name="cfr.version" value="0.152" />
-    <property name="akka.version" value="2.7.0" />
-    <property name="config.version" value="1.4.2" />
+    <property name="akka.version" value="2.8.0" />
+    <!--<property name="config.version" value="1.4.2" />-->
 
     <target name="init.local" if="use.local">
         <property name="scala3.home" value="${env.SCALA3_HOME}" />
@@ -73,7 +73,9 @@
     <target name="init" depends="init.local, init.ivy">
         <path id="build.classpath">
             <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.8.jar" />
-            <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
+            <!--
+			<fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
+			-->
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
             <pathelement location="${build.dir}" />
         </path>

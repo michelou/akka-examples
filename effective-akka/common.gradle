@@ -17,7 +17,7 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.8.0-M6"
+    akkaVersion = "2.8.0"
     scalatestVersion = "3.2.15"
     dependencies {
         if (isScala3) { 
@@ -29,7 +29,7 @@ project.ext {
         implementation "com.typesafe:config:1.4.2"
         implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
         // test scope
-        testImplementation 'ch.qos.logback:logback-classic:1.4.5'
+        testImplementation 'ch.qos.logback:logback-classic:1.4.6'
         testImplementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
         // https://mvnrepository.com/artifact/org.scalatest/scalatest
         testImplementation "org.scalatest:scalatest_${scalaBinaryVersion}:$scalatestVersion"

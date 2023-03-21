@@ -18,8 +18,10 @@
     </condition>
 
     <property name="cfr.version" value="0.152" />
-    <property name="akka.version" value="2.7.0" />
+    <property name="akka.version" value="2.8.0" />
     <property name="config.version" value="1.4.2" />
+	<property name="hamcrest.version" value="2.2" />
+	<property name="junit.version" value="4.13.2" />
 
     <target name="init.local" if="use.local">
         <property name="scala3.home" value="${env.SCALA3_HOME}" />
@@ -212,15 +214,24 @@
     </macrodef>
 
     <target name="test.install">
-        <ivy:resolve file="../ivy-test.xml" showprogress="false" log="download-only" />
+        <ivy:resolve file="../../ivy-test.xml" showprogress="false" log="download-only" />
         <ivy:install
             organisation="junit" module="junit" revision="${junit.version}"
-            transitive="true" overwrite="false" from="public" to="local"
+            transitive="true" overwrite="true" from="public" to="local"
         />
         <ivy:install
             organisation="org.hamcrest" module="hamcrest" revision="${hamcrest.version}"
-            transitive="true" overwrite="false" from="public" to="local"
+            transitive="true" overwrite="true" from="public" to="local"
         />
     </target>
+
+    <target name="test.init" depends="init, test.install">
+	    <path id="test.build.classpath">
+            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.10.jar" />
+            <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
+            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
+            <path id="build.classpath" />
+        </path>
+	</target>
 
 </project>

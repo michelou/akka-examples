@@ -29,9 +29,9 @@
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <dependency org="com.typesafe" name="config" rev="1.4.2"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.8.0-M6"/>
+        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.8.0"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
-        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.8.0-M6"/>
+        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.8.0"/>
 
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
         <dependency org="org.scalatest" name="scalatest_2.13" rev="3.2.15"/>
