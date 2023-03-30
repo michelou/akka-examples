@@ -48,6 +48,11 @@
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${m2.config.jar}</additionalClasspathElement>
                                 <additionalClasspathElement>${m2.akka-actor.jar}</additionalClasspathElement>
+								<additionalClasspathElement>${m2.akka-testkit.jar}</additionalClasspathElement>
+								<additionalClasspathElement>${m2.scalatest.jar}</additionalClasspathElement>
+								<additionalClasspathElement>${m2.scalatest-matchers-core.jar}</additionalClasspathElement>
+								<additionalClasspathElement>${m2.scalatest-shouldmatchers.jar}</additionalClasspathElement>
+								<additionalClasspathElement>${m2.scalatest-wordspec.jar}</additionalClasspathElement>
                             </additionalClasspathElements>
                             <includes>
                                 <include>scala/**/*.scala</include>

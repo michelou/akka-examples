@@ -1,6 +1,6 @@
 # <span id="top">Book <i>Akka Concurrency</i></span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/" rel="external"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-concurrency\</code></strong></a> contains <a href="https://akka.io/" rel="external">Akka</a> examples presented in Wyatt's book <a href="https://www.artima.com/shop/akka_concurrency" rel="external"><i>Akka Concurrency</i></a> (<a href="https://www.artima.com/books/" rel="external" title="Artima">Artima</a>, 2013).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.</td>
@@ -29,7 +29,7 @@ Code examples are written in [Scala] and can be built/run with the following too
 
 ## <span id="ch05">Chapter 5</span> [**&#x25B4;**](#top)
 
-### <span id="ch05_badshakespearean">`BadShakespearean`</span>
+### <span id="ch05_badshakespearean">`BadShakespearean` Example</span>
 
 Code example [`BadShakespearean`](./Chapter05/BadShakespearean/) is composed of the two source files [`BadShakespeareanActor.scala`](./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanActor.scala) and [`BadShakespeareanMain.scala`](./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanMain.scala).
 
@@ -55,7 +55,7 @@ Him: Yup
 > [INFO] [02/21/2022 15:52:44.964] [main] [CoordinatedShutdown(akka://BadShakespearean)] Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 > </pre>
 
-### <span id="ch05_avionics">`Avionics`</span>
+### <span id="ch05_avionics">`Avionics` Example</span>
 
 Code example [`Avionics`](./Chapter05/Avionics/) is composed of the 4 source files [`Altimeter.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Altimeter.scala), [`Avionics.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Avionics.scala), [`ControlSurfaces.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/ControlSurfaces.scala) and [`Plane.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Plane.scala).
 
@@ -73,7 +73,7 @@ Compile 4 Scala source files to directory "target\classes"
 [PlaneSimulation-...-5] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
-### <span id="ch05_avionics_event">`AvionicsEvent`</span>
+### <span id="ch05_avionics_event">`AvionicsEvent` Example</span>
 
 This example adds the Scala source file [`EventSource.scala`](./Chapter05/AvionicsEvent//src/main/scala/zzz/akka/avionics/EventSource.scala) to the previous example (see paragraph **Getting updates from the altimeter** in section 5.5 of Wyatt's book for more details).
 
@@ -110,7 +110,7 @@ Compile 5 Scala source files to directory "target\classes"
 
 ## <span id="ch06">Chapter 6</span> [**&#x25B4;**](#top)
 
-### <span id="ch06_avionics">`Avionics`</span>
+### <span id="ch06_avionics">`Avionics` Example</span>
 
 This example adds a [ScalaTest] suite to example [`AvionicsEvent`](#ch05_avionics_event) of Chapter 5. The test source file is [`TestEventSource.scala`](./Chapter06/Avionics/src/test/scala/zzz/akka/avionics/TestEventSource.scala) <sup id="anchor_03">[3](#footnote_03)</sup>.
 
@@ -204,7 +204,7 @@ Code examples from Wyatt's book <a href="https://www.artima.com/shop/akka_concur
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

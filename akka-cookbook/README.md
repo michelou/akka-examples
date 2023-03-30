@@ -1,6 +1,6 @@
 # <span id="top">Book <i>Akka Cookbook</i></span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/" rel="external"><img src="../docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>akka-cookbook\</code></strong></a> contains <a href="https://akka.io/" rel="external">Akka</a> examples presented in Ortiz's book <a href="https://www.packtpub.com/product/akka-cookbook/9781785288180"><i>Akka Cookbook</i></a> (<a href="https://www.packtpub.com/" rel="external">Packt</a>, 2017).<br/>It also includes different build scripts for experimenting with <a href="https://akka.io/" rel="external">Akka</a> on a Windows machine.</td>
@@ -21,7 +21,7 @@ Code examples can be built/run with the following tools:
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
 </div>
 
-## <span id="helloakka">`HelloAkka`</span>
+## <span id="helloakka">`HelloAkka` Example</span>
 
 Batch file [`build.bat`](./Chapter01/HelloAkka/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -40,7 +40,7 @@ akka://HelloAkka
 > >>> Press ENTER to exit <<<
 > </pre>
 
-## <span id="behaviourandstate">`BehaviourAndState`</span> [**&#x25B4;**](#top)
+## <span id="behaviourandstate">`BehaviourAndState` Example</span> [**&#x25B4;**](#top)
 
 Batch file [`build.bat`](./Chapter01/BehaviourAndState/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -55,29 +55,29 @@ my state as sum is 2
 [BehaviourAndState-akka.actor.default-dispatcher-5] INFO akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
 </pre>
 
-## <span id="controlawaremailbox">`ControlAwareMailbox`</span>
+## <span id="controlawaremailbox">`ControlAwareMailbox` Example</span>
 
 *WIP*
 
-## <span id="custommailbox">`CustomMailbox`</span>
+## <span id="custommailbox">`CustomMailbox` Example</span>
 
 *WIP*
 
-## <span id="pioritymailbox">`PriorityMailbox`</span>
+## <span id="pioritymailbox">`PriorityMailbox` Example</span>
 
 *WIP*
 
 <!------------------- Chapter 2 ---------------------->
 
-## <span id="actorlifecycle">`ActorLifeCycle`</span>
+## <span id="actorlifecycle">`ActorLifeCycle` Example</span>
 
 *WIP*
 
-## <span id="parentchild">`ParentChild`</span>
+## <span id="parentchild">`ParentChild` Example</span>
 
 *WIP*
 
-## <span id="footnotes">Footnotes</span>
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
 <span id="footnote_01">[1]</span> ***Lagom Documentation*** [↩](#anchor_01)
 
@@ -91,7 +91,7 @@ From the <a href="https://www.lagomframework.com/documentation/1.6.x/">Lagom 1.6
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

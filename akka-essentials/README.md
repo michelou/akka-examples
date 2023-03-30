@@ -22,7 +22,7 @@ The code examples presented below are written both in Java and in [Scala] and ca
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
 </div>
 
-## <span id="first_scala">`FirstAkkaApplication`</span>
+## <span id="first_scala">`FirstAkkaApplication` Example</span>
 
 Code example `FirstAkkaApplication`<sup id="anchor_01">[1](#footnote_01)</sup> is an [Akka] application written in Java (e.g. [`MapReduceApplication.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/MapReduceApplication.java), [`MasterActor.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MasterActor.java)<sup id="anchor_02">[2](#footnote_02)</sup>).
 
@@ -50,7 +50,7 @@ Commands [**`ant.bat`**][apache_ant_cli] ([`build.xml`](./Chapter02/FirstAkkaApp
 > HashMap(over -> 1, quick -> 1, belong -> 1, lazy -> 1, best -> 1, man's -> 1, brown -> 1, fox -> 2, fell -> 1, tried -> 1, same -> 1, friend -> 1, family -> 1, dog -> 4, jump -> 1)
 > </pre>
 
-## <span id="process_order">`ProcessOrder`</span>
+## <span id="process_order">`ProcessOrder` Example</span>
 
 Code example `ProcessOrder` is an [Akka] application written in Java (e.g. [`ProcessOrderApp.java`](./Chapter03/ProcessOrder/src/main/java/ProcessOrderApp.java), [`ProcessOrderActor.java`](./Chapter03/ProcessOrder/src/main/java/actors/ProcessOrderActor.java)).
 
@@ -71,7 +71,7 @@ OrderAggregate: akka.actor.Status$Failure
 > ...
 > </pre>
 
-## <span id="ping_pong">`PingPong`</span> [**&#x25B4;**](#top)
+## <span id="ping_pong">`PingPong` Example</span> [**&#x25B4;**](#top)
 
 Code example `PingPong` is an [Akka] application written in Java (e.g. [`PingPongApp.java`](./Chapter03/PingPong/src/main/java/PingPongApp.java), [`PingPongActor.java`](./Chapter03/PingPong/src/main/java/PingPongActor.java)).
 
@@ -201,7 +201,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

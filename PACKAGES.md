@@ -16,22 +16,24 @@ We also install the following [Maven][maven_repository] packages :
 - [Config 1.4](https://mvnrepository.com/artifact/com.typesafe/config) ([*release notes*](https://github.com/lightbend/config/blob/main/NEWS.md))
 - [ScalaTest 3.2](https://mvnrepository.com/artifact/org.scalatest/scalatest) ([*release notes*](https://github.com/scalatest/scalatest/releases/tag/release-3.2.15))
 
-Depending on the management tool the above packages are stored locally in two different locations :
+Depending on the build tool the above packages are stored locally in two different locations :
 
-| Management&nbsp;Tool        | Directory                       |
+| Build&nbsp;tool   | Local&nbsp;repository           |
 |:-----------------------|:--------------------------------|
-| [`mvn.cmd`][mvn_cli]   | `%USERPROFILE%\.m2\repository\` | 
-| [Ivy][ivy_lib] library | `%USERPROFILE%\.ivy2\cache\`    |
+| [`gradle.bat`][gradle_cli], [`mvn.cmd`][mvn_cli] | `%USERPROFILE%\.m2\repository\` | 
+| [`ant.bat`][ant_cli] ([Ivy][ivy_lib] library)    | `%USERPROFILE%\.ivy2\cache\`    |
 
 *WIP*
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
-[ivy_lib]: https://
+[ant_cli]: https://ant.apache.org/
+[gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
+[ivy_lib]: https://ant.apache.org/ivy/
 [maven_repository]: https://mvnrepository.com/
 [mvn_cli]: https://maven.apache.org/ref/3.9.0/maven-embedder/cli.html
