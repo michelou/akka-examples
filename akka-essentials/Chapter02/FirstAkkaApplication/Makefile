@@ -1,3 +1,10 @@
+##
+## Copyright (c) 2018-2023 Stéphane Micheloud
+##
+## Licensed under the MIT License.
+##
+##############################################################################
+
 include ../../Makefile.inc
 
 SOURCE_DIR  = src
@@ -49,13 +56,13 @@ help:
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
 	@$(ECHO) "    help   display this help message"
-	@$(ECHO) "    run    execute main program $(MAIN_CLASS)"
+	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -name *.java 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -name "*.java" 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))
@@ -78,3 +85,6 @@ doc: build $(DOC_TARGET)
 ## phony
 
 .PHONY: all build clean doc help run
+
+.SUFFIXES:
+.SUFFIXES: .class .conf .java .xml

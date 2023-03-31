@@ -176,7 +176,7 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
+echo     %__BEG_O%-debug%__END%      display commands executed by this script
 echo     %__BEG_O%-timer%__END%      display total elapsed time
 echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
@@ -200,7 +200,8 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
 ) else if %_VERBOSE%==1 ( echo Delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
 )
 rmdir /s /q "%__DIR%"
-if not %ERRORLEVEL%==0 (
+if not errorlevel 0 (
+    echo %_ERROR_LABEL% Failed to delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -250,7 +251,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURC
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
 )
 call "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
-if not %ERRORLEVEL%==0 (
+if not errorlevel 0 (
     echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
@@ -331,7 +332,8 @@ set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 
 if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS% 1>&2
 call "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS%
-if not %ERRORLEVEL%==0 (
+if not errorlevel 0 (
+    echo %_ERROR_LABEL% Failed to execute Java main class "%_MAIN_CLASS%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
