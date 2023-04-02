@@ -61,6 +61,10 @@
 - [Effective Akka][book_allen] by Jamie Allen, August 2013.<br/><span style="font-size:80%;">(O`Reilly, ISBN 978-1-449-36007-8, 74 pages)<br/><b>GitHub</b>: <a href="https://github.com/jamie-allen/effective_akka"><code>jamie-allen/effective_akka</code></a></span>
 - [Akka Essentials][book_gupta] by Munish K. Gupta, October 2012.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8495-1828-4, 334 pages)</span>
 
+## <span id="news">News</span>
+
+- [CVE Details - Akka](https://www.cvedetails.com/google-search-results.php?q=Akka&sa=Search).
+
 ## <span id="tools">Tools</span>
 
 - [AkkaProf](https://www.dag.inf.usi.ch/software/akkaprof) &ndash; a profiling tool for [Akka] actors.
