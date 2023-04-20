@@ -316,10 +316,10 @@ decompile() {
     if $DEBUG; then
         debug "cat $output_dir/*.java >> $output_file"
     elif $VERBOSE; then
-        echo "Save generated Java source files to file ${output_file/$ROOT_DIR\//}" 1>&2
+        echo "Save generated Java source files to file \"${output_file/$ROOT_DIR\//}\"" 1>&2
     fi
     local java_files=
-    for f in $(find $output_dir/ -name *.java 2>/dev/null); do
+    for f in $(find "$output_dir/" -type f -name "*.java" 2>/dev/null); do
         java_files="$java_files $(mixed_path $f)"
     done
     [[ -n "$java_files" ]] && cat $java_files >> "$output_file"
@@ -353,7 +353,7 @@ decompile() {
 extra_cpath() {
     lib_path="$SCALA_HOME/lib"
     local extra_cpath=
-    for f in $(find $lib_path/ -name *.jar); do
+    for f in $(find "$lib_path/" -type f -name "*.jar"); do
         extra_cpath="$extra_cpath$(mixed_path $f)$PSEP"
     done
     echo $extra_cpath
@@ -393,10 +393,10 @@ doc() {
 
     local sources_file="$TARGET_DIR/scaladoc_sources.txt"
     [[ -f "$sources_file" ]] && rm -rf "$sources_file"
-    # for f in $(find $SOURCE_DIR/main/java/ -name *.java 2>/dev/null); do
+    # for f in $(find "$SOURCE_DIR/main/java/" -type f -name "*.java" 2>/dev/null); do
     #     echo $(mixed_path $f) >> "$sources_file"
     # done
-    for f in $(find "$CLASSES_DIR/" -name *.tasty 2>/dev/null); do
+    for f in $(find "$CLASSES_DIR/" -type f -name "*.tasty" 2>/dev/null); do
         echo $(mixed_path $f) >> "$sources_file"
     done
     local opts_file="$TARGET_DIR/scaladoc_opts.txt"
@@ -426,7 +426,7 @@ doc() {
 run() {
     local main_class_file="$(mixed_path $CLASSES_DIR)/${MAIN_CLASS//.//}.class"
     if [[ ! -f "$main_class_file" ]]; then
-        error "Scala main class '$MAIN_CLASS' not found ($main_class_file)"
+        error "Scala main class \"$MAIN_CLASS\" not found ($main_class_file)"
         cleanup 1
     fi
     local cpath="$(lib_cpath)$(mixed_path $CLASSES_DIR)"

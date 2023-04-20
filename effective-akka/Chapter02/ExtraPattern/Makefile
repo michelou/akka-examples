@@ -1,3 +1,10 @@
+##
+## Copyright (c) 2018-2023 Stéphane Micheloud
+##
+## Licensed under the MIT License.
+##
+##############################################################################
+
 include ../../Makefile.inc
 
 SOURCE_DIR  = src
@@ -41,7 +48,7 @@ run: build
 	"$(SCALA)" $(SCALA_FLAGS) $(MAIN_CLASS) $(MAIN_ARGS)
 
 help:
-	@$(ECHO) "Usage: make all|build|clean|doc|help|run"
+	@$(ECHO) "Usage: make all|build|clean|doc|help|run|test"
 	@$(ECHO) ""
 	@$(ECHO) "  Subcommands:"
 	@$(ECHO) "    all    alias for build"
@@ -49,7 +56,8 @@ help:
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
 	@$(ECHO) "    help   display this help message"
-	@$(ECHO) "    run    execute main program $(MAIN_CLASS)"
+	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
+	@$(ECHO) "    test   execute unit tests with Scalatest"
 
 ##############################################################################
 ## doc rules
@@ -75,6 +83,33 @@ $(DOC_TARGET): $(DOC_SOURCES)
 doc: build $(DOC_TARGET)
 
 ##############################################################################
+## test rules
+
+TEST_SOURCES     = $(shell [ -d "$(SOURCE_DIR)/test" ] && $(FIND) "$(SOURCE_DIR)/test" -type f -name "*.scala")
+TEST_CLASSES_DIR = $(TARGET_DIR)/test-classes
+TEST_TARGET      = $(TARGET_DIR)/.latest-test-build
+
+TEST_OPTS_FILE    = $(TARGET_DIR)/scalac_test_opts.txt
+TEST_SOURCES_FILE = $(TARGET_DIR)/scalac_test_sources.txt
+
+TEST_MAIN_CLASS = org.jamieallen.effectiveakka.ExtraSpec
+TEST_CPATH      = $(CPATH)$(PSEP)$(AKKA_TESTKIT_JAR)$(PSEP)$(SCALATEST_JAR)$(PSEP)$(TEST_CLASSES_DIR)
+
+$(TEST_TARGET): $(TEST_SOURCES)
+	[ -d "$(TEST_CLASSES_DIR)" ] || "$(MKDIR)" -p "$(TEST_CLASSES_DIR)"
+	# @$(ECHO) $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)" > "$(TEST_OPTS_FILE)"
+	# @$(ECHO) $(TEST_SOURCES) > "$(TEST_SOURCES_FILE)"
+	# "$(SCALAC)" "@$(TEST_OPTS_FILE)" "@$(TEST_SOURCES_FILE)"
+	"$(SCALAC)" $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)"
+	@$(TOUCH) "$(TEST_TARGET)"
+
+test: $(TARGET) $(TEST_TARGET)
+	"$(JAVA)" -classpath "$(TEST_CPATH)" $(TEST_MAIN_CLASS)
+
+##############################################################################
 ## phony
 
-.PHONY: all build clean doc help run
+.PHONY: all build clean doc help run test
+
+.SUFFIXES:
+.SUFFIXES: .class .conf .jar .java .tasty .xml

@@ -10,7 +10,7 @@ import scala.concurrent.duration._
 
 class ExtraFinalSpec extends TestKit(ActorSystem("ExtraTestAS"))
                      with ImplicitSender
-                     with WordSpecLik
+                     with WordSpecLike
                      with MustMatchers {
 
   "An AccountBalanceRetriever" should {

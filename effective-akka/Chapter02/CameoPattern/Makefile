@@ -1,10 +1,17 @@
+##
+## Copyright (c) 2018-2023 Stéphane Micheloud
+##
+## Licensed under the MIT License.
+##
+##############################################################################
+
 include ../../Makefile.inc
 
 SOURCE_DIR  = src
 TARGET_DIR  = target
 CLASSES_DIR = $(TARGET_DIR)/classes
 
-CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(SLF4J_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
+CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(AKKA_SLF4J_JAR)$(PSEP)$(SLF4J_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
 SCALAC_FLAGS = -deprecation -feature -language:postfixOps
 SCALA_FLAGS  = -classpath "$(CPATH)"
 
@@ -87,14 +94,14 @@ TEST_OPTS_FILE    = $(TARGET_DIR)/scalac_test_opts.txt
 TEST_SOURCES_FILE = $(TARGET_DIR)/scalac_test_sources.txt
 
 TEST_MAIN_CLASS = org.jamieallen.effectiveakka.CameoSpec
-TEST_CPATH      = $(CPATH)$(PSEP)$(AKKA_TESTKIT_JAR)$(PSEP)$(SCALATEST_JAR)$(PSEP)$(CLASSES_DIR)$(PSEP)$(TEST_CLASSES_DIR)
+TEST_CPATH      = $(CPATH)$(PSEP)$(AKKA_TESTKIT_JAR)$(PSEP)$(SCALATEST_JAR)$(PSEP)$(TEST_CLASSES_DIR)
 
 $(TEST_TARGET): $(TEST_SOURCES)
 	[ -d "$(TEST_CLASSES_DIR)" ] || "$(MKDIR)" -p "$(TEST_CLASSES_DIR)"
 	# @$(ECHO) $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)" > "$(TEST_OPTS_FILE)"
 	# @$(ECHO) $(TEST_SOURCES) > "$(TEST_SOURCES_FILE)"
 	# "$(SCALAC)" "@$(TEST_OPTS_FILE)" "@$(TEST_SOURCES_FILE)"
-	"$(SCALAC)" $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)"
+	"$(SCALAC)" $(SCALAC_FLAGS) -classpath "$(TEST_CPATH)" -d "$(TEST_CLASSES_DIR)" $(TEST_SOURCES)
 	@$(TOUCH) "$(TEST_TARGET)"
 
 test: $(TARGET) $(TEST_TARGET)
@@ -104,3 +111,6 @@ test: $(TARGET) $(TEST_TARGET)
 ## phony
 
 .PHONY: all build clean doc help run test
+
+.SUFFIXES:
+.SUFFIXES: .class .conf .jar .java .tasty .xml
