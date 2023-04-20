@@ -20,7 +20,7 @@ Depending on the build tool the above packages are stored locally in two differe
 
 | Build&nbsp;tool   | Local&nbsp;repository           |
 |:-----------------------|:--------------------------------|
-| [`gradle.bat`][gradle_cli], [`mvn.cmd`][mvn_cli] | `%USERPROFILE%\.m2\repository\` | 
+| [`gradle.bat`][gradle_cli], [`mvn.cmd`][mvn_cli], [`sbt.bat`][sbt_cli] | `%USERPROFILE%\.m2\repository\` | 
 | [`ant.bat`][ant_cli] ([Ivy][ivy_lib] library)    | `%USERPROFILE%\.ivy2\cache\`    |
 
 *WIP*
@@ -37,3 +37,4 @@ Depending on the build tool the above packages are stored locally in two differe
 [ivy_lib]: https://ant.apache.org/ivy/
 [maven_repository]: https://mvnrepository.com/
 [mvn_cli]: https://maven.apache.org/ref/3.9.0/maven-embedder/cli.html
+[sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
