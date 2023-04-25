@@ -46,9 +46,9 @@ For instance our development environment looks as follows (*April 2023*) <sup id
 C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
 C:\opt\apache-maven-3.9.1\      <i>( 10 MB)</i>
 C:\opt\Git-2.40.0\              <i>(314 MB)</i>
-C:\opt\gradle-8.1\              <i>(131 MB)</i>
+C:\opt\gradle-8.1.1\            <i>(131 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
-C:\opt\jdk-temurin-11.0.18_10\  <i>(300 MB)</i>
+C:\opt\jdk-temurin-11.0.19_7\   <i>(300 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\scala-2.13.10\           <i>( 24 MB)</i>
 </pre>
@@ -101,7 +101,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 11.0.18, scalac 2.13.11-20230306-195001-unknown,
+   javac 11.0.19, scalac 2.13.11-20230306-195001-unknown,
    ant 1.10.13, gradle 8.1, mvn 3.9.1, sbt 1.8.2, grpcurl v1.8.7,
    make 3.81, git 2.40.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 
@@ -122,6 +122,7 @@ C:\opt\Git-2.40.0\mingw64\bin\git.exe
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java version</th></tr>
+<tr><td><a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a></td><td>20</td></tr>
 <tr><td><a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup>(<b>1</b>)</sup></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.5/release-notes.html" rel="external">7.5</a></td><td>18</td></tr>
@@ -143,10 +144,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.1-bin.zip</a>                                 <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.1.1-bin.zip</a>                               <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(188 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.40.0-64-bit.7z.exe</a>                   <i>( 46 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
 </pre>
@@ -160,7 +161,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>It is similar to the setup scripts described on the page <a href="https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell" rel="external">"Visual Studio Developer Command Prompt and Developer PowerShell"</a> of the <a href="https://learn.microsoft.com/en-us/visualstudio/windows" rel="external">Visual Studio</a> online documentation.
 </dd>
 <dd>
-For instance we can quickly check that the two scripts <code>Launch-VsDevShell.ps1</code> and <code>VsDevCmd.bat</code> are indeed available in our Visual Studio 2019 installation :
+For instance we can quickly check that the two scripts <code><b>Launch-VsDevShell.ps1</b></code> and <code><b>VsDevCmd.bat</b></code> are indeed available in our Visual Studio 2019 installation :
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where" rel="external">where</a> /r "C:\Program Files (x86)\Microsoft Visual Studio" *vsdev*</b>
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Launch-VsDevShell.ps1
@@ -170,7 +171,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 </pre>
 </dd>
 <dd>
-Concretely, <code>setenv.bat</code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code>VsDevCmd.bat</code> (resp. <code>vcvarall.bat</code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
 ***
@@ -201,13 +202,13 @@ Concretely, <code>setenv.bat</code> in our GitHub projects which depend on Visua
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.34.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.1/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.1.1/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
@@ -239,8 +240,11 @@ Concretely, <code>setenv.bat</code> in our GitHub projects which depend on Visua
 11.0.14 -> https://www.oracle.com/java/technologies/javase/11-0-14-bugfixes.html
 11.0.15 -> https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
 11.0.16 -> https://www.oracle.com/java/technologies/javase/11-0-16-bugfixes.html
+11.0.17 -> https://www.oracle.com/java/technologies/javase/11-0-17-bugfixes.html
+11.0.18 -> https://www.oracle.com/java/technologies/javase/11-0-18-relnotes.html
+11.0.19 -> https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
 -->
-[temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-16-bugfixes.html
+[temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
 <!--
 11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html
 11.0.4  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-July/001423.html
