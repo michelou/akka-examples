@@ -82,9 +82,24 @@ $(DOC_TARGET): $(DOC_SOURCES)
 doc: build $(DOC_TARGET)
 
 ##############################################################################
+## lint rules
+
+LINT_SOURCES = $(shell $(FIND) "$(SOURCE_DIR)" -type f -name "*.scala")
+LINT_TARGET  = $(TARGET_DIR)/.latest-lint
+
+SCALAFMT_CONFIG_FILE = $(shell dirname $(CURDIR))/.scalafmt.conf
+SCALAFMT_OPTS = --test --config "$(SCALAFMT_CONFIG_FILE)"
+
+lint: $(LINT_TARGET)
+
+$(LINT_TARGET): $(LINT_SOURCES)
+	"$(SCALAFMT)" $(SCALAFMT_OPTS) $(SOURCE_DIR)
+	@$(TOUCH) "$(LINT_TARGET)"
+
+##############################################################################
 ## phony
 
 .PHONY: all build clean doc help run
 
 .SUFFIXES:
-.SUFFIXES: .jar .java
+.SUFFIXES: .class .jar .java .scala .tasty .xml

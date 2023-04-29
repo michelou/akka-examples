@@ -16,6 +16,7 @@ JAVADOC    = $(subst \,/,$(JAVA_HOME))/bin/javadoc.exe
 SCALA      = $(subst \,/,$(SCALA_HOME))/bin/scala.bat
 SCALAC     = $(subst \,/,$(SCALA_HOME))/bin/scalac.bat
 SCALADOC   = $(subst \,/,$(SCALA_HOME))/bin/scaladoc.bat
+SCALAFMT   = $(subst \,/,$(LOCALAPPDATA))/Coursier/data/bin/scalafmt.bat
 LOCAL_REPO = $(subst \,/,$(USERPROFILE))/.m2/repository
 PSEP       = ;
 CP         = $(subst \,/,$(GIT_HOME))/usr/bin/cp.exe
@@ -33,6 +34,7 @@ JAVADOC    = $(JAVA_HOME)/bin/javadoc
 SCALA      = $(SCALA_HOME)/bin/scala
 SCALAC     = $(SCALA_HOME)/bin/scalac
 SCALADOC   = $(SCALA_HOME)/bin/scaladoc
+SCALAFMT   = $(HOME)/Coursier/data/bin/scalafmt
 LOCAL_REPO = $(HOME)/.m2/repository
 PSEP       = :
 CP         = cp
@@ -44,11 +46,11 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.8.0
+AKKA_VERSION = 2.8.1
 
-SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name scala-library-2.13.10.jar)
-CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name config-1.4.2.jar)
-AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name akka-actor_2.13-$(AKKA_VERSION).jar)
+SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
+CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-1.4.2.jar")
+AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-actor_2.13-$(AKKA_VERSION).jar")
 
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)

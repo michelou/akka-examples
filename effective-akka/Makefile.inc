@@ -44,13 +44,13 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.8.0
+AKKA_VERSION = 2.8.1
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
 SCALATEST_VERSION = 3.2.15
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.7
 
-SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.10.jar")
+SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
 CONFIG_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-1.4.2.jar")
 AKKA_ACTOR_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-actor_2.13-$(AKKA_VERSION).jar")
 AKKA_SLF4J_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-slf4j_2.13-$(AKKA_VERSION).jar")

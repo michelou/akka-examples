@@ -7,7 +7,7 @@ scalaVersion := "2.13.10"
 
 scalacOptions ++= Seq(Opts.compile.deprecation, "-feature", "-language:postfixOps")
 
-val akkaVersion = "2.8.0"
+val akkaVersion = "2.8.1"
 val configVersion = "1.4.2"
 
 libraryDependencies ++= Seq(

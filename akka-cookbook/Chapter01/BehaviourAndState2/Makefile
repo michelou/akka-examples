@@ -55,6 +55,7 @@ help:
 	@$(ECHO) "    build  compile Java/Scala source files"
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
+	@$(ECHO) "    lint   analyze Scala source files with Scalafmt"
 	@$(ECHO) "    help   display this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
@@ -82,9 +83,24 @@ $(DOC_TARGET): $(DOC_SOURCES)
 doc: build $(DOC_TARGET)
 
 ##############################################################################
+## lint rules
+
+LINT_SOURCES = $(shell $(FIND) "$(SOURCE_DIR)" -type f -name "*.scala")
+LINT_TARGET  = $(TARGET_DIR)/.latest-lint
+
+SCALAFMT_CONFIG_FILE = $(shell dirname $(CURDIR))/.scalafmt.conf
+SCALAFMT_OPTS = --test --config "$(SCALAFMT_CONFIG_FILE)"
+
+lint: $(LINT_TARGET)
+
+$(LINT_TARGET): $(LINT_SOURCES)
+	"$(SCALAFMT)" $(SCALAFMT_OPTS) $(SOURCE_DIR)
+	@$(TOUCH) "$(LINT_TARGET)"
+
+##############################################################################
 ## phony
 
-.PHONY: all build clean doc help run
+.PHONY: all build clean doc help lint run
 
 .SUFFIXES:
-.SUFFIXES: .classes *.jar *.java *.scala
+.SUFFIXES: .classes .conf .jar .java .scala .tasty .xml

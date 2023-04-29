@@ -10,7 +10,7 @@
 
     <parent>
         <groupId>akka-examples</groupId>
-        <artifactId>examples</artifactId>
+        <artifactId>akka-cookbook</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
@@ -45,8 +45,10 @@
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${m2.config.jar}</additionalClasspathElement>
                                 <additionalClasspathElement>${m2.akka-actor.jar}</additionalClasspathElement>
+                                <additionalClasspathElement>${m2.junit.jar}</additionalClasspathElement>
                             </additionalClasspathElements>
                             <includes>
+                                <include>java/**/*.java</include>
                                 <include>scala/**/*.scala</include>
                             </includes>
                             <installDirectory>${env.SCALA_HOME}</installDirectory>
@@ -59,6 +61,11 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
+                            <additionalClasspathElements>
+                                <additionalClasspathElement>${m2.config.jar}</additionalClasspathElement>
+                                <additionalClasspathElement>${m2.akka-actor.jar}</additionalClasspathElement>
+                                <additionalClasspathElement>${m2.junit.jar}</additionalClasspathElement>
+                            </additionalClasspathElements>
                             <mainClass>${mainClass}</mainClass>
                             <arguments>
                                 <argument></argument>

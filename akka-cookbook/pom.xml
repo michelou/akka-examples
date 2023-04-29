@@ -19,12 +19,14 @@
         <scala.local.install>true</scala.local.install>
 
         <!-- Maven plugin versions -->
-        <akka.version>2.8.0</akka.version>
+        <akka.version>2.8.1</akka.version>
         <config.version>1.4.2</config.version>
         <exec.maven.version>3.1.0</exec.maven.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
         <maven.jar.version>3.3.0</maven.jar.version>
         <scala.maven.version>1.0.0</scala.maven.version>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <junit.version>4.13.2</junit.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>
@@ -32,6 +34,7 @@
         <m2.akka-actor.jar>${m2.directory}/com/typesafe/akka/akka-actor_${scala.binary.version}/${akka.version}/akka-actor_${scala.binary.version}-${akka.version}.jar</m2.akka-actor.jar>
         <m2.akka-testkit.jar>${m2.directory}/com/typesafe/akka/akka-testkit_${scala.binary.version}/${akka.version}/akka-testkit_${scala.binary.version}-${akka.version}.jar</m2.akka-testkit.jar>
         <m2.config.jar>${m2.directory}/com/typesafe/config/${config.version}/config-${config.version}.jar</m2.config.jar>
+        <m2.junit.jar>${m2.directory}/junit/junit/${junit.version}/junit-${junit.version}.jar</m2.junit.jar>
         <m2.scala-library.jar>${m2.directory}/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar</m2.scala-library.jar>
     </properties>
 
@@ -60,6 +63,13 @@
             <artifactId>akka-testkit_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <!-- <scope>test</scope> -->  <!-- NB. Called in goal 'exec:java' -->
         </dependency>
     </dependencies>
 
