@@ -14,12 +14,13 @@ The code examples presented below are written both in Java and in [Scala] and ca
 |:----------------|:-------------------|:-----------------|:---------------|
 | [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter02/FirstAkkaApplication/build.xml)| [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
 | [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter02/FirstAkkaApplication/build.gradle) | [`common.gradle`](./common.gradle) | Any |
-| [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
+| [**`make.exe`**][make_cli] <sup><b>b)</b></sup> | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt) | &nbsp;        | Any |
 | [**`build.bat`**](./Chapter02/FirstAkkaApplication/build.bat) | *none*             |  &nbsp;        | Windows only |
-<div style="font-size:80%;">
-<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
+<div style="font-size:90%;padding-left:12px;">
+<sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/><sup><b>b)</b></sup> Default shell is <code><b>/bin/sh</b></code> as described in the online document <a href="https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html">Choosing the Shell</a>.<br/>
+&nbsp; 
 </div>
 
 ## <span id="first_scala">`FirstAkkaApplication` Example</span>

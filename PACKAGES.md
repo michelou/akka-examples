@@ -10,11 +10,11 @@
 
 We also install the following [Maven][maven_repository] packages : 
 
-- [Akka Actor 2.8](https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor) ([*release notes*](https://github.com/akka/akka/releases))
-- [Akka Actor Typed 2.8](https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed) ([*release notes*](https://github.com/akka/akka/releases))
-- [Akka Testkit 2.8](https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit) ([*release notes*](https://github.com/akka/akka/releases))
-- [Config 1.4](https://mvnrepository.com/artifact/com.typesafe/config) ([*release notes*](https://github.com/lightbend/config/blob/main/NEWS.md))
-- [ScalaTest 3.2](https://mvnrepository.com/artifact/org.scalatest/scalatest) ([*release notes*](https://github.com/scalatest/scalatest/releases/tag/release-3.2.15))
+- [Akka Actor 2.8](https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor) ([*release notes*][akka_relnotes])
+- [Akka Actor Typed 2.8](https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed) ([*release notes*][akka_relnotes])
+- [Akka Testkit 2.8](https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit) ([*release notes*][akka_relnotes])
+- [Config 1.4][config_download] ([*release notes*][config_relnotes])
+- [ScalaTest 3.2][scalatest_download] ([*release notes*][scalatest_relnotes])
 
 Depending on the build tool the above packages are stored locally in two different locations :
 
@@ -32,9 +32,14 @@ Depending on the build tool the above packages are stored locally in two differe
 
 <!-- link refs -->
 
+[akka_relnotes]: https://github.com/akka/akka/releases
 [ant_cli]: https://ant.apache.org/
+[config_download]: https://mvnrepository.com/artifact/com.typesafe/config
+[config_relnotes]: https://github.com/lightbend/config/blob/main/NEWS.md
 [gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
 [ivy_lib]: https://ant.apache.org/ivy/
 [maven_repository]: https://mvnrepository.com/
 [mvn_cli]: https://maven.apache.org/ref/3.9.0/maven-embedder/cli.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
+[scalatest_download]: https://mvnrepository.com/artifact/org.scalatest/scalatest
+[scalatest_relnotes]: https://github.com/scalatest/scalatest/releases/tag/release-3.2.16
