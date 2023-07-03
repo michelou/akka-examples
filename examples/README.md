@@ -11,7 +11,7 @@
 ## <span id="akka-quickstart">`akka-quickstart` Example</span>
 
 We have implemented this code example in 3 different progamming languages :
-|      | Source files     | Batch      | Grade      | Maven      |
+|      | Source files     | Batch      | [Gradle]   | [Maven]    |
 |:-----|:-----------------|:-----------|:-----------|:-----------|
 | Java | [`AkkaQuickstart.java`](akka-quickstart-java/src/main/java/com/example/AkkaQuickstart.java), [`Greeter.java`](akka-quickstart-java/src/main/java/com/example/Greeter.java) | [`build.bat`](akka-quickstart-java/build.bat) | [`build.gradle`](akka-quickstart-java/build.gradle) | [`pom.xml`](akka-quickstart-java/pom.xml) |
 | Kotlin | [`AkkaQuickstart.kt`](akka-quickstart-kotlin/src/main/kotlin/com/example/AkkaQuickstart.kt), [`Greeter.kt`](akka-quickstart-kotlin/src/main/kotlin/com/example/Greeter.kt) | [`build.bat`](akka-quickstart-kotlin/build.bat) | [`build.gradle`](akka-quickstart-kotlin/build.gradle) | [`pom.xml`](akka-quickstart-kotlin/pom.xml) |
@@ -67,7 +67,7 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 
 ## <span id="shopping-cart-service">`shopping-cart-service` Example</span> [**&#x25B4;**](#top)
 
-We add 3 socks to a cart (see section [**6.1 Exercise the service**](https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/grpc-service.html#_exercise_the_service)):
+We add 3 socks to a cart (see section [**6.1 Exercise the service**](https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/grpc-service.html#_exercise_the_service)) with the [grpcurl]<sup id="anchor_01">[1](#footnote_01)</sup> tool :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where">where</a> grpcurl</b>
@@ -138,9 +138,12 @@ Mouth: got a msg: Brain says hello to Mouth
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
 [akka]: https://akka.io/
+[gradle]: https://docs.gradle.org/current/userguide/what_is_gradle.html
+[grpcurl]: https://github.com/fullstorydev/grpcurl#grpcurl
+[maven]: https://maven.apache.org/what-is-maven.html

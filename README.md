@@ -27,7 +27,7 @@ Optionally one may also install the following software:
 - [Apache Ant 1.10][apache_ant] (requires Java 8+) ([*release notes*][apache_ant_relnotes])
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [GNU Make 3.81][gmake_install]
-- [Gradle 8.1][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 
 <!--
@@ -40,13 +40,13 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*June 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*July 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
-C:\opt\apache-maven-3.9.2\      <i>( 10 MB)</i>
+C:\opt\apache-maven-3.9.3\      <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\              <i>(358 MB)</i>
-C:\opt\gradle-8.1.1\            <i>(131 MB)</i>
+C:\opt\gradle-8.2\              <i>(131 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\   <i>(300 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
@@ -101,8 +101,8 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 11.0.19, scalac 2.13.11-20230306-195001-unknown,
-   ant 1.10.13, gradle 8.1.1, mvn 3.9.2, sbt 1.8.2, grpcurl v1.8.7,
+   javac 11.0.19, scalac 2.13.11,
+   ant 1.10.13, gradle 8.2, mvn 3.9.3, sbt 1.9.0, grpcurl v1.8.7,
    make 3.81, git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git</b>
@@ -122,7 +122,8 @@ C:\opt\Git-2.41.0\mingw64\bin\git.exe
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java version</th></tr>
-<tr><td><a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a></td><td>20</td></tr>
+<tr><td><a href="https://docs.gradle.org/8.2/release-notes.html" rel="external">8.2</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup>(<b>1</b>)</sup></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.5/release-notes.html" rel="external">7.5</a></td><td>18</td></tr>
@@ -143,8 +144,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.2-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.1.1-bin.zip</a>                               <i>(118 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.3-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.2-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(188 MB)</i>
@@ -176,7 +177,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -190,7 +191,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.2/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.3/release-notes.html
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
@@ -208,7 +209,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.1.1/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.2/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases

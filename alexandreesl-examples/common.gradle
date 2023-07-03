@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.0-RC3"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.1-RC2"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -17,9 +17,9 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.8.0"
-    logbackVersion = "1.4.6"
-    specs2Version = isScala3 ? "5.2.0" : "4.19.0"
+    akkaVersion = "2.8.3"
+    logbackVersion = "1.4.8"
+    specs2Version = isScala3 ? "5.2.0" : "4.20.0"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"

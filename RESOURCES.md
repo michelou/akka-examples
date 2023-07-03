@@ -50,15 +50,15 @@
 
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
-- [Akka in Action][book_abraham] (2<sup>nd</sup> Edition) by Francisco Lopez-Sancho Abrahm, Spring 2023.<br/><span>(Manning, ISBN 978-1-6172-9921-6, 425 pages)</span>
+- [Akka in Action][book_abraham] (2<sup>nd</sup> Edition) by Francisco Lopez-Sancho Abrahm, July 2023.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9921-6, 425 pages)</span>
 - [Scala Reactive Programming][book_posa] by Rambagu Posa, February 2018.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7872-8864-5, 499 pages)<br/><b>GitHub</b>: <a href="https://github.com/packtpublishing/scala-reactive-programming"><code>PacktPublishing/Scala-Reactive-Programming</code></a></span>
 - &#128077; [Akka Cookbook][book_ortiz] by Hector V. Ortiz, May 2017.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7852-8818-0, 414 pages)<br/><b>GitHub</b>: [`PackPublishing/Akka-Cookbook`](https://github.com/PacktPublishing/Akka-Cookbook).</span>
-- [Reative Design Patterns][book_kuhn] by Roland Kuhn et al., February 2017.</br><span>(Manning, ISBN 978-1-6172-9180-7, 392 pages)</span>
+- [Reative Design Patterns][book_kuhn] by Roland Kuhn et al., February 2017.</br><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9180-7, 392 pages)</span>
 - [Mastering Akka][book_baxter] by Christian Baxter, October 2016.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7864-6502-3, 436 pages)</span>
 - [Akka in Action][book_roestenburg] by Raymong Roestenburg et al., September 2016.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9101-2, 448 pages)</span>
-- [Reactive Programming with Scala and Akka][book_sathy] by Prasanna K. Sathyanarayanan, 2016.<br/><span>(Packt, ISBN 978-1-7839-8434-3, pages)</span>
+- [Reactive Programming with Scala and Akka][book_sathy] by Prasanna K. Sathyanarayanan, 2016.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7839-8434-3, pages)</span>
 - [Learning Akka][book_goodwin] by Jason Goodwin, December 2015.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7843-9300-7, 274 pages)</span>
-- &#128077; [Akka Concurrency][book_wyatt] by Derek Wyatt, May 2013.<br/><span style="font-size:80%;">(Artima, 521 pages)</span>.
+- &#128077; [Akka Concurrency][book_wyatt] by Derek Wyatt, May 2013.<br/><span style="font-size:80%;">(Artima, ISBN 978-0-9815-3166-3, 521 pages)</span>.
 - [Effective Akka][book_allen] by Jamie Allen, August 2013.<br/><span style="font-size:80%;">(O`Reilly, ISBN 978-1-449-36007-8, 74 pages)<br/><b>GitHub</b>: <a href="https://github.com/jamie-allen/effective_akka"><code>jamie-allen/effective_akka</code></a></span>
 - [Akka Essentials][book_gupta] by Munish K. Gupta, October 2012.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8495-1828-4, 334 pages)</span>
 
@@ -75,10 +75,11 @@
 ## <span id="videos">Videos</span>
 
 - [Islands in the Stream: Integrating Akka Streams and Akka Actors][video_breck] by Colin Breck, October 2017.
+- [Learning Akka Tutorial](https://www.youtube.com/playlist?list=PLTgRMOcmRb3O_bU_p12FTYS7mEYeyzZ6G) by Packt, 2016.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->

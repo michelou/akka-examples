@@ -24,10 +24,10 @@ set _LIBS_CPATH=
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.8.0
+set __AKKA_VERSION=2.8.3
 set __LOMBOK_VERSION=1.18.26
-set __SCALA_VERSION=2.13.10
-set __SCALATEST_VERSION=3.2.15
+set __SCALA_VERSION=2.13.11
+set __SCALATEST_VERSION=3.2.16
 set __SLF4J_VERSION=2.0.7
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library

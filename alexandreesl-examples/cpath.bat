@@ -27,9 +27,9 @@ set __SCALA_BINARY_VERSION=2.13
 
 set _LIBS_CPATH=
 
-set __AKKA_VERSION=2.8.0
-set __SCALA_VERSION=2.13.10
-set __SCALATEST_VERSION=3.2.15
+set __AKKA_VERSION=2.8.3
+set __SCALA_VERSION=2.13.11
+set __SCALATEST_VERSION=3.2.16
 set __SLF4J_VERSION=2.0.7
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
@@ -69,10 +69,10 @@ call :add_jar "com.typesafe.scala-logging" "scala-logging_%__SCALA_BINARY_VERSIO
 call :add_jar "com.typesafe.akka" "akka-stream_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-stream-kafka
-call :add_jar "com.typesafe.akka" "akka-stream-kafka_%__SCALA_BINARY_VERSION%" "4.0.0"
+call :add_jar "com.typesafe.akka" "akka-stream-kafka_%__SCALA_BINARY_VERSION%" "4.0.2"
 
 @rem https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
-call :add_jar "org.apache.kafka" "kafka-clients" "3.4.0"
+call :add_jar "org.apache.kafka" "kafka-clients" "3.5.0"
 
 goto end
 

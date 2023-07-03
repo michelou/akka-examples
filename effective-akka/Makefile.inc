@@ -44,9 +44,9 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.8.1
+AKKA_VERSION = 2.8.3
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
-SCALATEST_VERSION = 3.2.15
+SCALATEST_VERSION = 3.2.16
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.7
 
@@ -60,6 +60,9 @@ SCALATEST_FUNSPEC_JAR = $(shell $(FIND) "$(LOCAL_REPO)/org/scalatest" -name "sca
 SLF4J_JAR             = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name "slf4j-api-$(SLF4J_VERSION).jar")
 SLF4J_SIMPLE_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name "slf4j-simple-$(SLF4J_VERSION).jar")
 
+ifeq (,$(wildcard $(SCALA_LIB_JAR)))
+$(error Variable SCALA_LIB_JAR is not set)
+endif
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)
 endif
@@ -77,4 +80,7 @@ $(error Variable SCALATEST_JAR is not set)
 endif
 ifeq (,$(wildcard $(SLF4J_JAR)))
 $(error Variable SLF4J_JAR is not set)
+endif
+ifeq (,$(wildcard $(SLF4J_SIMPLE_JAR)))
+$(error Variable SLF4J_SIMPLE_JAR is not set)
 endif

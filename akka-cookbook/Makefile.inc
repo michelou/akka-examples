@@ -52,6 +52,9 @@ SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-li
 CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-1.4.2.jar")
 AKKA_ACTOR_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-actor_2.13-$(AKKA_VERSION).jar")
 
+ifeq (,$(wildcard $(SCALA_LIB_JAR)))
+$(error Variable SCALA_LIB_JAR is not set)
+endif
 ifeq (,$(wildcard $(CONFIG_JAR)))
 $(error Variable CONFIG_JAR is not set)
 endif
