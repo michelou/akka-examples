@@ -35,6 +35,7 @@ Optionally one may also install the following software:
 1.10.1  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.1.html
 1.10.2  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.2.html
 1.10.3  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.3.html
+1.10.11 -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.11.html
 1.10.13 -> https://github.com/apache/ant/blob/master/WHATSNEW
 -->
 
