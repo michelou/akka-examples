@@ -18,7 +18,7 @@
     </condition>
 
     <property name="cfr.version" value="0.152" />
-    <property name="akka.version" value="2.8.1" />
+    <property name="akka.version" value="2.8.3" />
     <!--<property name="config.version" value="1.4.2" />-->
 
     <target name="init.local" if="use.local">
@@ -72,10 +72,9 @@
 
     <target name="init" depends="init.local, init.ivy">
         <path id="build.classpath">
-            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.8.jar" />
-            <!--
-			<fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
-			-->
+            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.11.jar" />
+            <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
+            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_typed_2.13-${akka.version}.jar" />
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
             <pathelement location="${build.dir}" />
         </path>
@@ -127,6 +126,9 @@
                 <jvmarg value="-Xms768m" />
                 <jvmarg value="-Dscala.usejavacp=true" />
                 <arg value="-deprecation" />
+                <arg value="-rewrite" />
+                <arg value="-source" />
+                <arg value="3.0-migration" />
                 <arg value="-d" />
                 <arg value="@{destdir}" />
                 <arg value="-classpath" />
