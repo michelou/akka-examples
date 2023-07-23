@@ -205,7 +205,7 @@ for /f "tokens=1,2,*" %%f in ('subst') do (
         goto :eof
     )
 )
-for /f "tokens=1,2,*" %%f in ('subst') do (
+for /f "tokens=1,2,*" %%i in ('subst') do (
     set __USED=%%i
     call :drive_names "!__USED:~0,2!"
 )
@@ -225,9 +225,11 @@ if not %ERRORLEVEL%==0 (
 )
 goto :eof
 
+@rem input parameter: %1=Used drive name
+@rem output parameter: __DRIVE_NAMES
 :drive_names
-set "__USED=%~1"
-set "__DRIVE_NAMES=!__DRIVE_NAMES:%__USED%=!"
+set "__USED_NAME=%~1"
+set "__DRIVE_NAMES=!__DRIVE_NAMES:%__USED_NAME%=!"
 goto :eof
 
 :help
@@ -246,7 +248,7 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
+echo     %__BEG_O%-debug%__END%      display commands executed by this script
 echo     %__BEG_O%-verbose%__END%    display environment settings
 echo.
 echo   %__BEG_P%Subcommands:%__END%
@@ -446,7 +448,7 @@ set _GRADLE_HOME=
 set _GRADLE_PATH=
 
 set __GRADLE_CMD=
-for /f %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
+for /f "delims=" %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
 if defined __GRADLE_CMD (
     for %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
     for %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
