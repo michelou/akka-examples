@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously investigating.
+[Ada][ada_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -41,7 +41,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*July 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*August 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
@@ -49,7 +49,7 @@ C:\opt\apache-maven-3.9.3\      <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\              <i>(358 MB)</i>
 C:\opt\gradle-8.2.1\            <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
-C:\opt\jdk-temurin-11.0.19_7\   <i>(300 MB)</i>
+C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\scala-2.13.11\           <i>( 24 MB)</i>
 </pre>
@@ -149,7 +149,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(188 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
 </pre>
@@ -178,7 +178,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -200,6 +200,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
+[docker_examples]: https://github.com/michelou/docker-examples
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
