@@ -169,7 +169,7 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      display commands executed by this script
-echo     %__BEG_O%-timer%__END%      display total elapsed time
+echo     %__BEG_O%-timer%__END%      display total execution time
 echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
@@ -221,7 +221,7 @@ goto :eof
 set "__SOURCES_FILE=%_TARGET_DIR%\javac_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f %%i in ('dir /s /b "%_SOURCE_DIR%\main\java\*.java" 2^>NUL') do (
+for /f "delims=" %%i in ('dir /s /b "%_SOURCE_DIR%\main\java\*.java" 2^>NUL') do (
     echo %%i >> "%__SOURCES_FILE%"
     set /a __N+=1
 )

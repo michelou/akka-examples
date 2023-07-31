@@ -197,13 +197,32 @@ libs_cpath() {
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.8.3.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.8.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.8.3.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.8.*.jar" 2>/dev/null); do 
+        jar_file="$f"
+    done
+	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
+    ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    jar_file=
+    for f in $(find "$repo_dir/org/slf4j" -name "slf4j-api-2.0.*.jar" 2>/dev/null); do 
+        jar_file="$f"
+    done
+	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
+    ## https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    jar_file=
+    for f in $(find "$repo_dir/org/slf4j" -name "slf4j-simple-2.0.*.jar" 2>/dev/null); do 
+        jar_file="$f"
+    done
+	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
+    
+    ## https://mvnrepository.com/artifact/org.projectlombok/lombok
+    jar_file=
+    for f in $(find "$repo_dir/org/projectlombok" -name "lombok-1.18.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
@@ -212,7 +231,7 @@ libs_cpath() {
 
 compile_java() {
     local opts_file="$TARGET_DIR/javac_opts.txt"
-    local cpath="$(mixed_path $CLASSES_DIR)"
+    local cpath="$(libs_cpath)$(mixed_path $CLASSES_DIR)"
     echo -classpath "$cpath" -d "$(mixed_path $CLASSES_DIR)" > "$opts_file"
 
     local sources_file="$TARGET_DIR/javac_sources.txt"
@@ -477,7 +496,7 @@ DECOMPILE=false
 DOC=false
 HELP=false
 LINT=false
-MAIN_CLASS=com.packt.chapter01.HelloAkka
+MAIN_CLASS=com.gkatzioura.Application
 MAIN_ARGS=
 RUN=false
 SCALAC_OPTS_PRINT=false

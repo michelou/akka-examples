@@ -103,4 +103,4 @@ $(LINT_TARGET): $(LINT_SOURCES)
 .PHONY: all build clean doc help lint run
 
 .SUFFIXES:
-.SUFFIXES: .classes .conf .jar .java .scala .tasty .xml
+.SUFFIXES: .class .conf .jar .java .scala .tasty .xml

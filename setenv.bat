@@ -175,6 +175,8 @@ goto :eof
 @rem output parameter: _DRIVE_NAME (2 characters: letter + ':')
 :drive_name
 set "__GIVEN_PATH=%~1"
+@rem remove trailing path separator if present
+if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
