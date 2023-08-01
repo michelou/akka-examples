@@ -87,4 +87,4 @@ doc: build $(DOC_TARGET)
 .PHONY: all build clean doc help run
 
 .SUFFIXES:
-.SUFFIXES: .class .conf .jar .java .xml
+.SUFFIXES: .class .conf .html .jar .java

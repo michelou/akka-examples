@@ -13,7 +13,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object Avionics {
   // needed for '?' below
-  implicit val timeout = Timeout(5.seconds)
+  implicit val timeout: Timeout = Timeout(5.seconds)
+
   val system = ActorSystem("PlaneSimulation")
   val plane = system.actorOf(Props[Plane](), "Plane")
 

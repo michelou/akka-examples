@@ -131,12 +131,11 @@ set _STRONG_BG_BLUE=[104m
 goto :eof
 
 @rem input parameter: %*
-@rem output parameter: _HELP, _VERBOSE
+@rem output parameter: _BASH, _HELP, _VERBOSE
 :args
-set _HELP=0
 set _BASH=0
+set _HELP=0
 set _VERBOSE=0
-
 :args_loop
 set "__ARG=%~1"
 if not defined __ARG goto args_done
@@ -167,14 +166,17 @@ call :drive_name "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options  : _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
     echo %_DEBUG_LABEL% Variables: _DRIVE_NAME=%_DRIVE_NAME% 1>&2
 )
 goto :eof
 
 @rem input parameter: %1: path to be substituted
-@rem output parameter: _DRIVE_NAME
+@rem output parameter: _DRIVE_NAME (2 characters: letter + ':')
 :drive_name
 set "__GIVEN_PATH=%~1"
+@rem remove trailing path separator if present
+if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
@@ -183,7 +185,7 @@ for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
 )
 if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(WMIC^) 1>&2
 if not defined __DRIVE_NAMES (
-    echo %_ERROR_LABEL% No more free drive letter 1>&2
+    echo %_ERROR_LABEL% No more free drive name 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -219,7 +221,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
 )
 subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assigned drive %_DRIVE_NAME% to path 1>&2
+    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path 1>&2
     set _EXITCODE=1
     goto :eof
 )

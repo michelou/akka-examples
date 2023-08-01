@@ -44,7 +44,7 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.8.0
+AKKA_VERSION = 2.8.3
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.7
 
@@ -63,4 +63,13 @@ $(error Variable CONFIG_JAR is not set)
 endif
 ifeq (,$(wildcard $(AKKA_ACTOR_JAR)))
 $(error Variable AKKA_ACTOR_JAR is not set)
+endif
+ifeq (,$(wildcard $(AKKA_ACTOR_TYPED_JAR)))
+$(error Variable AKKA_ACTOR_TYPED_JAR is not set)
+endif
+ifeq (,$(wildcard $(SLFJ4_API_JAR)))
+$(error Variable SLFJ4_API_JAR is not set)
+endif
+ifeq (,$(wildcard $(SLFJ4_SIMPLE_JAR)))
+$(error Variable SLFJ4_SIMPLE_JAR is not set)
 endif
