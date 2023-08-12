@@ -1,6 +1,7 @@
 package zzz.akka.avionics
 
 import akka.actor.{Actor, ActorLogging}
+import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
 
 object Altimeter {
@@ -16,7 +17,7 @@ class Altimeter extends Actor with ActorLogging { this: EventSource =>
   // We need an "ExecutionContext" for the scheduler. This
   // Actor's dispatcher can serve that purpose. The scheduler's
   // work will be dispatched on this Actor's own dispatcher.
-  implicit val ec = context.dispatcher
+  implicit val ec: ExecutionContext = context.dispatcher
 
   // The maximum ceiling of our plane in 'feet'.
   val ceiling = 43000
