@@ -65,7 +65,7 @@ This project is organized as follows:
 
 <pre style="font-size:80%;">
 alexandreesl-examples\{<a href="alexandreesl-examples/README.md">README.md</a>, <a href="alexandreesl-examples/akka-stream-lab/">akka-stream-lab</a>}
-akka\     <i>(Git submodule)</i>
+<a href="https://github.com/michelou/akka">akka</a>\     <i>(Git submodule)</i>
 akka-concurrency\{<a href="akka-concurrency/README.md">README.md</a>, <a href="akka-concurrency/Chapter05/Avionics/">Avionics</a>, <a href="akka-concurrency/Chapter05/BadSharespearean/">BadSharespearean</a>, etc.}
 akka-cookbook\{<a href="akka-cookbook/README.md">README.md</a>, <a href="akka-cookbook/Chapter01/HelloAkka/">HelloAkka</a>, <a href="akka-cookbook/Chapter01/PriorityMailbox/">PriorityMailbox</a>, etc.}
 akka-essentials\{<a href="akka-essentials/README.md">README.md</a>, <a href="akka-essentials/Chapter02/FirstAkkaApplication/">FirstAkkaApplication</a>, etc.}
