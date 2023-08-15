@@ -263,7 +263,7 @@ set _JAVA_HOME=
 
 set __DISTRO=jdk-temurin-11
 set __JAVAC_CMD=
-for /f %%f in ('where javac.exe 2^>NUL') do (
+for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
     set "__JAVAC_CMD=%%f"
     @rem we ignore Scoop managed Java installation
     if not "!__JAVAC_CMD:scoop=!"=="!__JAVAC_CMD!" set __JAVAC_CMD=
@@ -562,7 +562,7 @@ set _SBT_HOME=
 set _SBT_PATH=
 
 set __SBT_CMD=
-for /f %%f in ('where sbt.bat 2^>NUL') do set "__SBT_CMD=%%f"
+for /f "delims=" %%f in ('where sbt.bat 2^>NUL') do set "__SBT_CMD=%%f"
 if defined __SBT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of sbt executable found in PATH 1>&2
     @rem keep _SBT_PATH undefined since executable already in path
@@ -577,7 +577,7 @@ if defined __SBT_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         if not defined _SBT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         )
     )
 )
