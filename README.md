@@ -29,6 +29,7 @@ Optionally one may also install the following software:
 - [GNU Make 3.81][gmake_install]
 - [Gradle 8.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
+- [Oracle OpenJDK 21 LTS][oracle_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][oracle_openjdk21_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
 <!--
@@ -48,7 +49,7 @@ For instance our development environment looks as follows (*August 2023*) <sup i
 C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
 C:\opt\apache-maven-3.9.4\      <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\              <i>(358 MB)</i>
-C:\opt\gradle-8.2.1\            <i>(135 MB)</i>
+C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
@@ -235,6 +236,8 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
+[oracle_openjdk21]: https://jdk.java.net/21/
+[oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.11

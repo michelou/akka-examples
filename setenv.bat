@@ -27,7 +27,6 @@ set _ANT_PATH=
 set _GIT_PATH=
 set _GRADLE_PATH=
 set _GRPCURL_PATH=
-set _KOTLIN_PATH=
 set _MAKE_PATH=
 set _MAVEN_PATH=
 set _SBT_PATH=
@@ -217,11 +216,11 @@ set "_DRIVE_NAME=!__DRIVE_NAMES:~0,2!"
 if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
-) else if %_VERBOSE%==1 ( echo Assign path "%__GIVEN_PATH%" to drive %_DRIVE_NAME% 1>&2
+) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
 )
 subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path 1>&2
+    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -374,7 +373,7 @@ if defined __KOTLINC_CMD (
     for /f %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
     if not defined _KOTLIN_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_KOTLIN_HOME%\bin\kotlinc.bat" (
