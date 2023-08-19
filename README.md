@@ -27,9 +27,9 @@ Optionally one may also install the following software:
 - [Apache Ant 1.10][apache_ant] (requires Java 8+) ([*release notes*][apache_ant_relnotes])
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [GNU Make 3.81][gmake_install]
-- [Gradle 8.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.3][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
-- [Oracle OpenJDK 21 LTS][oracle_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][oracle_openjdk21_relnotes])
+- [Oracle OpenJDK 21 LTS][oracle_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][oracle_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
 <!--
@@ -51,6 +51,7 @@ C:\opt\apache-maven-3.9.4\      <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\              <i>(358 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
+C:\opt\jdk-oracle-21-ea-35\     <i>(320 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
@@ -106,7 +107,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 11.0.20, scalac 2.13.11,
-   ant 1.10.13, gradle 8.2.1, mvn 3.9.4, sbt 1.9.3, grpcurl v1.8.7,
+   ant 1.10.13, gradle 8.3, mvn 3.9.4, sbt 1.9.3, grpcurl v1.8.7,
    make 3.81, git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git</b>
@@ -126,8 +127,9 @@ C:\opt\Git-2.41.0\mingw64\bin\git.exe
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java version</th></tr>
-<tr><td><a href="https://docs.gradle.org/8.2/release-notes.html" rel="external">8.2</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
-<tr><td><a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/8.3/release-notes.html" rel="external">8.3</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/8.2/release-notes.html" rel="external">8.2</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">19</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">19</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup>(<b>1</b>)</sup></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a></td><td>19</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.5/release-notes.html" rel="external">7.5</a></td><td>18</td></tr>
@@ -149,7 +151,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.3-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(188 MB)</i>
@@ -162,7 +164,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <span id="footnote_03">[3]</span> **`setenv.bat` *usage*** [↩](#anchor_03)
 
 <dl><dd>
-<a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
+Batch file <a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
 </dd>
 <dd>It is similar to the setup scripts described on the page <a href="https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell" rel="external">"Visual Studio Developer Command Prompt and Developer PowerShell"</a> of the <a href="https://learn.microsoft.com/en-us/visualstudio/windows" rel="external">Visual Studio</a> online documentation.
 </dd>
@@ -177,7 +179,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 </pre>
 </dd>
 <dd>
-Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>), <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
 ***
@@ -237,6 +239,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [oracle_openjdk21]: https://jdk.java.net/21/
+[oracle_openjdk21_api]: https://download.java.net/java/early_access/jdk21/docs/api/
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala_releases]: https://www.scala-lang.org/files/archive/
@@ -270,9 +273,14 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 11.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-April/014104.html
 11.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-July/016017.html
 11.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-October/018119.html
+11.0.20 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024064.html
 -->
 [temurin_openjdk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2022-April/014104.html
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
+<!--
+17.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021899.html
+17.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024063.html
+-->
 [temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
 [temurin_openjdk17_relnotes]: https://github.com/openjdk/jdk/compare/jdk-17%2B20...jdk-17%2B21
