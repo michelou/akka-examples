@@ -15,7 +15,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.41][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.42][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8+) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
@@ -38,7 +38,8 @@ Optionally one may also install the following software:
 1.10.2  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.2.html
 1.10.3  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.3.html
 1.10.11 -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.11.html
-1.10.13 -> https://github.com/apache/ant/blob/master/WHATSNEW
+1.10.14 -> https://www.mail-archive.com/announce@apache.org/msg07860.html
+1.10.14 -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.14.html
 -->
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -46,9 +47,9 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*August 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-ant-1.10.13\      <i>( 43 MB)</i>
+C:\opt\apache-ant-1.10.14\      <i>( 43 MB)</i>
 C:\opt\apache-maven-3.9.4\      <i>( 10 MB)</i>
-C:\opt\Git-2.41.0\              <i>(358 MB)</i>
+C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
 C:\opt\jdk-oracle-21-ea-35\     <i>(320 MB)</i>
@@ -107,15 +108,15 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 11.0.20, scalac 2.13.11,
-   ant 1.10.13, gradle 8.3, mvn 3.9.4, sbt 1.9.3, grpcurl v1.8.7,
-   make 3.81, git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
+   ant 1.10.14, gradle 8.3, mvn 3.9.4, sbt 1.9.3, grpcurl v1.8.7,
+   make 3.81, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git</b>
-C:\opt\apache-ant-1.10.13\bin\ant
-C:\opt\apache-ant-1.10.13\bin\ant.bat
-C:\opt\apache-ant-1.10.13\bin\ant.cmd
-C:\opt\Git-2.41.0\bin\git.exe
-C:\opt\Git-2.41.0\mingw64\bin\git.exe
+C:\opt\apache-ant-1.10.14\bin\ant
+C:\opt\apache-ant-1.10.14\bin\ant.bat
+C:\opt\apache-ant-1.10.14\bin\ant.cmd
+C:\opt\Git\bin\git.exe
+C:\opt\Git\mingw64\bin\git.exe
 </pre>
 
 <!--=================================================================================-->
@@ -149,14 +150,14 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.13-bin.zip</a>                         <i>(  9 MB)</i>
+<a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.3-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(188 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
 </pre>
 </dd></dl>
@@ -211,7 +212,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.42.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html

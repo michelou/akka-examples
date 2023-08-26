@@ -9,14 +9,14 @@
 
 Code examples can be built/run with the following tools:
 
-| Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
-|:----------------|:-------------------|:----------------|:---------------|
+| Build&nbsp;tool | Build&nbsp;file | Parent&nbsp;file | Environment(s) |
+|:----------------|:----------------|:-----------------|:---------------|
 | [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter01/HelloAkka/build.xml) | [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
 | [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter01/HelloAkka/build.gradle) | [`common.gradle`](./common.gradle) | Any |
 | [**`make.exe`**][make_cli] | [`Makefile`](./Chapter01/HelloAkka/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter01/HelloAkka/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter01/HelloAkka/build.sbt) | &nbsp;        | Any |
-| [**`build.bat`**](./Chapter01/HelloAkka/build.bat) | *none*             |  &nbsp;        | Windows only |
+| [**`cmd.exe`**][cmd_cli] | [`build.bat`](./Chapter01/HelloAkka/build.bat) |  &nbsp;        | Windows only |
 <div style="font-size:80%;">
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".
 </div>
@@ -99,6 +99,7 @@ From the <a href="https://www.lagomframework.com/documentation/1.6.x/">Lagom 1.6
 [akka]: https://akka.io/
 [apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
+[cmd_cli]: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html

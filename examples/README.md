@@ -10,7 +10,7 @@
 
 ## <span id="akka-quickstart">`akka-quickstart` Example</span>
 
-We have implemented this code example in 3 different progamming languages :
+We have implemented this code example in 3 different programming languages :
 |      | Source files     | Batch      | [Gradle]   | [Maven]    |
 |:-----|:-----------------|:-----------|:-----------|:-----------|
 | Java | [`AkkaQuickstart.java`](akka-quickstart-java/src/main/java/com/example/AkkaQuickstart.java), [`Greeter.java`](akka-quickstart-java/src/main/java/com/example/Greeter.java) | [`build.bat`](akka-quickstart-java/build.bat) | [`build.gradle`](akka-quickstart-java/build.gradle) | [`pom.xml`](akka-quickstart-java/pom.xml) |

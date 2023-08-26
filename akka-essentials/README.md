@@ -17,7 +17,7 @@ The code examples presented below are written both in Java and in [Scala] and ca
 | [**`make.exe`**][make_cli] <sup><b>b)</b></sup> | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter02/FirstAkkaApplication/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/FirstAkkaApplication/build.sbt) | &nbsp;        | Any |
-| [**`build.bat`**](./Chapter02/FirstAkkaApplication/build.bat) | *none*             |  &nbsp;        | Windows only |
+| [**`cmd.exe`**][cmd_cli] | [`build.bat`](./Chapter02/FirstAkkaApplication/build.bat) |  &nbsp;        | Windows only |
 <div style="font-size:90%;padding-left:12px;">
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/><sup><b>b)</b></sup> Default shell is <code><b>/bin/sh</b></code> as described in the online document <a href="https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html">Choosing the Shell</a>.<br/>
 &nbsp; 
@@ -155,6 +155,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </div>
 See the online documentation for further informations: 
 <ul>
+<li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.7.x-2.8.x.html">Migration Guide 2.7.x to 2.8.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.6.x-2.7.x.html" rel="external">Migration Guide 2.6.x to 2.7.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.5.x-2.6.x.html">Migration Guide 2.5.x to 2.6.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/2.5.32/project/migration-guide-2.4.x-2.5.x.html">Migration Guide 2.4.x to 2.5.x</a></li>
@@ -211,6 +212,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 [apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
+[cmd_cli]: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html
