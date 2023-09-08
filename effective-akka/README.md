@@ -10,15 +10,15 @@
 
 Code examples presented below can be built/run with the following tools:
 
-| Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
+| Build&nbsp;tool | Build file | Parent&nbsp;file | Environment(s) |
 |:----------------|:-------------------|:----------------|:---------------|
 | [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter02/ExtraPattern/build.xml) | [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
 | [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter02/ExtraPattern/build.gradle) | [`common.gradle`](./common.gradle) | Any |
 | [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/ExtraPattern/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
 | [**`mvn.cmd`**][apache_maven_cli] | [`pom.xml`](./Chapter02/ExtraPattern/pom.xml) | [`pom.xml`](./pom.xml) | Any |
 | [**`sbt.bat`**][sbt_cli] | [`build.sbt`](./Chapter02/ExtraPattern/build.sbt) | &nbsp;        | Any |
-| [**`build.bat`**](./Chapter02/ExtraPattern/build.bat) | *none*             |  &nbsp;        | Windows only |
-| [**`build.sh`**](./Chapter02/CameoPattern/build.sh) | | | UNIX |
+| [**`cmd.exe`**][cmd_cli] | [`build.bat`](./Chapter02/ExtraPattern/build.bat) |  &nbsp;        | Windows only |
+| [**`bash.exe`**][bash_cli] | [`build.sh`](./Chapter02/CameoPattern/build.sh) | | Any |
 <div style="font-size:80%;">
 <sup><b>a)</b></sup> Here "Any" means "tested on Windows, Cygwin, MSYS2 and UNIX".<br/>&nbsp;
 </div>
@@ -106,7 +106,7 @@ MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 2
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -114,7 +114,9 @@ MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 2
 [akka]: https://akka.io/
 [apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
+[bash_cli]: https://www.man7.org/linux/man-pages/man1/bash.1.html
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
+[cmd_cli]: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [make_cli]: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_node/make_86.html

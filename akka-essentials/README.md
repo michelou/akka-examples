@@ -10,8 +10,8 @@
 
 The code examples presented below are written both in Java and in [Scala] and can be built/run with the following tools:
 
-| Build&nbsp;tool | Configuration file | Parent&nbsp;file | Environment(s) |
-|:----------------|:-------------------|:-----------------|:---------------|
+| Build&nbsp;tool | Build&nbsp;file | Parent&nbsp;file | Environment(s) |
+|:----------------|:----------------|:-----------------|:---------------|
 | [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter02/FirstAkkaApplication/build.xml)| [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
 | [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter02/FirstAkkaApplication/build.gradle) | [`common.gradle`](./common.gradle) | Any |
 | [**`make.exe`**][make_cli] <sup><b>b)</b></sup> | [`Makefile`](./Chapter02/FirstAkkaApplication/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
@@ -203,7 +203,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
