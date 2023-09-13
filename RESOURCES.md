@@ -13,10 +13,13 @@
 
 ## <span id="articles">Articles</span>
 
+- [Microsoft Learn](https://learn.microsoft.com/en-us/) :
+  - [What is Azure Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/azure-event-hubs-kafka-overview), March 2023.
+  - [Using Akka Streams with Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial), January 2023.
 - [Akka Streams — Getting Started][article_cano] by Sergio Cano, August 2021.
 - [A Comparison of the Basic Principles and Behavioural Aspects of Akka, JaCaMo and Jade Development Frameworks][article_cossentino] by Massimo Cossentino &amp; al., June 2018.
 
-## <span id="blogs">Blogs</span>
+## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
 - [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
   - [From Akka Streams To Actors And Back][blog_rockthejvm_streams], February 2023.
@@ -62,7 +65,7 @@
 - [Effective Akka][book_allen] by Jamie Allen, August 2013.<br/><span style="font-size:80%;">(O`Reilly, ISBN 978-1-449-36007-8, 74 pages)<br/><b>GitHub</b>: <a href="https://github.com/jamie-allen/effective_akka"><code>jamie-allen/effective_akka</code></a></span>
 - [Akka Essentials][book_gupta] by Munish K. Gupta, October 2012.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8495-1828-4, 334 pages)</span>
 
-## <span id="news">News</span>
+## <span id="news">News</span> [**&#x25B4;**](#top)
 
 - [CVE Details - Akka](https://www.cvedetails.com/google-search-results.php?q=Akka&sa=Search).
 
