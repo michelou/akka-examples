@@ -22,7 +22,7 @@ This project depends on the following external software for the **Microsoft Wind
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
 > **&#9755;** ***Maven packages***<br/>
-> We present the Maven package dependencies in document [`PACKAGES.md`](./PACKAGES.md).
+> We present the [Maven][maven_repository] package dependencies in document [`PACKAGES.md`](./PACKAGES.md).
 
 Optionally one may also install the following software:
 
@@ -32,7 +32,9 @@ Optionally one may also install the following software:
 - [Gradle 8.3][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [Oracle OpenJDK 21 LTS][oracle_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][oracle_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
+- [sbt 1.9][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
+- [Visual Studio Code 1.82][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -49,8 +51,8 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*September 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-ant-1.10.14\      <i>( 43 MB)</i>
-C:\opt\apache-maven-3.9.4\      <i>( 10 MB)</i>
+C:\opt\apache-ant\              <i>( 43 MB)</i>
+C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
@@ -58,7 +60,9 @@ C:\opt\jdk-oracle-21-ea-35\     <i>(320 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
-C:\opt\scala-2.13.11\           <i>( 24 MB)</i>
+C:\opt\sbt\                     <i>(110 MB)</i>
+C:\opt\scala-2.13.12\           <i>( 24 MB)</i>
+C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -69,12 +73,13 @@ C:\opt\scala-2.13.11\           <i>( 24 MB)</i>
 This project is organized as follows:
 
 <pre style="font-size:80%;">
+<a href="./bin">bin\
 alexandreesl-examples\{<a href="alexandreesl-examples/README.md">README.md</a>, <a href="alexandreesl-examples/akka-stream-lab/">akka-stream-lab</a>}
 <a href="https://github.com/michelou/akka">akka</a>\     <i>(Git submodule)</i>
 akka-concurrency\{<a href="akka-concurrency/README.md">README.md</a>, <a href="akka-concurrency/Chapter05/Avionics/">Avionics</a>, <a href="akka-concurrency/Chapter05/BadSharespearean/">BadSharespearean</a>, etc.}
 akka-cookbook\{<a href="akka-cookbook/README.md">README.md</a>, <a href="akka-cookbook/Chapter01/HelloAkka/">HelloAkka</a>, <a href="akka-cookbook/Chapter01/PriorityMailbox/">PriorityMailbox</a>, etc.}
 akka-essentials\{<a href="akka-essentials/README.md">README.md</a>, <a href="akka-essentials/Chapter02/FirstAkkaApplication/">FirstAkkaApplication</a>, etc.}
-docs\
+<a href="./docs">docs\</a>
 effective-akka\{<a href="effective-akka/README.md">README.md</a>, <a href="effective-akka/ExtraPattern/">ExtraPattern</a>, etc.>}
 examples\{<a href="examples/README.md">README.md</a>, <a href="examples/akka-quickstart-java/">akka-quickstart-java</a>, <a href="examples/akka-quickstart-kotlin/">akka-quickstart-kotlin</a>, ..}
 <a href="PACKAGES.md">PACKAGES.md</a>
@@ -85,6 +90,7 @@ README.md
 
 where
 
+- directory [**`bin\`**](./bin) provides several utility [batch files][windows_batch_file]
 - directory **`alexandreesl-examples\`** contains [Akka] code examples from [Alexandre's blog post][blog_alexandreesl].
 - directory **`akka\`** contains our fork of the [akka/akka](https://github.com/akka/akka) repository as a [Github submodule](.gitmodules).
 - directory **`akka-concurrency\`** contains [Akka] code examples from [Wyatt's book][book_wyatt].
@@ -109,8 +115,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 11.0.20, scalac 2.13.11,
-   ant 1.10.14, gradle 8.3, mvn 3.9.4, sbt 1.9.3, grpcurl v1.8.7,
+   javac 11.0.20, scalac 2.13.12,
+   ant 1.10.14, gradle 8.3, mvn 3.9.4, sbt 1.9.6, grpcurl v1.8.7,
    make 3.81, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -121,6 +127,28 @@ C:\opt\Git\bin\git.exe
 C:\opt\Git\mingw64\bin\git.exe
 C:\opt\sbt\bin\sbt
 C:\opt\sbt\bin\sbt.bat
+</pre>
+
+### **`searchjars.bat`** 
+
+Command [**`searchjars.bat`**](./bin/searchjars.bat) helps us to get the list of all JAR files containing a specific class or method name among the locally available libraries. In the following example we are searching for occurrences of class **`NotUsed`** :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
+Warning: Search all directories (no option specified)
+Searching for class "NotUsed" in files "C:\opt\scala3-3.3.1\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala-2.13.12\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\jdk-temurin-11.0.20_8\lib\*.jar"
+Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
+  akka-actor_2.13-2.7.0.jar:akka/NotUsed$.class
+  akka-actor_2.13-2.7.0.jar:akka/NotUsed.class
+Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
+  akka-actor_2.13-2.8.3.jar:akka/NotUsed$.class
+  akka-actor_2.13-2.8.3.jar:akka/NotUsed.class
+  akka-stream_2.13-2.8.3.jar:akka/stream/impl/PushNotUsed$.class
+  akka-stream_2.13-2.8.3.jar:akka/stream/impl/PushNotUsed.class
+  pekko-actor_2.13-1.0.1.jar:org/apache/pekko/NotUsed$.class
+  pekko-actor_2.13-1.0.1.jar:org/apache/pekko/NotUsed.class
 </pre>
 
 <!--=================================================================================-->
@@ -162,7 +190,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(188 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.12.zip</a>                                  <i>( 21 MB)</i>
 </pre>
 </dd></dl>
 
@@ -250,8 +278,11 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [rust_examples]: https://github.com/michelou/rust-examples
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
+[sbt_downloads]: https://github.com/sbt/sbt/releases
+[sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.6
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.11
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.12
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [scala3_home]: https://dotty.epfl.ch
 [spark_examples]: https://github.com/michelou/spark-examples
@@ -297,5 +328,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
 [vs2019_relnotes]: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes
+[vscode_downloads]: https://code.visualstudio.com/#alt-downloads
+[vscode_relnotes]: https://code.visualstudio.com/updates
+[windows_batch_file]: https://en.wikibooks.org/wiki/Windows_Batch_Scripting
 [wix_examples]: https://github.com/michelou/wix-examples
 [zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/

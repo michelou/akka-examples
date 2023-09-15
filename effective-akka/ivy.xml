@@ -34,12 +34,12 @@
         <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.8.4"/>
 
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
-        <dependency org="org.scalatest" name="scalatest_2.13" rev="3.2.16"/>
+        <dependency org="org.scalatest" name="scalatest_2.13" rev="3.2.17"/>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-core -->
-        <dependency org="org.scalatest" name="scalatest-core_2.13" rev="3.2.16"/>
+        <dependency org="org.scalatest" name="scalatest-core_2.13" rev="3.2.17"/>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers -->
-        <dependency org="org.scalatest" name="scalatest-mustmatchers_2.13" rev="3.2.16"/>
+        <dependency org="org.scalatest" name="scalatest-mustmatchers_2.13" rev="3.2.17"/>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec -->
-        <dependency org="org.scalatest" name="scalatest-wordspec_2.13" rev="3.2.16"/>
+        <dependency org="org.scalatest" name="scalatest-wordspec_2.13" rev="3.2.17"/>
     </dependencies>
 </ivy-module>

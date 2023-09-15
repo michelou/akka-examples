@@ -13,7 +13,7 @@
         <java.version>11</java.version>
 
         <!-- Scala settings -->
-        <scala.version>2.13.11</scala.version>
+        <scala.version>2.13.12</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 
@@ -25,7 +25,7 @@
         <maven.compiler.version>3.11.0</maven.compiler.version>
         <maven.jar.version>3.3.0</maven.jar.version>
         <scala.maven.version>1.0.0</scala.maven.version>
-        <scalatest.version>3.2.16</scalatest.version>
+        <scalatest.version>3.2.17</scalatest.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>

@@ -46,7 +46,7 @@ endif
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 AKKA_VERSION = 2.8.4
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
-SCALATEST_VERSION = 3.2.16
+SCALATEST_VERSION = 3.2.17
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.9
 

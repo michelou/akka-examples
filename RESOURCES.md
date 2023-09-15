@@ -74,6 +74,7 @@
 - [Akka.NET](https://github.com/akkadotnet/akka.net) &ndash;  a .NET port of the popular [Akka] project.
 - [AkkaProf](https://www.dag.inf.usi.ch/software/akkaprof) &ndash; a profiling tool for [Akka] actors.
 - [Kamon APM](https://kamon.io/solutions/monitoring-for-akka/) &ndash; a monitoring tool for [Akka] backends and APIs.
+- [pekko-kryo-serialization](https://github.com/altoo-ag/pekko-kryo-serialization) &ndash; a [Kryo](https://github.com/EsotericSoftware/kryo)-based serializers for Scala and Pekko.
 
 ## <span id="videos">Videos</span>
 
