@@ -577,7 +577,6 @@ if defined __SBT_CMD (
     set "_SBT_HOME=%SBT_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SBT_HOME 1>&2
 ) else (
-    echo 111111111111
     set __PATH=C:\opt
     if exist "!__PATH!\sbt\" ( set "_SBT_HOME=!__PATH!\sbt"
     ) else (
@@ -588,7 +587,6 @@ if defined __SBT_CMD (
         )
     )
 )
-echo 333333333333 _SBT_HOME=%_SBT_HOME%
 if not exist "%_SBT_HOME%\bin\sbt.bat" (
     echo %_ERROR_LABEL% sbt executable not found ^(%_SBT_HOME%^) 1>&2
     set _EXITCODE=1

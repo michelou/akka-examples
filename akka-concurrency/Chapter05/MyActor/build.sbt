@@ -1,9 +1,9 @@
 // Definitions common to all subprojects
 ThisBuild / organization := "github.com/michelou"
-ThisBuild / scalaVersion := "2.13.11"
+ThisBuild / scalaVersion := "2.13.12"
 ThisBuild / version      := "1.0"
 
-lazy val akkaVersion = "2.8.3"
+lazy val akkaVersion = "2.8.5"
 
 lazy val root = (project in file("."))
   .settings(

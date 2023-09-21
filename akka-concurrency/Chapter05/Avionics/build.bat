@@ -124,7 +124,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -136,7 +136,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! compile run
     ) else if "%__ARG%"=="test" ( set _COMMANDS=!_COMMANDS! compile test
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -201,7 +201,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
 ) else if %_VERBOSE%==1 ( echo Delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
 )
 rmdir /s /q "%__DIR%"
-if not errorlevel 0 (
+if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Failed to delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
@@ -250,7 +250,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURC
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
 )
 call "%_SCALAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
-if not errorlevel 0 (
+if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
@@ -331,7 +331,7 @@ set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 
 if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS% 1>&2
 call "%_JAVA_CMD%" -cp "%__CPATH%" %_MAIN_CLASS%
-if not errorlevel 0 (
+if not %ERRORLEVEL%==0 (
     set _EXITCODE=1
     goto :eof
 )
