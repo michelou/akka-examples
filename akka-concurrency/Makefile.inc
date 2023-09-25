@@ -46,7 +46,7 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.8.4
+AKKA_VERSION = 2.8.5
 
 SCALA_LIB_JAR   = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
 CONFIG_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-1.4.2.jar")

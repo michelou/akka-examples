@@ -2,11 +2,11 @@ name := "akka-quickstart-java"
 
 version := "1.0"
 
-scalaVersion := "2.13.9"
+scalaVersion := "2.13.12"
 
-lazy val akkaVersion = "2.6.20"
+lazy val akkaVersion = "2.8.5"
 lazy val configVersion = "1.4.2"
-lazy val logbackVersion = "1.4.1"
+lazy val logbackVersion = "1.4.11"
 
 libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % logbackVersion,

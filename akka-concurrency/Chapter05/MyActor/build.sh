@@ -117,7 +117,7 @@ EOS
 }
 
 clean() {
-    if [ -d "$TARGET_DIR" ]; then
+    if [[ -d "$TARGET_DIR" ]]; then
         if $DEBUG; then
             debug "Delete directory \"$TARGET_DIR\""
         elif $VERBOSE; then
@@ -168,10 +168,10 @@ action_required() {
     for f in $(find "$search_path" -type f -name "$search_pattern" 2>/dev/null); do
         [[ $f -nt $source_file ]] && source_file=$f
     done
-    if [ -z "$source_file" ]; then
+    if [[ -z "$source_file" ]]; then
         ## Do not compile if no source file
         echo 0
-    elif [ ! -f "$target_file" ]; then
+    elif [[ ! -f "$target_file" ]]; then
         ## Do compile if target file doesn't exist
         echo 1
     else
@@ -506,10 +506,10 @@ mingw=false
 msys=false
 darwin=false
 case "$(uname -s)" in
-  CYGWIN*) cygwin=true ;;
-  MINGW*)  mingw=true ;;
-  MSYS*)   msys=true ;;
-  Darwin*) darwin=true
+    CYGWIN*) cygwin=true ;;
+    MINGW*)  mingw=true ;;
+    MSYS*)   msys=true ;;
+    Darwin*) darwin=true
 esac
 unset CYGPATH_CMD
 PSEP=":"

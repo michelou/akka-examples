@@ -131,7 +131,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -142,7 +142,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="help" ( set _HELP=1
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! compile run
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -184,7 +184,7 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
+echo     %__BEG_O%-debug%__END%      display commands executed by this script
 echo     %__BEG_O%-timer%__END%      display total execution time
 echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
@@ -229,6 +229,11 @@ if exist "%_SOURCE_MAIN_DIR%\resources\*" (
     ) else if %_VERBOSE%==1 ( echo Copy resource files to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     )
     xcopy /q /y "%_SOURCE_MAIN_DIR%\resources\*" "%_CLASSES_DIR%" 1>NUL
+    if not !ERRORLEVEL!==0 (
+        echo %_ERROR_LABEL% Failed to copy resource files to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+        set _EXITCODE=1
+        goto :eof
+    )
 )
 goto :eof
 
