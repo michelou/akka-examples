@@ -34,8 +34,10 @@ The above [Maven][maven_repository] packages are stored locally in two different
 
 | Build&nbsp;tool   | Local&nbsp;repository           |
 |:------------------|:--------------------------------|
-| [`gradle.bat`][gradle_cli], [`mvn.cmd`][mvn_cli], [`sbt.bat`][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 | [`ant.bat`][ant_cli] ([Ivy][ivy_lib] library)    | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.ivy2\cache\`    |
+| [`gradle.bat`][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+| [`mvn.cmd`][mvn_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+| [`sbt.bat`][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 
 *WIP*
 

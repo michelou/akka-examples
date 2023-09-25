@@ -98,7 +98,7 @@ We add 2 t-shirts to the same cart (see section [**6.1 Exercise the service**](h
 }
 </pre>
 
-## <span id="receptionist">`Receptionist` Example</span>
+## <span id="receptionist">`Receptionist` Example</span> [**&#x25B4;**](#top)
 
 The `Receptionist` example is adapted from [Alvin's tutorial]( https://alvinalexander.com/scala/akka-typed-how-lookup-find-actor-receptionist/) on Typed Akka.
 
@@ -128,7 +128,7 @@ Mouth: got a msg: Brain says hello to Mouth
 [Supervisor-akka.actor.internal-dispatcher-4] DEBUG akka.actor.typed.internal.receptionist.LocalReceptionist - Subscribed actor terminated: [ServiceKey[akka.examples.Mouth$MessageToMouth](Mouth)] Actor[akka://Supervisor/user/Brain/$$a-adapter#741795935]
 </pre>
 
-## <span id="footnotes">Footnotes</span>
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
 <span id="footnote_01">[1]</span> ***grpcurl*** [↩](#anchor_01)
 

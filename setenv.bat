@@ -331,8 +331,8 @@ if not "%~1"=="" ( set __DIR_NAME=kafka_2.13-*
 set __KAFKA_START_CMD=
 for /f "delims=" %%f in ('where kafka-server-start.bat 2^>NUL') do set "__KAFKA_START_CMD=%%f"
 if defined __KAFKA_START_CMD (
-    for %%i in ("%__KAFKA_START_CMD%") do set "__KAFKA_BIN_DIR=%%~dpi"
-    for %%f in ("!__KAFKA_BIN_DIR!\.") do set "_KAFKA_HOME=%%~dpf"
+    for /f "delims=" %%i in ("%__KAFKA_START_CMD%") do set "__KAFKA_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__KAFKA_BIN_DIR!\.") do set "_KAFKA_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Kafka start script found in PATH 1>&2
     @rem keep __KAFKA_START_CMD undefined since executable already in path
     goto :eof
@@ -368,10 +368,9 @@ if defined __KOTLINC_CMD (
     )
 )
 if defined __KOTLINC_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Kotlin executable found in PATH 1>&2
     for %%i in ("%__KOTLINC_CMD%") do set "__KOTLINC_BIN_DIR=%%~dpi"
     for %%f in ("!__KOTLINC_BIN_DIR!\.") do set "_KOTLIN_HOME=%%~dpf"
-    goto :eof
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Kotlin executable found in PATH 1>&2
 ) else if defined KOTLIN_HOME (
     set "_KOTLIN_HOME=%KOTLIN_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable KOTLIN_HOME 1>&2
@@ -382,9 +381,12 @@ if defined __KOTLINC_CMD (
         set "__PATH=%ProgramFiles%"
         for /f "delims=" %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
     )
+    if defined _KOTLIN_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Kotlin installation directory "!_KOTLIN_HOME!" 1>&2
+    )
 )
 if not exist "%_KOTLIN_HOME%\bin\kotlinc.bat" (
-    echo kotlinc not found in Kotlin installation directory ^(%_KOTLIN_HOME%^) 1>&2
+    echo kotlinc not found in Kotlin installation directory ^("%_KOTLIN_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -397,9 +399,9 @@ set _SCALA_HOME=
 set __SCALAC_CMD=
 for /f "delims=" %%f in ('where scalac.bat 2^>NUL') do set "__SCALAC_CMD=%%f"
 if defined __SCALAC_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Scala executable found in PATH 1>&2
-    @rem keep _SCALAC_PATH undefined since executable already in path
-    goto :eof
+    for /f "delims=" %%f in ("%__SCALAC_CMD%") do set "__BIN_DIR=%%~dpf"
+    for /f "delims=" %%f in ("!__BIN_DIR!\.") do set "_SCALA_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Scala 2 executable found in PATH 1>&2
 ) else if defined SCALA_HOME (
     set "_SCALA_HOME=%SCALA_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA_HOME 1>&2
@@ -407,11 +409,11 @@ if defined __SCALAC_CMD (
     set _PATH=C:\opt
     for /f %%f in ('dir /ad /b "!_PATH!\scala-2*" 2^>NUL') do set _SCALA_HOME=!_PATH!\%%f
     if defined _SCALA_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala installation directory !_SCALA_HOME!
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala installation directory "!_SCALA_HOME!" 1>&2
     )
 )
 if not exist "%_SCALA_HOME%\bin\scalac.bat" (
-    echo %_ERROR_LABEL% Scala executable not found ^(%_SCALA_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Scala executable not found ^("%_SCALA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -440,11 +442,11 @@ if defined __SCALAC_CMD (
     set _PATH=C:\opt
     for /f %%f in ('dir /ad /b "!_PATH!\scala3-3*" 2^>NUL') do set _SCALA3_HOME=!_PATH!\%%f
     if defined _SCALA3_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala 3 installation directory !_SCALA_HOME!
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala 3 installation directory "!_SCALA_HOME!" 1>&2
     )
 )
 if not exist "%_SCALA3_HOME%\bin\scalac.bat" (
-    echo %_ERROR_LABEL% Scala 3 executable not found ^(%_SCALA3_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Scala 3 executable not found ^("%_SCALA3_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -461,6 +463,7 @@ if defined __GRADLE_CMD (
     for /f "delims=" %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
     for /f "delims=" %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
+    @rem keep _GRADLE_PATH undefined since executable already in path
     goto :eof
 ) else if defined GRADLE_HOME (
     set "_GRADLE_HOME=%GRADLE_HOME%"
@@ -476,11 +479,11 @@ if defined __GRADLE_CMD (
         )
     )
     if defined _GRADLE_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Gradle installation directory !_GRADLE_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Gradle installation directory "!_GRADLE_HOME!" 1>&2
     )
 )
 if not exist "%_GRADLE_HOME%\bin\gradle.bat" (
-    echo %_ERROR_LABEL% Gradle executable not found ^(%_GRADLE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Gradle executable not found ^("%_GRADLE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -496,8 +499,9 @@ set _GRPCURL_PATH=
 set __GRPCURL_CMD=
 for /f "delims=" %%f in ('where grpcurl.exe 2^>NUL') do set "__GRPCURL_CMD=%%f"
 if defined __GRPCURL_CMD (
-    for %%i in ("%__GRPCURL_CMD%") do set "_GRPCURL_HOME=%%~dpf"
+    for /f "delims=" %%i in ("%__GRPCURL_CMD%") do set "_GRPCURL_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of grpcurl executable found in PATH 1>&2
+    @rem keep _GRPCURL_PATH undefined since executable already in path
     goto :eof
 ) else if defined GRPCURL_HOME (
     set "_GRPCURL_HOME=%GRPCURL_HOME%"
@@ -513,11 +517,11 @@ if defined __GRPCURL_CMD (
         )
     )
     if defined _GRPCURL_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default grpcurl installation directory !_GRPCURL_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default grpcurl installation directory "!_GRPCURL_HOME!" 1>&2
     )
 )
 if not exist "%_GRPCURL_HOME%\grpcurl.exe" (
-    echo %_ERROR_LABEL% grpcurl executable not found ^(%_GRPCURL_HOME%^) 1>&2
+    echo %_ERROR_LABEL% grpcurl executable not found ^("%_GRPCURL_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -532,9 +536,9 @@ set _ANT_PATH=
 set __ANT_CMD=
 for /f "delims=" %%f in ('where ant.bat 2^>NUL') do set "__ANT_CMD=%%f"
 if defined __ANT_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Ant executable found in PATH 1>&2
     for /f "delims=" %%i in ("%__ANT_CMD%") do set "__ANT_BIN_DIR=%%~dpi"
     for /f "delims=" %%f in ("!__ANT_BIN_DIR!\.") do set "_ANT_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Ant executable found in PATH 1>&2
     @rem keep _ANT_PATH undefined since executable already in path
     goto :eof
 ) else if defined ANT_HOME (
@@ -551,11 +555,11 @@ if defined __ANT_CMD (
         )
     )
     if defined _ANT_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Ant installation directory !_ANT_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Ant installation directory "!_ANT_HOME!" 1>&2
     )
 )
 if not exist "%_ANT_HOME%\bin\ant.cmd" (
-    echo %_ERROR_LABEL% Ant executable not found ^(%_ANT_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Ant executable not found ^("%_ANT_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -570,6 +574,8 @@ set _SBT_PATH=
 set __SBT_CMD=
 for /f "delims=" %%f in ('where sbt.bat 2^>NUL') do set "__SBT_CMD=%%f"
 if defined __SBT_CMD (
+    for /f "delims=" %%i in ("%__SBT_CMD%") do set "__SBT_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__SBT_BIN_DIR!\.") do set "_SBT_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of sbt executable found in PATH 1>&2
     @rem keep _SBT_PATH undefined since executable already in path
     goto :eof
@@ -577,7 +583,6 @@ if defined __SBT_CMD (
     set "_SBT_HOME=%SBT_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SBT_HOME 1>&2
 ) else (
-    echo 111111111111
     set __PATH=C:\opt
     if exist "!__PATH!\sbt\" ( set "_SBT_HOME=!__PATH!\sbt"
     ) else (
@@ -587,10 +592,12 @@ if defined __SBT_CMD (
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         )
     )
+    if defined _SBT_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default SBT installation directory "!_SBT_HOME!" 1>&2
+    )
 )
-echo 333333333333 _SBT_HOME=%_SBT_HOME%
 if not exist "%_SBT_HOME%\bin\sbt.bat" (
-    echo %_ERROR_LABEL% sbt executable not found ^(%_SBT_HOME%^) 1>&2
+    echo %_ERROR_LABEL% sbt executable not found ^("%_SBT_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -606,7 +613,7 @@ set __MAKE_CMD=
 for /f "delims=" %%f in ('where make.exe 2^>NUL') do set "__MAKE_CMD=%%f"
 if defined __MAKE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Make executable found in PATH 1>&2
-    rem keep _MAKE_PATH undefined since executable already in path
+    @rem keep _MAKE_PATH undefined since executable already in path
     goto :eof
 ) else if defined MAKE_HOME (
     set "_MAKE_HOME=%MAKE_HOME%"
@@ -615,11 +622,11 @@ if defined __MAKE_CMD (
     set _PATH=C:\opt
     for /f %%f in ('dir /ad /b "!_PATH!\make-3*" 2^>NUL') do set "_MAKE_HOME=!_PATH!\%%f"
     if defined _MAKE_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Make installation directory !_MAKE_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Make installation directory "!_MAKE_HOME!" 1>&2
     )
 )
 if not exist "%_MAKE_HOME%\bin\make.exe" (
-    echo %_ERROR_LABEL% Make executable not found ^(%_MAKE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Make executable not found ^("%_MAKE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -638,21 +645,26 @@ for /f "delims=" %%f in ('where mvn.cmd 2^>NUL') do (
     if not "!__MVN_CMD:scoop=!"=="!__MVN_CMD!" set __MVN_CMD=
 )
 if defined __MVN_CMD (
+    for /f "delims=" %%i in ("%__MVN_CMD%") do set "__MAVEN_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__MAVEN_BIN_DIR!\.") do set "_MAVEN_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Maven executable found in PATH 1>&2
-    for %%i in ("%__MVN_CMD%") do set "__MAVEN_BIN_DIR=%%~dpi"
-    for %%f in ("!__MAVEN_BIN_DIR!\.") do set "_MAVEN_HOME=%%~dpf"
+    @rem keep _MAVEN_PATH undefined since executable already in path
+    goto :eof
 ) else if defined MAVEN_HOME (
     set "_MAVEN_HOME=%MAVEN_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MAVEN_HOME 1>&2
 ) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!_PATH!\%%f"
+    set __PATH=C:\opt
+    if exist "!__PATH!\apache-maven\" ( set "_MAVEN_HOME=!__PATH!\apache-maven"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!__PATH!\%%f"
+    )
     if defined _MAVEN_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory !_MAVEN_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory "!_MAVEN_HOME!" 1>&2
     )
 )
 if not exist "%_MAVEN_HOME%\bin\mvn.cmd" (
-    echo %_ERROR_LABEL% Maven executable not found ^(%_MAVEN_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Maven executable not found ^("%_MAVEN_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )

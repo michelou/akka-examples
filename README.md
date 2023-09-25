@@ -55,8 +55,8 @@ C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\grpcurl-1.8.7\           <i>( 22 MB)</i>
-C:\opt\jdk-oracle-21-ea-35\     <i>(320 MB)</i>
+C:\opt\grpcurl-1.8.8\           <i>( 22 MB)</i>
+C:\opt\jdk-oracle-21-ga\        <i>(320 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
@@ -116,7 +116,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 11.0.20, scalac 2.13.12,
-   ant 1.10.14, gradle 8.3, mvn 3.9.4, sbt 1.9.6, grpcurl v1.8.7,
+   ant 1.10.14, gradle 8.3, mvn 3.9.4, sbt 1.9.6, grpcurl v1.8.8,
    make 3.81, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -140,13 +140,13 @@ Searching for class "NotUsed" in files "C:\opt\scala3-3.3.1\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\scala-2.13.12\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\jdk-temurin-11.0.20_8\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
-  akka-actor_2.13-2.7.0.jar:akka/NotUsed$.class
-  akka-actor_2.13-2.7.0.jar:akka/NotUsed.class
+  akka-actor_2.13-2.8.5.jar:akka/NotUsed$.class
+  akka-actor_2.13-2.8.5.jar:akka/NotUsed.class
 Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
-  akka-actor_2.13-2.8.3.jar:akka/NotUsed$.class
-  akka-actor_2.13-2.8.3.jar:akka/NotUsed.class
-  akka-stream_2.13-2.8.3.jar:akka/stream/impl/PushNotUsed$.class
-  akka-stream_2.13-2.8.3.jar:akka/stream/impl/PushNotUsed.class
+  akka-actor_2.13-2.8.5.jar:akka/NotUsed$.class
+  akka-actor_2.13-2.8.5.jar:akka/NotUsed.class
+  akka-stream_2.13-2.8.5.jar:akka/stream/impl/PushNotUsed$.class
+  akka-stream_2.13-2.8.5.jar:akka/stream/impl/PushNotUsed.class
   pekko-actor_2.13-1.0.1.jar:org/apache/pekko/NotUsed$.class
   pekko-actor_2.13-1.0.1.jar:org/apache/pekko/NotUsed.class
 </pre>
@@ -185,7 +185,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.3-bin.zip</a>                                 <i>(118 MB)</i>
-<a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.7_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
+<a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.8_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(188 MB)</i>
@@ -256,7 +256,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
-[grpcurl_relnotes]: https://github.com/fullstorydev/grpcurl/releases/tag/v1.8.7
+[grpcurl_relnotes]: https://github.com/fullstorydev/grpcurl/releases/tag/v1.8.8
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kafka_examples]: https://github.com/michelou/kafka-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples

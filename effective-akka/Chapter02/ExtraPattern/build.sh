@@ -103,16 +103,16 @@ help() {
 Usage: $BASENAME { <option> | <subcommand> }
 
   Options:
-    -debug       display commands executed by this script
-    -timer       display total execution time
-    -verbose     display progress messages
+    -debug       print commands executed by this script
+    -timer       print total execution time
+    -verbose     print progress messages
 
   Subcommands:
     clean        delete generated files
     compile      compile Java/Scala source files
     decompile    decompile generated code with CFR
     doc          generate HTML documentation
-    help         display this help message
+    help         print this help message
     lint         analyze Scala source files with Scalafmt
     run          execute main class \"$MAIN_CLASS\"
 EOS
@@ -170,10 +170,10 @@ action_required() {
     for f in $(find $search_path -name $search_pattern 2>/dev/null); do
         [[ $f -nt $latest ]] && latest=$f
     done
-    if [ -z "$latest" ]; then
+    if [[ -z "$latest" ]]; then
         ## Do not compile if no source file
         echo 0
-    elif [ ! -f "$timestamp_file" ]; then
+    elif [[ ! -f "$timestamp_file" ]]; then
         ## Do compile if timestamp file doesn't exist
         echo 1
     else
@@ -273,7 +273,7 @@ compile_scala() {
 }
 
 mixed_path() {
-    if [ -x "$CYGPATH_CMD" ]; then
+    if [[ -x "$CYGPATH_CMD" ]]; then
         $CYGPATH_CMD -am $1
     elif $mingw || $msys; then
         echo $1 | sed 's|/|\\\\|g'
@@ -350,7 +350,7 @@ decompile() {
 extra_cpath() {
     lib_path="$SCALA_HOME/lib"
     local extra_cpath=
-    for f in $(find $lib_path/ -name *.jar); do
+    for f in $(find "$lib_path/" -type f -name "*.jar"); do
         extra_cpath="$extra_cpath$(mixed_path $f)$PSEP"
     done
     echo $extra_cpath
@@ -488,11 +488,11 @@ cygwin=false
 mingw=false
 msys=false
 darwin=false
-case "`uname -s`" in
-  CYGWIN*) cygwin=true ;;
-  MINGW*)  mingw=true ;;
-  MSYS*)   msys=true ;;
-  Darwin*) darwin=true
+case "$(uname -s)" in
+    CYGWIN*) cygwin=true ;;
+    MINGW*)  mingw=true ;;
+    MSYS*)   msys=true ;;
+    Darwin*) darwin=true
 esac
 unset CYGPATH_CMD
 PSEP=":"

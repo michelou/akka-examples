@@ -51,7 +51,7 @@ Commands [**`ant.bat`**][apache_ant_cli] ([`build.xml`](./Chapter02/FirstAkkaApp
 > HashMap(over -> 1, quick -> 1, belong -> 1, lazy -> 1, best -> 1, man's -> 1, brown -> 1, fox -> 2, fell -> 1, tried -> 1, same -> 1, friend -> 1, family -> 1, dog -> 4, jump -> 1)
 > </pre>
 
-## <span id="process_order">`ProcessOrder` Example</span>
+## <span id="process_order">`ProcessOrder` Example</span> [**&#x25B4;**](#top)
 
 Code example `ProcessOrder` is an [Akka] application written in Java (e.g. [`ProcessOrderApp.java`](./Chapter03/ProcessOrder/src/main/java/ProcessOrderApp.java), [`ProcessOrderActor.java`](./Chapter03/ProcessOrder/src/main/java/actors/ProcessOrderActor.java)).
 
