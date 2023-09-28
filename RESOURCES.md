@@ -17,6 +17,7 @@
   - [What is Azure Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/azure-event-hubs-kafka-overview), March 2023.
   - [Using Akka Streams with Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial), January 2023.
 - [Akka Streams — Getting Started][article_cano] by Sergio Cano, August 2021.
+- [Akka Actors evolution. Towards type-safe distributed computations](https://www.bbva.com/en/innovation/akka-actors-evolution-type-safe-distributed-computations/) by Emiliano Martinez Sanchez, April 2019.
 - [A Comparison of the Basic Principles and Behavioural Aspects of Akka, JaCaMo and Jade Development Frameworks][article_cossentino] by Massimo Cossentino &amp; al., June 2018.
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)

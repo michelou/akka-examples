@@ -5,13 +5,13 @@
 ##
 ##############################################################################
 
-include ../../Makefile.inc
+include ../Makefile.inc
 
 SOURCE_DIR  = src
 TARGET_DIR  = target
 CLASSES_DIR = $(TARGET_DIR)/classes
 
-CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(CLASSES_DIR)
+CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(AKKA_ACTOR_TYPED_JAR)$(PSEP)$(AKKA_SLF4J_JAR)$(PSEP)$(SLF4J_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
 SCALAC_FLAGS = -deprecation -feature -classpath "$(CPATH)"
 SCALA_FLAGS  = -classpath "$(CPATH)"
 
@@ -25,7 +25,7 @@ TARGET    = $(TARGET_DIR)/.latest-build
 OPTS_FILE    = $(TARGET_DIR)/scalac_opts.txt
 SOURCES_FILE = $(TARGET_DIR)/scalac_sources.txt
 
-MAIN_CLASS = akka.first.app.mapreduce.MapReduceApplication
+MAIN_CLASS = akka.examples.ReceptionistApp
 MAIN_ARGS ?= 
 
 all: build
@@ -87,4 +87,4 @@ doc: build $(DOC_TARGET)
 .PHONY: all build clean doc help run
 
 .SUFFIXES:
-.SUFFIXES: .class .conf .java .scala .xml
+.SUFFIXES: .class .html .jar .java .scala .tasty .xml
