@@ -10,8 +10,8 @@
 
 Code examples presented below can be built/run with the following tools:
 
-| Build&nbsp;tool | Build file | Parent&nbsp;file | Environment(s) |
-|:----------------|:-------------------|:----------------|:---------------|
+| Build&nbsp;tool | Build&nbsp;file | Parent&nbsp;file | Environment(s) |
+|:----------------|:----------------|:----------------|:---------------|
 | [**`ant.bat`**][apache_ant_cli] | [`build.xml`](./Chapter02/ExtraPattern/build.xml) | [`build.xml`](./build.xml) | Any <sup><b>a)</b></sup> |
 | [**`gradle.bat`**][gradle_cli] | [`build.gradle`](./Chapter02/ExtraPattern/build.gradle) | [`common.gradle`](./common.gradle) | Any |
 | [**`make.exe`**][make_cli] | [`Makefile`](./Chapter02/ExtraPattern/Makefile) | [`Makefile.inc`](./Makefile.inc) | Any |
@@ -106,7 +106,7 @@ MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 2
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
