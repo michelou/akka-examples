@@ -763,7 +763,7 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%JAVA_HOME%\bin:java.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,3,*" %%i in ('"%JAVA_HOME%\bin\java.exe"e -version 2^>^&1 ^| findstr version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% java %%~k,"
+    for /f "tokens=1,2,3,*" %%i in ('"%JAVA_HOME%\bin\java.exe" -version 2^>^&1 ^| findstr version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% java %%~k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%JAVA_HOME%\bin:java.exe"
 )
 where /q "%SCALA_HOME%\bin:scalac.bat"
