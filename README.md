@@ -31,10 +31,10 @@ Optionally one may also install the following software:
 - [GNU Make 3.81][gmake_install]
 - [Gradle 8.4][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
-- [Oracle OpenJDK 21 LTS][oracle_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][oracle_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
 - [sbt 1.9][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
-- [Visual Studio Code 1.82][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
+- [Visual Studio Code 1.83][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -55,10 +55,10 @@ C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\grpcurl-1.8.8\           <i>( 22 MB)</i>
-C:\opt\jdk-oracle-21-ga\        <i>(320 MB)</i>
-C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
+C:\opt\grpcurl-1.8.9\           <i>( 22 MB)</i>
+C:\opt\jdk-temurin-11.0.21_9\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
+C:\opt\jdk-temurin-21-35\       <i>(325 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.12\           <i>( 24 MB)</i>
@@ -116,7 +116,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 11.0.20, scalac 2.13.12,
-   ant 1.10.14, gradle 8.4, mvn 3.9.5, sbt 1.9.6, grpcurl v1.8.8,
+   ant 1.10.14, gradle 8.4, mvn 3.9.5, sbt 1.9.6, grpcurl v1.8.9,
    make 3.81, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -138,7 +138,7 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) helps us to get the list of
 Warning: Search all directories (no option specified)
 Searching for class "NotUsed" in files "C:\opt\scala3-3.3.1\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\scala-2.13.12\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\jdk-temurin-11.0.20_8\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\jdk-temurin-11.0.21_9\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.8.5.jar:akka/NotUsed$.class
   akka-actor_2.13-2.8.5.jar:akka/NotUsed.class
@@ -186,10 +186,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.5-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.4-bin.zip</a>                                 <i>(118 MB)</i>
-<a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.8_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
+<a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.9_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.21_9.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(188 MB)</i>
+<a href="https://adoptium.net/fr/temurin/releases/?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21_35.zip</a>       <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.12.zip</a>                                  <i>( 21 MB)</i>
 </pre>
@@ -257,7 +258,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
-[grpcurl_relnotes]: https://github.com/fullstorydev/grpcurl/releases/tag/v1.8.8
+[grpcurl_relnotes]: https://github.com/fullstorydev/grpcurl/releases/tag/v1.8.9
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kafka_examples]: https://github.com/michelou/kafka-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
@@ -289,15 +290,6 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [spark_examples]: https://github.com/michelou/spark-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 <!--
-11.0.14 -> https://www.oracle.com/java/technologies/javase/11-0-14-bugfixes.html
-11.0.15 -> https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
-11.0.16 -> https://www.oracle.com/java/technologies/javase/11-0-16-bugfixes.html
-11.0.17 -> https://www.oracle.com/java/technologies/javase/11-0-17-bugfixes.html
-11.0.18 -> https://www.oracle.com/java/technologies/javase/11-0-18-relnotes.html
-11.0.19 -> https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
--->
-[temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
-<!--
 11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html
 11.0.4  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-July/001423.html
 11.0.5  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-October/002025.html
@@ -313,19 +305,27 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 11.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-April/014104.html
 11.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-July/016017.html
 11.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-October/018119.html
+11.0.18 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-January/020111.html
+11.0.19 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021900.html
 11.0.20 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024064.html
+11.0.21 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 -->
-[temurin_openjdk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2022-April/014104.html
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
+[temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
+[temurin_openjdk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 <!--
 17.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021899.html
 17.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024063.html
+17.0.9  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
 -->
 [temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
-[temurin_openjdk17_relnotes]: https://github.com/openjdk/jdk/compare/jdk-17%2B20...jdk-17%2B21
-[temurin_openjdk20]: https://adoptium.net/releases.html?variant=openjdk20&jvmVariant=hotspot
-[temurin_openjdk20_relnotes]: https://mail.openjdk.org/pipermail/jdk-dev/2023-March/007517.html
+[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
+<!--
+21_35   -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+-->
+[temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
+[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
 [vs2019_relnotes]: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes
