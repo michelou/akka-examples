@@ -115,14 +115,14 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 11.0.20, scalac 2.13.12,
-   ant 1.10.14, gradle 8.4, mvn 3.9.5, sbt 1.9.6, grpcurl v1.8.9,
+   javac 11.0.21, scalac 2.13.12,
+   ant 1.10.14, gradle 8.4, mvn 3.9.5, sbt 1.9.7, grpcurl v1.8.9,
    make 3.81, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
-C:\opt\apache-ant-1.10.14\bin\ant
-C:\opt\apache-ant-1.10.14\bin\ant.bat
-C:\opt\apache-ant-1.10.14\bin\ant.cmd
+C:\opt\apache-ant\bin\ant
+C:\opt\apache-ant\bin\ant.bat
+C:\opt\apache-ant\bin\ant.cmd
 C:\opt\Git\bin\git.exe
 C:\opt\Git\mingw64\bin\git.exe
 C:\opt\sbt\bin\sbt
@@ -282,7 +282,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.6
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.7
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.12
 [scala3_examples]: https://github.com/michelou/dotty-examples
