@@ -48,7 +48,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*October 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*November 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -57,8 +57,8 @@ C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.9\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.21_9\   <i>(300 MB)</i>
-C:\opt\jdk-temurin-17.0.9_9\    <i>(299 MB)</i>
-C:\opt\jdk-temurin-21_35\       <i>(325 MB)</i>
+C:\opt\jdk-temurin-17.0.9_9\    <i>(301 MB)</i>
+C:\opt\jdk-temurin-21.0.1_12\   <i>(326 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.12\           <i>( 24 MB)</i>
@@ -219,7 +219,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -290,6 +290,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [spark_examples]: https://github.com/michelou/spark-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 <!--
+### https://mail.openjdk.org/pipermail/jdk-updates-dev/
 11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html
 11.0.4  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-July/001423.html
 11.0.5  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-October/002025.html
@@ -322,10 +323,11 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
 [temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
 <!--
-21_35   -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+21_35   -> https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
+21.0.1  -> https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
 -->
 [temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
-[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+[temurin_openjdk21_relnotes]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
 [vs2019_relnotes]: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes
