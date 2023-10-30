@@ -324,9 +324,10 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
 <!--
 21_35   -> https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
+21.0.1  -> https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
 -->
 [temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
-[temurin_openjdk21_relnotes]: https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
+[temurin_openjdk21_relnotes]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
 [vs2019_relnotes]: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes
