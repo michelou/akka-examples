@@ -57,8 +57,8 @@ C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl-1.8.9\           <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.21_9\   <i>(300 MB)</i>
-C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
-C:\opt\jdk-temurin-21-35\       <i>(325 MB)</i>
+C:\opt\jdk-temurin-17.0.9_9\    <i>(299 MB)</i>
+C:\opt\jdk-temurin-21_35\       <i>(325 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.12\           <i>( 24 MB)</i>
@@ -110,7 +110,7 @@ where
 
 ### **`setenv.bat`** <sup id="anchor_03">[3](#footnote_03)</sup>
 
-We execute command [**`setenv.bat`**](setenv.bat) once to setup our development environment; it makes external tools such as [**`ant.bat`**][apache_ant_cli], [**`git.exe`**][git_cli] and [**`sbt.bat`**][sbt_cli] directly available from the command prompt.
+We execute command [**`setenv.bat`**](setenv.bat) once to setup our development environment; it makes external tools such as [**`ant.bat`**][apache_ant_cli], [**`git.exe`**][git_cli] or [**`sbt.bat`**][sbt_cli] directly available from the command prompt.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
@@ -189,7 +189,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.9_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot" rel="external">OpenJDK11U-jdk_x64_windows_hotspot_11.0.21_9.zip</a>   <i>(188 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.9_9.zip</a>    <i>(188 MB)</i>
 <a href="https://adoptium.net/fr/temurin/releases/?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21_35.zip</a>       <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.12.zip</a>                                  <i>( 21 MB)</i>

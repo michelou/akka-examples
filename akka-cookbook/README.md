@@ -23,7 +23,7 @@ Code examples can be built/run with the following tools:
 
 ## <span id="helloakka">`HelloAkka` Example</span>
 
-Batch file [`build.bat`](./Chapter01/HelloAkka/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
+Batch file [**`build.bat`**](./Chapter01/HelloAkka/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="Chapter01/HelloAkka/build.bat">build</a> -verbose run</b>
@@ -42,7 +42,7 @@ akka://HelloAkka
 
 ## <span id="behaviourandstate">`BehaviourAndState` Example</span> [**&#x25B4;**](#top)
 
-Batch file [`build.bat`](./Chapter01/BehaviourAndState/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
+Batch file [**`build.bat`**](./Chapter01/BehaviourAndState/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./Chapter01/BehaviourAndState/build.bat">build</a> -verbose run</b>
@@ -91,7 +91,7 @@ From the <a href="https://www.lagomframework.com/documentation/1.6.x/">Lagom 1.6
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
