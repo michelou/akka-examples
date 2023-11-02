@@ -30,7 +30,7 @@ MAIN_ARGS ?=
 
 all: build
 
-build: $(TARGET)
+build: deps $(TARGET)
 
 $(TARGET): $(SOURCES) $(RESOURCES)
 	[ -d "$(CLASSES_DIR)" ] || "$(MKDIR)" -p "$(CLASSES_DIR)"
@@ -55,7 +55,7 @@ help:
 	@$(ECHO) "    build  compile Java/Scala source files"
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
-	@$(ECHO) "    help   display this help message"
+	@$(ECHO) "    help   print this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
@@ -84,7 +84,7 @@ doc: build $(DOC_TARGET)
 ##############################################################################
 ## phony
 
-.PHONY: all build clean doc help run
+.PHONY: all build clean deps doc help run
 
 .SUFFIXES:
 .SUFFIXES: .class .html .jar .java .scala .tasty .xml

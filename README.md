@@ -55,7 +55,7 @@ C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\grpcurl-1.8.9\           <i>( 22 MB)</i>
+C:\opt\grpcurl\                 <i>( 22 MB)</i>
 C:\opt\jdk-temurin-11.0.21_9\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.9_9\    <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.1_12\   <i>(326 MB)</i>
@@ -66,7 +66,7 @@ C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
-> When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][linux_opt] directory on Unix).
+> When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [**`/opt/`**][linux_opt] directory on Unix).
 
 ## <span id="structure">Directory structure</span> [**&#x25B4;**](#top)
 
@@ -115,8 +115,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 11.0.21, scalac 2.13.12,
-   ant 1.10.14, gradle 8.4, mvn 3.9.5, sbt 1.9.7, grpcurl v1.8.9,
+   javac 11.0.21, scalac 2.13.12, sbt 1.9.7,
+   ant 1.10.14, gradle 8.4, mvn 3.9.5, grpcurl v1.8.9,
    make 3.81, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>

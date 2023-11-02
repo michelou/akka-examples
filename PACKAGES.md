@@ -25,19 +25,19 @@ The [Apache Pekko][pekko] tookit is also distributed as [Maven][maven_repository
 - [Pekko HTTP 1.0][pekko_http]
 - [Pekko Stream 1.0][pekko_stream]
 -->
-Our projects further depend on the following [Maven][maven_repository] :
+Our projects further depend on the following [Maven][maven_repository] packages :
 
 - [Config 1.4][config_download] ([*release notes*][config_relnotes])
 - [ScalaTest 3.2][scalatest_download] ([*release notes*][scalatest_relnotes])
 
-The above [Maven][maven_repository] packages are stored locally in two different locations depending on the build tool:
-
-| Build&nbsp;tool   | Local&nbsp;repository           |
-|:------------------|:--------------------------------|
-| [`ant.bat`][ant_cli] ([Ivy][ivy_lib] library)    | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.ivy2\cache\`    |
-| [`gradle.bat`][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
-| [`mvn.cmd`][mvn_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
-| [`sbt.bat`][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+> **Note**: [Maven][maven_repository] packages are stored locally in two different locations depending on the build tool:
+>
+>| Build&nbsp;tool   | Local&nbsp;repository           |
+>|:------------------|:--------------------------------|
+>| [`ant.bat`][ant_cli] ([Ivy][ivy_lib] library)    | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.ivy2\cache\`    |
+>| [`gradle.bat`][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+>| [`mvn.cmd`][mvn_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+>| [`sbt.bat`][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 
 *WIP*
 

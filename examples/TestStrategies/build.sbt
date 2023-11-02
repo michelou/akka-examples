@@ -5,7 +5,7 @@ version := "1.0"
 scalaVersion := "2.13.12"
 
 lazy val akkaVersion = "2.8.5"
-lazy val configVersion = "1.4.2"
+lazy val configVersion = "1.4.3"
 lazy val logbackVersion = "1.2.11"
 lazy val scalatestVersion = "3.2.17"
 

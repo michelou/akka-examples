@@ -66,6 +66,7 @@ call :add_jar "org.reactivestreams" "reactive-streams" "1.0.4"
 call :add_jar "com.typesafe.scala-logging" "scala-logging_%__SCALA_BINARY_VERSION%" "3.9.5"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-stream
+@rem https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.13/2.8.5/akka-stream_2.13-2.8.5.jar
 call :add_jar "com.typesafe.akka" "akka-stream_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-stream-kafka

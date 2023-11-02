@@ -11,7 +11,7 @@ SOURCE_DIR  = src
 TARGET_DIR  = target
 CLASSES_DIR = $(TARGET_DIR)/classes
 
-CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(CLASSES_DIR)
+CPATH        = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(AKKA_ACTOR_JAR)$(PSEP)$(CLASSES_DIR)
 SCALAC_FLAGS = -deprecation -feature -classpath "$(CPATH)"
 SCALA_FLAGS  = -classpath "$(CPATH)"
 
@@ -30,7 +30,7 @@ MAIN_ARGS ?=
 
 all: build
 
-build: $(TARGET)
+build: deps $(TARGET)
 
 $(TARGET): $(SOURCES)
 	[ -d "$(CLASSES_DIR)" ] || "$(MKDIR)" -p "$(CLASSES_DIR)"
@@ -55,14 +55,14 @@ help:
 	@$(ECHO) "    build  compile Java/Scala source files"
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
-	@$(ECHO) "    help   display this help message"
+	@$(ECHO) "    help   print this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -name "*.tasty" 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -type f -name "*.tasty" 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))
@@ -84,7 +84,7 @@ doc: build $(DOC_TARGET)
 ##############################################################################
 ## phony
 
-.PHONY: all build clean doc help run
+.PHONY: all build clean deps doc help run
 
 .SUFFIXES:
-.SUFFIXES: .class .conf .scala
+.SUFFIXES: .class .conf .jar .java .scala .tasty .xml

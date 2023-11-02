@@ -30,14 +30,14 @@ MAIN_ARGS ?=
 
 all: build
 
-build: $(TARGET)
+build: deps $(TARGET)
 
-$(TARGET): $(SOURCES)
+$(TARGET): $(SOURCES) $(RESOURCES)
 	[ -d "$(CLASSES_DIR)" ] || "$(MKDIR)" -p "$(CLASSES_DIR)"
 	@$(ECHO) $(SCALAC_FLAGS) -d "$(CLASSES_DIR)" > "$(OPTS_FILE)"
 	@$(ECHO) $(SOURCES) > "$(SOURCES_FILE)"
 	"$(SCALAC)" "@$(OPTS_FILE)" "@$(SOURCES_FILE)"
-	[ -z "$(RESOURCES)" ] || "$(CP)" $(RESOURCES) "$(CLASSES_DIR)"
+	for f in $(RESOURCES); do "$(CP)" "$$f" "$(CLASSES_DIR)"; done
 	@$(TOUCH) "$(TARGET)"
 
 clean:
@@ -55,14 +55,14 @@ help:
 	@$(ECHO) "    build  compile Java/Scala source files"
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
-	@$(ECHO) "    help   display this help message"
+	@$(ECHO) "    help   print this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -name "*.tasty" 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(CLASSES_DIR)" -type f -name "*.tasty" 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))
@@ -84,7 +84,7 @@ doc: build $(DOC_TARGET)
 ##############################################################################
 ## phony
 
-.PHONY: all build clean doc help run
+.PHONY: all build clean deps doc help run
 
 .SUFFIXES:
-.SUFFIXES: .class .conf .html .jar .java .scala
+.SUFFIXES: .class .conf .html .jar .java .scala .tasty .xml

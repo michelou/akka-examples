@@ -36,7 +36,7 @@ set __SLF4J_VERSION=2.0.9
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.2"
+call :add_jar "com.typesafe" "config" "1.4.3"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 call :add_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"

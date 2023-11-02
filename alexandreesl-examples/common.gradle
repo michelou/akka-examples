@@ -27,7 +27,7 @@ project.ext {
         else {
             implementation "org.scala-lang:scala-compiler:$scalaVersion"
         }
-        implementation "com.typesafe:config:1.4.2"
+        implementation "com.typesafe:config:1.4.3"
         implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
         // test scope
         testImplementation 'ch.qos.logback:logback-classic:$logbackVersion'

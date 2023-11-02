@@ -256,11 +256,11 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
-echo     %__BEG_O%-debug%__END%      display commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem output parameter: _JAVA_HOME
@@ -296,11 +296,11 @@ if defined _JAVA_HOME (
         for /f %%f in ('dir /ad /b "!_PATH!\%__DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
     )
     if defined _JAVA_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory !_JAVA_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory "!_JAVA_HOME!" 1>&2
     )
 )
 if not exist "%_JAVA_HOME%\bin\javac.exe" (
-    echo %_ERROR_LABEL% javac executable not found ^(%_JAVA_HOME%^) 1>&2
+    echo %_ERROR_LABEL% javac executable not found ^("%_JAVA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -368,15 +368,15 @@ if defined __KOTLINC_CMD (
     )
 )
 if defined __KOTLINC_CMD (
-    for %%i in ("%__KOTLINC_CMD%") do set "__KOTLINC_BIN_DIR=%%~dpi"
-    for %%f in ("!__KOTLINC_BIN_DIR!\.") do set "_KOTLIN_HOME=%%~dpf"
+    for /f "delims=" %%i in ("%__KOTLINC_CMD%") do set "__KOTLINC_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__KOTLINC_BIN_DIR!\.") do set "_KOTLIN_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Kotlin executable found in PATH 1>&2
 ) else if defined KOTLIN_HOME (
     set "_KOTLIN_HOME=%KOTLIN_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable KOTLIN_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
     if not defined _KOTLIN_HOME (
         set "__PATH=%ProgramFiles%"
         for /f "delims=" %%f in ('dir /ad /b "!__PATH!\kotlinc*" 2^>NUL') do set "_KOTLIN_HOME=!__PATH!\%%f"
@@ -386,7 +386,7 @@ if defined __KOTLINC_CMD (
     )
 )
 if not exist "%_KOTLIN_HOME%\bin\kotlinc.bat" (
-    echo kotlinc not found in Kotlin installation directory ^("%_KOTLIN_HOME%"^) 1>&2
+    echo %_ERROR_LABEL% kotlinc not found in Kotlin installation directory ^("%_KOTLIN_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -406,8 +406,8 @@ if defined __SCALAC_CMD (
     set "_SCALA_HOME=%SCALA_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA_HOME 1>&2
 ) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\scala-2*" 2^>NUL') do set _SCALA_HOME=!_PATH!\%%f
+    set __PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!__PATH!\scala-2*" 2^>NUL') do set _SCALA_HOME=!__PATH!\%%f
     if defined _SCALA_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala installation directory "!_SCALA_HOME!" 1>&2
     )
@@ -439,8 +439,15 @@ if defined __SCALAC_CMD (
     set "_SCALA3_HOME=%SCALA3_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA3_HOME 1>&2
 ) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\scala3-3*" 2^>NUL') do set _SCALA3_HOME=!_PATH!\%%f
+    set __PATH=C:\opt
+    if exist "!__PATH!\scala3\" ( set "_SCALA3_HOME=!__PATH!\scala3"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\scala3-3*" 2^>NUL') do set "_SCALA3_HOME=!__PATH!\%%f"
+        if not defined _SCALA3_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala3-3*" 2^>NUL') do set "_SCALA3_HOME=!__PATH!\%%f"
+        )
+    )
     if defined _SCALA3_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala 3 installation directory "!_SCALA_HOME!" 1>&2
     )
@@ -771,6 +778,11 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,4,*" %%i in ('call "%SCALA_HOME%\bin\scalac.bat" -version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% scalac %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%SCALA_HOME%\bin:scalac.bat"
 )
+where /q "%SBT_HOME%\bin:sbt.bat"
+if %ERRORLEVEL%==0 (
+    for /f "delims=: tokens=1,*" %%i in ('call "%SBT_HOME%\bin\sbt.bat" -V ^| findstr version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% sbt%%~j,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%SBT_HOME%\bin:sbt.bat"
+)
 where /q "%ANT_HOME%\bin:ant.bat"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,4,*" %%i in ('call "%ANT_HOME%\bin\ant.bat" -version ^| findstr version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% ant %%l,"
@@ -785,11 +797,6 @@ where /q "%MAVEN_HOME%\bin:mvn.cmd"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('"%MAVEN_HOME%\bin\mvn.cmd" -version ^| findstr Apache') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mvn %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%MAVEN_HOME%\bin:mvn.cmd"
-)
-where /q "%SBT_HOME%\bin:sbt.bat"
-if %ERRORLEVEL%==0 (
-    for /f "delims=: tokens=1,*" %%i in ('call "%SBT_HOME%\bin\sbt.bat" -V ^| findstr version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% sbt%%~j,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%SBT_HOME%\bin:sbt.bat"
 )
 where /q "%GRPCURL_HOME%:grpcurl.exe"
 if %ERRORLEVEL%==0 (

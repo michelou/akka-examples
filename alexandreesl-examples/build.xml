@@ -18,9 +18,8 @@
     </condition>
 
     <property name="cfr.version" value="0.152" />
-    <property name="akka.version" value="2.8.5" />
-    <property name="config.version" value="1.4.3" />
-    <property name="scalatest.version" value="3.2.17" />
+    <property name="hamcrest.version" value="2.2" />
+    <property name="junit.version" value="4.13.2" />
 
     <target name="init.local" if="use.local">
         <property name="scala3.home" value="${env.SCALA3_HOME}" />
@@ -49,22 +48,17 @@
     </target>
 
     <target name="init.ivy" unless="use.local">
-        <!-- installed: C:/opt/apache-ant-1.10.10/lib/ivy-2.5.0.jar -->
+        <!-- installed: C:/opt/apache-ant/lib/ivy-2.5.2.jar -->
         <taskdef resource="org/apache/ivy/ant/antlib.xml"
             uri="antlib:org.apache.ivy.ant" />
-        <ivy:resolve file="../../ivy.xml" showprogress="false" log="download-only" />
+        <ivy:resolve file="../ivy.xml" showprogress="false" log="download-only" />
         <ivy:cachepath pathid="scalac.classpath" conf="default"/>
         <path id="scala3.classpath">
-            <!--
-            <fileset dir="${ivy.cache}/ch.epfl.lamp" includes="**/jars/dotty-library*.jar">
-                <filename regex="_0\.(1[8-9]|2[0-9])-0\.(1[8-9]|2[0-9])\.[0-9]+" />  // e.g. _0.25-0.25.x
-            </fileset>
-            -->
-            <fileset dir="${ivy.cache}/org.scala-lang" includes="**/jars/scala3-library*.jar">
-                <filename regex="_3-3\.[0-9]\.[0-9](-RC[1-9])?" />  <!-- e.g. _3.0.0-RC1-3.0.0-RC1 -->
+            <fileset dir="${ivy.cache}/org.scala-lang" includes="**/jars/scala3-library_3*.jar">
+                <filename regex="-3\.[0-9]\.[0-9]+(-RC[1-9])?" />  <!-- e.g. _3-3.1.0-RC3 -->
             </fileset>
             <fileset dir="${ivy.cache}/org.scala-lang" includes="**/jars/scala-library*.jar">
-                <filename regex="-2\.[1-2][3-9]\.[0-9]+" />  <!-- e.g. -2.13.x -->
+                <filename regex="-2\.[1-2][3-9]\.[0-9]+" />  <!-- e.g. -2.13.6 -->
             </fileset>
         </path>
         <pathconvert property="scala3.classpath.prop" refid="scala3.classpath"/>
@@ -73,13 +67,6 @@
 
     <target name="init" depends="init.local, init.ivy">
         <path id="build.classpath">
-            <!--<fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />-->
-            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
-            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-testkit_2.13-${akka.version}.jar" />
-            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest_2.13-${scalatest.version}.jar" />
-            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest-mustmatchers_2.13-${scalatest.version}.jar" />
-            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest-shouldmatchers_2.13-${scalatest.version}.jar" />
-            <fileset dir="${ivy.cache}/org.scalatest" includes="**/scalatest-wordspec_2.13-${scalatest.version}.jar" />
             <pathelement location="${build.dir}" />
         </path>
         <path id="basedir.ref">
@@ -89,6 +76,9 @@
             <fileset dir="${ivy.cache}/org.benf" includes="**/cfr-${cfr.version}.jar" />
         </pathconvert>
         <path id="test.classpath">
+            <fileset dir="${ivy.cache}/junit" includes="**/jars/junit-${junit.version}.jar" />
+            <fileset dir="${ivy.cache}/org.hamcrest" includes="**/jars/hamcrest-${hamcrest.version}.jar" />
+            <fileset dir="${ivy.cache}/org.junit.platform" includes="**/junit-platform-console-standalone-${junit-platform.version}.jar" />
             <path refid="build.classpath" />
             <pathelement location="${test-build.dir}" />
         </path>
@@ -113,7 +103,7 @@
                 <fileset dir="@{srcdir}" includes="**/*.scala" />
             </resourcecount>
             <condition property="s" value="s" else="">
-                <not><matches string="${n}" pattern="[0-1]" /></not>
+                <matches string="${n}" pattern="[0-1]" />
             </condition>
             <!--
             <exec executable="echo" taskname="scalac">
@@ -130,7 +120,7 @@
                 <jvmarg value="-Xms768m" />
                 <jvmarg value="-Dscala.usejavacp=true" />
                 <arg value="-deprecation" />
-                <arg value="-language:postfixOps" />
+                <arg value="-feature" />
                 <arg value="-d" />
                 <arg value="@{destdir}" />
                 <arg value="-classpath" />
@@ -200,7 +190,7 @@
                 <fileset dir="@{srcdir}" includes="**/*.class" />
             </resourcecount>
             <condition property="s" value="" else="s">
-                <matches string="${n}" pattern="[0-1]" />
+                <matches string="n" pattern="[0-1]" />
             </condition>
             <echo message="Decompiling ${n} class file${s} to @{destdir}" level="info" />
             <pathconvert property="classpath" refid="@{classpathref}" />
