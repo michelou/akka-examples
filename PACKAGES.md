@@ -10,10 +10,10 @@
 
 The [Akka] tookit is distributed as [Maven][maven_repository] packages : 
 
-- [Akka Actor 2.8][akka_actor] ([*release notes*][akka_relnotes])
-- [Akka Actor Typed 2.8][akka_actor_typed] ([*release notes*][akka_relnotes])
-- [Akka Testkit 2.8][akka_testkit] ([*release notes*][akka_relnotes])
-- [Akka Testkit Typed 2.8][akka_testkit_typed] ([*release notes*][akka_relnotes])
+- [Akka Actor 2.9][akka_actor] ([*release notes*][akka_relnotes])
+- [Akka Actor Typed 2.9][akka_actor_typed] ([*release notes*][akka_relnotes])
+- [Akka Testkit 2.9][akka_testkit] ([*release notes*][akka_relnotes])
+- [Akka Testkit Typed 2.9][akka_testkit_typed] ([*release notes*][akka_relnotes])
 
 The [Apache Pekko][pekko] tookit is also distributed as [Maven][maven_repository] packages :
 
@@ -34,10 +34,10 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 >
 >| Build&nbsp;tool   | Local&nbsp;repository           |
 >|:------------------|:--------------------------------|
->| [`ant.bat`][ant_cli] ([Ivy][ivy_lib] library)    | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.ivy2\cache\`    |
->| [`gradle.bat`][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
->| [`mvn.cmd`][mvn_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
->| [`sbt.bat`][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+>| [**`ant.bat`**][ant_cli] ([Ivy][ivy_lib] library)    | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.ivy2\cache\`    |
+>| [**`gradle.bat`**][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`.m2\repository\` | 
+>| [**`mvn.cmd`**][mvn_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
+>| [**`sbt.bat`**][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 
 *WIP*
 
@@ -51,7 +51,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [akka]: https://akka.io/
 [akka_actor]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 [akka_actor_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
-[akka_relnotes]: https://github.com/akka/akka/releases
+[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.9.0
 [akka_testkit]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
 [akka_testkit_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
 [ant_cli]: https://ant.apache.org/

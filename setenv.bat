@@ -223,11 +223,11 @@ set "_DRIVE_NAME=!__DRIVE_NAMES:~0,2!"
 if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
-) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
+) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "!__GIVEN_PATH:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
 )
 subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
+    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path "!__GIVEN_PATH:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -277,8 +277,8 @@ for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
 if defined __JAVAC_CMD (
     call :is_java11 "%__JAVAC_CMD%"
     if defined _IS_JAVA11 (
-        for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpsi"
-        for %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpsi"
+        for /f "delims=" %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpsi"
+        for /f "delims=" %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpsi"
     )
 )
 set _JAVA_HOME=
@@ -293,7 +293,7 @@ if defined _JAVA_HOME (
     for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
     if not defined _JAVA_HOME (
         set "_PATH=%ProgramFiles%\Java"
-        for /f %%f in ('dir /ad /b "!_PATH!\%__DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
     )
     if defined _JAVA_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory "!_JAVA_HOME!" 1>&2
@@ -407,7 +407,7 @@ if defined __SCALAC_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\scala-2*" 2^>NUL') do set _SCALA_HOME=!__PATH!\%%f
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala-2*" 2^>NUL') do set _SCALA_HOME=!__PATH!\%%f
     if defined _SCALA_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala installation directory "!_SCALA_HOME!" 1>&2
     )
@@ -627,7 +627,7 @@ if defined __MAKE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MAKE_HOME 1>&2
 ) else (
     set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\make-3*" 2^>NUL') do set "_MAKE_HOME=!_PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!_PATH!\make-3*" 2^>NUL') do set "_MAKE_HOME=!_PATH!\%%f"
     if defined _MAKE_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Make installation directory "!_MAKE_HOME!" 1>&2
     )
