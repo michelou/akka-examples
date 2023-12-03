@@ -155,6 +155,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </div>
 See the online documentation for further informations: 
 <ul>
+<li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.8.x-2.9.x.html">Migration Guide 2.8.x to 2.9.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.7.x-2.8.x.html">Migration Guide 2.7.x to 2.8.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.6.x-2.7.x.html" rel="external">Migration Guide 2.6.x to 2.7.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.5.x-2.6.x.html">Migration Guide 2.5.x to 2.6.x</a></li>
@@ -203,7 +204,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

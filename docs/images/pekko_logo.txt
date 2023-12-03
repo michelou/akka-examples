@@ -1,0 +1,1 @@
+Source: https://pekko.apache.org/assets/images/pekko_logo.png
