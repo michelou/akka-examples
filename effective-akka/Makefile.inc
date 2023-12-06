@@ -18,13 +18,13 @@ SCALAC     = $(subst \,/,$(SCALA_HOME))/bin/scalac.bat
 SCALADOC   = $(subst \,/,$(SCALA_HOME))/bin/scaladoc.bat
 LOCAL_REPO = $(subst \,/,$(USERPROFILE))/.m2/repository
 PSEP       = ;
-CP         = $(subst \,/,$(GIT_HOME))/usr/bin/cp.exe
-ECHO       = $(subst \,/,$(GIT_HOME))/usr/bin/echo.exe
-## We grab Mingw version instead of C:\Windows\System32\find.exe
-FIND       = $(subst \,/,$(GIT_HOME))/usr/bin/find.exe
-MKDIR      = $(subst \,/,$(GIT_HOME))/usr/bin/mkdir.exe
-RM         = $(subst \,/,$(GIT_HOME))/usr/bin/rm.exe
-TOUCH      = $(subst \,/,$(GIT_HOME))/usr/bin/touch.exe
+## $(MSYS_HOME)\usr\bin\{cp.exe, make.exe, wget.exe}
+CP         = /usr/bin/cp.exe
+ECHO       = /usr/bin/echo.exe
+FIND       = /usr/bin/find.exe
+MKDIR      = /usr/bin/mkdir.exe
+RM         = /usr/bin/rm.exe
+TOUCH      = /usr/bin/touch.exe
 else
 JAR        = $(JAVA_HOME)/bin/jar
 JAVA       = $(JAVA_HOME)/bin/java
@@ -44,7 +44,7 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.8.5
+AKKA_VERSION = 2.9.0-M2
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
 SCALATEST_VERSION = 3.2.17
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api

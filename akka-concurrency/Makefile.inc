@@ -19,13 +19,13 @@ SCALADOC   = $(subst \,/,$(SCALA_HOME))/bin/scaladoc.bat
 SCALAFMT   = $(subst \,/,$(LOCALAPPDATA))/Coursier/data/bin/scalafmt.bat
 LOCAL_REPO = $(subst \,/,$(USERPROFILE))/.m2/repository
 PSEP       = ;
-CP         = $(subst \,/,$(GIT_HOME))/usr/bin/cp.exe
-ECHO       = $(subst \,/,$(GIT_HOME))/usr/bin/echo.exe
-## We grab Mingw version instead of C:\Windows\System32\find.exe
-FIND       = $(subst \,/,$(GIT_HOME))/usr/bin/find.exe
-MKDIR      = $(subst \,/,$(GIT_HOME))/usr/bin/mkdir.exe
-RM         = $(subst \,/,$(GIT_HOME))/usr/bin/rm.exe
-TOUCH      = $(subst \,/,$(GIT_HOME))/usr/bin/touch.exe
+## $(MSYS_HOME)\usr\bin\{cp.exe, make.exe, wget.exe}
+CP         = /usr/bin/cp.exe
+ECHO       = /usr/bin/echo.exe
+FIND       = /usr/bin/find.exe
+MKDIR      = /usr/bin/mkdir.exe
+RM         = /usr/bin/rm.exe
+TOUCH      = /usr/bin/touch.exe
 else
 JAR        = $(JAVA_HOME)/bin/jar
 JAVA       = $(JAVA_HOME)/bin/java
