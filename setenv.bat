@@ -44,7 +44,11 @@ if not %_EXITCODE%==0 goto end
 call :grpcurl
 if not %_EXITCODE%==0 goto end
 
-call :java11
+call :java 21 "temurin"
+if not %_EXITCODE%==0 goto end
+
+@rem last call to :java defines variable JAVA_HOME
+call :java 17 "temurin"
 if not %_EXITCODE%==0 goto end
 
 call :kafka 3
@@ -263,11 +267,16 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
+@rem input parameters:%1=required version %2=vendor 
 @rem output parameter: _JAVA_HOME
-:java11
+:java
 set _JAVA_HOME=
 
-set __DISTRO=jdk-temurin-11
+set __VERSION=%~1
+set __VENDOR=%~2
+if not defined __VENDOR ( set __JDK_NAME=jdk-%__VERSION%
+) else ( set __JDK_NAME=jdk-%__VENDOR%-%__VERSION%
+)
 set __JAVAC_CMD=
 for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
     set "__JAVAC_CMD=%%f"
@@ -275,49 +284,56 @@ for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
     if not "!__JAVAC_CMD:scoop=!"=="!__JAVAC_CMD!" set __JAVAC_CMD=
 )
 if defined __JAVAC_CMD (
-    call :is_java11 "%__JAVAC_CMD%"
-    if defined _IS_JAVA11 (
-        for /f "delims=" %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpsi"
-        for /f "delims=" %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpsi"
+    call :jdk_version "%__JAVAC_CMD%"
+    if !_JDK_VERSION!==%__VERSION% (
+        for /f "delims=" %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
+        for /f "delims=" %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpf"
+    ) else (
+        echo %_ERROR_LABEL% Required JDK installation not found ^("%__JDK_NAME%"^) 1>&2
+        set _EXITCODE=1
+        goto :eof
     )
 )
-set _JAVA_HOME=
-if defined JAVA_HOME if "!JAVA_HOME:scoop=!"=="%JAVA_HOME%" (
+if defined JAVA_HOME (
     set "_JAVA_HOME=%JAVA_HOME%"
-)
-if defined _JAVA_HOME (
-    @rem set "_JAVA_HOME=%JAVA_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
 ) else (
-    set _PATH=C:\opt
-    for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+    set __PATH=C:\opt
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_NAME%*" 2^>NUL') do set "_JAVA_HOME=!__PATH!\%%f"
     if not defined _JAVA_HOME (
-        set "_PATH=%ProgramFiles%\Java"
-        for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+        set "__PATH=%ProgramFiles%\Java"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_NAME%*" 2^>NUL') do set "_JAVA_HOME=!__PATH!\%%f"
     )
     if defined _JAVA_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory "!_JAVA_HOME!" 1>&2
     )
 )
 if not exist "%_JAVA_HOME%\bin\javac.exe" (
-    echo %_ERROR_LABEL% javac executable not found ^("%_JAVA_HOME%"^) 1>&2
+    echo %_ERROR_LABEL% Executable javac.exe not found ^("%_JAVA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
+call :jdk_version "%_JAVA_HOME%\bin\javac.exe"
+echo 111111111111 "_JAVA!_JDK_VERSION!_HOME=%_JAVA_HOME%"
+set "_JAVA!_JDK_VERSION!_HOME=%_JAVA_HOME%"
 goto :eof
 
-@rem input parameter: %1 = javac file path
-@rem output parameter: _IS_JAVA11
-:is_java11
-set _IS_JAVA11=
-
+@rem input parameter: %1=javac file path
+@rem output parameter: _JDK_VERSION
+:jdk_version
 set "__JAVAC_CMD=%~1"
-if not exist "%__JAVAC_CMD%" goto :eof
-
-set __JAVA_VERSION=
-for /f "tokens=1,*" %%i in ('%__JAVAC_CMD% -version 2^>^&1') do set __JAVA_VERSION=%%j
-if not "!__JAVA_VERSION:~0,2!"=="11" goto :eof
-set _IS_JAVA11=1
+if not exist "%__JAVAC_CMD%" (
+    echo %_ERROR_LABEL% Command javac.exe not found ^("%__JAVAC_CMD%"^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set __JAVAC_VERSION=
+for /f "usebackq tokens=1,*" %%i in (`"%__JAVAC_CMD%" -version 2^>^&1`) do set "__JAVAC_VERSION=%%j"
+set "__PREFIX=%__JAVAC_VERSION:~0,2%"
+@rem either 1.7, 1.8 or 11..18
+if "%__PREFIX%"=="1." ( set _JDK_VERSION=%__JAVAC_VERSION:~2,1%
+) else ( set _JDK_VERSION=%__PREFIX%
+)
 goto :eof
 
 @rem output parameters: _KAFKA_HOME, _KAFKA_PATH
@@ -836,6 +852,8 @@ if %__VERBOSE%==1 (
     if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     if defined GRPCURL_HOME echo    "GRPCURL_HOME=%GRPCURL_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
+    if defined JAVA17_HOME echo    "JAVA17_HOME=%JAVA17_HOME%" 1>&2
+    if defined JAVA21_HOME echo    "JAVA21_HOME=%JAVA21_HOME%" 1>&2
     if defined KAFKA_HOME echo    "KAFKA_HOME=%KAFKA_HOME%" 1>&2
     if defined KOTLIN_HOME echo    "KOTLIN_HOME=%KOTLIN_HOME%" 1>&2
     if defined MAKE_HOME echo    "MAKE_HOME=%MAKE_HOME%" 1>&2
@@ -864,6 +882,8 @@ endlocal & (
         if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined GRPCURL_HOME set "GRPCURL_HOME=%_GRPCURL_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
+        if not defined JAVA17_HOME set "JAVA17_HOME=%_JAVA17_HOME%"
+        if not defined JAVA21_HOME set "JAVA21_HOME=%_JAVA21_HOME%"
         if not defined KAFKA_HOME set "KAFKA_HOME=%_KAFKA_HOME%"
         if not defined KOTLIN_HOME set "KOTLIN_HOME=%_KOTLIN_HOME%"
         if not defined MAKE_HOME set "MAKE_HOME=%_MAKE_HOME%"

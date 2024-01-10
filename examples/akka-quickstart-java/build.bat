@@ -97,7 +97,6 @@ set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
 goto :eof
 
-
 @rem input parameter: %*
 :args
 set _COMMANDS=

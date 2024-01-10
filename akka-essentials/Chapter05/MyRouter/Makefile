@@ -1,5 +1,5 @@
 ##
-## Copyright (c) 2018-2023 Stéphane Micheloud
+## Copyright (c) 2018-2024 Stéphane Micheloud
 ##
 ## Licensed under the MIT License.
 ##
@@ -18,7 +18,7 @@ JAVA_FLAGS  = -classpath "$(CPATH)"
 ##############################################################################
 ## main rules
 
-SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -name "*.java" 2>/dev/null)
+SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -type f -name "*.java" 2>/dev/null)
 RESOURCES = $(shell $(FIND) "$(SOURCE_DIR)/main/resources" -name "*.conf" -o -name "*.xml" 2>/dev/null)
 TARGET    = $(TARGET_DIR)/.latest-build
 
@@ -30,7 +30,7 @@ MAIN_ARGS ?=
 
 all: build
 
-build: $(TARGET)
+build: deps $(TARGET)
 
 $(TARGET): $(SOURCES)
 	[ -d "$(CLASSES_DIR)" ] || "$(MKDIR)" -p "$(CLASSES_DIR)"
@@ -55,14 +55,14 @@ help:
 	@$(ECHO) "    build  compile Java source files"
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
-	@$(ECHO) "    help   display this help message"
+	@$(ECHO) "    help   print this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
 ## doc rules
 
 DOC_TARGET_DIR = $(TARGET_DIR)/docs
-DOC_SOURCES    = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -name "*.java" 2>/dev/null)
+DOC_SOURCES    = $(shell $(FIND) "$(SOURCE_DIR)/main/java" -type f -name "*.java" 2>/dev/null)
 DOC_TARGET     = $(DOC_TARGET_DIR)/.latest-build
 
 PROJECT_NAME    ?= $(shell basename $(CURDIR))
@@ -84,7 +84,7 @@ doc: build $(DOC_TARGET)
 ##############################################################################
 ## phony
 
-.PHONY: all build clean doc help run
+.PHONY: all build clean deps doc help run
 
 .SUFFIXES:
-.SUFFIXES: .class .conf .java .xml
+.SUFFIXES: .class .conf .html .java .scala .tasty .xml

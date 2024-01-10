@@ -44,43 +44,61 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.9.0-M2
+AKKA_VERSION = 2.8.5
+## https://mvnrepository.com/artifact/com.typesafe/config
+CONFIG_VERSION = 1.4.2
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
 SCALATEST_VERSION = 3.2.17
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-SLF4J_VERSION = 2.0.9
+SLF4J_VERSION = 2.0.11
 
 SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
-CONFIG_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-1.4.2.jar")
+CONFIG_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-$(CONFIG_VERSION).jar")
 AKKA_ACTOR_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-actor_2.13-$(AKKA_VERSION).jar")
-AKKA_SLF4J_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-slf4j_2.13-$(AKKA_VERSION).jar")
-AKKA_TESTKIT_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "akka-testkit_2.13-$(AKKA_VERSION).jar")
-SCALATEST_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scalatest" -name "scalatest_3-$(SCALATEST_VERSION).jar")
-SCALATEST_FUNSPEC_JAR = $(shell $(FIND) "$(LOCAL_REPO)/org/scalatest" -name "scalatest-funspec_3-$(SCALATEST_VERSION).jar")
-SLF4J_JAR             = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-api" -name "slf4j-api-$(SLF4J_VERSION).jar")
-SLF4J_SIMPLE_JAR      = $(shell $(FIND) "$(LOCAL_REPO)/org/slf4j/slf4j-simple" -name "slf4j-simple-$(SLF4J_VERSION).jar")
 
+deps:
+	$(eval MVN_OPTS := -quiet)
+	$(eval REMOTE_REPO := https://repo1.maven.org/maven2)
+	$(eval WGET_OPTS := --user-agent="Mozilla/5.0 (Windows NT 6.3; WOW64; rv:40.0)" --no-check-certificate --directory-prefix="$(TMP)")
+	@$(ECHO) "## Check Maven dependencies on $(REMOTE_REPO)"
 ifeq (,$(wildcard $(SCALA_LIB_JAR)))
-$(error Variable SCALA_LIB_JAR is not set)
+	$(eval GROUP_ID := org.scala-lang)
+	$(eval ARTIFACT_ID := scala-library)
+	$(eval VERSION := 2.13.12)
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
+	$(eval URL := $(REMOTE_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
+	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
+	$(MVN) $(MVN_OPTS) install:install-file -Dfile="$(JAR_FILE)" -DgroupId=$(GROUP_ID) -DartifactId=$(ARTIFACT_ID) -Dversion=$(VERSION) -Dpackaging=jar
+	$(eval SCALA_LIB_JAR := $(shell $(FIND) "$(LOCAL_REPO)/$(subst .,/,$(GROUP_ID))" -name $(ARTIFACT_ID)-$(VERSION).jar))
 endif
 ifeq (,$(wildcard $(CONFIG_JAR)))
-$(error Variable CONFIG_JAR is not set)
+	$(eval GROUP_ID := com.typesafe)
+	$(eval ARTIFACT_ID := config)
+	$(eval VERSION := $(CONFIG_VERSION))
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(SCALA_VERSION).jar)
+	## e.g. https://repo1.maven.org/maven2/com/typesafe/config/1.4.3/config-1.4.3.jar
+	$(eval URL := $(REMOTE_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
+	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
+	$(MVN) $(MVN_OPTS) install:install-file -Dfile="$(JAR_FILE)" -DgroupId=$(GROUP_ID) -DartifactId=$(ARTIFACT_ID) -Dversion=$(VERSION) -Dpackaging=jar
+	$(eval CONFIG_JAR := $(shell $(FIND) "$(LOCAL_REPO)/$(subst .,/,$(GROUP_ID))" -name $(ARTIFACT_ID)-$(VERSION).jar))
 endif
 ifeq (,$(wildcard $(AKKA_ACTOR_JAR)))
-$(error Variable AKKA_ACTOR_JAR is not set)
+	$(eval GROUP_ID := com.typesafe)
+	$(eval ARTIFACT_ID := akka-actor_2.13)
+	$(eval VERSION := $(AKKA_VERSION))
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(SCALA_VERSION).jar)
+	$(eval URL := $(REMOTE_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
+	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
+	$(MVN) $(MVN_OPTS) install:install-file -Dfile="$(JAR_FILE)" -DgroupId=$(GROUP_ID) -DartifactId=$(ARTIFACT_ID) -Dversion=$(VERSION) -Dpackaging=jar
+	$(eval AKKA_ACTOR_JAR := $(shell $(FIND) "$(LOCAL_REPO)/$(subst .,/,$(GROUP_ID))" -name $(ARTIFACT_ID)-$(VERSION).jar))
 endif
 ifeq (,$(wildcard $(AKKA_SLF4J_JAR)))
-$(error Variable AKKA_SLF4J_JAR is not set)
-endif
-ifeq (,$(wildcard $(AKKA_TESTKIT_JAR)))
-$(error Variable AKKA_TESTKIT_JAR is not set)
-endif
-ifeq (,$(wildcard $(SCALATEST_JAR)))
-$(error Variable SCALATEST_JAR is not set)
-endif
-ifeq (,$(wildcard $(SLF4J_JAR)))
-$(error Variable SLF4J_JAR is not set)
-endif
-ifeq (,$(wildcard $(SLF4J_SIMPLE_JAR)))
-$(error Variable SLF4J_SIMPLE_JAR is not set)
+	$(eval GROUP_ID := com.typesafe)
+	$(eval ARTIFACT_ID := akka-slf4j_2.13)
+	$(eval VERSION := $(AKKA_VERSION))
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(SCALA_VERSION).jar)
+	$(eval URL := $(REMOTE_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
+	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
+	$(MVN) $(MVN_OPTS) install:install-file -Dfile="$(JAR_FILE)" -DgroupId=$(GROUP_ID) -DartifactId=$(ARTIFACT_ID) -Dversion=$(VERSION) -Dpackaging=jar
+	$(eval AKKA_SLF4J_JAR := $(shell $(FIND) "$(LOCAL_REPO)/$(subst .,/,$(GROUP_ID))" -name $(ARTIFACT_ID)-$(VERSION).jar))
 endif

@@ -18,8 +18,9 @@
     </condition>
 
     <property name="cfr.version" value="0.152" />
-    <property name="akka.version" value="2.8.5" />
+    <property name="akka.version" value="2.9.0-M2" />
     <!--<property name="config.version" value="1.4.2" />-->
+    <property name="lombok.version" value="1.18.30" />
 
     <target name="init.local" if="use.local">
         <property name="scala3.home" value="${env.SCALA3_HOME}" />
@@ -48,7 +49,7 @@
     </target>
 
     <target name="init.ivy" unless="use.local">
-        <!-- installed: C:/opt/apache-ant-1.10.10/lib/ivy-2.5.0.jar -->
+        <!-- installed: C:/opt/apache-ant/lib/ivy-2.5.2.jar -->
         <taskdef resource="org/apache/ivy/ant/antlib.xml"
             uri="antlib:org.apache.ivy.ant" />
         <ivy:resolve file="../ivy.xml" showprogress="false" log="download-only" />
@@ -72,10 +73,12 @@
 
     <target name="init" depends="init.local, init.ivy">
         <path id="build.classpath">
-            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.11.jar" />
+            <fileset dir="${ivy.cache}/org.scala-lang/scala-library" includes="**/jars/scala-library-2.13.12.jar" />
             <fileset dir="${ivy.cache}/com.typesafe/config" includes="**/config-${config.version}.jar" />
-            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_typed_2.13-${akka.version}.jar" />
+            <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor-typed_2.13-${akka.version}.jar" />
             <fileset dir="${ivy.cache}/com.typesafe.akka" includes="**/jars/akka-actor_2.13-${akka.version}.jar" />
+            <fileset dir="${ivy.cache}/org.projectlombok" includes="**/jars/lombok-${lombok.version}.jar" />
+            <fileset dir="${ivy.cache}/org.slf4j/slf4j-api" includes="**/jars/slf4j-api-2.0*.jar" />
             <pathelement location="${build.dir}" />
         </path>
         <path id="basedir.ref">
@@ -88,6 +91,8 @@
             <path refid="build.classpath" />
             <pathelement location="${test-build.dir}" />
         </path>
+        <pathconvert property="build.classpath.prop" refid="build.classpath"/>
+        <echo message="build.classpath=${build.classpath.prop}" level="info" />  <!-- level="verbose" -->
     </target>
 
     <macrodef name="dotc" >

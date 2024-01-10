@@ -71,7 +71,7 @@ We add 3 socks to a cart (see section [**6.1 Exercise the service**](https://dev
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where">where</a> grpcurl</b>
-C:\opt\grpcurl-1.8.7\grpcurl.exe
+C:\opt\grpcurl\grpcurl.exe
 &nbsp;
 <b>&gt; <a href="https://github.com/fullstorydev/grpcurl#invoking-rpcs">grpcurl</a> -d "{\"cartId\":\"cart1\", \"itemId\":\"socks\", \"quantity\":3}" -plaintext 127.0.0.1:8101 shoppingcart.ShoppingCartService.AddItem</b>
 {
@@ -138,7 +138,7 @@ Mouth: got a msg: Brain says hello to Mouth
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -28,13 +28,13 @@ set __AKKA_VERSION=2.8.5
 set __LOMBOK_VERSION=1.18.28
 set __SCALA_VERSION=2.13.12
 set __SCALATEST_VERSION=3.2.17
-set __SLF4J_VERSION=2.0.9
+set __SLF4J_VERSION=2.0.11
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.3"
+call :add_jar "com.typesafe" "config" "1.4.2"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 call :add_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"

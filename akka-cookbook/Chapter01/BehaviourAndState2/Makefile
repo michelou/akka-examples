@@ -1,5 +1,5 @@
 ##
-## Copyright (c) 2018-2023 Stéphane Micheloud
+## Copyright (c) 2018-2024 Stéphane Micheloud
 ##
 ## Licensed under the MIT License.
 ##
@@ -30,7 +30,7 @@ MAIN_ARGS ?=
 
 all: build
 
-build: $(TARGET)
+build: deps $(TARGET)
 
 $(TARGET): $(SOURCES) $(RESOURCES)
 	[ -d "$(CLASSES_DIR)" ] || "$(MKDIR)" -p "$(CLASSES_DIR)"
@@ -56,7 +56,7 @@ help:
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
 	@$(ECHO) "    lint   analyze Scala source files with Scalafmt"
-	@$(ECHO) "    help   display this help message"
+	@$(ECHO) "    help   print this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################
@@ -100,7 +100,7 @@ $(LINT_TARGET): $(LINT_SOURCES)
 ##############################################################################
 ## phony
 
-.PHONY: all build clean doc help lint run
+.PHONY: all build clean deps doc help lint run
 
 .SUFFIXES:
-.SUFFIXES: .class .conf .jar .java .scala .tasty .xml
+.SUFFIXES: .class .conf .html .jar .java .scala .tasty .xml
