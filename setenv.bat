@@ -314,7 +314,6 @@ if not exist "%_JAVA_HOME%\bin\javac.exe" (
     goto :eof
 )
 call :jdk_version "%_JAVA_HOME%\bin\javac.exe"
-echo 111111111111 "_JAVA!_JDK_VERSION!_HOME=%_JAVA_HOME%"
 set "_JAVA!_JDK_VERSION!_HOME=%_JAVA_HOME%"
 goto :eof
 
