@@ -58,8 +58,8 @@ C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl\                 <i>( 22 MB)</i>
-C:\opt\jdk-temurin-17.0.9_9\    <i>(301 MB)</i>
-C:\opt\jdk-temurin-21.0.1_12\   <i>(326 MB)</i>
+C:\opt\jdk-temurin-17.0.10_7\   <i>(301 MB)</i>
+C:\opt\jdk-temurin-21.0.2_13\   <i>(326 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.12\           <i>( 24 MB)</i>
@@ -116,7 +116,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.9, scalac 2.13.12, sbt 1.9.8,
+   javac 17.0.10 scalac 2.13.12, sbt 1.9.8,
    ant 1.10.14, gradle 8.5, mvn 3.9.6, grpcurl v1.8.9,
    make 3.81, git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
 
@@ -139,7 +139,7 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) helps us to get the list of
 Warning: Search all directories (no option specified)
 Searching for class "NotUsed" in files "C:\opt\scala3-3.3.2-RC1\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\scala-2.13.12\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.9_9\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.10_7\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.8.5.jar:akka/NotUsed$.class
   akka-actor_2.13-2.8.5.jar:akka/NotUsed.class
@@ -190,8 +190,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://gradle.org/install/">gradle-8.5-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.9_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.9_9.zip</a>    <i>(188 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.1_12.zip</a>   <i>(191 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7.zip</a>   <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.2_13.zip</a>   <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.43.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.12.zip</a>                                  <i>( 21 MB)</i>
 </pre>
@@ -228,7 +228,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [ada_examples]: https://github.com/michelou/ada-examples
 [akka]: https://akka.io/
 [akka_license]: https://www.lightbend.com/akka/license-faq
-[apache_pekko]: https://pekko.apache.org/what-is-pekko.html
+[apache_pekko]: https://pekko.apache.org/
 [blog_alexandreesl]: https://alexandreesl.com/2019/01/02/akka-streams-developing-robust-applications-using-scala/
 [apache_ant]: https://ant.apache.org/
 [apache_ant_cli]: https://ant.apache.org/manual/running.html

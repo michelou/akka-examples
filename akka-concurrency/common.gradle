@@ -2,12 +2,12 @@
 buildDir file("target")
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.1"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.2-RC1"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -17,10 +17,15 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.8.5"
+    // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
+    // https://mvnrepository.com/artifact/org.specs2/specs2-core
+    akkaVersion = "2.9.1"
     configVersion = "1.4.2"
     logbackVersion = "1.4.14"
-    specs2Version = isScala3 ? "5.4.2" : "4.20.4"
+    specs2Version = isScala3 ? "5.5.1" : "4.20.4"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"

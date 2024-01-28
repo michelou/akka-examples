@@ -17,9 +17,15 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.8.5"
+    // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
+    // https://mvnrepository.com/artifact/org.specs2/specs2-core
+    akkaVersion = "2.9.1"
+    configVersion = "1.4.3"
     logbackVersion = "1.4.11"
-    specs2Version = isScala3 ? "5.4.2" : "4.20.4"
+    specs2Version = isScala3 ? "5.5.1" : "4.20.4"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"
@@ -27,7 +33,7 @@ project.ext {
         else {
             implementation "org.scala-lang:scala-compiler:$scalaVersion"
         }
-        implementation "com.typesafe:config:1.4.3"
+        implementation "com.typesafe:config:$configVersion"
         implementation "com.typesafe.akka:akka-actor_${scalaBinaryVersion}:$akkaVersion"
         // test scope
         testImplementation 'ch.qos.logback:logback-classic:$logbackVersion'

@@ -2,8 +2,8 @@
 buildDir file("target")
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 project.ext {
@@ -17,9 +17,13 @@ project.ext {
     }
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
-    akkaVersion = "2.8.5"
+    // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
+    akkaVersion = "2.9.1"
     configVersion = "1.4.2"
-    logbackVersion = "1.4.12"
+    logbackVersion = "1.4.14"
     scalatestVersion = "3.2.17"
     dependencies {
         if (isScala3) { 
@@ -33,13 +37,9 @@ project.ext {
         // test scope
         testImplementation 'ch.qos.logback:logback-classic:$logbackVersion'
         testImplementation "com.typesafe.akka:akka-testkit_${scalaBinaryVersion}:$akkaVersion"
-        // https://mvnrepository.com/artifact/org.scalatest/scalatest
         testImplementation "org.scalatest:scalatest_${scalaBinaryVersion}:$scalatestVersion"
-        // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
         testImplementation "org.scalatest:scalatest-core_${scalaBinaryVersion}:$scalatestVersion"
-        // https://mvnrepository.com/artifact/org.scalatest/scalatest-mustmatchers
         testImplementation "org.scalatest:scalatest-mustmatchers_${scalaBinaryVersion}:$scalatestVersion"
-        // https://mvnrepository.com/artifact/org.scalatest/scalatest-wordspec
         testImplementation "org.scalatest:scalatest-wordspec_${scalaBinaryVersion}:$scalatestVersion"
     }
 

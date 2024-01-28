@@ -29,9 +29,9 @@
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <dependency org="com.typesafe" name="config" rev="1.4.2"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.8.5"/>
+        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.9.1"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed -->
-        <dependency org="com.typesafe.akka" name="akka-actor-typed_2.13" rev="2.8..5"/>
+        <dependency org="com.typesafe.akka" name="akka-actor-typed_2.13" rev="2.9.1"/>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency org="org.projectlombok" name="lombok" rev="1.18.30"/>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->

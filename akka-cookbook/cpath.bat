@@ -13,7 +13,6 @@ if %_DEBUG%==1 echo[%~n0] "_MVN_CMD=%_MVN_CMD%"
 if %_DEBUG%==1 ( set _MVN_OPTS=
 ) else ( set _MVN_OPTS=--quiet
 )
-set _CENTRAL_REPO=https://repo1.maven.org/maven2
 set "_LOCAL_REPO=%USERPROFILE%\.m2\repository"
 
 set "_TEMP_DIR=%TEMP%\lib"
@@ -27,7 +26,8 @@ set __SCALA_BINARY_VERSION=2.13
 
 set _LIBS_CPATH=
 
-set __AKKA_VERSION=2.8.5
+set __AKKA_VERSION=2.9.1
+set __CONFIG_VERSION=1.4.3
 set __SCALA_VERSION=2.13.12
 set __SCALATEST_VERSION=3.2.17
 set __SLF4J_VERSION=2.0.11
@@ -36,16 +36,16 @@ set __SLF4J_VERSION=2.0.11
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.3"
+call :add_jar "com.typesafe" "config" "%__CONFIG_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-call :add_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
+call :add_akka_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
-call :add_jar "com.typesafe.akka" "akka-actor-typed_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
+call :add_akka_jar "com.typesafe.akka" "akka-actor-typed_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-slf4j
-call :add_jar "com.typesafe.akka" "akka-slf4j_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
+call :add_akka_jar "com.typesafe.akka" "akka-slf4j_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
@@ -94,10 +94,29 @@ goto end
 @rem input parameters: %1=group ID, %2=artifact ID, %3=version
 @rem global variable: _LIBS_CPATH
 :add_jar
-@rem https://mvnrepository.com/artifact/org.portable-scala
+set __MAVEN_REPO=https://repo1.maven.org/maven2
 set __GROUP_ID=%~1
 set __ARTIFACT_ID=%~2
 set __VERSION=%~3
+call :add_repo_jar "%__MAVEN_REPO%" "%__GROUP_ID%" "%__ARTIFACT_ID%" "%__VERSION%"
+goto :eof
+
+:add_akka_jar
+set __AKKA_REPO= https://repo.akka.io/maven
+set __GROUP_ID=%~1
+set __ARTIFACT_ID=%~2
+set __VERSION=%~3
+call :add_repo_jar "%__AKKA_REPO%" "%__GROUP_ID%" "%__ARTIFACT_ID%" "%__VERSION%"
+goto :eof
+
+@rem input parameters: %1=repo URL, %2=group ID, %3=artifact ID, %4=version
+@rem global variable: _LIBS_CPATH
+:add_repo_jar
+@rem https://mvnrepository.com/artifact/org.portable-scala
+set __REPO_URL=%~1
+set __GROUP_ID=%~2
+set __ARTIFACT_ID=%~3
+set __VERSION=%~4
 
 set __JAR_NAME=%__ARTIFACT_ID%-%__VERSION%.jar
 set __JAR_PATH=%__GROUP_ID:.=\%\%__ARTIFACT_ID:/=\%
@@ -106,7 +125,7 @@ for /f "usebackq delims=" %%f in (`where /r "%_LOCAL_REPO%\%__JAR_PATH%" %__JAR_
     set "__JAR_FILE=%%f"
 )
 if not exist "%__JAR_FILE%" (
-    set __JAR_URL=%_CENTRAL_REPO%/%__GROUP_ID:.=/%/%__ARTIFACT_ID%/%__VERSION%/%__JAR_NAME%
+    set __JAR_URL=%__REPO_URL%/%__GROUP_ID:.=/%/%__ARTIFACT_ID%/%__VERSION%/%__JAR_NAME%
     set "__JAR_FILE=%_TEMP_DIR%\%__JAR_NAME%"
     if not exist "!__JAR_FILE!" (
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% powershell -c "Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2
