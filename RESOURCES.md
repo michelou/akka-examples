@@ -22,6 +22,7 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Introduction to Akka Actors in Java](https://www.baeldung.com/akka-actors-java) by Baeldung, December 2023.
 - [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
   - [From Akka Streams To Actors And Back][blog_rockthejvm_streams], February 2023.
   - [Optimizing Kafka Clients: A Hands-On Guide][blog_rockthejvm_optimizing], January 2023.
@@ -52,6 +53,8 @@
 - [Introduction to Akka Streams][blog_agarwal] by Archit Agarwal, February 2019.
 - [Hpc with Scala and Akka Actors][blog_balinzo] by Dario Balinzo, December 2018.
 
+<!--=======================================================================-->
+
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Akka in Action][book_abraham] (2<sup>nd</sup> Edition) by Francisco Lopez-Sancho Abrahm, July 2023.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9921-6, 425 pages)</span>
@@ -81,10 +84,11 @@
 
 - [Islands in the Stream: Integrating Akka Streams and Akka Actors][video_breck] by Colin Breck, October 2017.
 - [Learning Akka Tutorial](https://www.youtube.com/playlist?list=PLTgRMOcmRb3O_bU_p12FTYS7mEYeyzZ6G) by Packt, 2016.
+- [Introduction to Akka Actors with Java 8](https://www.youtube.com/watch?v=7phNrU8DyWA) by Johan Andrén, September 2016.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->
