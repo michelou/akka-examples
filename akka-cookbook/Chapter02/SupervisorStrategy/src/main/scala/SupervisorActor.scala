@@ -17,7 +17,7 @@ class SupervisorActor extends Actor {
   val printer = context.actorOf(Props[PrinterActor]())
   val intAdder = context.actorOf(Props[IntAdderActor]())
 
-  def receive = {
+  def receive: Receive = {
     case "Start" =>
       printer ! "Hello printer"
       printer ! 1

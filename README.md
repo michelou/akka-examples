@@ -32,11 +32,11 @@ Optionally one may also install the following software:
 - [Apache Ant 1.10][apache_ant] (requires Java 8+) ([*release notes*][apache_ant_relnotes])
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [GNU Make 3.81][gmake_install]
-- [Gradle 8.5][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.6][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.9][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.85][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.86][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -83,6 +83,7 @@ akka-essentials\{<a href="akka-essentials/README.md">README.md</a>, <a href="akk
 <a href="./docs">docs\</a>
 effective-akka\{<a href="effective-akka/README.md">README.md</a>, <a href="effective-akka/ExtraPattern/">ExtraPattern</a>, etc.>}
 examples\{<a href="examples/README.md">README.md</a>, <a href="examples/akka-quickstart-java/">akka-quickstart-java</a>, <a href="examples/akka-quickstart-kotlin/">akka-quickstart-kotlin</a>, ..}
+pekko-examples\{<a href="pekko-examples/README.md">README.md</a>, <a href="pekko-examples/HelloWorld/">HelloWorld</a>, etc.>}
 <a href="PACKAGES.md">PACKAGES.md</a>
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
@@ -100,6 +101,7 @@ where
 - directory [**`docs\`**](docs/) contains [Akka] related papers/articles.
 - directory **`effective-akka\`** contains [Akka] code examples from [Allen's book][book_allen].
 - directory [**`examples\`**](examples/) contains [Akka] examples grabbed from various websites (see file [**`examples\README.md`**](examples/README.md)).
+- directory **`pekko-examples\`** contains [Akka] code examples from the [Pekko][apache_pekko] project.
 - file [**`PACKAGES.md`**](PACKAGES.md) presents the [Maven][maven_repository] packages our projects depend on.
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
@@ -117,7 +119,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.10 scalac 2.13.12, sbt 1.9.8,
-   ant 1.10.14, gradle 8.5, mvn 3.9.6, grpcurl v1.8.9,
+   ant 1.10.14, gradle 8.6, mvn 3.9.6, grpcurl v1.8.9,
    make 3.81, git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -161,13 +163,9 @@ Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java version</th></tr>
-<tr><td><a href="https://docs.gradle.org/8.5/release-notes.html" rel="external">8.5</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">21</a></td></tr>
-<tr><td><a href="https://docs.gradle.org/8.4/release-notes.html" rel="external">8.4</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">21</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/8.4/release-notes.html" rel="external">8.4</a>, <a href="https://docs.gradle.org/8.5/release-notes.html" rel="external">8.5</a>, <a href="https://docs.gradle.org/8.6/release-notes.html" rel="external">8.6</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">21</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/8.3/release-notes.html" rel="external">8.3</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
-<tr><td><a href="https://docs.gradle.org/8.2/release-notes.html" rel="external">8.2</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">19</a></td></tr>
-<tr><td><a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">19</a></td></tr>
-<tr><td><a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup><b>a)</b></sup></td><td>19</td></tr>
-<tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a></td><td>19</td></tr>
+<tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a>, <a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup><b>a)</b></sup>, <a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a>, <a href="https://docs.gradle.org/8.2/release-notes.html" rel="external">8.2</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">19</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/7.5/release-notes.html" rel="external">7.5</a></td><td>18</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.3/release-notes.html" rel="external">7.3</a></td><td>17</td></tr>
 <tr><td><a href="https://docs.gradle.org/7.0/release-notes.html" rel="external">7.0</a></td><td>16</td></tr>
@@ -187,7 +185,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.5-bin.zip</a>                                 <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.6-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.9_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7.zip</a>   <i>(188 MB)</i>
@@ -228,8 +226,6 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [ada_examples]: https://github.com/michelou/ada-examples
 [akka]: https://akka.io/
 [akka_license]: https://www.lightbend.com/akka/license-faq
-[apache_pekko]: https://pekko.apache.org/
-[blog_alexandreesl]: https://alexandreesl.com/2019/01/02/akka-streams-developing-robust-applications-using-scala/
 [apache_ant]: https://ant.apache.org/
 [apache_ant_cli]: https://ant.apache.org/manual/running.html
 [apache_ant_relnotes]: https://github.com/apache/ant/blob/master/WHATSNEW
@@ -237,6 +233,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
 [apache_maven_relnotes]: https://maven.apache.org/docs/3.9.6/release-notes.html
+[apache_pekko]: https://pekko.apache.org/
+[blog_alexandreesl]: https://alexandreesl.com/2019/01/02/akka-streams-developing-robust-applications-using-scala/
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
@@ -255,7 +253,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.2/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.6/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
@@ -289,6 +287,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.12
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [scala3_home]: https://dotty.epfl.ch
+[sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spark_examples]: https://github.com/michelou/spark-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 <!--

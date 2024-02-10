@@ -8,7 +8,7 @@ if not defined _DEBUG set _DEBUG=0
 set _VERBOSE=0
 
 if not defined _MVN_CMD set "_MVN_CMD=%MAVEN_HOME%\bin\mvn.cmd"
-if %_DEBUG%==1 echo [%~n0] "_MVN_CMD=%_MVN_CMD%"
+if %_DEBUG%==1 echo [%~n0] "_MVN_CMD=%_MVN_CMD%" 1>&2
 
 if %_DEBUG%==1 ( set _MVN_OPTS=
 ) else ( set _MVN_OPTS=--quiet
@@ -17,23 +17,27 @@ set "__LOCAL_REPO=%USERPROFILE%\.m2\repository"
 
 set "__TEMP_DIR=%TEMP%\lib"
 if not exist "%__TEMP_DIR%" mkdir "%__TEMP_DIR%"
-if %_DEBUG%==1 echo [%~n0] "__TEMP_DIR=%__TEMP_DIR%"
-
-set _LIBS_CPATH=
+if %_DEBUG%==1 echo [%~n0] "__TEMP_DIR=%__TEMP_DIR%" 1>&2
 
 set __SCALA_BINARY_VERSION=2.13
 
+@rem #########################################################################
+@rem ## Libraries to be added to _LIBS_CPATH
+
+set _LIBS_CPATH=
+
 set __AKKA_VERSION=2.9.1
+set __CONFIG_VERSION=1.4.3
 set __LOMBOK_VERSION=1.18.30
 set __SCALA_VERSION=2.13.12
-set __SCALATEST_VERSION=3.2.17
-set __SLF4J_VERSION=2.0.11
+set __SCALATEST_VERSION=3.2.18
+set __SLF4J_VERSION=2.0.12
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.2"
+call :add_jar "com.typesafe" "config" "%__CONFIG_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 call :add_akka_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"

@@ -23,6 +23,34 @@ Code examples can be built/run with the following tools:
 
 ## <span id="helloakka">`HelloAkka` Example</span>
 
+The project directory is organised as follows :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Chapter01/HelloAkka/build.bat">build.bat</a>
+|   <a href="./Chapter01/HelloAkka/build.gradle">build.gradle</a>
+|   <a href="./Chapter01/HelloAkka/build.sbt">build.sbt</a>
+|   <a href="./Chapter01/HelloAkka/build.sh">build.sh</a>
+|   <a href="./Chapter01/HelloAkka/build.xml">build.xml</a>
+|   <a href="./Chapter01/HelloAkka/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter01/HelloAkka/Makefile">Makefile</a>
+|   <a href="./Chapter01/HelloAkka/pom.xml">pom.xml</a>
++---project
+|       <a href="./Chapter01/HelloAkka/project/build.properties">build.properties</a>
+\---src
+    +---main
+    |   +---resources
+    |   |       <a href="./Chapter01/HelloAkka/src/main/resources/application.conf">application.conf</a>
+    |   |       <a href="./Chapter01/HelloAkka/src/main/resources/logback.xml">logback.xml</span>
+    |   \---scala
+    |           <a href="./Chapter01/HelloAkka/src/main/scala/HelloAkka.scala">HelloAkka.scala</a>
+    \---test
+        +---java
+        |       <a href="./Chapter01/HelloAkka/src/test/java/HelloAkkaTestJava.java">HelloAkkaTestJava.java</a>
+        \---scala
+                <a href="./Chapter01/HelloAkka/src/test/scala/HelloAkkaTest.scala">HelloAkkaTest.scala</a>
+</pre>
+
 Batch file [**`build.bat`**](./Chapter01/HelloAkka/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
 <pre style="font-size:80%;">
@@ -91,7 +119,7 @@ From the <a href="https://www.lagomframework.com/documentation/1.6.x/">Lagom 1.6
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

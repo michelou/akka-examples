@@ -12,7 +12,7 @@ class SupervisorActor extends Actor {
       super.supervisorStrategy.decider.applyOrElse(t, (_: Any) => Escalate)
   }
 
-  def receive = {
+  def receive: Receive = {
     case (props: Props, name: String) =>
       sender() ! context.actorOf(props, name)
     case StopActor(actorRef) =>

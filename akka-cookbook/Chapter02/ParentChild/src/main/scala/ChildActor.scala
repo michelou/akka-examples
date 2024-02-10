@@ -7,7 +7,7 @@ case class Greet(msg: String)
 
 class ChildActor extends Actor {
 
-  def receive = {
+  def receive: Receive = {
     case Greet(msg) =>
       println(s"My parent [${self.path.parent}] " +
               s"greeted to me [${self.path}] $msg")

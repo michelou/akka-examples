@@ -6,7 +6,7 @@ class ParentActor extends Actor {
   val random = new scala.util.Random
   var children = scala.collection.mutable.ListBuffer[ActorRef]()
 
-  def receive = {
+  def receive: Receive = {
     case CreateChild =>
       children ++= List(context.actorOf(Props[DoubleActor]()))
     case Send =>

@@ -5,7 +5,7 @@ import akka.actor.Actor
 class IntAdderActor extends Actor {
   var sum = 0
 
-  def receive = {
+  def receive: Receive = {
     case x: Int =>
       sum += x
       println(s"IntAdder: sum is $sum")
