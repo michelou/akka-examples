@@ -15,7 +15,7 @@
         <!-- Scala settings -->
         <scala.groupId>org.scala-lang</scala.groupId>
         <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
-        <scala.version>2.13.12</scala.version>
+        <scala.version>2.13.13</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 

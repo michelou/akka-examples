@@ -29,8 +29,8 @@ set _LIBS_CPATH=
 
 set __AKKA_VERSION=2.9.1
 set __SCALA_VERSION=2.13.12
-set __SCALATEST_VERSION=3.2.17
-set __SLF4J_VERSION=2.0.11
+set __SCALATEST_VERSION=3.2.18
+set __SLF4J_VERSION=2.0.12
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"

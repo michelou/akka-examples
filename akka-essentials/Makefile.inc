@@ -55,7 +55,7 @@ AKKA_VERSION = 2.9.1
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.2
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-SLF4J_VERSION = 2.0.11
+SLF4J_VERSION = 2.0.12
 
 SCALA_LIB_JAR        = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
 CONFIG_JAR           = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-$(CONFIG_VERSION).jar")
