@@ -231,9 +231,9 @@ goto :eof
 
 :update_project
 set __PARENT_DIR=%~1
-set __N1=0
-set __N2=0
-set __N3=0
+set __N_SBT=0
+set __N_PROPS=0
+set __N_SBT=0
 set __N_SC=0
 set __N_SH=0
 set __N_BAT=0
@@ -251,7 +251,7 @@ for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v /c:"lib"') do (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_DOTTY_VERSION_OLD%@%_DOTTY_VERSION_NEW%@g" "!__BUILD_SBT!" 1>&2
             call "%_SED_CMD%" -i "s@%_DOTTY_VERSION_OLD%@%_DOTTY_VERSION_NEW%@g" "!__BUILD_SBT!"
             call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-            set /a __N1+=1
+            set /a __N_SBT+=1
         )
     ) else (
        @rem echo    %_WARNING_LABEL% Could not find file "%%i\build.sbt" 1>&2
@@ -264,7 +264,7 @@ for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v /c:"lib"') do (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_SBT_VERSION_OLD%@%_SBT_VERSION_NEW%@g" "!__BUILD_PROPS!" 1>&2
             call "%_SED_CMD%" -i "s@%_SBT_VERSION_OLD%@%_SBT_VERSION_NEW%@g" "!__BUILD_PROPS!"
             call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-            set /a __N2+=1
+            set /a __N_PROPS+=1
         )
     ) else (
        @rem echo    %_WARNING_LABEL% Could not find file "%%i\project\build.properties" 1>&2
@@ -277,7 +277,7 @@ for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v /c:"lib"') do (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_SBT_DOTTY_VERSION_OLD%@%_SBT_DOTTY_VERSION_NEW%@g" "!__PLUGINS_SBT!" 1>&2
             call "%_SED_CMD%" -i "s@%_SBT_DOTTY_VERSION_OLD%@%_SBT_DOTTY_VERSION_NEW%@g" "!__PLUGINS_SBT!"
             call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-            set /a __N3+=1
+            set /a __N_SBT+=1
         )
     ) else (
        @rem echo    %_WARNING_LABEL% Could not find file "%%i\project\plugins.sbt" 1>&2
@@ -312,7 +312,6 @@ for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v /c:"lib"') do (
 @rem Configuration files common to all projects
 set "__IVY_XML=%__PARENT_DIR%\ivy.xml"
 if exist "%__IVY_XML%" (
-    set __N_IVY_OLD=!__N_IVY!
     if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_DOTTY_VERSION_OLD%" "!__IVY_XML!" 1>&2
     call "%_GREP_CMD%" -q "%_DOTTY_VERSION_OLD%" "!__IVY_XML!"
     if !ERRORLEVEL!==0 (
@@ -327,7 +326,7 @@ if exist "%__IVY_XML%" (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_IVY_AKKA_VERSION_OLD%@%_IVY_AKKA_VERSION_NEW%@g" "!__IVY_XML!" 1>&2
         call "%_SED_CMD%" -i "s@%_IVY_AKKA_VERSION_OLD%@%_IVY_AKKA_VERSION_NEW%@g" "!__IVY_XML!"
         call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-        if !__N_IVY!==!__N_IVY_OLD! set /a __N_IVY+=1
+        if !__N_IVY!==0 set /a __N_IVY+=1
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_IVY_DOTTY_VERSION_OLD%" "!__IVY_XML!" 1>&2
     call "%_GREP_CMD%" -q "%_IVY_DOTTY_VERSION_OLD%" "!__IVY_XML!"
@@ -335,14 +334,13 @@ if exist "%__IVY_XML%" (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_IVY_DOTTY_VERSION_OLD%@%_IVY_DOTTY_VERSION_NEW%@g" "!__IVY_XML!" 1>&2
         call "%_SED_CMD%" -i "s@%_IVY_DOTTY_VERSION_OLD%@%_IVY_DOTTY_VERSION_NEW%@g" "!__IVY_XML!"
         call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-        if !__N_IVY!==!__N_IVY_OLD! set /a __N_IVY+=1
+        if !__N_IVY!==0 set /a __N_IVY+=1
     )
 ) else (
    echo    %_WARNING_LABEL% Could not find file "%__IVY_XML%" 1>&2
 )
 set "__POM_XML=%__PARENT_DIR%\pom.xml"
 if exist "%__POM_XML%" (
-    set __N_POM_OLD=!__N_POM!
     if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_POM_SCALA2_VERSION_OLD%" "!__POM_XML!" 1>&2
     call "%_GREP_CMD%" -q "%_POM_SCALA2_VERSION_OLD%" "!__POM_XML!"
     if !ERRORLEVEL!==0 (
@@ -357,7 +355,7 @@ if exist "%__POM_XML%" (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_POM_SCALA3_VERSION_OLD%@%_POM_SCALA3_VERSION_NEW%@g" "!__POM_XML!" 1>&2
         call "%_SED_CMD%" -i "s@%_POM_SCALA3_VERSION_OLD%@%_POM_SCALA3_VERSION_NEW%@g" "!__POM_XML!"
         call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-        if !__N_POM!==!__N_POM_OLD! set /a __N_POM+=1
+        if !__N_POM!==0 set /a __N_POM+=1
     )
 ) else (
     echo    %_WARNING_LABEL% Could not find file "%__POM_XML%" 1>&2
@@ -377,7 +375,6 @@ if exist "%__COMMON_GRADLE%" (
 )
 set "__CPATH_BAT=%__PARENT_DIR%\cpath.bat"
 if exist "%__CPATH_BAT%" (
-    set __N_BAT_OLD=!__N_BAT!
     if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_BATCH_AKKA_VERSION_OLD%" "!__CPATH_BAT!" 1>&2
     call "%_GREP_CMD%" -q "%_BATCH_AKKA_VERSION_OLD%" "!__CPATH_BAT!"
     if !ERRORLEVEL!==0 (
@@ -392,7 +389,7 @@ if exist "%__CPATH_BAT%" (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_BATCH_SCALATEST_VERSION_OLD%@%_BATCH_SCALATEST_VERSION_NEW%@g" "!__CPATH_BAT!" 1>&2
         call "%_SED_CMD%" -i "s@%_BATCH_SCALATEST_VERSION_OLD%@%_BATCH_SCALATEST_VERSION_NEW%@g" "!__CPATH_BAT!"
         call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-        if !__N_BAT!==!__N_BAT_OLD! set /a __N_BAT+=1
+        if !__N_BAT!==0 set /a __N_BAT+=1
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_BATCH_SLF4J_VERSION_OLD%" "!__CPATH_BAT!" 1>&2
     call "%_GREP_CMD%" -q "%_BATCH_SLF4J_VERSION_OLD%" "!__CPATH_BAT!"
@@ -400,7 +397,7 @@ if exist "%__CPATH_BAT%" (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_SED_CMD%" -i "s@%_BATCH_SLF4J_VERSION_OLD%@%_BATCH_SLF4J_VERSION_NEW%@g" "!__CPATH_BAT!" 1>&2
         call "%_SED_CMD%" -i "s@%_BATCH_SLF4J_VERSION_OLD%@%_BATCH_SLF4J_VERSION_NEW%@g" "!__CPATH_BAT!"
         call "%_UNIX2DOS_CMD%" -q "!__INPUT_FILE!"
-        if !__N_BAT!==!__N_BAT_OLD! set /a __N_BAT+=1
+        if !__N_BAT!==0 set /a __N_BAT+=1
     )
 ) else (
     echo    %_WARNING_LABEL% Could not find file "%__CPATH_BAT%" 1>&2
@@ -418,10 +415,6 @@ if exist "%__MAKEFILE_INC%" (
 ) else (
     echo    %_WARNING_LABEL% Could not find file "%__MAKEFILE_INC%" 1>&2
 )
-@rem call :message %__N1% "build.sbt"
-@rem call :message %__N2% "project\build.properties"
-@rem call :message %__N3% "project\plugins.sbt"
-@rem call :message %__N_SC% "build.sc"
 call :message %__N_SH% "build.sh"
 call :message %__N_IVY% "ivy.xml"
 call :message %__N_POM% "pom.xml"
