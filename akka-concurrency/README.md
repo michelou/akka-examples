@@ -31,7 +31,30 @@ Code examples are written in [Scala] and can be built/run with the following too
 
 ### <span id="ch05_badshakespearean">`BadShakespearean` Example</span>
 
-Code example [`BadShakespearean`](./Chapter05/BadShakespearean/) is composed of the two source files [`BadShakespeareanActor.scala`](./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanActor.scala) and [`BadShakespeareanMain.scala`](./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanMain.scala).
+Code example [`BadShakespearean`](./Chapter05/BadShakespearean/) is organized as follows :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Chapter05/BadShakespearean/build.bat">build.bat</a>
+|   <a href="./Chapter05/BadShakespearean/build.gradle">build.gradle</a>
+|   <a href="./Chapter05/BadShakespearean/build.sbt">build.sbt</a>
+|   <a href="./Chapter05/BadShakespearean/build.xml">build.xml</a>
+|   <a href="./Chapter05/BadShakespearean/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter05/BadShakespearean/Makefile">Makefile</a>
+|   <a href="./Chapter05/BadShakespearean/pom.xml">pom.xml</a>
++---project
+|       <a href="./Chapter05/BadShakespearean/project/build.properties">build.properties</a>
+\---src
+    \---main
+        +---resources
+        |       <a href="./Chapter05/BadShakespearean/src/main/resources/application.conf">application.conf</a>
+        \---scala
+            \---zzz
+                \---akka
+                    \---investigation
+                            <a href="./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanActor.scala">BadShakespeareanActor.scala</a>
+                            <a href="./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanMain.scala">BadShakespeareanMain.scala</a>
+</pre>
 
 Batch file [**`build.bat`**](./Chapter05/BadShakespearean/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 

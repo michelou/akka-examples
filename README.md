@@ -33,10 +33,10 @@ Optionally one may also install the following software:
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [GNU Make 3.81][gmake_install]
 - [Gradle 8.7][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
-- [grpcurl 1.8][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
+- [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.9][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.87][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.88][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -57,7 +57,7 @@ C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\grpcurl\                 <i>( 22 MB)</i>
+C:\opt\grpcurl\                 <i>( 24 MB)</i>
 C:\opt\jdk-temurin-17.0.10_7\   <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.2_13\   <i>(326 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
@@ -119,7 +119,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.10 scalac 2.13.13, sbt 1.9.9,
-   ant 1.10.14, gradle 8.7, mvn 3.9.6, grpcurl v1.8.9,
+   ant 1.10.14, gradle 8.7, mvn 3.9.6, grpcurl v1.9.1,
    make 3.81, git 2.44.0.windows.1, diff 3.10, bash 5.2.26(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -187,7 +187,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.7-bin.zip</a>                                 <i>(118 MB)</i>
-<a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.8.9_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
+<a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.1_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.2_13.zip</a>   <i>(191 MB)</i>
@@ -260,7 +260,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
-[grpcurl_relnotes]: https://github.com/fullstorydev/grpcurl/releases/tag/v1.8.9
+[grpcurl_relnotes]: https://github.com/fullstorydev/grpcurl/releases/tag/v1.9.1
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kafka_examples]: https://github.com/michelou/kafka-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
