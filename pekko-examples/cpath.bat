@@ -30,13 +30,13 @@ set _LIBS_CPATH=
 set __PEKKO_VERSION=1.0.2
 set __SCALA_VERSION=2.13.12
 set __SCALATEST_VERSION=3.2.18
-set __SLF4J_VERSION=2.0.12
+set __SLF4J_VERSION=2.0.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.2"
+call :add_jar "com.typesafe" "config" "1.4.3"
 
 @rem https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
 call :add_jar "org.apache.pekko" "pekko-actor_%__SCALA_BINARY_VERSION%" "%__PEKKO_VERSION%"
