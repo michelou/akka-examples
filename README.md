@@ -17,7 +17,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.44][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.45][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8+) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 <!--
@@ -55,14 +55,14 @@ For instance our development environment looks as follows (*May 2024*) <sup id="
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
-C:\opt\Git\                     <i>(367 MB)</i>
+C:\opt\Git\                     <i>(387 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl\                 <i>( 24 MB)</i>
 C:\opt\jdk-temurin-17.0.11_9\   <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.3_9\    <i>(326 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
-C:\opt\scala-2.13.13\           <i>( 24 MB)</i>
+C:\opt\scala-2.13.14\           <i>( 25 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -118,9 +118,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.11, scalac 2.13.13, sbt 1.9.9,
+   javac 17.0.11, scalac 2.13.14, sbt 1.9.9,
    ant 1.10.14, gradle 8.7, mvn 3.9.6, grpcurl v1.9.1,
-   make 3.81, git 2.44.0.windows.1, diff 3.10, bash 5.2.26(1)-release
+   make 3.81, git 2.45.0.windows.1, diff 3.10, bash 5.2.26(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
 C:\opt\apache-ant\bin\ant
@@ -140,7 +140,7 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) helps us to get the list of
 <b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
 Warning: Search all directories (no option specified)
 Searching for class "NotUsed" in files "C:\opt\scala3-3.3.3\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\scala-2.13.13\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala-2.13.14\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.11_9\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.8.5.jar:akka/NotUsed$.class
@@ -191,9 +191,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.3_9.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.44.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.45.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.9.9.zip</a>                                      <i>( 17 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.13.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
 </pre>
 </dd></dl>
 
@@ -250,7 +250,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.44.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
@@ -287,7 +287,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
 [sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.9
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.13
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.14
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [scala3_home]: https://dotty.epfl.ch
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
