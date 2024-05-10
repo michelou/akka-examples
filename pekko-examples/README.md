@@ -10,10 +10,10 @@
 
 ## <span id="HelloWorld">`HelloWorld` Example</span>
 
-The project directory is organized as follows :
+This example has the following directory structure :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="">tree</a> /a /f . | <a href="">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
 |   <a href="./HelloWorld/00download.txt">00download.txt</a>
 |   <a href="./HelloWorld/build.bat">build.bat</a>
 \---src
