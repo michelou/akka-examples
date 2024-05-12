@@ -31,12 +31,13 @@ Optionally one may also install the following software:
 
 - [Apache Ant 1.10][apache_ant] (requires Java 8+) ([*release notes*][apache_ant_relnotes])
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
+- [ConEmu][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [GNU Make 3.81][gmake_install]
 - [Gradle 8.7][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.88][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.89][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -55,6 +56,7 @@ For instance our development environment looks as follows (*May 2024*) <sup id="
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
+C:\opt\ConEmu\                  <i>( 26 MB)</i>
 C:\opt\Git\                     <i>(387 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\grpcurl\                 <i>( 24 MB)</i>
@@ -186,6 +188,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.7-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.1_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
@@ -194,6 +197,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.45.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.0.zip</a>                                     <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.89.1.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -242,6 +246,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
 [book_wyatt]: https://www.artima.com/shop/akka_concurrency
 [cobol_examples]: https://github.com/michelou/cobol-examples
+[conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
+[conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
