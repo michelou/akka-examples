@@ -14,17 +14,17 @@
 
         <!-- Scala settings -->
         <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
-        <scala.version>2.13.13</scala.version>
+        <scala.version>2.13.14</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 
         <!-- Maven plugin versions -->
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <akka.version>2.9.2</akka.version>
+        <akka.version>2.9.3</akka.version>
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <config.version>1.4.3</config.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-        <exec.maven.version>3.2.0</exec.maven.version>
+        <exec.maven.version>3.3.0</exec.maven.version>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <junit.version>4.13.2</junit.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
@@ -48,6 +48,14 @@
         <m2.scalatest-shouldmatchers.jar>${m2.directory}/org/scalatest/scalatest-shouldmatchers_${scala.binary.version}/${scalatest.version}/scalatest-shouldmatchers_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest-shouldmatchers.jar>
         <m2.scalatest-wordspec.jar>${m2.directory}/org/scalatest/scalatest-wordspec_${scala.binary.version}/${scalatest.version}/scalatest-wordspec_${scala.binary.version}-${scalatest.version}.jar</m2.scalatest-wordspec.jar>
     </properties>
+
+    <repositories>
+        <repository>
+          <id>akka-repository</id>
+          <name>Akka library repository</name>
+          <url>https://repo.akka.io/maven</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>

@@ -2,14 +2,16 @@ name := "Avionics"
 
 version := "1.0"
 
-scalaVersion := "2.13.12"
+scalaVersion := "2.13.14"
+
+resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.4.2",
-  "com.typesafe.akka" %% "akka-actor" % "2.8.5",
+  "com.typesafe.akka" %% "akka-actor" % "2.9.3",
   // test
-  "com.typesafe.akka" %% "akka-testkit" % "2.8.5" % "test",
-  "org.scalatest" %% "scalatest" % "3.2.17" % "test"
+  "com.typesafe.akka" %% "akka-testkit" % "2.9.3" % "test",
+  "org.scalatest" %% "scalatest" % "3.2.18" % "test"
   
 )
 

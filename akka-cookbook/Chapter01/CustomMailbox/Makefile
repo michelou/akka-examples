@@ -1,5 +1,5 @@
 ##
-## Copyright (c) 2018-2023 Stéphane Micheloud
+## Copyright (c) 2018-2024 Stéphane Micheloud
 ##
 ## Licensed under the MIT License.
 ##
@@ -55,7 +55,7 @@ help:
 	@$(ECHO) "    build  compile Java/Scala source files"
 	@$(ECHO) "    clean  delete generated files"
 	@$(ECHO) "    doc    generate HTML documentation"
-	@$(ECHO) "    help   display this help message"
+	@$(ECHO) "    help   print this help message"
 	@$(ECHO) "    run    execute main program \"$(MAIN_CLASS)\""
 
 ##############################################################################

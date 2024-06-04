@@ -849,9 +849,9 @@ echo   %__VERSIONS_LINE3%
 if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
-	    set "__LINE=%%p"
+        set "__LINE=%%p"
         setlocal enabledelayedexpansion
-		echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
     echo Environment variables: 1>&2
     if defined ANT_HOME echo    "ANT_HOME=%ANT_HOME%" 1>&2

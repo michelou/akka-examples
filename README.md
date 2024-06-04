@@ -36,6 +36,7 @@ Optionally one may also install the following software:
 - [Gradle 8.8][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
+- [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
 - [Visual Studio Code 1.89][vscode_downloads] ([*release notes*][vscode_relnotes])
 
@@ -65,6 +66,7 @@ C:\opt\jdk-temurin-21.0.3_9\    <i>(326 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.14\           <i>( 25 MB)</i>
+C:\opt\scala3-3.3.3\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -197,6 +199,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.45.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.0.zip</a>                                     <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.3">scala3-3.3.3.zip</a>                                   <i>( 34 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.89.1.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
@@ -296,6 +299,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.14
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
+[scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
+[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.3
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top

@@ -61,10 +61,6 @@ goto :eof
 :env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _RESET=[0m
-set _BOLD=[1m
-set _UNDERSCORE=[4m
-set _INVERSE=[7m
 
 @rem normal foreground colors
 set _NORMAL_FG_BLACK=[30m
@@ -102,8 +98,13 @@ set _STRONG_BG_RED=[101m
 set _STRONG_BG_GREEN=[102m
 set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
-goto :eof
 
+@rem we define _RESET in last position to avoid crazy console output with type command
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+set _RESET=[0m
+goto :eof
 
 @rem input parameter: %*
 :args
@@ -183,6 +184,7 @@ echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
 echo     %__BEG_O%compile%__END%     compile Java source files
+echo     %__BEG_O%help%__END%        print this help message
 echo     %__BEG_O%run%__END%         execute main class "%__BEG_O%%_MAIN_CLASS%%__END%"
 echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%JUnit%__END%
 goto :eof
@@ -313,7 +315,7 @@ goto :eof
 
 @rem output parameter: _LIBS_CPATH
 :libs_cpath
-for %%f in ("%~dp0\..") do set "__BATCH_FILE=%%~dpfcpath.bat"
+for /f "delims=" %%f in ("%~dp0\..") do set "__BATCH_FILE=%%~dpfcpath.bat"
 if not exist "%__BATCH_FILE%" (
     echo %_ERROR_LABEL% Batch file "%__BATCH_FILE%" not found 1>&2
     set _EXITCODE=1

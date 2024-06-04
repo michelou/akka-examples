@@ -14,13 +14,13 @@
 
         <!-- Scala settings -->
         <scala.groupId>org.scala-lang</scala.groupId>
-        <scala.version>2.13.13</scala.version>
+        <scala.version>2.13.14</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 
         <!-- Maven plugin versions -->
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <akka.version>2.9.2</akka.version>
+        <akka.version>2.9.3</akka.version>
         <config.version>1.4.3</config.version>
         <exec.maven.version>3.2.0</exec.maven.version>
         <maven.compiler.version>3.13.0</maven.compiler.version>
