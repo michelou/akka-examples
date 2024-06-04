@@ -459,7 +459,7 @@ if defined __SCALAC_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\scala3\" ( set "_SCALA3_HOME=!__PATH!\scala3"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\scala3-3*" 2^>NUL') do set "_SCALA3_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala3-3*" 2^>NUL') do set "_SCALA3_HOME=!__PATH!\%%f"
         if not defined _SCALA3_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala3-3*" 2^>NUL') do set "_SCALA3_HOME=!__PATH!\%%f"
@@ -496,7 +496,7 @@ if defined __GRADLE_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\gradle\" ( set "_GRADLE_HOME=!__PATH!\gradle"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\gradle-*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\gradle-*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
         if not defined _GRADLE_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\gradle-*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
@@ -534,7 +534,7 @@ if defined __GRPCURL_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\grpcurl\" ( set "_GRPCURL_HOME=!__PATH!\grpcurl"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\grpcurl-*" 2^>NUL') do set "_GRPCURL_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\grpcurl-*" 2^>NUL') do set "_GRPCURL_HOME=!__PATH!\%%f"
         if not defined _GRPCURL_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\grpcurl-*" 2^>NUL') do set "_GRPCURL_HOME=!__PATH!\%%f"
@@ -572,7 +572,7 @@ if defined __ANT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\apache-ant\" ( set "_ANT_HOME=!__PATH!\apache-ant"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\apache-ant-*" 2^>NUL') do set "_ANT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\apache-ant-*" 2^>NUL') do set "_ANT_HOME=!__PATH!\%%f"
         if not defined _ANT_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\apache-ant-*" 2^>NUL') do set "_ANT_HOME=!__PATH!\%%f"
@@ -610,7 +610,7 @@ if defined __SBT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\sbt\" ( set "_SBT_HOME=!__PATH!\sbt"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         if not defined _SBT_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
@@ -681,7 +681,7 @@ if defined __MVN_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\apache-maven\" ( set "_MAVEN_HOME=!__PATH!\apache-maven"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!__PATH!\%%f"
     )
     if defined _MAVEN_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory "!_MAVEN_HOME!" 1>&2
@@ -707,7 +707,7 @@ if defined __GIT_CMD (
     for /f "delims=" %%f in ("!__GIT_BIN_DIR!\.") do set "_GIT_HOME=%%~dpf"
     @rem Executable git.exe is present both in bin\ and \mingw64\bin\
     if not "!_GIT_HOME:mingw=!"=="!_GIT_HOME!" (
-        for %%f in ("!_GIT_HOME!\.") do set "_GIT_HOME=%%~dpf"
+        for /f "delims=" %%f in ("!_GIT_HOME!\.") do set "_GIT_HOME=%%~dpf"
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
@@ -719,7 +719,7 @@ if defined __GIT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
@@ -755,7 +755,7 @@ if defined __CODE_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\VSCode\" ( set "_VSCODE_HOME=!__PATH!\VSCode"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
         if not defined _VSCODE_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
@@ -848,7 +848,11 @@ echo   %__VERSIONS_LINE2%
 echo   %__VERSIONS_LINE3%
 if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
-    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
+	    set "__LINE=%%p"
+        setlocal enabledelayedexpansion
+		echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
     echo Environment variables: 1>&2
     if defined ANT_HOME echo    "ANT_HOME=%ANT_HOME%" 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2

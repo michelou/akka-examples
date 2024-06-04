@@ -33,7 +33,7 @@ Optionally one may also install the following software:
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [ConEmu][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [GNU Make 3.81][gmake_install]
-- [Gradle 8.7][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.8][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
@@ -51,7 +51,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*May 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*June 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -121,8 +121,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.11, scalac 2.13.14, sbt 1.10.0,
-   ant 1.10.14, gradle 8.7, mvn 3.9.6, grpcurl v1.9.1,
-   make 3.81, git 2.45.0, diff 3.10, bash 5.2.26(1)-release
+   ant 1.10.14, gradle 8.8, mvn 3.9.7, grpcurl v1.9.1,
+   make 3.81, git 2.45.2, diff 3.10, bash 5.2.26(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
 C:\opt\apache-ant\bin\ant
@@ -164,8 +164,8 @@ Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
 
 <dl><dd>
 <table>
-<tr><th>Gradle version</th><th>Java version</th></tr>
-<tr><td><a href="https://docs.gradle.org/8.7/release-notes.html" rel="external">8.7</a></td><td>22</td></tr>
+<tr><th>Gradle version</th><th>Java&nbsp;version</th></tr>
+<tr><td><a href="https://docs.gradle.org/8.7/release-notes.html" rel="external">8.7</a>, <a href="https://docs.gradle.org/8.8/release-notes.html" rel="external">8.8</a></td><td>22</td></tr>
 <tr><td><a href="https://docs.gradle.org/8.4/release-notes.html" rel="external">8.4</a>, <a href="https://docs.gradle.org/8.5/release-notes.html" rel="external">8.5</a>, <a href="https://docs.gradle.org/8.6/release-notes.html" rel="external">8.6</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">21</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/8.3/release-notes.html" rel="external">8.3</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">20</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/7.6/release-notes.html" rel="external">7.6</a>, <a href="https://docs.gradle.org/8.0/release-notes.html" rel="external">8.0</a> <sup><b>a)</b></sup>, <a href="https://docs.gradle.org/8.1/release-notes.html" rel="external">8.1</a>, <a href="https://docs.gradle.org/8.2/release-notes.html" rel="external">8.2</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">19</a></td></tr>
@@ -187,9 +187,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.7-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.7-bin.zip</a>                                 <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.8-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.1_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(188 MB)</i>
@@ -224,7 +224,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -238,7 +238,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.6/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.7/release-notes.html
 [apache_pekko]: https://pekko.apache.org/
 [blog_alexandreesl]: https://alexandreesl.com/2019/01/02/akka-streams-developing-robust-applications-using-scala/
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
@@ -262,7 +262,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.7/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.8/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases

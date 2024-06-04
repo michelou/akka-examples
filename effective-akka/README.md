@@ -25,7 +25,50 @@ Code examples presented below can be built/run with the following tools:
 
 ### <span id="extra_pattern">`ExtraPattern` Example</span>
 
-Code example `ExtraPattern` is the same [Akka] application written in [Scala] (e.g. [`ExtraPattern.scala`](./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/ExtraPattern.scala), [`AccountBalanceRetriever.scala`](./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/AccountBalanceRetriever.scala)).
+Example `ExtraPattern` is the same [Akka] application written in [Scala].
+
+It has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="">tree</a> /a /f . | <a href="">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Chapter02/ExtraPattern/build.bat">build.bat</a>
+|   <a href="./Chapter02/ExtraPattern/build.gradle">build.gradle</a>
+|   <a href="./Chapter02/ExtraPattern/build.sbt">build.sbt</a>
+|   <a href="./Chapter02/ExtraPattern/build.sh">build.sh</a>
+|   <a href="./Chapter02/ExtraPattern/build.xml">build.xml</a>
+|   <a href="./Chapter02/ExtraPattern/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter02/ExtraPattern/Makefile">Makefile</a>
+|   <a href="./Chapter02/ExtraPattern/pom.xml">pom.xml</a>
++---project
+|       <a href="./Chapter02/ExtraPattern/project/build.properties">build.properties</a>
+\---src
+    +---main
+    |   +---resources
+    |   |       <a href="./Chapter02/ExtraPattern/src/main/resources/application.conf">application.conf</a>
+    |   |       <a href="./Chapter02/ExtraPattern/src/main/resources/logback.xml">logback.xml</a>
+    |   \---scala
+    |       \---org
+    |           \---jamieallen
+    |               \---effectiveakka
+    |                   |   <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/ExtraPattern.scala">ExtraPattern.scala</a>
+    |                   +---common
+    |                   |   <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/common/Common.scala">Common.scala</a>
+    |                   \---pattern
+    |                       \---extra
+    |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/AccountBalanceRetriever.scala">AccountBalanceRetriever.scala</a>
+    |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/CheckingAccountsActor.scala">CheckingAccountsActor.scala</a>
+    |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/MoneyMarketAccountsActor.scala">MoneyMarketAccountsActor.scala</a>
+    |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/SavingsAccountsActor.scala">SavingsAccountsActor.scala</a>
+    \---test
+        \---scala
+            \---org
+                \---jamieallen
+                    \---effectiveakka
+                        \---pattern
+                            \---extra
+                                    <a href="./Chapter02/ExtraPattern/src/test/scala/org/jamieallen/effectiveakka/pattern/extra/ExtraSpec.scala">ExtraSpec.scala</a>
+                                    <a href="./Chapter02/ExtraPattern/src/test/scala/org/jamieallen/effectiveakka/pattern/extra/ProxyStubs.scala">ProxyStubs.scala</a>
+</pre>
 
 Batch file [**`build.bat`**](./Chapter02/ExtraPattern/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -106,7 +149,7 @@ MoneyMarketAccounts: Received GetCustomerAccountBalances for ID: 2
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
