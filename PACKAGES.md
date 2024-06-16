@@ -3,8 +3,7 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://akka.io/" rel="external"><img style="border:0;" src="./docs/images/akka.svg" width="120" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">This document presents the <a href="https://mvnrepository.com/" rel="external">Maven</a> packages our projects depend on.
-  </td>
+  <td style="border:0;padding:0;vertical-align:text-top;">This document presents the <a href="https://mvnrepository.com/" rel="external">Maven</a> packages our projects depend on.</td>
   </tr>
 </table>
 

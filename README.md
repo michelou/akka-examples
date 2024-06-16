@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously investigating.
+[Ada][ada_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously investigating.
 
 > **&#9755;** [Apache Pekko][apache_pekko] is a fork of Akka 2.6.x, prior to the Akka project’s adoption of the [Business Source License][akka_license].
 
@@ -38,7 +38,7 @@ Optionally one may also install the following software:
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.89][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.90][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -200,7 +200,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.0.zip</a>                                     <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://github.com/lampepfl/dotty/releases/tag/3.3.3">scala3-3.3.3.zip</a>                                   <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.89.1.zip</a>                        <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.90.1.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -355,4 +355,5 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [vscode_relnotes]: https://code.visualstudio.com/updates
 [windows_batch_file]: https://en.wikibooks.org/wiki/Windows_Batch_Scripting
 [wix_examples]: https://github.com/michelou/wix-examples#top
+[zig_examples]: https://github.com/michelou/zig-examples#top
 [zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/
