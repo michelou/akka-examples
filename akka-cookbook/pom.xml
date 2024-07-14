@@ -21,15 +21,15 @@
 
         <!-- Maven plugin versions -->
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <akka.version>2.9.3</akka.version>
+        <akka.version>2.9.4</akka.version>
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
-        <config.version>1.4.2</config.version>
+        <config.version>1.4.3</config.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
         <exec.maven.version>3.3.0</exec.maven.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <maven.compiler.version>3.13.0</maven.compiler.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-        <maven.jar.version>3.4.1</maven.jar.version>
+        <maven.jar.version>3.4.2</maven.jar.version>
         <scala.maven.version>1.0.1</scala.maven.version>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <junit.version>4.13.2</junit.version>

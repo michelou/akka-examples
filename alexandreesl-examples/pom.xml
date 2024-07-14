@@ -15,21 +15,21 @@
         <!-- Scala settings -->
         <scala.groupId>org.scala-lang</scala.groupId>
         <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
-        <scala.version>2.13.13</scala.version>
+        <scala.version>2.13.14</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 
         <!-- Maven plugin versions -->
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <akka.version>2.9.2</akka.version>
+        <akka.version>2.9.4</akka.version>
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <config.version>1.4.3</config.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-        <exec.maven.version>3.2.0</exec.maven.version>
+        <exec.maven.version>3.3.0</exec.maven.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <maven.compiler.version>3.13.0</maven.compiler.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-        <maven.jar.version>3.4.1</maven.jar.version>
+        <maven.jar.version>3.4.2</maven.jar.version>
         <!-- https://github.com/michelou/dotty-examples/tree/master/bin -->
         <scala.maven.version>1.0.1</scala.maven.version>
 

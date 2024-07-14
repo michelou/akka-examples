@@ -22,10 +22,10 @@ project.ext {
     // https://mvnrepository.com/artifact/org.scalatest/scalatest
     // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
     // https://mvnrepository.com/artifact/org.specs2/specs2-core
-    akkaVersion = "2.9.2"
-    configVersion = "1.4.2"
+    akkaVersion = "2.9.4"
+    configVersion = "1.4.3"
     logbackVersion = "1.5.6"
-    specs2Version = isScala3 ? "5.5.1" : "4.20.4"
+    specs2Version = isScala3 ? "5.5.3" : "4.20.8"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"

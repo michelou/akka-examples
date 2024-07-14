@@ -1,4 +1,4 @@
-# <span id="top">Book <i>Akka Essentials</i></span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Book <i>Akka Essentials</i></span> <span style="font-size:90%;">[⬆](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -25,7 +25,39 @@ The code examples presented below are written both in Java and in [Scala] and ca
 
 ## <span id="first_scala">`FirstAkkaApplication` Example</span>
 
-Code example `FirstAkkaApplication`<sup id="anchor_01">[1](#footnote_01)</sup> is an [Akka] application written in Java (e.g. [`MapReduceApplication.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/MapReduceApplication.java), [`MasterActor.java`](./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MasterActor.java)<sup id="anchor_02">[2](#footnote_02)</sup>).
+Code example `FirstAkkaApplication`<sup id="anchor_01">[1](#footnote_01)</sup> is an [Akka] application written in Java; it has the following directory structure <sup id="anchor_02">[2](#footnote_02)</sup> :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Chapter02/FirstAkkaApplication/build.bat">build.bat</a>
+|   <a href="./Chapter02/FirstAkkaApplication/build.gradle">build.gradle</a>
+|   <a href="./Chapter02/FirstAkkaApplication/build.sbt">build.sbt</a>
+|   <a href="./Chapter02/FirstAkkaApplication/build.sh">build.sh</a>
+|   <a href="./Chapter02/FirstAkkaApplication/build.xml">build.xml</a>
+|   <a href="./Chapter02/FirstAkkaApplication/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter02/FirstAkkaApplication/Makefile">Makefile</a>
+|   <a href="./Chapter02/FirstAkkaApplication/pom.xml">pom.xml</a>
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>java</b>
+        |   \---<b>akka</b>
+        |       \---<b>first</b>
+        |           \---<b>app</b>
+        |               \---<b>mapreduce</b>
+        |                   |   <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/MapReduceApplication.java">MapReduceApplication.java</a>
+        |                   +---<b>actors</b>
+        |                   |       <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/AggregateActor.java">AggregateActor.java</a>
+        |                   |       MapActor.java
+        |                   |       <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MasterActor.java">MasterActor.java</a>
+        |                   |       ReduceActor.java</a>
+        |                   \---<b>messages</b>
+        |                           <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/messages/MapData.java">MapData.java</a>
+        |                           ReduceData.java
+        |                           <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/messages/Result.java">Result.java</a>
+        |                           <a href="./Chapter02/FirstAkkaApplication/src/main/java//akka/first/app/mapreduce/messages/WordCount.java">WordCount.java</a>
+        \---<b>resources</b>
+                <a href="./Chapter02/FirstAkkaApplication/src/main/resources/application.conf">application.conf</a>
+</pre>
 
 Batch file [**`build.bat`**](./Chapter02/FirstAkkaApplication/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -74,7 +106,27 @@ OrderAggregate: akka.actor.Status$Failure
 
 ## <span id="ping_pong">`PingPong` Example</span> [**&#x25B4;**](#top)
 
-Code example `PingPong` is an [Akka] application written in Java (e.g. [`PingPongApp.java`](./Chapter03/PingPong/src/main/java/PingPongApp.java), [`PingPongActor.java`](./Chapter03/PingPong/src/main/java/PingPongActor.java)).
+Code example `PingPong` is an [Akka] application written in Java; it has the following directory structure : 
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Chapter03/PingPong/build.bat">build.bat</a>
+|   <a href="./Chapter03/PingPong/build.gradle">build.gradle</a>
+|   <a href="./Chapter03/PingPong/build.sbt">build.sbt</a>
+|   <a href="./Chapter03/PingPong/build.xml">build.xml</a>
+|   <a href="./Chapter03/PingPong/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter03/PingPong/Makefile">Makefile</a>
+|   <a href="./Chapter03/PingPong/pom.xml">pom.xml</a>
++---<b>project</b>
+|       <a href="./Chapter03/PingPong/project/build.properties">build.properties</a>
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>java</b>
+        |       <a href="./Chapter03/PingPong/src/main/java/PingPongActor.java">PingPongActor.java</a>
+        |       <a href="./Chapter03/PingPong/src/main/java/PingPongApp.java">PingPongApp.java</a>
+        \---<b>resources</b>
+               <a href="./Chapter03/PingPong/src/main/resources/application.conf">application.conf</a>
+</pre>
 
 Batch file [**`build.bat`**](./Chapter03/PingPong/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
 

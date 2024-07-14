@@ -12,6 +12,6 @@
         <dependency org="junit" name="junit" rev="4.13.2"/>
        
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
-        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.9.0-M2"/>
+        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.9.4"/>
     </dependencies>
 </ivy-module>

@@ -27,9 +27,9 @@ set __SCALA_BINARY_VERSION=2.13
 
 set _LIBS_CPATH=
 
-set __PEKKO_VERSION=1.0.2
+set __PEKKO_VERSION=1.0.3
 set __SCALA_VERSION=2.13.14
-set __SCALATEST_VERSION=3.2.18
+set __SCALATEST_VERSION=3.2.19
 set __SLF4J_VERSION=2.0.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library

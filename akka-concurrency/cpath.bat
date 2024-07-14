@@ -22,9 +22,10 @@ if %_DEBUG%==1 echo [%~n0] "_TEMP_DIR=%_TEMP_DIR%"
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.9.2
-set __SCALA_VERSION=2.13.13
-set __SCALATEST_VERSION=3.2.18
+set __AKKA_VERSION=2.9.4
+set __CONFIG_VERSION=1.4.3
+set __SCALA_VERSION=2.13.14
+set __SCALATEST_VERSION=3.2.19
 set __SLF4J_VERSION=2.0.13
 
 @rem #########################################################################
@@ -36,7 +37,7 @@ set _LIBS_CPATH=
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.2"
+call :add_jar "com.typesafe" "config" "%__CONFIG_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 call :add_akka_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
@@ -64,7 +65,7 @@ call :add_akka_jar "com.typesafe.akka" "akka-testkit_%__SCALA_BINARY_VERSION%" "
 
 @rem https://mvnrepository.com/artifact/org.scala-lang.modules/scala-xml
 @rem ScalaTest 3.2 dependency
-call :add_jar "org.scala-lang.modules" "scala-xml_%__SCALA_BINARY_VERSION%" "2.1.0"
+call :add_jar "org.scala-lang.modules" "scala-xml_%__SCALA_BINARY_VERSION%" "2.3.0"
 
 @rem https://mvnrepository.com/artifact/org.scalactic/scalactic
 call :add_jar "org.scalactic" "scalactic_%__SCALA_BINARY_VERSION%" "%__SCALATEST_VERSION%"

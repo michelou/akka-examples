@@ -183,7 +183,7 @@ echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
-echo     %__BEG_O%compile%__END%     compile Java source files
+echo     %__BEG_O%compile%__END%     compile Scala source files
 echo     %__BEG_O%help%__END%        print this help message
 echo     %__BEG_O%run%__END%         execute main class "%__BEG_O%%_MAIN_CLASS%%__END%"
 echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%JUnit%__END%

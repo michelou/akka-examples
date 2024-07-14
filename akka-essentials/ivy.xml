@@ -27,10 +27,10 @@
         <dependency org="org.scala-lang.modules" name="scala-asm" rev="9.5.0-scala-1"/>
 
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
-        <dependency org="com.typesafe" name="config" rev="1.4.2"/>
+        <dependency org="com.typesafe" name="config" rev="1.4.3"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.9.2"/>
+        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.9.4"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
-        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.9.2"/>
+        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.9.4"/>
     </dependencies>
 </ivy-module>

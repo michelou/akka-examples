@@ -46,7 +46,7 @@ TOUCH      = touch
 endif
 
 ## https://doc.akka.io/docs/akka/current/actors.html
-AKKA_VERSION = 2.9.3
+AKKA_VERSION = 2.9.4
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api

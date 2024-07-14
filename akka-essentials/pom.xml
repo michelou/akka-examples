@@ -20,9 +20,11 @@
 
         <!-- Maven plugin versions -->
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <akka.version>2.9.3</akka.version>
+        <akka.version>2.9.4</akka.version>
+        <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <config.version>1.4.3</config.version>
-        <exec.maven.version>3.2.0</exec.maven.version>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+        <exec.maven.version>3.3.0</exec.maven.version>
         <maven.compiler.version>3.13.0</maven.compiler.version>
         <maven.jar.version>3.3.0</maven.jar.version>
         <scala.maven.version>1.0.1</scala.maven.version>
