@@ -47,9 +47,9 @@ Code example `FirstAkkaApplication`<sup id="anchor_01">[1](#footnote_01)</sup> i
         |                   |   <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/MapReduceApplication.java">MapReduceApplication.java</a>
         |                   +---<b>actors</b>
         |                   |       <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/AggregateActor.java">AggregateActor.java</a>
-        |                   |       MapActor.java
+        |                   |       <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MapActor.java">MapActor.java</a>
         |                   |       <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/MasterActor.java">MasterActor.java</a>
-        |                   |       ReduceActor.java</a>
+        |                   |       <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/actors/ReduceActor.java">ReduceActor.java</a>
         |                   \---<b>messages</b>
         |                           <a href="./Chapter02/FirstAkkaApplication/src/main/java/akka/first/app/mapreduce/messages/MapData.java">MapData.java</a>
         |                           ReduceData.java
@@ -85,7 +85,34 @@ Commands [**`ant.bat`**][apache_ant_cli] ([`build.xml`](./Chapter02/FirstAkkaApp
 
 ## <span id="process_order">`ProcessOrder` Example</span> [**&#x25B4;**](#top)
 
-Code example `ProcessOrder` is an [Akka] application written in Java (e.g. [`ProcessOrderApp.java`](./Chapter03/ProcessOrder/src/main/java/ProcessOrderApp.java), [`ProcessOrderActor.java`](./Chapter03/ProcessOrder/src/main/java/actors/ProcessOrderActor.java)).
+Code example `ProcessOrder` is an [Akka] application written in Java; it has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Chapter03/ProcessOrder/build.bat">build.bat</a>
+|   <a href="./Chapter03/ProcessOrder/build.gradle">build.gradle</a>
+|   <a href="./Chapter03/ProcessOrder/build.sbt">build.sbt</a>
+|   <a href="./Chapter03/ProcessOrder/build.xml">build.xml</a>
+|   <a href="./Chapter03/ProcessOrder/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter03/ProcessOrder/Makefile">Makefile</a>
+|   <a href="./Chapter03/ProcessOrder/pom.xml">pom.xml</a>
++---<b>project</b>
+|       <a href="./Chapter03/ProcessOrder/project/build.properties">build.properties</a>
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>java</b>
+        |   |   <a href="./Chapter03/ProcessOrder/src/main/java/Address.java">Address.java
+        |   |   <a href="./Chapter03/ProcessOrder/src/main/java/Order.java">Order.java
+        |   |   <a href="./Chapter03/ProcessOrder/src/main/java/OrderHistory.java">OrderHistory.java
+        |   |   <a href="./Chapter03/ProcessOrder/src/main/java/ProcessOrderApp.java">ProcessOrderApp.java</a>
+        |   \---<b>actors</b>
+        |           <a href="./Chapter03/ProcessOrder/src/main/java/actors/AddressActor.java">AddressActor.java
+        |           <a href="./Chapter03/ProcessOrder/src/main/java/actors/OrderActor.java">OrderActor.java
+        |           <a href="./Chapter03/ProcessOrder/src/main/java/actors/OrderAggregateActor.java">OrderAggregateActor.java
+        |           <a href="./Chapter03/ProcessOrder/src/main/java/actors/ProcessOrderActor.java">ProcessOrderActor.java</a>
+        \---<b>resources</b>
+                <a href="./Chapter03/ProcessOrder/src/main/resources/application.conf">application.conf</a>
+</pre>
 
 Batch file [**`build.bat`**](./Chapter03/ProcessOrder/build.bat) matches what the user would run from the command prompt (use option **`-debug`** to see the execution details):
 
