@@ -7,6 +7,8 @@
   </tr>
 </table>
 
+> **&#9755;** [Apache Pekko][apache_pekko] is a fork of Akka 2.6.x, prior to the Akka project’s adoption of the [Business Source License][akka_license].
+
 The [Akka] tookit is distributed as [Maven][maven_repository] packages : 
 
 - [Akka Actor 2.9][akka_actor] ([*release notes*][akka_relnotes])
@@ -42,7 +44,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -51,9 +53,11 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [akka_actor]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 [akka_actor_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
 [akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.9.0
+[akka_license]: https://www.lightbend.com/akka/license-faq
 [akka_testkit]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
 [akka_testkit_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
 [ant_cli]: https://ant.apache.org/
+[apache_pekko]: https://pekko.apache.org/
 [config_download]: https://mvnrepository.com/artifact/com.typesafe/config
 [config_relnotes]: https://github.com/lightbend/config/blob/main/NEWS.md
 [gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
