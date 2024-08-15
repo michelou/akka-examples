@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.3"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.4"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -18,6 +18,7 @@ project.ext {
 
     scalaBinaryVersion = isScala3 ? "3" : "2.13"
     // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
+    // https://mvnrepository.com/artifact/com.typesafe/config
     // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
     // https://mvnrepository.com/artifact/org.scalatest/scalatest
     // https://mvnrepository.com/artifact/org.scalatest/scalatest-core

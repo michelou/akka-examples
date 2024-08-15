@@ -1,1 +1,1 @@
-Source: https://pekko.apache.org/docs/pekko/current/typed/actors.html#first-example
+Source: https://pekko.apache.org/docs/pekko/current/typed/actors.html#functional-style

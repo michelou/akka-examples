@@ -107,7 +107,7 @@ Usage: $BASENAME { <option> | <subcommand> }
 
   Subcommands:
     clean        delete generated files
-    compile      compile Scala source files
+    compile      compile Java source files
     decompile    decompile generated code with CFR
     doc          generate HTML documentation
     help         print this help message
@@ -185,44 +185,44 @@ libs_cpath() {
     local repo_dir="$HOME/.m2/repository"
     local cpath=
 	local jar_file=
-    for f in $(find "$repo_dir/org/scala-lang" -name "scala-library-2.13.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/scala-lang" -type f -name "scala-library-2.13.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe/config
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe" -name "config-1.4.2.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe" -type f -name "config-1.4.2.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.9.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -type f -name "akka-actor_2.13-2.9.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.9.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -type f -name "akka-actor-typed_2.13-2.9.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     jar_file=
-    for f in $(find "$repo_dir/org/slf4j" -name "slf4j-api-2.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/slf4j" -type f -name "slf4j-api-2.0.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     jar_file=
-    for f in $(find "$repo_dir/org/slf4j" -name "slf4j-simple-2.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/slf4j" -type f -name "slf4j-simple-2.0.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     
     ## https://mvnrepository.com/artifact/org.projectlombok/lombok
     jar_file=
-    for f in $(find "$repo_dir/org/projectlombok" -name "lombok-1.18.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/projectlombok" -type f -name "lombok-1.18.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
@@ -483,11 +483,11 @@ EXITCODE=0
 
 ROOT_DIR="$(getHome)"
 
-SOURCE_DIR=$ROOT_DIR/src
-MAIN_SOURCE_DIR=$SOURCE_DIR/main/scala
-TARGET_DIR=$ROOT_DIR/target
-TARGET_DOCS_DIR=$TARGET_DIR/docs
-CLASSES_DIR=$TARGET_DIR/classes
+SOURCE_DIR="$ROOT_DIR/src"
+MAIN_SOURCE_DIR="$SOURCE_DIR/main/scala"
+TARGET_DIR="$ROOT_DIR/target"
+TARGET_DOCS_DIR="$TARGET_DIR/docs"
+CLASSES_DIR="$TARGET_DIR/classes"
 
 CLEAN=false
 COMPILE=false

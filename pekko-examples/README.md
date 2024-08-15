@@ -1,4 +1,4 @@
-# <span id="top">Pekko examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Pekko examples</span> <span style="font-size:90%;">[⬆](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -8,7 +8,27 @@
   </tr>
 </table>
 
-## <span id="HelloWorld">`HelloWorld` Example</span>
+## <span id="ChatRoom">`ChatRoom` Example</span>
+
+This example is taken from the [Apache Pekko documentation](https://pekko.apache.org/docs/pekko/current/typed/actors.html#functional-style); it has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./ChatRoom/00download.txt">00download.txt</a>
+|   <a href="./ChatRoom/build.bat">build.bat</a>
+|   <a href="./ChatRoom/build.sh">build.sh</a>
+|   <a href="./ChatRoom/Makefile">Makefile</a>
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>resources</b>
+        |       <a href="./ChatRoom/src/main/resources/application.conf">application.conf</a>
+        \---<b>scala</b>
+                <a href="./ChatRoom/src/main/scala/Main.scala">Main.scala</a>
+</pre>
+
+<!--=======================================================================-->
+
+## <span id="HelloWorld">`HelloWorld` Example</span> [**&#x25B4;**](#top)
 
 This example has the following directory structure :
 
@@ -16,15 +36,36 @@ This example has the following directory structure :
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
 |   <a href="./HelloWorld/00download.txt">00download.txt</a>
 |   <a href="./HelloWorld/build.bat">build.bat</a>
-\---src
-    \---main
-        +---resources
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>resources</b>
         |       <a href="./HelloWorld/src/main/resources/application.conf">application.conf</a>
-        \---scala
+        \---<b>scala</b>
                 <a href="./HelloWorld/src/main/scala/Main.scala">Main.scala</a>
 </pre>
 
-*WIP*
+Command [`build`](./HelloWorld/build.bat)`-verbose clean run` generates and executes the Scala program :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./HelloWorld/build.bat">build</a> -verbose clean run</b>
+Delete directory "target"
+Compile 1 Scala source file to directory "target\classes"
+Execute Scala program "Main"
+[hello-pekko.actor.default-dispatcher-3] INFO org.apache.pekko.event.slf4j.Slf4jLogger - Slf4jLogger started
+SLF4J(W): A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J(W): now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J(W): See also https://www.slf4j.org/codes.html#replay
+[hello-pekko.actor.default-dispatcher-3] INFO HelloWorld$ - Hello World!
+[hello-pekko.actor.default-dispatcher-3] INFO HelloWorld$ - Hello Pekko!
+Greeting 1 for World
+Greeting 1 for Pekko
+[hello-pekko.actor.default-dispatcher-6] INFO HelloWorld$ - Hello World!
+Greeting 2 for World
+[hello-pekko.actor.default-dispatcher-6] INFO HelloWorld$ - Hello Pekko!
+Greeting 2 for Pekko
+[hello-pekko.actor.default-dispatcher-6] INFO HelloWorld$ - Hello Pekko!
+Greeting 3 for Pekko
+</pre>
 
 ***
 
