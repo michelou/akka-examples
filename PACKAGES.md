@@ -44,7 +44,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -52,7 +52,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [akka]: https://akka.io/
 [akka_actor]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 [akka_actor_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
-[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.9.0
+[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.9.5
 [akka_license]: https://www.lightbend.com/akka/license-faq
 [akka_testkit]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
 [akka_testkit_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
@@ -74,4 +74,4 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [pekko_testkit_typed]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor-testkit-typed
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
 [scalatest_download]: https://mvnrepository.com/artifact/org.scalatest/scalatest
-[scalatest_relnotes]: https://github.com/scalatest/scalatest/releases/tag/release-3.2.17
+[scalatest_relnotes]: https://github.com/scalatest/scalatest/releases/tag/release-3.2.19
