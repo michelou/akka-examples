@@ -56,7 +56,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*August 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*September 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -127,7 +127,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.12, scalac 2.13.14, sbt 1.10.1,
-   ant 1.10.14, gradle 8.10, mvn 3.9.8, grpcurl v1.9.1,
+   ant 1.10.14, gradle 8.10, mvn 3.9.9, grpcurl v1.9.1,
    make 3.81, git 2.46.0, diff 3.10, bash 5.2.26(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -142,7 +142,7 @@ C:\opt\sbt\bin\sbt.bat
 
 ### **`searchjars.bat`** 
 
-Command [**`searchjars.bat`**](./bin/searchjars.bat) helps us to get the list of all JAR files containing a specific class or method name among the locally available libraries. In the following example we search for occurrences of class **`NotUsed`** :
+Command [**`searchjars.bat`**](./bin/searchjars.bat) prints the list of all JAR files containing a specific class or method name among the locally available libraries. In the following example we search for occurrences of class **`NotUsed`** :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
@@ -195,7 +195,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.8-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.10-bin.zip</a>                                <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.1_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
@@ -233,7 +233,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

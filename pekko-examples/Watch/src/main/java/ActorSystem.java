@@ -5,8 +5,7 @@ public class ActorSystem {
     public ActorSystem() {
     }
 
-    public ActorRef actorOf(Props props) {
-        return new ActorRef();
+    public ActorSystem(String name) {
     }
 
     public static ActorSystem apply(String name) {

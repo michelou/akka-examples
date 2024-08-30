@@ -1,4 +1,4 @@
-# <span id="top">Akka examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Akka examples</span> <span style="font-size:90%;">[⬆](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -11,8 +11,8 @@
 ## <span id="akka-quickstart">`akka-quickstart` Example</span>
 
 We have implemented this code example in 3 different programming languages :
-|      | Source files     | Batch      | [Gradle]   | [Maven]    |
-|:-----|:-----------------|:-----------|:-----------|:-----------|
+|      | Source&nbsp;files | Batch      | [Gradle]   | [Maven]    |
+|:-----|:------------------|:-----------|:-----------|:-----------|
 | Java | [`AkkaQuickstart.java`](akka-quickstart-java/src/main/java/com/example/AkkaQuickstart.java), [`Greeter.java`](akka-quickstart-java/src/main/java/com/example/Greeter.java) | [`build.bat`](akka-quickstart-java/build.bat) | [`build.gradle`](akka-quickstart-java/build.gradle) | [`pom.xml`](akka-quickstart-java/pom.xml) |
 | Kotlin | [`AkkaQuickstart.kt`](akka-quickstart-kotlin/src/main/kotlin/com/example/AkkaQuickstart.kt), [`Greeter.kt`](akka-quickstart-kotlin/src/main/kotlin/com/example/Greeter.kt) | [`build.bat`](akka-quickstart-kotlin/build.bat) | [`build.gradle`](akka-quickstart-kotlin/build.gradle) | [`pom.xml`](akka-quickstart-kotlin/pom.xml) |
 | Scala | [`AkkaQuickstart.scala`](akka-quickstart-scala/src/main/scala/com/example/AkkaQuickstart.scala), [`Greeter.scala`](akka-quickstart-scala/src/main/scala/com/example/Greeter.scala) | [`build.bat`](akka-quickstart-scala/build.bat) | [`build.gradle`](akka-quickstart-scala/build.gradle) | [`pom.xml`](akka-quickstart-scala/pom.xml) |
@@ -138,7 +138,7 @@ Mouth: got a msg: Brain says hello to Mouth
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

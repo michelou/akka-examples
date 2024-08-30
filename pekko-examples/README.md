@@ -26,6 +26,20 @@ This example is taken from the [Apache Pekko documentation](https://pekko.apache
                 <a href="./ChatRoom/src/main/scala/Main.scala">Main.scala</a>
 </pre>
 
+Command [**`build.bat`**](./ChatRoom/build.bat)`-verbose clean run` generates and executes the Scala program `Main.class` :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./ChatRoom/build.bat">build</a> -verbose clean run</b>
+Delete directory "target"
+Compile 1 Scala source file to directory "target\classes"
+[ChatRoomDemo-pekko.actor.default-dispatcher-3] INFO org.apache.pekko.event.slf4j.Slf4jLogger - Slf4jLogger started
+SLF4J(W): A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J(W): now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J(W): See also https://www.slf4j.org/codes.html#replay
+[ChatRoomDemo-pekko.actor.default-dispatcher-5] INFO Gabbler$ - message has been posted by 'ol? Gabbler': Hello World!
+[ChatRoomDemo-pekko.actor.default-dispatcher-5] INFO org.apache.pekko.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+</pre>
+
 <!--=======================================================================-->
 
 ## <span id="HelloWorld">`HelloWorld` Example</span> [**&#x25B4;**](#top)
@@ -44,7 +58,7 @@ This example has the following directory structure :
                 <a href="./HelloWorld/src/main/scala/Main.scala">Main.scala</a>
 </pre>
 
-Command [`build`](./HelloWorld/build.bat)`-verbose clean run` generates and executes the Scala program :
+Command [**`build`**](./HelloWorld/build.bat)`-verbose clean run` generates and executes the Scala program `Main.class` :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./HelloWorld/build.bat">build</a> -verbose clean run</b>
@@ -69,7 +83,7 @@ Greeting 3 for Pekko
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
