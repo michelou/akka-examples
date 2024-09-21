@@ -53,7 +53,7 @@ WGET       = wget
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.9.4
+AKKA_VERSION = 2.9.5
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 
@@ -71,7 +71,7 @@ deps:
 ifeq (,$(wildcard $(SCALA_LIB_JAR)))
 	$(eval GROUP_ID := org.scala-lang)
 	$(eval ARTIFACT_ID := scala-library)
-	$(eval VERSION := 2.13.14)
+	$(eval VERSION := 2.13.15)
 	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(MAVEN_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)

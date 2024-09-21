@@ -42,7 +42,7 @@ Optionally one may also install the following software:
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.92][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.93][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!--
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -69,7 +69,7 @@ C:\opt\jdk-temurin-17.0.12_7\   <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.4_7\    <i>(326 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
-C:\opt\scala-2.13.14\           <i>( 25 MB)</i>
+C:\opt\scala-2.13.15\           <i>( 25 MB)</i>
 C:\opt\scala3-3.3.4\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
@@ -126,8 +126,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.12, scalac 2.13.14, sbt 1.10.1,
-   ant 1.10.14, gradle 8.10, mvn 3.9.9, grpcurl v1.9.1,
+   javac 17.0.12, scalac 2.13.15, sbt 1.10.2,
+   ant 1.10.14, gradle 8.10.1, mvn 3.9.9, grpcurl v1.9.1,
    make 3.81, git 2.46.0, diff 3.10, bash 5.2.26(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -148,7 +148,7 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) prints the list of all JAR 
 <b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
 Warning: Search all directories (no option specified)
 Searching for class "NotUsed" in files "C:\opt\scala3-3.3.4\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\scala-2.13.14\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala-2.13.15\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.12_7\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.9.2.jar:akka/NotUsed$.class
@@ -197,16 +197,16 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.14-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.10-bin.zip</a>                                <i>(130 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.10.1-bin.zip</a>                              <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.1_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.12_7.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.4_7.zip</a>    <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.46.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.1.zip</a>                                     <i>( 45 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.2.zip</a>                                     <i>( 45 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.15.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://github.com/lampepfl/dotty/releases/tag/3.3.4-RC1">scala3-3.3.4-RC1.zip</a>                               <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.92.1.zip</a>                        <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.93.1.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -301,9 +301,9 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.1
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.2
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.14
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.15
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
 [scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
