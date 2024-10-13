@@ -23,8 +23,10 @@ if defined _HELP (
     exit /b !_EXITCODE!
 )
 if defined _SEARCH_SCALA (
-    if exist "%SCALA3_HOME%\lib\" (
-        call :search "%SCALA3_HOME%\lib" 1
+    @rem Libraries in Scala 3.3.x are located in lib\ subdirectory,
+    @rem while libraries in Scala 3.4+  are in maven2\ subdirectory.
+    if exist "%SCALA3_HOME%" (
+        call :search "%SCALA3_HOME%" 1
         if not !_EXITCODE!==0 goto end
     )
     if exist "%SCALA_HOME%\lib\" (
@@ -86,12 +88,20 @@ if not exist "%JAVA_HOME%\bin\jar.exe" (
 set "_JAR_CMD=%JAVA_HOME%\bin\jar.exe"
 set "_JAVAP_CMD=%JAVA_HOME%\bin\javap.exe"
 
-if not exist "%SCALA3_HOME%\lib\scala3-library_*.jar" (
+set __JAR_PATH=
+for /f "delims=" %%f in ('where /r "%SCALA3_HOME%" scala3-library*.jar') do (
+    set "__JAR_PATH=%%f"
+)
+if not defined __JAR_PATH (
     echo %_ERROR_LABEL% Scala 3 installation not found 1>&2
     set _EXITCODE=1
     goto :eof
 )
-if not exist "%SCALA_HOME%\lib\scala-library.jar" (
+set __JAR_PATH=
+for /f "delims=" %%f in ('where /r "%SCALA_HOME%" scala-library*.jar') do (
+    set "__JAR_PATH=%%f"
+)
+if not defined __JAR_PATH (
     echo %_ERROR_LABEL% Scala 2 installation not found 1>&2
     set _EXITCODE=1
     goto :eof

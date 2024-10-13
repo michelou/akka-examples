@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.4"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.4-RC4"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -23,10 +23,10 @@ project.ext {
     // https://mvnrepository.com/artifact/org.scalatest/scalatest
     // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
     // https://mvnrepository.com/artifact/org.specs2/specs2-core
-    akkaVersion = "2.9.4"
+    akkaVersion = "2.9.5"
     configVersion = "1.4.3"
-    logbackVersion = "1.5.6"
-    specs2Version = isScala3 ? "5.5.3" : "4.20.8"
+    logbackVersion = "1.5.10"
+    specs2Version = isScala3 ? "5.5.8" : "4.20.8"
     dependencies {
         if (isScala3) {
             implementation "org.scala-lang:scala3-compiler_3:$scalaVersion"
@@ -76,7 +76,6 @@ tasks.withType(JavaCompile) {
     // https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.CompileOptions.html
     options.deprecation true
     options.encoding "UTF8"
-    logger.info("11111111111111")
 }
 
 task compileScala(type: JavaExec) {

@@ -54,8 +54,10 @@ endif
 
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
-## https://
-PEKKO_VERSION = 1.0.3
+## https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
+PEKKO_VERSION = 1.1.2
+## https://mvnrepository.com/artifact/org.scala-lang/scala-library
+SCALA_VERSION = 2.13.15
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.16
 
@@ -77,7 +79,7 @@ deps:
 ifeq (,$(wildcard $(SCALA_LIB_JAR)))
 	$(eval GROUP_ID := org.scala-lang)
 	$(eval ARTIFACT_ID := scala-library)
-	$(eval VERSION := 2.13.14)
+	$(eval VERSION := $(SCALA_VERSION))
 	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(MAVEN_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
