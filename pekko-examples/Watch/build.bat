@@ -62,7 +62,6 @@ if exist "%SCALA3_HOME%\bin\scalac.bat" (
     set "_SCALAC3_CMD=%SCALA3_HOME%\bin\scalac.bat"
     set "_SCALA3_CMD=%SCALA3_HOME%\bin\scala.bat"
 )
-
 @rem we use the newer PowerShell version if available
 where /q pwsh.exe
 if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe

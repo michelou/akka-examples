@@ -191,7 +191,7 @@ if "%__ARG:~0,1%"=="-" (
     if not defined _CLASS_NAME ( set _CLASS_NAME=%__ARG%
     ) else if not defined _METH_NAME ( set _METH_NAME=%__ARG%
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
+        echo %_ERROR_LABEL% Name alread specified "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -205,7 +205,7 @@ if not defined __SOME (
     set _SEARCH_IVY=1& set _SEARCH_MAVEN=1& set _SEARCH_JAVA=1& set _SEARCH_SCALA=1
 )
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options   : _SEARCH_IVY=%_SEARCH_IVY% _SEARCH_MAVEN=%_SEARCH_MAVEN% _SEARCH_JAVA=%_SEARCH_JAVA% _SEARCH_SCALA=%_SEARCH_SCALA% 1>&2
+    echo %_DEBUG_LABEL% Options   : _SEARCH_IVY=%_SEARCH_IVY% _SEARCH_MAVEN=%_SEARCH_MAVEN% _SEARCH_JAVA=%_SEARCH_JAVA% _SEARCH_SCALA=%_SEARCH_SCALA% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Variables : "JAVA_HOME=%JAVA_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables : "SCALA_HOME=%SCALA_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables : "SCALA3_HOME=%SCALA3_HOME%" 1>&2
@@ -247,31 +247,34 @@ goto :eof
 set "__LIB_DIR=%~1"
 set __RECURSIVE=%~2
 
-if defined __RECURSIVE ( set __DIR_OPTS=/s /b
-) else ( set __DIR_OPTS=/b
+if defined __RECURSIVE (
+    set __DIR_OPTS=/s /b
+    set __SEARCH_FOR=Search recursively for
+) else (
+    set __DIR_OPTS=/b
+    set __SEARCH_FOR=Search for
 )
-echo Searching for class "%_CLASS_NAME%" in files "!__LIB_DIR:%USERPROFILE%=%%USERPROFILE%%!\*.jar"
 for /f "delims=" %%i in ('dir %__DIR_OPTS% "%__LIB_DIR%\*.jar" ') do (
     if defined __RECURSIVE ( set "__JAR_FILE=%%i"
     ) else ( set "__JAR_FILE=%__LIB_DIR%\%%i"
     )
     for /f "delims=" %%f in ("!__JAR_FILE!") do set "_JAR_FILENAME=%%~nxf"
     if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAR_CMD%" -tf "!__JAR_FILE!" 1>&2
-    ) else if %_VERBOSE%==1 ( echo    Search for class name %_CLASS_NAME% in file "!__JAR_FILE:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
+    ) else if %_VERBOSE%==1 ( echo %__SEARCH_FOR% class name %_CLASS_NAME% in file "!__JAR_FILE:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
     )
     for /f "delims=" %%f in ('call "%_JAR_CMD%" -tf "!__JAR_FILE!" ^| findstr /e /r "%_CLASS_NAME%.*\.class"') do (
         for /f "delims=" %%x in ("%%f") do set "__LAST=%%x"
         if defined _METH_NAME (
             set "__CLASS_NAME=!__LAST:~0,-6!"
             if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVAP_CMD%" -cp "!__JAR_FILE!" "!__CLASS_NAME:/=.!" ^| findstr "%_METH_NAME%" 1>&2
-            ) else if %_VERBOSE%==1 ( echo Search for method %_METH_NAME% in class !__CLASS_NAME:/=.! 1>&2
+            ) else if %_VERBOSE%==1 ( echo %__SEARCH_FOR% method %_METH_NAME% in class !__CLASS_NAME:/=.! 1>&2
             )
-            for /f "delims=" %%y in ('"%_JAVAP_CMD%" -cp "!__JAR_FILE!" "!__CLASS_NAME:/=.!" ^| findstr "%_METH_NAME%"') do (
-                echo   !_JAR_FILENAME!:!__LAST!
-                echo   %%y
+            for /f "delims=" %%y in ('call "%_JAVAP_CMD%" -cp "!__JAR_FILE!" "!__CLASS_NAME:/=.!" ^| findstr "%_METH_NAME%"') do (
+                echo    !_JAR_FILENAME!:!__LAST!
+                echo    %%y
             )
         ) else (
-            echo   !_JAR_FILENAME!:!__LAST!
+            echo    !_JAR_FILENAME!:!__LAST!
         )
     )
 )

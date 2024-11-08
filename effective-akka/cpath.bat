@@ -3,6 +3,8 @@ setlocal enabledelayedexpansion
 
 @rem output parameter: _CPATH
 
+set _EXITCODE=0
+
 if not defined _DEBUG set _DEBUG=%~1
 if not defined _DEBUG set _DEBUG=0
 set _VERBOSE=0
@@ -12,6 +14,11 @@ if %_DEBUG%==1 echo [%~n0] "_MVN_CMD=%_MVN_CMD%"
 
 if %_DEBUG%==1 ( set _MVN_OPTS=
 ) else ( set _MVN_OPTS=--quiet
+)
+@rem we use the newer PowerShell version if available
+where /q pwsh.exe
+if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
+) else ( set _PWSH_CMD=powershell.exe
 )
 set "__LOCAL_REPO=%USERPROFILE%\.m2\repository"
 
@@ -26,10 +33,10 @@ set __SCALA_BINARY_VERSION=2.13
 
 set _LIBS_CPATH=
 
-set __AKKA_VERSION=2.9.3
-set __SCALA_VERSION=2.13.14
-set __SCALATEST_VERSION=3.2.18
-set __SLF4J_VERSION=2.0.12
+set __AKKA_VERSION=2.10.0
+set __SCALA_VERSION=2.13.15
+set __SCALATEST_VERSION=3.2.19
+set __SLF4J_VERSION=2.0.16
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
@@ -121,10 +128,10 @@ if not exist "%__JAR_FILE%" (
     set __JAR_URL=%__REPO_URL%/%__GROUP_ID:.=/%/%__ARTIFACT_ID%/%__VERSION%/%__JAR_NAME%
     set "__JAR_FILE=%__TEMP_DIR%\%__JAR_NAME%"
     if not exist "!__JAR_FILE!" (
-        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% powershell -c "Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% call "%_PWSH_CMD%" -c "Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2
         ) else if %_VERBOSE%==1 ( echo Download file "%__JAR_NAME%" to directory "!__TEMP_DIR:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
         )
-        powershell -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'"
+        call "%_PWSH_CMD%" -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'"
         if not !ERRORLEVEL!==0 (
             echo %_ERROR_LABEL% Failed to download file "%__JAR_NAME%" 1>&2
             set _EXITCODE=1
@@ -137,13 +144,14 @@ if not exist "%__JAR_FILE%" (
         call "%_MVN_CMD%" %_MVN_OPTS% install:install-file -Dfile="!__JAR_FILE!" -DgroupId="%__GROUP_ID%" -DartifactId=%__ARTIFACT_ID% -Dversion=%__VERSION% -Dpackaging=jar
         if not !ERRORLEVEL!==0 (
             echo %_ERROR_LABEL% Failed to install Maven artifact into directory "!__LOCAL_REPO:%USERPROFILE%=%%USERPROFILE%%!" ^(error:!ERRORLEVEL!^) 1>&2
+            set _EXITCODE=1
         )
         for /f "usebackq delims=" %%f in (`where /r "%__LOCAL_REPO%\%__JAR_PATH%" %__JAR_NAME% 2^>NUL`) do (
             set "__JAR_FILE=%%f"
         )
     )
 )
-set "_LIBS_CPATH=%_LIBS_CPATH%%__JAR_FILE%;"
+if %_EXITCODE%==0 set "_LIBS_CPATH=%_LIBS_CPATH%%__JAR_FILE%;"
 goto :eof
 
 @rem #########################################################################
@@ -151,5 +159,6 @@ goto :eof
 
 :end
 endlocal & (
+    set "_EXITCODE=%_EXITCODE%"
     set "_CPATH=%_LIBS_CPATH%"
 )

@@ -44,9 +44,11 @@ TOUCH      = touch
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.9.4
+AKKA_VERSION = 2.10.0
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
+## 
+SCALA_VERSION = 2.13.15
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
 SCALATEST_VERSION = 3.2.19
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
@@ -66,7 +68,7 @@ deps:
 ifeq (,$(wildcard $(SCALA_LIB_JAR)))
 	$(eval GROUP_ID := org.scala-lang)
 	$(eval ARTIFACT_ID := scala-library)
-	$(eval VERSION := 2.13.14)
+	$(eval VERSION := $(SCALA_VERSION))
 	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(MAVEN_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
@@ -77,7 +79,7 @@ ifeq (,$(wildcard $(CONFIG_JAR)))
 	$(eval GROUP_ID := com.typesafe)
 	$(eval ARTIFACT_ID := config)
 	$(eval VERSION := $(CONFIG_VERSION))
-	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(SCALA_VERSION).jar)
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	## e.g. https://repo1.maven.org/maven2/com/typesafe/config/1.4.3/config-1.4.3.jar
 	$(eval URL := $(MAVEN_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
@@ -88,7 +90,7 @@ ifeq (,$(wildcard $(AKKA_ACTOR_JAR)))
 	$(eval GROUP_ID := com.typesafe)
 	$(eval ARTIFACT_ID := akka-actor_2.13)
 	$(eval VERSION := $(AKKA_VERSION))
-	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(SCALA_VERSION).jar)
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(AKKA_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
 	$(MVN) $(MVN_OPTS) install:install-file -Dfile="$(JAR_FILE)" -DgroupId=$(GROUP_ID) -DartifactId=$(ARTIFACT_ID) -Dversion=$(VERSION) -Dpackaging=jar
@@ -98,7 +100,7 @@ ifeq (,$(wildcard $(AKKA_SLF4J_JAR)))
 	$(eval GROUP_ID := com.typesafe)
 	$(eval ARTIFACT_ID := akka-slf4j_2.13)
 	$(eval VERSION := $(AKKA_VERSION))
-	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(SCALA_VERSION).jar)
+	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(AKKA_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
 	$(MVN) $(MVN_OPTS) install:install-file -Dfile="$(JAR_FILE)" -DgroupId=$(GROUP_ID) -DartifactId=$(ARTIFACT_ID) -Dversion=$(VERSION) -Dpackaging=jar

@@ -11,17 +11,17 @@
 
 The [Akka] tookit is distributed as [Maven][maven_repository] packages : 
 
-- [Akka Actor 2.9][akka_actor] ([*release notes*][akka_relnotes])
-- [Akka Actor Typed 2.9][akka_actor_typed] ([*release notes*][akka_relnotes])
-- [Akka Testkit 2.9][akka_testkit] ([*release notes*][akka_relnotes])
-- [Akka Testkit Typed 2.9][akka_testkit_typed] ([*release notes*][akka_relnotes])
+- [Akka Actor 2.10][akka_actor] ([*release notes*][akka_relnotes])
+- [Akka Actor Typed 2.10][akka_actor_typed] ([*release notes*][akka_relnotes])
+- [Akka Testkit 2.10][akka_testkit] ([*release notes*][akka_relnotes])
+- [Akka Testkit Typed 2.10][akka_testkit_typed] ([*release notes*][akka_relnotes])
 
 The [Apache Pekko][pekko] tookit is also distributed as [Maven][maven_repository] packages :
 
-- [Pekko Actor 1.0][pekko_actor] ([*release notes*][pekko_relnotes])
-- [Pekko Actor Typed 1.0][pekko_actor_typed] ([*release notes*][pekko_relnotes])
-- [Pekko Testkit 1.0][pekko_testkit] ([*release notes*][pekko_relnotes])
-- [Pekko Testkit Typed 1.0][pekko_testkit_typed] ([*release notes*][pekko_relnotes])
+- [Pekko Actor 1.1][pekko_actor] ([*release notes*][pekko_relnotes])
+- [Pekko Actor Typed 1.1][pekko_actor_typed] ([*release notes*][pekko_relnotes])
+- [Pekko Testkit 1.1][pekko_testkit] ([*release notes*][pekko_relnotes])
+- [Pekko Testkit Typed 1.1][pekko_testkit_typed] ([*release notes*][pekko_relnotes])
 <!--
 - [Pekko HTTP 1.0][pekko_http]
 - [Pekko Stream 1.0][pekko_stream]
@@ -44,7 +44,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

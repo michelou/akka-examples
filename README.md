@@ -42,7 +42,7 @@ Optionally one may also install the following software:
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.94][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.95][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -57,17 +57,17 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*October 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*November 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\ConEmu\                  <i>( 26 MB)</i>
 C:\opt\Git\                     <i>(387 MB)</i>
-C:\opt\gradle\                  <i>(135 MB)</i>
+C:\opt\gradle\                  <i>(144 MB)</i>
 C:\opt\grpcurl\                 <i>( 24 MB)</i>
-C:\opt\jdk-temurin-17.0.12_7\   <i>(301 MB)</i>
-C:\opt\jdk-temurin-21.0.4_7\    <i>(326 MB)</i>
+C:\opt\jdk-temurin-17.0.13.11\  <i>(304 MB)</i>
+C:\opt\jdk-temurin-21.0.5_11\   <i>(329 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.15\           <i>( 25 MB)</i>
@@ -127,7 +127,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.12, scalac 2.13.15, sbt 1.10.2,
+   javac 17.0.12, scalac 2.13.15, sbt 1.10.5,
    ant 1.10.15, gradle 8.10.2, mvn 3.9.9, grpcurl v1.9.1,
    make 3.81, git 2.47.0, diff 3.10, bash 5.2.37(1)
 
@@ -150,7 +150,7 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) prints the list of all JAR 
 Warning: Search all directories (no option specified)
 Searching for class "NotUsed" in files "C:\opt\scala3-3.3.4\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\scala-2.13.15\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.12_7\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.13.11\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.9.2.jar:akka/NotUsed$.class
   akka-actor_2.13-2.9.2.jar:akka/NotUsed.class
@@ -201,10 +201,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://gradle.org/install/">gradle-8.10.2-bin.zip</a>                              <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.1_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.12_7.zip</a>   <i>(188 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.4_7.zip</a>    <i>(191 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.13.11.zip</a>  <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.5_11.zip</a>   <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.2.zip</a>                                     <i>( 45 MB)</i>
+<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.5.zip</a>                                     <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.15.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://github.com/lampepfl/dotty/releases/tag/3.3.4">scala3-3.3.4.zip</a>                                   <i>( 34 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.94.2.zip</a>                        <i>(131 MB)</i>
@@ -234,7 +234,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -303,13 +303,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.2
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.5
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.15
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
 [scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
-[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.4-RC1
+[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.4
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top

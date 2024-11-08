@@ -198,19 +198,19 @@ libs_cpath() {
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
     jar_file=
-    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-actor_$scala_binary_version-1.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-actor_$scala_binary_version-1.1.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor-typed
     jar_file=
-    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-actor-typed_$scala_binary_version-1.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-actor-typed_$scala_binary_version-1.1.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-slf4j
     jar_file=
-    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-aslf4j_$scala_binary_version-1.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-slf4j_$scala_binary_version-1.1.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
@@ -231,13 +231,13 @@ libs_cpath() {
     ##
     ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-testkit
     jar_file=
-    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-testkit_$scala_binary_version-1.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-testkit_$scala_binary_version-1.1.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
     jar_file=
-    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-actor-testkit-typed_$scala_binary_version-1.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/apache/pekko" -name "pekko-actor-testkit-typed_$scala_binary_version-1.1.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
