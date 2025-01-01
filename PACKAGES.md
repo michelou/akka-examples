@@ -44,7 +44,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -52,7 +52,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [akka]: https://akka.io/
 [akka_actor]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 [akka_actor_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
-[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.9.5
+[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.10.0
 [akka_license]: https://www.lightbend.com/akka/license-faq
 [akka_testkit]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
 [akka_testkit_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
@@ -63,7 +63,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
 [ivy_lib]: https://ant.apache.org/ivy/
 [maven_repository]: https://mvnrepository.com/
-[mvn_cli]: https://maven.apache.org/ref/3.9.0/maven-embedder/cli.html
+[mvn_cli]: https://maven.apache.org/ref/3.9.9/maven-embedder/cli.html
 [pekko]: https://pekko.apache.org/what-is-pekko.html
 [pekko_actor]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
 [pekko_actor_typed]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor-typed
