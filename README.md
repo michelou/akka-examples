@@ -71,7 +71,7 @@ C:\opt\jdk-temurin-21.0.5_11\   <i>(329 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.15\           <i>( 25 MB)</i>
-C:\opt\scala3-3.3.4\            <i>( 38 MB)</i>
+C:\opt\scala3-3.3.5\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -128,7 +128,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.13, scalac 2.13.15, sbt 1.10.7,
-   ant 1.10.15, gradle 8.11, mvn 3.9.9, grpcurl v1.9.2,
+   ant 1.10.15, gradle 8.12, mvn 3.9.9, grpcurl v1.9.2,
    make 3.81, git 2.47.1, diff 3.10, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -148,17 +148,17 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) prints the list of all JAR 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
 Warning: Search all directories (no option specified)
-Searching for class "NotUsed" in files "C:\opt\scala3-3.3.4\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala3-3.3.5\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\scala-2.13.15\lib\*.jar"
 Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.13.11\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
-  akka-actor_2.13-2.9.2.jar:akka/NotUsed$.class
-  akka-actor_2.13-2.9.2.jar:akka/NotUsed.class
+  akka-actor_2.13-2.10.0.jar:akka/NotUsed$.class
+  akka-actor_2.13-2.10.0.jar:akka/NotUsed.class
 Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
-  akka-actor_2.13-2.9.2.jar:akka/NotUsed$.class
-  akka-actor_2.13-2.9.2.jar:akka/NotUsed.class
-  akka-stream_2.13-2.8.5.jar:akka/stream/impl/PushNotUsed$.class
-  akka-stream_2.13-2.8.5.jar:akka/stream/impl/PushNotUsed.class
+  akka-actor_2.13-2.10.0.jar:akka/NotUsed$.class
+  akka-actor_2.13-2.10.0.jar:akka/NotUsed.class
+  akka-stream_2.13-2.10.0.jar:akka/stream/impl/PushNotUsed$.class
+  akka-stream_2.13-2.10.0.jar:akka/stream/impl/PushNotUsed.class
   pekko-actor_2.13-1.0.3.jar:org/apache/pekko/NotUsed$.class
   pekko-actor_2.13-1.0.3.jar:org/apache/pekko/NotUsed.class
 </pre>
