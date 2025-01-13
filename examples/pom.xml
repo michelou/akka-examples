@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
 
         <!-- Scala settings -->
         <scala.binary.version>2.13</scala.binary.version>
@@ -24,17 +24,17 @@
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
         <exec.maven.version>3.4.1</exec.maven.version>
         <!-- https://mvnrepository.com/artifact/org.apache.ivy/ivy -->
-        <ivy.version>2.5.2</ivy.version>
+        <ivy.version>2.5.3</ivy.version>
         <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
         <jmh.version>1.37</jmh.version>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <junit.version>4.13.2</junit.version>
         <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons -->
-        <junit.platform.version>1.11.3</junit.platform.version>
+        <junit.platform.version>1.11.4</junit.platform.version>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-        <jupiter.version>5.11.3</jupiter.version>
+        <jupiter.version>5.11.4</jupiter.version>
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
-        <logback.version>1.5.10</logback.version>
+        <logback.version>1.5.16</logback.version>
         <maven.compiler.version>3.12.1</maven.compiler.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
         <maven.jar.version>3.4.2</maven.jar.version>

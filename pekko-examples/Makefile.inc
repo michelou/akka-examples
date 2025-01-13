@@ -55,7 +55,7 @@ endif
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
-PEKKO_VERSION = 1.1.2
+PEKKO_VERSION = 1.1.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-library
 SCALA_VERSION = 2.13.15
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api

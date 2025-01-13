@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2024 Stéphane Micheloud
+# Copyright (c) 2018-2025 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -133,11 +133,11 @@ lint() {
     [[ $DEBUG -eq 1 ]] && scalfmt_opts="--debug $scalfmt_opts"
 
     if [[ $DEBUG -eq 1 ]]; then
-        debug "$SCALAFMT_CMD $scalfmt_opts $(mixed_path $MAIN_SOURCE_DIR)"
+        debug "$SCALAFMT_CMD $scalfmt_opts $(mixed_path $SOURCE_MAIN_DIR)"
     elif [[ $VERBOSE -eq 1 ]]; then
         echo "Analyze Scala source files with Scalafmt" 1>&2
     fi
-    eval "$SCALAFMT_CMD" $scalfmt_opts "$(mixed_path $MAIN_SOURCE_DIR)"
+    eval "$SCALAFMT_CMD" $scalfmt_opts "$(mixed_path $SOURCE_MAIN_DIR)"
     [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
 }
 
@@ -152,7 +152,7 @@ compile() {
         compile_java
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
     fi
-    is_required="$(action_required "$timestamp_file" "$MAIN_SOURCE_DIR/" "*.scala")"
+    is_required="$(action_required "$timestamp_file" "$SOURCE_MAIN_DIR/" "*.scala")"
     if [[ $is_required -eq 1 ]]; then
         compile_scala
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
@@ -518,7 +518,7 @@ EXITCODE=0
 ROOT_DIR="$(getHome)"
 
 SOURCE_DIR="$ROOT_DIR/src"
-MAIN_SOURCE_DIR="$SOURCE_DIR/main/scala"
+SOURCE_MAIN_DIR="$SOURCE_DIR/main/scala"
 TARGET_DIR="$ROOT_DIR/target"
 TARGET_DOCS_DIR="$TARGET_DIR/docs"
 CLASSES_DIR="$TARGET_DIR/classes"

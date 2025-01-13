@@ -46,9 +46,11 @@ TOUCH      = touch
 endif
 
 ## https://doc.akka.io/docs/akka/current/actors.html
-AKKA_VERSION = 2.9.5
+AKKA_VERSION = 2.10.0
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
+## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
+SCALA_VERSION = 2.13.15
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.16
 
@@ -69,7 +71,7 @@ maven_deps:
 ifeq (,$(wildcard $(SCALA_LIB_JAR)))
 	$(eval GROUP_ID := org.scala-lang)
 	$(eval ARTIFACT_ID := scala-library)
-	$(eval VERSION := 2.13.15)
+	$(eval VERSION := $(SCALA_VERSION))
 	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(REMOTE_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)

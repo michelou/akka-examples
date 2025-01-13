@@ -2,7 +2,7 @@ name := "ParentChildren"
 
 version := "1.0"
 
-scalaVersion := "2.13.14"
+scalaVersion := "2.13.15"
 
 // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
 // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic

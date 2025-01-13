@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2024 Stéphane Micheloud
+# Copyright (c) 2018-2025 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -197,13 +197,13 @@ libs_cpath() {
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.9.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.10.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.9.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.10.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
@@ -512,11 +512,13 @@ cygwin=0
 mingw=0
 msys=0
 darwin=0
+linux=0
 case "$(uname -s)" in
     CYGWIN*) cygwin=1 ;;
     MINGW*)  mingw=1 ;;
     MSYS*)   msys=1 ;;
-    Darwin*) darwin=1
+    Darwin*) darwin=1 ;;
+    Linux*)  linux=1
 esac
 unset CYGPATH_CMD
 PSEP=":"

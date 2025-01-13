@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2024 Stéphane Micheloud
+# Copyright (c) 2018-2025 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -93,7 +93,7 @@ args() {
     debug "Variables  : JAVA_HOME=$JAVA_HOME"
     debug "Variables  : SCALA_HOME=$SCALA_HOME"
     # See http://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
-    $TIMER && TIMER_START=$(date +"%s")
+    [[ $TIMER -eq 1 ]] && TIMER_START=$(date +"%s")
 }
 
 help() {
@@ -197,13 +197,13 @@ libs_cpath() {
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.8.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.10.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.8.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.10.*.jar" 2>/dev/null); do 
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"

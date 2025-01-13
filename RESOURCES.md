@@ -22,6 +22,7 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Introduction to Apache Pekko](https://www.baeldung.com/scala/apache-pekko) by Baeldung, December 2023.
 - [Introduction to Akka Actors in Java](https://www.baeldung.com/akka-actors-java) by Baeldung, December 2023.
 - [Rock The JVM Blog](https://blog.rockthejvm.com/)  by Daniel Ciocîrlan:
   - [From Akka Streams To Actors And Back][blog_rockthejvm_streams], February 2023.

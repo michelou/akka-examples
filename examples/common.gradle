@@ -2,12 +2,12 @@
 buildDir file("target")
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.4-RC4"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.5-RC1"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -26,9 +26,9 @@ project.ext {
     // https://mvnrepository.com/artifact/org.scalatest/scalatest
     // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
     // https://mvnrepository.com/artifact/org.specs2/specs2-core
-    akkaVersion = "2.9.5"
+    akkaVersion = "2.10.0"
     configVersion = "1.4.3"
-    logbackVersion = "1.5.10"
+    logbackVersion = "1.5.16"
     specs2Version = isScala3 ? "5.5.8" : "4.20.8"
     dependencies {
         if (isScala3) {

@@ -57,9 +57,9 @@ AKKA_VERSION = 2.10.0
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.projectlombok/lombok
-LOMBOK_VERSION = 1.18.34
-##
-SCALA_VERSION = 2.13.15
+LOMBOK_VERSION = 1.18.36
+## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
+SCALA_VERSION = 2.13.16
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.16
 
