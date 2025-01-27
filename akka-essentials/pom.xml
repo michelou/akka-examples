@@ -14,7 +14,7 @@
 
         <!-- Scala settings -->
         <scala.groupId>org.scala-lang</scala.groupId>
-        <scala.version>2.13.15</scala.version>
+        <scala.version>2.13.16</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 

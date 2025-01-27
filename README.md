@@ -66,11 +66,11 @@ C:\opt\ConEmu\                  <i>( 26 MB)</i>
 C:\opt\Git\                     <i>(387 MB)</i>
 C:\opt\gradle\                  <i>(144 MB)</i>
 C:\opt\grpcurl\                 <i>( 24 MB)</i>
-C:\opt\jdk-temurin-17.0.13.11\  <i>(304 MB)</i>
-C:\opt\jdk-temurin-21.0.5_11\   <i>(329 MB)</i>
+C:\opt\jdk-temurin-17.0.14_7\   <i>(302 MB)</i>
+C:\opt\jdk-temurin-21.0.6_7\    <i>(327 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
-C:\opt\scala-2.13.15\           <i>( 25 MB)</i>
+C:\opt\scala-2.13.16\           <i>( 25 MB)</i>
 C:\opt\scala3-3.3.5\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
@@ -127,8 +127,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.13, scalac 2.13.15, sbt 1.10.7,
-   ant 1.10.15, gradle 8.12, mvn 3.9.9, grpcurl v1.9.2,
+   javac 17.0.14, scalac 2.13.16, sbt 1.10.7,
+   ant 1.10.15, gradle 8.12.1, mvn 3.9.9, grpcurl v1.9.2,
    make 3.81, git 2.47.1, diff 3.10, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -149,8 +149,8 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) prints the list of all JAR 
 <b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
 Warning: Search all directories (no option specified)
 Searching for class "NotUsed" in files "C:\opt\scala3-3.3.5\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\scala-2.13.15\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.13.11\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala-2.13.16\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.14_7\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.10.0.jar:akka/NotUsed$.class
   akka-actor_2.13-2.10.0.jar:akka/NotUsed.class
@@ -199,16 +199,16 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.15-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.12-bin.zip</a>                                <i>(130 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.12.1-bin.zip</a>                              <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.2_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.13.11.zip</a>  <i>(188 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.5_11.zip</a>   <i>(191 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.14_7.zip</a>   <i>(188 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.6_7.zip</a>    <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.1-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.7.zip</a>                                     <i>( 45 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.15.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.5-RC1">scala3-3.3.5-RC1.zip</a>                               <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.96.2.zip</a>                        <i>(131 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.16.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.5-RC3">scala3-3.3.5-RC3.zip</a>                               <i>( 34 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.96.4.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -275,7 +275,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.12/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.12.1/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
@@ -306,11 +306,11 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
 [sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.7
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.15
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.16
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
 [scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
-[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.5-RC1
+[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.5-RC3
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [sml_examples]: https://github.com/michelou/sml-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top

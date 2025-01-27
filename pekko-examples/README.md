@@ -50,6 +50,8 @@ This example has the following directory structure :
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
 |   <a href="./HelloWorld/00download.txt">00download.txt</a>
 |   <a href="./HelloWorld/build.bat">build.bat</a>
+|   <a href="./HelloWorld/build.sh">build.sh</a>
+|   <a href="./HelloWorld/Makefile">Makefile</a>
 \---<b>src</b>
     \---<b>main</b>
         +---<b>resources</b>

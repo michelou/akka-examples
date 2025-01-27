@@ -2,7 +2,7 @@ name := "Receptionist"
 
 version := "1.0"
 
-scalaVersion := "2.13.15"
+scalaVersion := "2.13.16"
 
 // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
 // https://mvnrepository.com/artifact/com.typesafe/config

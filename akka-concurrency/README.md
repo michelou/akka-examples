@@ -31,7 +31,7 @@ Code examples are written in [Scala] and can be built/run with the following too
 
 ### <span id="ch05_badshakespearean">`BadShakespearean` Example</span>
 
-Code example [`BadShakespearean`](./Chapter05/BadShakespearean/) is organized as follows :
+This example has the following directory structure :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
@@ -42,21 +42,21 @@ Code example [`BadShakespearean`](./Chapter05/BadShakespearean/) is organized as
 |   <a href="./Chapter05/BadShakespearean/gradle.properties">gradle.properties</a>
 |   <a href="./Chapter05/BadShakespearean/Makefile">Makefile</a>
 |   <a href="./Chapter05/BadShakespearean/pom.xml">pom.xml</a>
-+---project
++---<b>project</b>
 |       <a href="./Chapter05/BadShakespearean/project/build.properties">build.properties</a>
-\---src
-    \---main
-        +---resources
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>resources</b>
         |       <a href="./Chapter05/BadShakespearean/src/main/resources/application.conf">application.conf</a>
-        \---scala
-            \---zzz
-                \---akka
-                    \---investigation
+        \---<b>scala</b>
+            \---<b>zzz</b>
+                \---<b>akka</b>
+                    \---<b>investigation</b>
                             <a href="./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanActor.scala">BadShakespeareanActor.scala</a>
                             <a href="./Chapter05/BadShakespearean/src/main/scala/zzz/akka/investigation/BadShakespeareanMain.scala">BadShakespeareanMain.scala</a>
 </pre>
 
-Batch file [**`build.bat`**](./Chapter05/BadShakespearean/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
+Batch file [**`build.bat`**](./Chapter05/BadShakespearean/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the executed commands):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="Chapter05/BadShakespearean/build.bat">build</a> -verbose run</b>
@@ -80,7 +80,34 @@ Him: Yup
 
 ### <span id="ch05_avionics">`Avionics` Example</span>
 
-Code example [`Avionics`](./Chapter05/Avionics/) is composed of the 4 source files [`Altimeter.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Altimeter.scala), [`Avionics.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Avionics.scala), [`ControlSurfaces.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/ControlSurfaces.scala) and [`Plane.scala`](./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Plane.scala).
+This example has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="">tree</a> /f /a . | <a href="">findstr</a> /b /v [A-Z]</b>
+|   <a href="./Chapter05/Avionics/build.bat">build.bat</a>
+|   <a href="./Chapter05/Avionics/build.gradle">build.gradle</a>
+|   <a href="./Chapter05/Avionics/build.sbt">build.sbt</a>
+|   <a href="./Chapter05/Avionics/build.sh">build.sh</a>
+|   <a href="./Chapter05/Avionics/build.xml">build.xml</a>
+|   <a href="./Chapter05/Avionics/gradle.properties">gradle.properties</a>
+|   <a href="./Chapter05/Avionics/Makefile">Makefile</a>
+|   <a href="./Chapter05/Avionics/pom.xml">pom.xml</a>
++---<b>project</b>
+|       <a href="./Chapter05/Avionics/project/build.properties">build.properties</a>
+\---<b>src</b>
+    \---<b>main</b>
+        +---<b>resources</b>
+        |       <a href="./Chapter05/Avionics/src/main/resources/application.conf">application.conf</a>
+        |       <a href="./Chapter05/Avionics/src/main/resources/logback.xml">logback.xml</a>
+        \---<b>scala</b>
+            \---<b>zzz</b>
+                \---<b>akka</b>
+                    \---<b>avionics</b>
+                            <a href="./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Altimeter.scala">Altimeter.scala</a>
+                            <a href="./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Avionics.scala">Avionics.scala</a>
+                            <a href="./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/ControlSurfaces.scala">ControlSurfaces.scala</a>
+                            <a href="./Chapter05/Avionics/src/main/scala/zzz/akka/avionics/Plane.scala">Plane.scala</a>
+</pre>
 
 Batch file [**`build.bat`**](./Chapter05/Avionics/build.bat) matches what a user would run from the command prompt (use option **`-debug`** to see the execution details):
 
@@ -168,7 +195,7 @@ All tests passed.
 
 <span id="footnote_01">[1]</span> ***Source code updates*** [↩](#anchor_01)
 
-<dl><dd>
+<dl><dd style="margin:0 0 0 8px;">
 We have updated several deprecated code in the original examples of <a href="https://www.artima.com/shop/akka_concurrency">Wyatt's book</a>:
 </dd>
 <dd>
@@ -188,6 +215,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </table>
 See the online documentation for further informations: 
 <ul>
+<li><a href="https://doc.akka.io/libraries/akka-core/current/project/migration-guide-2.9.x-2.10.x.html">Migration Guide 2.9.x to 2.10.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.8.x-2.9.x.html">Migration Guide 2.8.x to 2.9.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.7.x-2.8.x.html">Migration Guide 2.7.x to 2.8.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.6.x-2.7.x.html" rel="external">Migration Guide 2.6.x to 2.7.x</a></li>
@@ -199,13 +227,13 @@ See the online documentation for further informations:
 
 <span id="footnote_02">[2]</span> ***Dead Letter Office*** [↩](#anchor_02)
 
-<dl><dd>
+<dl><dd style="margin:0 0 0 8px;">
 When the sender of a message is <code>null</code>, <a href="https://akka.io/" rel="external">Akka</a> attaches a default sender called the <i>dead letter office</i>, which is a single actor instance per <a href="https://doc.akka.io/docs/akka/current/general/actor-systems.html" rel="external">ActorSystem</a> and can be accessed directly from the <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html"><code>akka.actor.ActorSystem</code></a> via method <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html#deadLetters()" rel="external"><code>deadLetters</code></a>.
 </dd></dl>
 
 <span id="footnote_03">[3]</span> ***ScalaTest API 3.2 Removals*** [↩](#anchor_03)
 
-<dl><dd>
+<dl><dd style="margin:0 0 0 8px;">
 The <a href="https://www.scalatest.org/release_notes/3.2.0"><i>ScalaTest/Scalactic 3.2.0 Release Notes</i></a> announces many <b><i>deprecation expirations</i></b>, a consequence of the new ScalaTest 3.2 modularization (and the associated artifact reorganization).
 </dd>
 <dd>

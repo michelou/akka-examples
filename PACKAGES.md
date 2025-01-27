@@ -36,7 +36,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 >| Build&nbsp;tool   | Local&nbsp;repository           |
 >|:------------------|:--------------------------------|
 >| [**`ant.bat`**][ant_cli] ([Ivy][ivy_lib] library)    | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.ivy2\cache\`    |
->| [**`gradle.bat`**][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`.m2\repository\` | 
+>| [**`gradle.bat`**][gradle_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 >| [**`mvn.cmd`**][mvn_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 >| [**`sbt.bat`**][sbt_cli] | [`%USERPROFILE%`](https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#variables-that-are-recognized-only-in-the-user-context)`\.m2\repository\` | 
 
