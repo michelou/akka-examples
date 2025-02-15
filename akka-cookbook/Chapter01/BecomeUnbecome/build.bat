@@ -57,7 +57,7 @@ if not exist "%SCALA_HOME%\bin\scala.bat" (
 set "_SCALA_CMD=%SCALA_HOME%\bin\scala.bat"
 set "_SCALAC_CMD=%SCALA_HOME%\bin\scalac.bat"
 
-@rem use newer PowerShell version if available
+@rem we use newer PowerShell version if available
 where /q pwsh.exe
 if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
 ) else ( set _PWSH_CMD=powershell.exe

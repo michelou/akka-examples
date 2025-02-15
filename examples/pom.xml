@@ -18,11 +18,11 @@
         <scala.version>2.13.16</scala.version>
 
         <!-- Maven plugin versions -->
-        <akka.version>2.10.0</akka.version>
+        <akka.version>2.10.1</akka.version>
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <config.version>1.4.3</config.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-        <exec.maven.version>3.4.1</exec.maven.version>
+        <exec.maven.version>3.5.0</exec.maven.version>
         <!-- https://mvnrepository.com/artifact/org.apache.ivy/ivy -->
         <ivy.version>2.5.3</ivy.version>
         <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->

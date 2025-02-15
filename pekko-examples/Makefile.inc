@@ -57,11 +57,11 @@ CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
 PEKKO_VERSION = 1.1.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-library
-SCALA_VERSION = 2.13.15
+SCALA_VERSION = 2.13.16
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.16
 
-SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
+SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-$(SCALA_VERSION).jar" | tail -1)
 CONFIG_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-$(CONFIG_VERSION).jar")
 PEKKO_ACTOR_JAR       = $(shell $(FIND) "$(LOCAL_REPO)/org/apache/pekko" -name "pekko-actor_2.13-$(PEKKO_VERSION).jar")
 PEKKO_ACTOR_TYPED_JAR = $(shell $(FIND) "$(LOCAL_REPO)/org/apache/pekko" -name "pekko-actor-typed_2.13-$(PEKKO_VERSION).jar")
