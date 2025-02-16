@@ -42,7 +42,7 @@ Optionally one may also install the following software:
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.96][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.97][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -207,8 +207,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.48.1-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.7.zip</a>                                     <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.16.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.5-RC3">scala3-3.3.5-RC3.zip</a>                               <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.96.4.zip</a>                        <i>(131 MB)</i>
+<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.5">scala3-3.3.5.zip</a>                                   <i>( 34 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.97.2.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -310,7 +310,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
 [scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
-[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.5-RC3
+[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.5
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [sml_examples]: https://github.com/michelou/sml-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
