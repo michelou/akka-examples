@@ -28,12 +28,12 @@
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <dependency org="com.typesafe" name="config" rev="1.4.3"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.10.1"/>
+        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.10.2"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
-        <dependency org="com.typesafe.akka" name="akka-actor-typed_2.13" rev="2.10.1"/>
+        <dependency org="com.typesafe.akka" name="akka-actor-typed_2.13" rev="2.10.2"/>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency org="org.projectlombok" name="lombok" rev="1.18.36"/>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-        <dependency org="org.slf4j" name="slf4j-api" rev="2.0.16"/>
+        <dependency org="org.slf4j" name="slf4j-api" rev="2.0.17"/>
     </dependencies>
 </ivy-module>

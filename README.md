@@ -21,7 +21,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.48][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.49][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8+) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 <!--
@@ -37,12 +37,12 @@ Optionally one may also install the following software:
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [GNU Make 3.81][gmake_install]
-- [Gradle 8.12][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.13][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.10][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.97][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.98][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -57,7 +57,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*February 2025*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*March 2025*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -128,8 +128,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.14, scalac 2.13.16, sbt 1.10.7,
-   ant 1.10.15, gradle 8.12.1, mvn 3.9.9, grpcurl v1.9.2,
-   make 3.81, git 2.48.1, diff 3.10, bash 5.2.37(1)
+   ant 1.10.15, gradle 8.13, mvn 3.9.9, grpcurl v1.9.2,
+   make 3.81, git 2.49.0, diff 3.10, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
 C:\opt\apache-ant\bin\ant
@@ -199,12 +199,12 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.15-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.12.1-bin.zip</a>                              <i>(130 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.13-bin.zip</a>                                <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.2_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.14_7.zip</a>   <i>(188 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.6_7.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.48.1-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.49.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.10.7.zip</a>                                     <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.16.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://github.com/lampepfl/dotty/releases/tag/3.3.5">scala3-3.3.5.zip</a>                                   <i>( 34 MB)</i>
@@ -235,7 +235,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -269,13 +269,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.48.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.49.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.12.1/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.13/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases

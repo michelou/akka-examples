@@ -29,8 +29,8 @@
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <dependency org="com.typesafe" name="config" rev="1.4.3"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
-        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.10.1"/>
+        <dependency org="com.typesafe.akka" name="akka-actor_2.13" rev="2.10.2"/>
         <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit -->
-        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.10.1"/>
+        <dependency org="com.typesafe.akka" name="akka-testkit_2.13" rev="2.10.2"/>
     </dependencies>
 </ivy-module>

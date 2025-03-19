@@ -26,11 +26,11 @@ if %_DEBUG%==1 echo [%~n0] "__TEMP_DIR=%__TEMP_DIR%" 1>&2
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.9.4
+set __AKKA_VERSION=2.10.2
 set __CONFIG_VERSION=1.4.3
-set __SCALA_VERSION=2.13.14
+set __SCALA_VERSION=2.13.16
 set __SCALATEST_VERSION=3.2.19
-set __SLF4J_VERSION=2.0.13
+set __SLF4J_VERSION=2.0.17
 
 @rem #########################################################################
 @rem ## Libraries to be added to _LIBS_CPATH
@@ -75,10 +75,10 @@ call :add_jar "com.typesafe.scala-logging" "scala-logging_%__SCALA_BINARY_VERSIO
 call :add_akka_jar "com.typesafe.akka" "akka-stream_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-stream-kafka
-call :add_jar "com.typesafe.akka" "akka-stream-kafka_%__SCALA_BINARY_VERSION%" "4.0.2"
+call :add_jar "com.typesafe.akka" "akka-stream-kafka_%__SCALA_BINARY_VERSION%" "7.0.1"
 
 @rem https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
-call :add_jar "org.apache.kafka" "kafka-clients" "3.5.0"
+call :add_jar "org.apache.kafka" "kafka-clients" "3.9.0"
 
 goto end
 

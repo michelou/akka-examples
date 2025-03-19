@@ -59,7 +59,7 @@ PEKKO_VERSION = 1.1.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-library
 SCALA_VERSION = 2.13.16
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-SLF4J_VERSION = 2.0.16
+SLF4J_VERSION = 2.0.17
 
 SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-$(SCALA_VERSION).jar" | tail -1)
 CONFIG_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-$(CONFIG_VERSION).jar")

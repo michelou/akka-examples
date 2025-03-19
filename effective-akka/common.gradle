@@ -7,7 +7,7 @@ java {
 }
 
 project.ext {
-    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.5-RC1"
+    scalaVersion = hasProperty("scalaVersion") ? scalaVersion : "3.3.5"
     isLocalInstall = hasProperty("scalaLocalInstall") ? scalaLocalInstall.toBoolean() : false
     isScala3 = scalaVersion.startsWith("3")
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
@@ -21,9 +21,9 @@ project.ext {
     // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
     // https://mvnrepository.com/artifact/org.scalatest/scalatest
     // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
-    akkaVersion = "2.10.0"
+    akkaVersion = "2.10.2"
     configVersion = "1.4.3"
-    logbackVersion = "1.5.16"
+    logbackVersion = "1.5.17"
     scalatestVersion = "3.2.19"
     dependencies {
         if (isScala3) { 

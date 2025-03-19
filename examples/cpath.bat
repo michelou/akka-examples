@@ -26,12 +26,12 @@ if %_DEBUG%==1 echo [%~n0] "__TEMP_DIR=%__TEMP_DIR%" 1>&2
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.10.1
+set __AKKA_VERSION=2.10.2
 set __CONFIG_VERSION=1.4.3
 set __LOMBOK_VERSION=1.18.36
 set __SCALA_VERSION=2.13.16
 set __SCALATEST_VERSION=3.2.19
-set __SLF4J_VERSION=2.0.16
+set __SLF4J_VERSION=2.0.17
 
 @rem #########################################################################
 @rem ## Libraries to be added to _LIBS_CPATH

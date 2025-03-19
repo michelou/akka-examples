@@ -26,9 +26,9 @@ project.ext {
     // https://mvnrepository.com/artifact/org.scalatest/scalatest
     // https://mvnrepository.com/artifact/org.scalatest/scalatest-core
     // https://mvnrepository.com/artifact/org.specs2/specs2-core
-    akkaVersion = "2.10.1"
+    akkaVersion = "2.10.2"
     configVersion = "1.4.3"
-    logbackVersion = "1.5.16"
+    logbackVersion = "1.5.17"
     specs2Version = isScala3 ? "5.5.8" : "4.20.8"
     dependencies {
         if (isScala3) {
