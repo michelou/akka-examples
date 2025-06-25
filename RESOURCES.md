@@ -14,6 +14,7 @@
 ## <span id="articles">Articles</span>
 
 - [Microsoft Learn](https://learn.microsoft.com/en-us/) :
+  - [Using Akka Streams with Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial), March 2025.
   - [What is Azure Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/azure-event-hubs-kafka-overview), March 2023.
   - [Using Akka Streams with Event Hubs for Apache Kafka](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial), January 2023.
 - [Akka Streams — Getting Started][article_cano] by Sergio Cano, August 2021.
@@ -89,7 +90,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- href links -->

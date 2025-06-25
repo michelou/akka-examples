@@ -234,6 +234,7 @@ We have updated several deprecated code in the original examples of <a href="htt
 </div>
 See the online documentation for further informations: 
 <ul>
+<li><a href="https://doc.akka.io/libraries/akka-core/current/project/migration-guide-2.9.x-2.10.x.html">Migration Guide 2.9.x to 2.10.x</a</li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.8.x-2.9.x.html">Migration Guide 2.8.x to 2.9.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.7.x-2.8.x.html">Migration Guide 2.7.x to 2.8.x</a></li>
 <li><a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.6.x-2.7.x.html" rel="external">Migration Guide 2.6.x to 2.7.x</a></li>
@@ -267,10 +268,10 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 <li>in <a href="./Chapter02/FirstAkkaApplication2/"><code>FirstAkkaApplication2</code></a> the 4 actors are defined as subclasses of <a href="https://doc.akka.io/japi/akka/current/akka/actor/AbstractActor.html"><code>akka.actor.AbstractActor</code></a> and do implement method <a href="https://doc.akka.io/japi/akka/current/akka/actor/AbstractActor.html#createReceive()"><code>createReceive()</code></a>.
 <pre style="font-size:80%;">
 <b>public class</b> MapActor <b>extends</b> <a href="https://doc.akka.io/japi/akka/current/akka/actor/AbstractActor.html">AbstractActor</a> {
-    // ...
+    <span style="color:green;">// ...</span>
     <b>public</b> Receive createReceive() {
         <b>return</b> <a href="https://doc.akka.io/japi/akka/current/akka/actor/AbstractActor.html#receiveBuilder()">receiveBuilder()</a>
-            .<a href="https://doc.akka.io/japi/akka/current/akka/japi/pf/ReceiveBuilder.html#match(java.lang.Class,akka.japi.pf.FI.UnitApply)">match</a>(String.class, word -> { /* ... */ })
+            .<a href="https://doc.akka.io/japi/akka/current/akka/japi/pf/ReceiveBuilder.html#match(java.lang.Class,akka.japi.pf.FI.UnitApply)">match</a>(String.class, word -> { <span style="color:green;">/* ... */</span> })
             .<a href="https://doc.akka.io/japi/akka/current/akka/japi/pf/ReceiveBuilder.html#matchAny(java.util.function.BooleanSupplier,akka.japi.pf.FI.UnitApply)">matchAny</a>(message -> { <a href="https://doc.akka.io/japi/akka/current/akka/actor/Actor.html#unhandled(java.lang.Object)">unhandled</a>(message); })
             .<a href="https://doc.akka.io/japi/akka/current/akka/japi/pf/ReceiveBuilder.html#build()">build()</a>;
     }
@@ -283,7 +284,7 @@ We actually provide two versions of <code>FirstAkkaApplication</code>:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
