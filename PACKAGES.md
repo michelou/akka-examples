@@ -18,10 +18,10 @@ The [Akka] tookit is distributed as [Maven][maven_repository] packages :
 
 The [Apache Pekko][pekko] tookit is also distributed as [Maven][maven_repository] packages :
 
-- [Pekko Actor 1.1][pekko_actor] ([*release notes*][pekko_relnotes])
-- [Pekko Actor Typed 1.1][pekko_actor_typed] ([*release notes*][pekko_relnotes])
-- [Pekko Testkit 1.1][pekko_testkit] ([*release notes*][pekko_relnotes])
-- [Pekko Testkit Typed 1.1][pekko_testkit_typed] ([*release notes*][pekko_relnotes])
+- [Pekko Actor 1.2][pekko_actor] ([*release notes*][pekko_relnotes])
+- [Pekko Actor Typed 1.2][pekko_actor_typed] ([*release notes*][pekko_relnotes])
+- [Pekko Testkit 1.2][pekko_testkit] ([*release notes*][pekko_relnotes])
+- [Pekko Testkit Typed 1.2][pekko_testkit_typed] ([*release notes*][pekko_relnotes])
 <!--
 - [Pekko HTTP 1.0][pekko_http]
 - [Pekko Stream 1.0][pekko_stream]
@@ -44,7 +44,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -52,7 +52,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [akka]: https://akka.io/
 [akka_actor]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 [akka_actor_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
-[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.10.0
+[akka_relnotes]: https://github.com/akka/akka/releases/tag/v2.10.9
 [akka_license]: https://www.lightbend.com/akka/license-faq
 [akka_testkit]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
 [akka_testkit_typed]: https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
@@ -70,7 +70,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [pekko_http]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-http
 [pekko_relnotes]: https://pekko.apache.org/docs/pekko/current/release-notes/
 [pekko_stream]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-stream
-[pekko_testkit]: hhttps://mvnrepository.com/artifact/org.apache.pekko/pekko-testkit
+[pekko_testkit]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-testkit
 [pekko_testkit_typed]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor-testkit-typed
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
 [scalatest_download]: https://mvnrepository.com/artifact/org.scalatest/scalatest

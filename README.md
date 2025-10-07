@@ -21,7 +21,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.50][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.51][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8+) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 <!--
@@ -37,12 +37,12 @@ Optionally one may also install the following software:
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [GNU Make 3.81][gmake_install]
-- [Gradle 8.14][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 9.1][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.11][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.101][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.104][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -57,7 +57,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*June 2025*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*October 2025*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -66,12 +66,12 @@ C:\opt\ConEmu\                  <i>( 26 MB)</i>
 C:\opt\Git\                     <i>(387 MB)</i>
 C:\opt\gradle\                  <i>(144 MB)</i>
 C:\opt\grpcurl\                 <i>( 24 MB)</i>
-C:\opt\jdk-temurin-17.0.15_6\   <i>(302 MB)</i>
-C:\opt\jdk-temurin-21.0.6_7\    <i>(327 MB)</i>
+C:\opt\jdk-temurin-17.0.16_8\   <i>(302 MB)</i>
+C:\opt\jdk-temurin-21.0.8_9\    <i>(327 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
-C:\opt\scala-2.13.16\           <i>( 25 MB)</i>
-C:\opt\scala3-3.3.6\            <i>( 38 MB)</i>
+C:\opt\scala-2.13.17\           <i>( 25 MB)</i>
+C:\opt\scala3-3.3.7\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -127,9 +127,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.15, scalac 2.13.16, sbt 1.11.2,
-   ant 1.10.15, gradle 8.14, mvn 3.9.10, grpcurl v1.9.2,
-   make 3.81, git 2.50.0, diff 3.12, bash 5.2.37(1)
+   javac 17.0.15, scalac 2.13.17, sbt 1.11.7,
+   ant 1.10.15, gradle 9.0.1, mvn 3.9.11, grpcurl v1.9.2,
+   make 3.81, git 2.51.0, diff 3.12, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
 C:\opt\apache-ant\bin\ant
@@ -148,9 +148,9 @@ Command [**`searchjars.bat`**](./bin/searchjars.bat) prints the list of all JAR 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./bin/searchjars.bat">searchjars.bat</a> NotUsed</b>
 Warning: Search all directories (no option specified)
-Searching for class "NotUsed" in files "C:\opt\scala3-3.3.6\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\scala-2.13.16\lib\*.jar"
-Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.15_6\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala3-3.3.7\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\scala-2.13.17\lib\*.jar"
+Searching for class "NotUsed" in files "C:\opt\jdk-temurin-17.0.16_8\lib\*.jar"
 Searching for class "NotUsed" in files "%USERPROFILE%\.ivy2\cache\*.jar"
   akka-actor_2.13-2.10.0.jar:akka/NotUsed$.class
   akka-actor_2.13-2.10.0.jar:akka/NotUsed.class
@@ -197,18 +197,18 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.15-bin.zip</a>                         <i>(  9 MB)</i>
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.10-bin.zip</a>                        <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.11-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.14-bin.zip</a>                                <i>(130 MB)</i>
+<a href="https://gradle.org/install/">gradle-9.0.1-bin.zip</a>                               <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.2_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.15_6.zip</a>   <i>(188 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.6_7.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.50.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.11.2.zip</a>                                     <i>( 45 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.16.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.6">scala3-3.3.6.zip</a>                                   <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.101.2.zip</a>                       <i>(131 MB)</i>
+<a href="https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.16_8.zip</a>   <i>(188 MB)</i>
+<a href="https://adoptium.net/temurin/releases?version=21&os=windows&arch=x64">OpenJDK21U-jdk_x64_windows_hotspot_21.0.8_9.zip</a>    <i>(191 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.51.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
+<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.11.7.zip</a>                                     <i>( 45 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.17.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.7-RC2">scala3-3.3.7-RC2.zip</a>                               <i>( 34 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.104.3.zip</a>                       <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -235,7 +235,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -250,7 +250,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.10/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.11/release-notes.html
 [apache_pekko]: https://pekko.apache.org/
 [blog_alexandreesl]: https://alexandreesl.com/2019/01/02/akka-streams-developing-robust-applications-using-scala/
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
@@ -269,13 +269,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.50.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.51.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.14/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/9.1.0/release-notes.html
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
@@ -298,19 +298,19 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
 [oracle_openjdk21]: https://jdk.java.net/21/
-[oracle_openjdk21_api]: https://download.java.net/java/early_access/jdk21/docs/api/
+[oracle_openjdk21_api]: https://docs.oracle.com/en/java/javase/21/docs/api/
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.11.2
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.11.7
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.16
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.17
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
 [scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
-[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.6
+[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.7-RC2
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [sml_examples]: https://github.com/michelou/sml-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
@@ -339,10 +339,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 11.0.22 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-January/029215.html
 11.0.24 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035797.html
 11.0.25 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038512.html
+11.0.26 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040826.html
+11.0.27 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043306.html
+11.0.28 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045612.html
 -->
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
-[temurin_openjdk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+[temurin_openjdk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045612.html
 <!--
 17.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021899.html
 17.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024063.html
@@ -351,10 +354,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 17.0.11 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032197.html
 17.0.12 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035798.html
 17.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038867.html
+17.0.14 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040827.html
+17.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043307.html
+17.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045614.html
 -->
-[temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
+[temurin_openjdk17]: https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
-[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
+[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045614.html
 <!--
 21_35   -> https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
 21.0.1  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
@@ -362,9 +368,12 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 21.0.3  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032196.html
 21.0.4  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035862.html
 21.0.5  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038866.html
+21.0.6  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040828.html
+21.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043308.html
+21.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045617.html
 -->
-[temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
-[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+[temurin_openjdk21]: https://adoptium.net/temurin/releases?version=21&os=windows&arch=x64
+[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045617.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top
 [vs2019_downloads]: https://visualstudio.microsoft.com/en/downloads/
 [vs2019_relnotes]: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes
