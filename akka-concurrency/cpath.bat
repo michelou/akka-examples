@@ -27,9 +27,9 @@ if %_DEBUG%==1 echo [%~n0] "_TEMP_DIR=%_TEMP_DIR%" 1>&2
 
 set __SCALA_BINARY_VERSION=2.13
 
-set __AKKA_VERSION=2.10.2
+set __AKKA_VERSION=2.10.9
 set __CONFIG_VERSION=1.4.3
-set __SCALA_VERSION=2.13.16
+set __SCALA_VERSION=2.13.17
 set __SCALATEST_VERSION=3.2.19
 set __SLF4J_VERSION=2.0.17
 
@@ -121,7 +121,7 @@ call :add_repo_jar "%__MAVEN_REPO%" "%__GROUP_ID%" "%__ARTIFACT_ID%" "%__VERSION
 goto :eof
 
 :add_akka_jar
-set __AKKA_REPO= https://repo.akka.io/maven
+set __AKKA_REPO=https://repo.akka.io/maven
 set __GROUP_ID=%~1
 set __ARTIFACT_ID=%~2
 set __VERSION=%~3

@@ -59,7 +59,7 @@ It has the following directory structure :
     |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/CheckingAccountsActor.scala">CheckingAccountsActor.scala</a>
     |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/MoneyMarketAccountsActor.scala">MoneyMarketAccountsActor.scala</a>
     |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/SavingsAccountsActor.scala">SavingsAccountsActor.scala</a>
-    \---test
+    \---<b>test</b>
         \---scala
             \---org
                 \---jamieallen

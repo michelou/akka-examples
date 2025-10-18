@@ -46,11 +46,11 @@ TOUCH      = touch
 endif
 
 ## https://doc.akka.io/docs/akka/current/actors.html
-AKKA_VERSION = 2.10.2
+AKKA_VERSION = 2.10.9
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
-SCALA_VERSION = 2.13.16
+SCALA_VERSION = 2.13.17
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.17
 

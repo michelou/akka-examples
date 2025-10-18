@@ -53,13 +53,13 @@ WGET       = wget
 endif
 
 ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-AKKA_VERSION = 2.10.2
+AKKA_VERSION = 2.10.9
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.projectlombok/lombok
-LOMBOK_VERSION = 1.18.36
+LOMBOK_VERSION = 1.18.42
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
-SCALA_VERSION = 2.13.16
+SCALA_VERSION = 2.13.17
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 SLF4J_VERSION = 2.0.17
 

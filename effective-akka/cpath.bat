@@ -33,8 +33,8 @@ set __SCALA_BINARY_VERSION=2.13
 
 set _LIBS_CPATH=
 
-set __AKKA_VERSION=2.10.2
-set __SCALA_VERSION=2.13.16
+set __AKKA_VERSION=2.10.9
+set __SCALA_VERSION=2.13.17
 set __SCALATEST_VERSION=3.2.19
 set __SLF4J_VERSION=2.0.17
 
@@ -42,7 +42,7 @@ set __SLF4J_VERSION=2.0.17
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.typesafe/config
-call :add_jar "com.typesafe" "config" "1.4.2"
+call :add_jar "com.typesafe" "config" "1.4.3"
 
 @rem https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
 call :add_akka_jar "com.typesafe.akka" "akka-actor_%__SCALA_BINARY_VERSION%" "%__AKKA_VERSION%"
