@@ -52,7 +52,9 @@ Optionally one may also install the following software:
 1.10.11 -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.11.html
 1.10.13 -> https://www.mail-archive.com/announce@apache.org/msg07860.html
 1.10.14 -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.14.html
-1.10.15 -> https://dist.apache.org/repos/dist/dev/ant/RELEASE-NOTES-1.10.15.html
+1.10.15 -> https://github.com/apache/ant/blob/master/WHATSNEW#L135
+1.10.16 -> https://github.com/apache/ant/blob/master/WHATSNEW#L42
+1.10.17 -> https://github.com/apache/ant/blob/master/WHATSNEW#L28
 -->
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -128,7 +130,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.17, scalac 2.13.18, sbt 1.12.11,
-   ant 1.10.15, gradle 9.5.0, mvn 3.9.15, grpcurl v1.9.3,
+   ant 1.10.17, gradle 9.5.0, mvn 3.9.15, grpcurl v1.9.3,
    make 3.81, git 2.54.0, diff 3.12, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -198,7 +200,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.15-bin.zip</a>                         <i>(  9 MB)</i>
+<a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.17-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.15-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
 <a href="https://gradle.org/releases/">gradle-9.5.0-bin.zip</a>                               <i>(130 MB)</i>
