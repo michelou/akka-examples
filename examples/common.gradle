@@ -13,10 +13,12 @@ project.ext {
     scalacMainClass = isScala3 ? "dotty.tools.dotc.Main": "scala.tools.nsc.Main"
 
     repositories {
-        mavenCentral()
         maven {
+            //mavenCentral()
             // https://doc.akka.io/docs/akka/current/typed/actors.html
-            url "https://repo.akka.io/maven"
+            // append '/<token>/secure'
+            url = 'https://repo.akka.io'
+            mavenLocal()
         }
     }
 

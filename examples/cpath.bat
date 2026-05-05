@@ -96,7 +96,13 @@ call :add_repo_jar "%__MAVEN_REPO%" "%__GROUP_ID%" "%__ARTIFACT_ID%" "%__VERSION
 goto :eof
 
 :add_akka_jar
-set __AKKA_REPO= https://repo.akka.io/maven
+set "__YAML_FILE=%USERPROFILE%\.akka\cache.yaml"
+set __RESOLVER=
+for /f "delims=: tokens=1,*" %%i in (%__YAML_FILE%) do (
+    set "__RESOLVER=%%j"
+)
+@rem set __AKKA_REPO= https://repo.akka.io/maven
+set __AKKA_REPO=!__RESOLVER:"=!
 set __GROUP_ID=%~1
 set __ARTIFACT_ID=%~2
 set __VERSION=%~3
@@ -112,6 +118,8 @@ set __GROUP_ID=%~2
 set __ARTIFACT_ID=%~3
 set __VERSION=%~4
 
+set __USER_AGENT=Mozilla
+
 set __JAR_NAME=%__ARTIFACT_ID%-%__VERSION%.jar
 set __JAR_PATH=%__GROUP_ID:.=\%\%__ARTIFACT_ID:/=\%
 set __JAR_FILE=
@@ -122,10 +130,10 @@ if not exist "%__JAR_FILE%" (
     set __JAR_URL=%__REPO_URL%/%__GROUP_ID:.=/%/%__ARTIFACT_ID%/%__VERSION%/%__JAR_NAME%
     set "__JAR_FILE=%__TEMP_DIR%\%__JAR_NAME%"
     if not exist "!__JAR_FILE!" (
-        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% call "%_PWSH_CMD%" -c "Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% call "%_PWSH_CMD%" -c "Invoke-WebRequest -UserAgent "%__USER_AGENT%" -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2
         ) else if %_VERBOSE%==1 ( echo Download file "%__JAR_NAME%" to directory "!__TEMP_DIR:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
         )
-        call "%_PWSH_CMD%" -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'"
+        call "%_PWSH_CMD%" -c "$progressPreference='silentlyContinue';Invoke-WebRequest -UserAgent "%__USER_AGENT%" -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'"
         if not !ERRORLEVEL!==0 (
             echo %_ERROR_LABEL% Failed to download file "%__JAR_NAME%" 1>&2
             set _EXITCODE=1

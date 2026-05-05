@@ -3,11 +3,11 @@ description := "Code example from Allen's book Effective Akka (O'Reilly, 2013)"
 
 version := "1.0"
 
-scalaVersion := "2.13.15"
+scalaVersion := "2.13.18"
 
 scalacOptions ++= Seq(Opts.compile.deprecation)
 
-val akkaVersion = "2.10.0"
+val akkaVersion = "2.10.9"
 val configVersion = "1.4.3"
 
 libraryDependencies ++= Seq(

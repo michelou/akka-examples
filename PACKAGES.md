@@ -18,10 +18,10 @@ The [Akka] tookit is distributed as [Maven][maven_repository] packages :
 
 The [Apache Pekko][pekko] tookit is also distributed as [Maven][maven_repository] packages :
 
-- [Pekko Actor 1.2][pekko_actor] ([*release notes*][pekko_relnotes])
-- [Pekko Actor Typed 1.2][pekko_actor_typed] ([*release notes*][pekko_relnotes])
-- [Pekko Testkit 1.2][pekko_testkit] ([*release notes*][pekko_relnotes])
-- [Pekko Testkit Typed 1.2][pekko_testkit_typed] ([*release notes*][pekko_relnotes])
+- [Pekko Actor 1.4][pekko_actor] ([*release notes*][pekko_relnotes])
+- [Pekko Actor Typed 1.4][pekko_actor_typed] ([*release notes*][pekko_relnotes])
+- [Pekko Testkit 1.4][pekko_testkit] ([*release notes*][pekko_relnotes])
+- [Pekko Testkit Typed 1.4][pekko_testkit_typed] ([*release notes*][pekko_relnotes])
 <!--
 - [Pekko HTTP 1.0][pekko_http]
 - [Pekko Stream 1.0][pekko_stream]
@@ -44,7 +44,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -63,7 +63,7 @@ Our projects further depend on the following [Maven][maven_repository] packages 
 [gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
 [ivy_lib]: https://ant.apache.org/ivy/
 [maven_repository]: https://mvnrepository.com/
-[mvn_cli]: https://maven.apache.org/ref/3.9.9/maven-embedder/cli.html
+[mvn_cli]: https://maven.apache.org/ref/3.9.12/maven-embedder/cli.html
 [pekko]: https://pekko.apache.org/what-is-pekko.html
 [pekko_actor]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
 [pekko_actor_typed]: https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor-typed

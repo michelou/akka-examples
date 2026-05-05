@@ -48,7 +48,7 @@ AKKA_VERSION = 2.10.9
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
-SCALA_VERSION = 2.13.17
+SCALA_VERSION = 2.13.18
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
 SCALATEST_VERSION = 3.2.19
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
