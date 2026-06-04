@@ -2,7 +2,7 @@ name := "MapReduceApplication"
 
 version := "1.0"
 
-scalaVersion := "2.13.17"
+scalaVersion := "2.13.18"
 
 resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 

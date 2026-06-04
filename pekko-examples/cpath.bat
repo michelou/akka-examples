@@ -32,10 +32,10 @@ set __SCALA_BINARY_VERSION=2.13
 
 set _LIBS_CPATH=
 
-set __PEKKO_VERSION=1.2.1
-set __SCALA_VERSION=2.13.17
-set __SCALATEST_VERSION=3.2.19
-set __SLF4J_VERSION=2.0.17
+set __PEKKO_VERSION=1.6.0
+set __SCALA_VERSION=2.13.18
+set __SCALATEST_VERSION=3.2.20
+set __SLF4J_VERSION=2.0.18
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"

@@ -55,11 +55,11 @@ endif
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.apache.pekko/pekko-actor
-PEKKO_VERSION = 1.2.1
+PEKKO_VERSION = 1.6.0
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-library
-SCALA_VERSION = 2.13.17
+SCALA_VERSION = 2.13.18
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-SLF4J_VERSION = 2.0.17
+SLF4J_VERSION = 2.0.18
 
 SCALA_LIB_JAR         = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-$(SCALA_VERSION).jar" | tail -1)
 CONFIG_JAR            = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-$(CONFIG_VERSION).jar")

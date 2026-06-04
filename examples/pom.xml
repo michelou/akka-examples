@@ -23,14 +23,14 @@
         <!-- Scala settings -->
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
-        <scala.version>2.13.17</scala.version>
+        <scala.version>2.13.18</scala.version>
 
         <!-- Maven plugin versions -->
         <akka.version>2.10.9</akka.version>
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <config.version>1.4.3</config.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-        <exec.maven.version>3.6.1</exec.maven.version>
+        <exec.maven.version>3.6.3</exec.maven.version>
         <!-- https://mvnrepository.com/artifact/org.apache.ivy/ivy -->
         <ivy.version>2.5.3</ivy.version>
         <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
@@ -38,23 +38,25 @@
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <junit.version>4.13.2</junit.version>
         <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons -->
-        <junit.platform.version>1.14.0</junit.platform.version>
+        <junit.platform.version>1.14.4</junit.platform.version>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-        <jupiter.version>5.14.1</jupiter.version>
+        <jupiter.version>5.14.4</jupiter.version>
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
-        <logback.version>1.5.23</logback.version>
-        <maven.compiler.version>3.12.1</maven.compiler.version>
+        <logback.version>1.5.34</logback.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <maven.compiler.version>3.15.0</maven.compiler.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-        <maven.jar.version>3.4.2</maven.jar.version>
+        <maven.jar.version>3.5.0</maven.jar.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-        <maven.surefire.version>3.5.4</maven.surefire.version>
+        <maven.surefire.version>3.5.6</maven.surefire.version>
+        <!-- https://github.com/michelou/scala3-examples/tree/master/bin -->
         <scala.maven.version>1.0.1</scala.maven.version>
         <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
-        <scalatest.version>3.2.19</scalatest.version>
+        <scalatest.version>3.2.20</scalatest.version>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-        <slf4j.version>2.0.17</slf4j.version>
+        <slf4j.version>2.0.18</slf4j.version>
         <!-- https://mvnrepository.com/artifact/org.specs2/specs2-core -->
-        <specs2.version>5.7.0</specs2.version>
+        <specs2.version>5.9.0</specs2.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>

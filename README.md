@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Component Pascal][component_pascal_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously investigating.
+[Ada][ada_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Component Pascal][component_pascal_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [PowerShell][powershell_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously investigating.
 
 
 > **&#9755;** Read the document <a href="https://doc.akka.io/guide/index.html#_what_is_akka/" rel="external">"What is Akka?"</a> from the [Akka Guide][akka_guide] for a quick overview of the [Akka] toolkit.
@@ -37,12 +37,12 @@ Optionally one may also install the following software:
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [GNU Make 3.81][gmake_install] (released in December 2006)
-- [Gradle 9.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 9.5][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.12][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.118][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.123][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -59,7 +59,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*May 2026*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*June 2026*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -73,7 +73,7 @@ C:\opt\jdk-temurin-21.0.11_10\  <i>(327 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
 C:\opt\sbt\                     <i>(110 MB)</i>
 C:\opt\scala-2.13.18\           <i>( 25 MB)</i>
-C:\opt\scala3-3.3.7\            <i>( 38 MB)</i>
+C:\opt\scala3-3.3.8\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -129,9 +129,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.17, scalac 2.13.18, sbt 1.12.11,
-   ant 1.10.17, gradle 9.5.0, mvn 3.9.15, grpcurl v1.9.3,
-   make 3.81, git 2.54.0, diff 3.12, bash 5.2.37(1)
+   javac 17.0.19, scalac 2.13.18, sbt 1.12.11,
+   ant 1.10.17, gradle 9.5.1, mvn 3.9.15, grpcurl v1.9.3,
+   make 3.81, git 2.54.0, diff 3.12, bash 5.3.9(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
 C:\opt\apache-ant\bin\ant
@@ -174,7 +174,7 @@ Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java&nbsp;version</th></tr>
-<tr><td><a href="https://docs.gradle.org/9.5.0/release-notes.html">9.5.0</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_26">26</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/9.5.0/release-notes.html">9.5.0</a>, <a href="https://docs.gradle.org/9.5.1/release-notes.html">9.5.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_26">26</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/9.4.1/release-notes.html">9.4.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_26">26</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/9.1.0/release-notes.html">9.1.0</a>, <a href="https://docs.gradle.org/9.2.0/release-notes.html">9.2.0</a>, <a href="https://docs.gradle.org/9.2.1/release-notes.html">9.2.1</td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_25">25</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/8.10/release-notes.html" rel="external">8.10</a>, <a href="https://docs.gradle.org/8.11/release-notes.html" rel="external">8.11</a>, <a href="https://docs.gradle.org/8.12/release-notes.html" rel="external">8.12</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">23</a></td></tr>
@@ -201,9 +201,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.17-bin.zip</a>                         <i>(  9 MB)</i>
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.15-bin.zip</a>                        <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.16-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/releases/">gradle-9.5.0-bin.zip</a>                               <i>(130 MB)</i>
+<a href="https://gradle.org/releases/">gradle-9.5.1-bin.zip</a>                               <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.3_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.19_10.zip</a>  <i>(188 MB)</i>
@@ -211,8 +211,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.54.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.12.11.zip</a>                                    <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.18.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.7">scala3-3.3.7.zip</a>                                   <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.118.1.zip</a>                       <i>(213 MB)</i>
+<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.8-RC2">scala3-3.3.8-RC2.zip</a>                               <i>( 34 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.123.0.zip</a>                       <i>(213 MB)</i>
 </pre>
 </dd></dl>
 
@@ -239,7 +239,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2026* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -306,6 +306,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [oracle_openjdk21]: https://jdk.java.net/21/
 [oracle_openjdk21_api]: https://docs.oracle.com/en/java/javase/21/docs/api/
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
+[powershell_examples]: https://github.com/michelou/powershell-examples#top
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
@@ -365,10 +366,11 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 17.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043307.html
 17.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045614.html
 17.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
+17.0.19 -> https://www.oracle.com/java/technologies/javase/17-0-19-relnotes.html
 -->
 [temurin_openjdk17]: https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
-[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
+[temurin_openjdk17_relnotes]: https://www.oracle.com/java/technologies/javase/17-0-19-relnotes.html
 <!--
 21_35   -> https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
 21.0.1  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html

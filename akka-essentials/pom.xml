@@ -14,7 +14,7 @@
 
         <!-- Scala settings -->
         <scala.groupId>org.scala-lang</scala.groupId>
-        <scala.version>2.13.17</scala.version>
+        <scala.version>2.13.18</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
         <scala.local.install>true</scala.local.install>
 
@@ -24,13 +24,15 @@
         <!-- https://mvnrepository.com/artifact/com.typesafe/config -->
         <config.version>1.4.3</config.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-        <exec.maven.version>3.6.1</exec.maven.version>
+        <exec.maven.version>3.6.3</exec.maven.version>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
         <maven.compiler.version>3.13.0</maven.compiler.version>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-        <maven.jar.version>3.4.2</maven.jar.version>
+        <maven.jar.version>3.5.0</maven.jar.version>
+        <!-- https://github.com/michelou/scala3-examples/tree/master/bin -->
         <scala.maven.version>1.0.1</scala.maven.version>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-        <slf4j.version>2.0.17</slf4j.version>
+        <slf4j.version>2.0.18</slf4j.version>
 
         <!-- Maven plugin dependencies -->
         <m2.directory>${user.home}/.m2/repository</m2.directory>

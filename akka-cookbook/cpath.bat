@@ -28,9 +28,9 @@ set __SCALA_BINARY_VERSION=2.13
 
 set __AKKA_VERSION=2.10.9
 set __CONFIG_VERSION=1.4.3
-set __SCALA_VERSION=2.13.17
+set __SCALA_VERSION=2.13.18
 set __SCALATEST_VERSION=3.2.19
-set __SLF4J_VERSION=2.0.17
+set __SLF4J_VERSION=2.0.18
 
 @rem #########################################################################
 @rem ## Libraries to be added to _LIBS_CPATH
