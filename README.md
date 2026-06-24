@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Component Pascal][component_pascal_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [PowerShell][powershell_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously investigating.
+[Ada][ada_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Common&nbsp;Lisp][cl_examples], [Component&nbsp;Pascal][component_pascal_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [PowerShell][powershell_examples], [Rust][rust_examples], [Scala&nbsp;3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard&nbsp;ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX&nbsp;Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously investigating.
 
 
 > **&#9755;** Read the document <a href="https://doc.akka.io/guide/index.html#_what_is_akka/" rel="external">"What is Akka?"</a> from the [Akka Guide][akka_guide] for a quick overview of the [Akka] toolkit.
@@ -37,12 +37,12 @@ Optionally one may also install the following software:
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [GNU Make 3.81][gmake_install] (released in December 2006)
-- [Gradle 9.5][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 9.6][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
 - [sbt 1.12][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.123][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.126][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -130,7 +130,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    javac 17.0.19, scalac 2.13.18, sbt 1.12.11,
-   ant 1.10.17, gradle 9.5.1, mvn 3.9.15, grpcurl v1.9.3,
+   ant 1.10.17, gradle 9.6.0, mvn 3.9.16, grpcurl v1.9.3,
    make 3.81, git 2.54.0, diff 3.12, bash 5.3.9(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
@@ -203,7 +203,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.17-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.16-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/releases/">gradle-9.5.1-bin.zip</a>                               <i>(130 MB)</i>
+<a href="https://gradle.org/releases/">gradle-9.6.0-bin.zip</a>                               <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.3_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.19_10.zip</a>  <i>(188 MB)</i>
@@ -212,7 +212,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.12.11.zip</a>                                    <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.18.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://github.com/lampepfl/dotty/releases/tag/3.3.8-RC2">scala3-3.3.8-RC2.zip</a>                               <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.123.0.zip</a>                       <i>(213 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.126.0.zip</a>                       <i>(213 MB)</i>
 </pre>
 </dd></dl>
 
@@ -245,22 +245,23 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 <!-- link refs -->
 
 [ada_examples]: https://github.com/michelou/ada-examples#top
-[akka]: https://akka.io/
-[akka_guide]: https://doc.akka.io/guide/
-[akka_license]: https://www.lightbend.com/akka/license-faq
-[apache_ant]: https://ant.apache.org/
-[apache_ant_cli]: https://ant.apache.org/manual/running.html
-[apache_ant_relnotes]: https://github.com/apache/ant/blob/master/WHATSNEW
-[apache_maven]: https://maven.apache.org/download.cgi
+[akka]: https://akka.io/ "https://akka.io/"
+[akka_guide]: https://doc.akka.io/guide/ "https://doc.akka.io/guide/"
+[akka_license]: https://www.lightbend.com/akka/license-faq "https://www.lightbend.com/akka/license-faq"
+[apache_ant]: https://ant.apache.org/ "https://ant.apache.org/"
+[apache_ant_cli]: https://ant.apache.org/manual/running.html "https://ant.apache.org/manual/running.html"
+[apache_ant_relnotes]: https://github.com/apache/ant/blob/master/WHATSNEW "https://github.com/apache/ant/blob/master/WHATSNEW"
+[apache_maven]: https://maven.apache.org/download.cgi "https://maven.apache.org/download.cgi"
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
-[apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.15/release-notes.html
+[apache_maven_history]: https://maven.apache.org/docs/history.html "https://maven.apache.org/docs/history.html"
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.16/release-notes.html
 [apache_pekko]: https://pekko.apache.org/
 [blog_alexandreesl]: https://alexandreesl.com/2019/01/02/akka-streams-developing-robust-applications-using-scala/
 [book_allen]: https://www.oreilly.com/library/view/effective-akka/9781449360061/
 [book_gupta]: https://www.packtpub.com/product/akka-essentials/9781849518284
 [book_ortiz]: https://www.packtpub.com/product/akka-cookbook/9781785288180
 [book_wyatt]: https://www.artima.com/shop/akka_concurrency
+[cl_examples]: https://github.com/michelou/cl-examples#top
 [cobol_examples]: https://github.com/michelou/cobol-examples#top
 [component_pascal_examples]: https://github.com/michelou/component-pascal-examples#top
 [conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
@@ -271,16 +272,16 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [deno_examples]: https://github.com/michelou/deno-examples#top
 [docker_examples]: https://github.com/michelou/docker-examples#top
 [flix_examples]: https://github.com/michelou/flix-examples#top
-[git_bash]: https://www.atlassian.com/git/tutorials/git-bash
-[git_cli]: https://git-scm.com/docs/git
+[git_bash]: https://www.atlassian.com/git/tutorials/git-bash "https://www.atlassian.com/git/tutorials/git-bash"
+[git_cli]: https://git-scm.com/docs/git "https://git-scm.com/docs/git"
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.54.0.adoc
-[github_markdown]: https://github.github.com/gfm/
+[github_markdown]: https://github.github.com/gfm/ "https://github.github.com/gfm/"
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
-[gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/9.1.0/release-notes.html
+[gradle_install]: https://gradle.org/install/ "https://gradle.org/install/"
+[gradle_relnotes]: https://docs.gradle.org/9.6.0/release-notes.html "https://docs.gradle.org/9.6.0/release-notes.html"
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
@@ -303,7 +304,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [maven_repository]: https://mvnrepository.com/
 [mysql_examples]: https://github.com/michelou/mysql-examples#top
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
-[oracle_openjdk21]: https://jdk.java.net/21/
+[oracle_openjdk21]: https://jdk.java.net/21/ "https://jdk.java.net/21/"
 [oracle_openjdk21_api]: https://docs.oracle.com/en/java/javase/21/docs/api/
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [powershell_examples]: https://github.com/michelou/powershell-examples#top
@@ -317,7 +318,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [scala3_home]: https://dotty.epfl.ch
 [scala3_lts_releases]: https://github.com/lampepfl/dotty/releases
-[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.7
+[scala3_lts_relnotes]: https://github.com/lampepfl/dotty/releases/tag/3.3.8
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [sml_examples]: https://github.com/michelou/sml-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
@@ -369,8 +370,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 17.0.19 -> https://www.oracle.com/java/technologies/javase/17-0-19-relnotes.html
 -->
 [temurin_openjdk17]: https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64
-[temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
-[temurin_openjdk17_relnotes]: https://www.oracle.com/java/technologies/javase/17-0-19-relnotes.html
+[temurin_openjdk17_bugfixes]: https://adoptium.net/en-GB/temurin/release-notes?version=jdk-17.0.19+10 "https://adoptium.net/en-GB/temurin/release-notes?version=jdk-17.0.19+10"
+[temurin_openjdk17_relnotes]: https://www.oracle.com/java/technologies/javase/17-0-19-relnotes.html "https://www.oracle.com/java/technologies/javase/17-0-19-relnotes.html"
 <!--
 21_35   -> https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
 21.0.1  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html

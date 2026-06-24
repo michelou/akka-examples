@@ -18,6 +18,10 @@ if not %_EXITCODE%==0 goto end
 @rem #########################################################################
 @rem ## Main
 
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
 for %%i in (%_COMMANDS%) do (
     call :%%i
     if not !_EXITCODE!==0 goto end
@@ -117,6 +121,7 @@ goto :eof
 @rem input parameter: %*
 :args
 set _COMMANDS=
+set _HELP=0
 set _TIMER=0
 set _VERBOSE=0
 set __N=0
@@ -129,7 +134,7 @@ if not defined __ARG (
 if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if "%__ARG%"=="-help" ( set _COMMANDS=help
+    ) else if "%__ARG%"=="-help" ( set _HELP=1
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
@@ -141,7 +146,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if "%__ARG%"=="clean" ( set _COMMANDS=!_COMMANDS! clean
     ) else if "%__ARG%"=="compile" ( set _COMMANDS=!_COMMANDS! compile
-    ) else if "%__ARG%"=="help" ( set _COMMANDS=help
+    ) else if "%__ARG%"=="help" ( set _HELP=1
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! compile run
     ) else if "%__ARG%"=="test" ( set _COMMANDS=!_COMMANDS! compile test
     ) else (
@@ -161,6 +166,7 @@ set _MAIN_CLASS=org.jamieallen.effectiveakka.CameoPattern
 set _MAIN_ARGS=
 
 if %_DEBUG%==1 (
+    echo %_DEBUG_LABEL% Options    : _HELP=%_HELP% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: %_COMMANDS% 1>&2
     echo %_DEBUG_LABEL% Variables  : "GIT_HOME=%GIT_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
@@ -187,6 +193,7 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-help%__END%       print this help message
 echo     %__BEG_O%-timer%__END%      print total execution time
 echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
@@ -194,6 +201,7 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
 echo     %__BEG_O%compile%__END%     compile Scala source files
 echo     %__BEG_O%run%__END%         execute main class "%__BEG_O%%_MAIN_CLASS%%__END%"
+echo     %__BEG_O%help%__END%        print this help message
 echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%Scalatest%__END%
 goto :eof
 

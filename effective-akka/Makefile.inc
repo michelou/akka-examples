@@ -50,9 +50,9 @@ CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
 SCALA_VERSION = 2.13.18
 ## https://mvnrepository.com/artifact/org.scalatest/scalatest
-SCALATEST_VERSION = 3.2.19
+SCALATEST_VERSION = 3.2.20
 ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-SLF4J_VERSION = 2.0.17
+SLF4J_VERSION = 2.0.18
 
 SCALA_LIB_JAR  = $(shell $(FIND) "$(LOCAL_REPO)/org/scala-lang" -name "scala-library-2.13.*.jar" | tail -1)
 CONFIG_JAR     = $(shell $(FIND) "$(LOCAL_REPO)/com/typesafe" -name "config-$(CONFIG_VERSION).jar")

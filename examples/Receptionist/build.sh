@@ -102,6 +102,7 @@ Usage: $BASENAME { <option> | <subcommand> }
 
   Options:
     -debug       print commands executed by this script
+    -help        print this help message
     -timer       print total execution time
     -verbose     print progress messages
 
@@ -133,11 +134,11 @@ lint() {
     [[ $DEBUG -eq 1 ]] && scalfmt_opts="--debug $scalfmt_opts"
 
     if [[ $DEBUG -eq 1 ]]; then
-        debug "$SCALAFMT_CMD $scalfmt_opts $(mixed_path $SOURCE_MAIN_DIR)"
+        debug "$SCALAFMT_CMD $scalfmt_opts $(mixed_path $SOURCE_SCALA_DIR)"
     elif [[ $VERBOSE -eq 1 ]]; then
         echo "Analyze Scala source files with Scalafmt" 1>&2
     fi
-    eval "$SCALAFMT_CMD" $scalfmt_opts "$(mixed_path $SOURCE_MAIN_DIR)"
+    eval "$SCALAFMT_CMD" $scalfmt_opts "$(mixed_path $SOURCE_SCALA_DIR)"
     [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
 }
 
@@ -147,12 +148,12 @@ compile() {
     local timestamp_file="$TARGET_DIR/.latest-build"
 
     local is_required=0
-    is_required="$(action_required "$timestamp_file" "$SOURCE_DIR/main/java/" "*.java")"
+    is_required="$(action_required "$timestamp_file" "$SOURCE_JAVA_DIR/" "*.java")"
     if [[ $is_required -eq 1 ]]; then
         compile_java
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
     fi
-    is_required="$(action_required "$timestamp_file" "$SOURCE_MAIN_DIR/" "*.scala")"
+    is_required="$(action_required "$timestamp_file" "$SOURCE_SCALA_DIR/" "*.scala")"
     if [[ $is_required -eq 1 ]]; then
         compile_scala
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
@@ -183,46 +184,49 @@ action_required() {
 ## output parameter: LIBS_CPATH
 libs_cpath() {
     local repo_dir="$HOME/.m2/repository"
+    local scala_binary_version=2.13
+    local akka_version=2.10.*
+    local slf4j_version=2.0.*
     local cpath=
 	local jar_file=
-    for f in $(find "$repo_dir/org/scala-lang" -name "scala-library-2.13.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/scala-lang" -type f -name "scala-library-2.13.*.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe/config
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe" -name "config-1.4.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe" -type f -name "config-1.4.*.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor_2.13-2.10.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -type f -name "akka-actor_$scala_binary_version-$akka_version.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
     jar_file=
-    for f in $(find "$repo_dir/com/typesafe/akka" -name "akka-actor-typed_2.13-2.10.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/com/typesafe/akka" -type f -name "akka-actor-typed_$scala_binary_version-$akka_version.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     jar_file=
-    for f in $(find "$repo_dir/org/slf4j" -name "slf4j-api-2.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/slf4j" -type f -name "slf4j-api-$slf4j_version.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     ## https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     jar_file=
-    for f in $(find "$repo_dir/org/slf4j" -name "slf4j-simple-2.0.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/slf4j" -type f -name "slf4j-simple-$slf4j_version.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
     
     ## https://mvnrepository.com/artifact/org.projectlombok/lombok
     jar_file=
-    for f in $(find "$repo_dir/org/projectlombok" -name "lombok-1.18.*.jar" 2>/dev/null); do 
+    for f in $(find "$repo_dir/org/projectlombok" -type f -name "lombok-1.18.*.jar" 2>/dev/null); do
         jar_file="$f"
     done
 	[[ -f "$jar_file" ]] && cpath="$cpath$(mixed_path $jar_file)$PSEP"
@@ -237,7 +241,7 @@ compile_java() {
     local sources_file="$TARGET_DIR/javac_sources.txt"
     [[ -f "$sources_file" ]] && rm "$sources_file"
     local n=0
-    for f in $(find "$SOURCE_DIR/main/java/" -type f -name "*.java" 2>/dev/null); do
+    for f in $(find "$SOURCE_JAVA_DIR/" -type f -name "*.java" 2>/dev/null); do
         echo $(mixed_path $f) >> "$sources_file"
         n=$((n + 1))
     done
@@ -267,7 +271,7 @@ compile_scala() {
     local sources_file="$TARGET_DIR/scalac_sources.txt"
     [[ -f "$sources_file" ]] && rm "$sources_file"
     local n=0
-    for f in $(find "$SOURCE_MAIN_DIR/" -type f -name "*.scala" 2>/dev/null); do
+    for f in $(find "$SOURCE_SCALA_DIR/" -type f -name "*.scala" 2>/dev/null); do
         echo $(mixed_path $f) >> "$sources_file"
         n=$((n + 1))
     done
@@ -419,7 +423,7 @@ doc() {
 
     local sources_file="$TARGET_DIR/scaladoc_sources.txt"
     [[ -f "$sources_file" ]] && rm -rf "$sources_file"
-    # for f in $(find $SOURCE_DIR/main/java/ -name *.java 2>/dev/null); do
+    # for f in $(find $SOURCE_JAVA_DIR/ -type f -name *.java 2>/dev/null); do
     #     echo $(mixed_path $f) >> "$sources_file"
     # done
     for f in $(find "$CLASSES_DIR/" -type f -name "*.tasty" 2>/dev/null); do
@@ -484,7 +488,8 @@ EXITCODE=0
 ROOT_DIR="$(getHome)"
 
 SOURCE_DIR="$ROOT_DIR/src"
-SOURCE_MAIN_DIR="$SOURCE_DIR/main/scala"
+SOURCE_JAVA_DIR="$SOURCE_DIR/main/java"
+SOURCE_SCALA_DIR="$SOURCE_DIR/main/scala"
 TARGET_DIR="$ROOT_DIR/target"
 TARGET_DOCS_DIR="$TARGET_DIR/docs"
 CLASSES_DIR="$TARGET_DIR/classes"

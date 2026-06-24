@@ -38,6 +38,8 @@ set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
 set "_SOURCE_DIR=%_ROOT_DIR%src"
+set "_SOURCE_JAVA_DIR=%_ROOT_DIR%src\main\java"
+set "_SOURCE_SCALA_DIR=%_ROOT_DIR%src\main\scala"
 set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_CLASSES_DIR=%_TARGET_DIR%\classes"
 
@@ -116,19 +118,20 @@ goto :eof
 @rem input parameter: %*
 :args
 set _COMMANDS=
+set _HELP=0
 set _TIMER=0
 set _VERBOSE=0
 set __N=0
 :args_loop
 set "__ARG=%~1"
 if not defined __ARG (
-    if !__N!==0 set _COMMANDS=help
+    if !__N!==0 set _HELP=1
     goto args_done
 )
 if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if "%__ARG%"=="-help" ( set _COMMANDS=help
+    ) else if "%__ARG%"=="-help" ( set _HELP=1
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
@@ -140,7 +143,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if "%__ARG%"=="clean" ( set _COMMANDS=!_COMMANDS! clean
     ) else if "%__ARG%"=="compile" ( set _COMMANDS=!_COMMANDS! compile
-    ) else if "%__ARG%"=="help" ( set _COMMANDS=help
+    ) else if "%__ARG%"=="help" ( set _HELP=1
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! compile run
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
@@ -159,6 +162,7 @@ set _MAIN_CLASS=com.example.TestStrategies
 set _MAIN_ARGS=
 
 if %_DEBUG%==1 (
+    echo %_DEBUG_LABEL% Options    : _HELP=%_HELP% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: %_COMMANDS% 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "MAVEN_HOME=%MAVEN_HOME%" 1>&2
@@ -184,12 +188,14 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-help%__END%       print this help message
 echo     %__BEG_O%-timer%__END%      print total execution time
 echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
-echo     %__BEG_O%compile%__END%     compile Scala source files
+echo     %__BEG_O%compile%__END%     compile Java/Scala source files
+echo     %__BEG_O%help%__END%        print this help message
 echo     %__BEG_O%run%__END%         execute main class "%__BEG_O%%_MAIN_CLASS%%__END%"
 echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%JUnit%__END%
 goto :eof
@@ -228,13 +234,13 @@ goto :eof
 :compile_java
 set "__TIMESTAMP_FILE=%_CLASSES_DIR%\.latest-build"
 
-call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_DIR%\main\java\*.java"
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_JAVA_DIR%\*.java"
 if %_ACTION_REQUIRED%==0 goto :eof
 
 set "__SOURCES_FILE=%_TARGET_DIR%\javac_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f "delims=" %%f in ('dir /s /b "%_SOURCE_DIR%\main\java\*.java" 2^>NUL') do (
+for /f "delims=" %%f in ('dir /s /b "%_SOURCE_JAVA_DIR%\*.java" 2^>NUL') do (
     echo %%f >> "%__SOURCES_FILE%"
     set /a __N+=1
 )
@@ -265,13 +271,13 @@ goto :eof
 :compile_scala
 set "__TIMESTAMP_FILE=%_CLASSES_DIR%\.latest-build-scala"
 
-call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_DIR%\main\scala\*.scala"
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_SCALA_DIR%\*.scala"
 if %_ACTION_REQUIRED%==0 goto :eof
 
 set "__SOURCES_FILE=%_TARGET_DIR%\scalac_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f "delims=" %%i in ('dir /s /b "%_SOURCE_DIR%\main\scala\*.scala" 2^>NUL') do (
+for /f "delims=" %%i in ('dir /s /b "%_SOURCE_SCALA_DIR%\*.scala" 2^>NUL') do (
     echo %%i >> "%__SOURCES_FILE%"
     set /a __N+=1
 )

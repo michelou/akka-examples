@@ -5,6 +5,9 @@
 # Licensed under the MIT License.
 #
 
+## https://powershellisfun.com/2023/04/24/using-the-requires-statement-in-powershell/
+#Requires -Version 5.1
+
 ## only for interactive debugging !
 $DEBUG = $false
 
@@ -13,47 +16,59 @@ $DEBUG = $false
 
 $EXITCODE = 0
 
+$BAT = ""
 $EXE = ""
 if ($PSVersionTable.PSVersion -lt "6.0" -or $IsWindows) {
   # Fix case when both the Windows and Linux builds of this program
   # are installed in the same directory.
+  $BAT = '.bat'
   $EXE = '.exe'
 }
 
 $BASENAME = (Get-Item $PSScriptRoot).Basename
 $ROOT_DIR = $PSScriptRoot
 $PATH_SEP = [IO.Path]::PathSeparator
-$SEP = [IO.Path]::DirectorySeparatorChar
+$SEP      = [IO.Path]::DirectorySeparatorChar
 
-$SOURCE_DIR = $ROOT_DIR + $SEP + 'src'
-$SOURCE_JAVA_DIR = $SOURCE_DIR + $SEP + 'main' + $SEP + 'java'
-$SOURCE_SCALA_DIR = $SOURCE_DIR + $SEP + 'main' + $SEP + 'scala'
-$TARGET_DIR = $ROOT_DIR + $SEP + 'target'
-$TARGET_DOCS_DIR = $TARGET_DIR + $SEP + 'docs'
-$CLASSES_DIR = $TARGET_DIR + $SEP + 'classes'
-
-$MAIN_CLASS = 'akka.first.app.mapreduce.MapReduceApplication'
-$MAIN_ARGS = $null
+$SOURCE_DIR       = Join-Path -Path $ROOT_DIR -ChildPath 'src'
+$SOURCE_JAVA_DIR  = [IO.Path]::Combine($SOURCE_DIR, 'main', 'java')
+$SOURCE_SCALA_DIR = [IO.Path]::Combine($SOURCE_DIR, 'main', 'scala')
+$TARGET_DIR       = Join-Path -Path $ROOT_DIR   -ChildPath 'target'
+$TARGET_DOCS_DIR  = Join-Path -Path $TARGET_DIR -ChildPath 'docs'
+$CLASSES_DIR      = Join-Path -Path $TARGET_DIR -ChildPath 'classes'
 
 $JAVAC_CMD = $Env:JAVA_HOME + $SEP + 'bin' + $SEP + 'javac' + $EXE
 if (! (Test-Path -PathType Leaf -Path $JAVAC_CMD)) {
-    $JAVAC_CMD = $null
+    Write-Error "Java compiler not found (check variable ""JAVA_HOME"")"
+    Cleanup 1
 }
-$SCALAC_CMD = $Env:SCALA_HOME + $SEP + 'bin' + $SEP + 'scalac.bat'
-if (! (Test-Path -PathType Leaf -Path $SCALAC_CMD)) {
-    $SCALAC_CMD = $null
-}
-$SCALA_CMD = $Env:SCALA_HOME + $SEP + 'bin' + $SEP + 'scala.bat'
-if (! (Test-Path -PathType Leaf -Path $SCALA_CMD)) {
-    $SCALA_CMD = $null
-}
-$SCALADOC_CMD = $Env:SCALA_HOME + $SEP + 'bin' + $SEP + 'scaladoc.bat'
-if (! (Test-Path -PathType Leaf -Path $SCALADOC_CMD)) {
-    $SCALADOC_CMD = $null
-}
+$JAVA_CMD = $Env:JAVA_HOME + $SEP + 'bin' + $SEP + 'java' + $EXE
+$JAVADOC_CMD = $Env:JAVA_HOME + $SEP + 'bin' + $SEP + 'javadoc' + $EXE
 
+$SCALAC_CMD = $Env:SCALA_HOME + $SEP + 'bin' + $SEP + 'scalac' + $BAT
+if (! (Test-Path -PathType Leaf -Path $SCALAC_CMD)) {
+    Write-Error "Scala 2 compiler not found (check variable ""SCALA_HOME"")"
+    Cleanup 1
+}
+$SCALA_CMD = $Env:SCALA_HOME + $SEP + 'bin' + $SEP + 'scala' + $BAT
+$SCALADOC_CMD = $Env:SCALA_HOME + $SEP + 'bin' + $SEP + 'scaladoc' + $BAT
+
+$SCALAFMT_CMD = $Env:LOCALAPPDATA + $SEP + 'Coursier' + $SEP + 'data' + $SEP + 'bin' + $SEP + 'scalafmt' + $BAT
+if (! (Test-Path -PathType Leaf -Path $SCALAFMT_CMD)) {
+    $SCALAFMT_CMD = $null
+}
+$SCALAFMT_CONFIG_FILE = $ROOT_DIR + $SEP + '.scalafmt.conf'
+if (! (Test-Path -PathType Leaf -Path $SCALAFMT_CONFIG_FILE)) {
+    $SCALAFMT_CONFIG_FILE = $null
+}
+$CFR_CMD = $Env:CFR_HOME + $SEP + 'bin' + $SEP + 'cfr'
+if (! (Test-Path -PathType Leaf -Path $CFR_CMD)) {
+    $CFR_CMD = $null
+}
+$PS_VERSION = $PSVersionTable.PSVersion.ToString() 
 $PROJECT_NAME = $BASENAME
-$PROJECT_VERSION = '"1.0-SNAPSHOT'
+$PROJECT_URL = "github.com/$USER/akka-examples"
+$PROJECT_VERSION = '1.0-SNAPSHOT'
 
 #########################################################################
 ## Script arguments
@@ -61,21 +76,21 @@ $PROJECT_VERSION = '"1.0-SNAPSHOT'
 $COMMANDS = @()
 
 ## Possible values: SilentlyContinue, Stop, Continue, Inquire, Ignore, Suspend
-$DebugPreference = 'SilentlyContinue'
+$DebugPreference   = 'SilentlyContinue'
 $VerbosePreference = 'SilentlyContinue'
 $WarningPreference = 'Continue'
 
-$MSYS = $false
+$HELP = $false
 $TIMER = $false
 $VERBOSE = $false
 $N = 0
 foreach ($ARG in $args) {
-    if ($ARG.StartsWith("-")) {
+    if ($ARG.StartsWith('-')) {
         ## option
-        if ($ARG -ieq "-debug") { $DEBUG = $true; $DebugPreference='Continue'
-        } elseif ($ARG -ieq "-help"   ) { $COMMANDS = 'Print-Help'
-        } elseif ($ARG -ieq "-timer"  ) { $TIMER = $true
-        } elseif ($ARG -ieq "-verbose") { $VERBOSE = $true; $VerbosePreference = 'Continue'
+        if ($ARG -ieq '-debug') { $DEBUG = $true; $DebugPreference='Continue'
+        } elseif ($ARG -ieq '-help'   ) { $HELP = $true
+        } elseif ($ARG -ieq '-timer'  ) { $TIMER = $true
+        } elseif ($ARG -ieq '-verbose') { $VERBOSE = $true; $VerbosePreference = 'Continue'
         } else {
             Write-Error "Unknown option ""$ARG"""
             $EXITCODE = 1
@@ -83,14 +98,13 @@ foreach ($ARG in $args) {
         }
     } else {
         ## subcommand
-        if ($ARG -ieq "clean") { $COMMANDS += 'Clean'
-        } elseif ($ARG -ieq "compile") { $COMMANDS += 'Compile'
-        } elseif ($ARG -ieq "decompile") { $COMMANDS += 'Decompile'
-        } elseif ($ARG -ieq "doc" ) { $COMMANDS += 'Compile', 'Doc'
-        } elseif ($ARG -ieq "help") { $COMMANDS = 'Print-Help'
-        } elseif ($ARG -ieq "lint") { $COMMANDS += 'Lint'
-        } elseif ($ARG -ieq "run" ) { $COMMANDS += 'Compile', 'Run'
-        } elseif ($ARG -ieq "test") { $COMMANDS += 'Compile', 'Test'
+        if ($ARG -ieq 'clean') { $COMMANDS += 'Clean'
+        } elseif ($ARG -ieq 'compile') { $COMMANDS += 'Compile'
+        } elseif ($ARG -ieq 'decompile') { $COMMANDS += 'Decompile'
+        } elseif ($ARG -ieq 'doc' ) { $COMMANDS += 'Compile', 'Doc'
+        } elseif ($ARG -ieq 'help') { $HELP = $true
+        } elseif ($ARG -ieq 'lint') { $COMMANDS += 'Lint'
+        } elseif ($ARG -ieq 'run' ) { $COMMANDS += 'Compile', 'Run'
         } else {
             Write-Error "Unknown subcommand ""$ARG"""
             $EXITCODE = 1
@@ -99,40 +113,32 @@ foreach ($ARG in $args) {
         $N++
     }
 }
-$MAIN_NAME = "main"
+## Source name and class name may differ
+$MAIN_NAME = $PROJECT_NAME
+$MAIN_CLASS = "org.jamieallen.effectiveakka.$MAIN_NAME"
 $MAIN_ARGS = $null
 
-$SOURCE_MAIN_FILE = $SOURCE_MAIN_DIR + $SEP + $MAIN_NAME + '.adb'
-
-if ($MSYS -and ! (Test-Path -PathType Leaf -Path $MSYS_GNATMAKE_CMD)) {
-    Write-Warning "MSYS GNAT Make not found; use standard GNAT Make instead"
-    $MSYS = $false
-}
 if ($COMMANDS -contains 'Lint') {
-    if (! (Test-Path -PathType Leaf -Path ($Env:GNAT2019_HOME + $SEP + 'bin' + $SEP + 'gnat' + $EXE))) {
-        Write-Warning "GNAT 2019 is required to execute AdaControl"
+    if (! $SCALAFMT_CMD) {
+        Write-Warning "Scalafmt command not found (installation managed by Coursier)"
         $COMMANDS = $COMMANDS.Replace('Lint', '')
-    } else {
-        $PARENT_DIR = Split-Path -Parent $ROOT_DIR
-        $ARU_FILE = (Get-ChildItem -Path $PARENT_DIR -Filter *.aru) | Select-Object -First 1 -ExpandProperty FullName
-        if (! (Test-Path -PathType Leaf -Path $ARU_FILE)) {
-            Write-Warning "ARU file not found"
-            $COMMANDS = $COMMANDS.Replace('Lint', '')
-        }
+    } elseif (! $SCALAFMT_CONFIG_FILE) {
+        Write-Warning "Scalafmt configuration file not found"
+        $COMMANDS = $COMMANDS.Replace('Lint', '')
     }
 }
-if ($COMMANDS -contains 'Compile' -and $MSYS -and ! $MSYS_GNATMAKE_CMD) {
-    Write-Warning "MSYS GNAT Make not found; use standard GNAT Make instead"
-    $MSYS = $false
+if ($COMMANDS -contains 'Decompile' -and ! $CFR_CMD) {
+    Write-Warning "CFR command not found (check variable CFR_HOME)"
+    $COMMANDS = $COMMANDS.Replace('Decompile', '')
 }
+Write-Debug "Properties : PROJECT_NAME=$PROJECT_NAME PROJECT_VERSION=$PROJECT_VERSION PS_VERSION=$PS_VERSION"
 Write-Debug "Options    : DEBUG=$DEBUG TIMER=$TIMER VERBOSE=$VERBOSE"
 Write-Debug "Subcommands: $COMMANDS"
-if ($Env:CFR_HOME) { Write-Debug "Variables  : ""CFR_HOME=$Env:CFR_HOME""" }
+if ($CFR_CMD) { Write-Debug "Variables  : ""CFR_HOME=$Env:CFR_HOME""" }
 Write-Debug "Variables  : ""GIT_HOME=$Env:GIT_HOME"""
 Write-Debug "Variables  : ""JAVA_HOME=$Env:JAVA_HOME"""
 Write-Debug "Variables  : ""SCALA_HOME=$Env:SCALA_HOME"""
-Write-Debug "Variables  : MAIN_NAME=$MAIN_NAME MAIN_ARGS=$MAIN_ARGS"
-Write-Debug "Variables  : PROJECT_NAME=$PROJECT_NAME"
+Write-Debug "Variables  : MAIN_NAME=$MAIN_NAME MAIN_CLASS=$MAIN_CLASS MAIN_ARGS=$MAIN_ARGS"
 
 if ($TIMER) { $TIMER_START = Get-Date }
 
@@ -141,6 +147,10 @@ if ($TIMER) { $TIMER_START = Get-Date }
 
 function Main
 {
+    if ($HELP) {
+        Print-Help
+        Cleanup $EXITCODE
+    }
     foreach($COMMAND in $COMMANDS) {
         &$COMMAND
         if ($EXITCODE -ne 0) { exit $EXITCODE }
@@ -168,27 +178,27 @@ function Print-Help
     Write-Output "     doc         generate HTML documentation"
     Write-Output "     help        print this help message"
     Write-Output "     lint        analyze Scala source files with Scalafmt"
-    Write-Output "     run         execute main program ""$MAIN_CLASS"""
+    Write-Output "     run         execute main class ""$MAIN_CLASS"""
 }
 
 function Clean
 {
-    Delete-Dir $TARGET_DIR
+    Delete-Directory -DirPath $TARGET_DIR
 }
 
-function Delete-Dir
+function Delete-Directory
 {
     param (
-        [string] $dir
+        [string] $DirPath
     )
-    if (Test-Path -PathType Container -Path $dir) {
-        Write-Debug "[System.IO.Directory]::Delete('$dir', $true)"
-        Write-Verbose "Delete directory ""$($dir.Replace($ROOT_DIR + $SEP, ''))"""
+    if (Test-Path -PathType Container -Path $DirPath) {
+        Write-Debug "[System.IO.Directory]::Delete('$DirPath', $true)"
+        Write-Verbose "Delete directory ""$($DirPath.Replace($ROOT_DIR + $SEP, ''))"""
         try {
-            #[System.IO.Directory]::Delete($dir, $true)
-            Remove-Item -Path $dir -Force -Recurse
+            #[System.IO.Directory]::Delete($DirPath, $true)
+            Remove-Item -Path $DirPath -Force -Recurse
         } catch {
-            Write-Error "Failed to delete directory ""$($dir.Replace($ROOT_DIR + $SEP, ''))"""
+            Write-Error "Failed to delete directory ""$($DirPath.Replace($ROOT_DIR + $SEP, ''))"""
             $EXITCODE = 1
             return
         }
@@ -197,7 +207,17 @@ function Delete-Dir
 
 function Lint
 {
-    Write-Warning "Subcommand 'Lint' is not yet implemented"
+    $SCALAFMT_OPTS = @('--test', '--config', $SCALAFMT_CONFIG_FILE)
+    if ($DEBUG) { $SCALAFMT_OPTS += '--debug' }
+
+    Write-Debug "$SCALAFMT_CMD $SCALAFMT_OPTS ""SOURCE_SCALA_DIR"""
+    Write-Warning "Analyze Scala source files with Scalafmt"
+    &"$SCALAFMT_CMD" $SCALAFMT_OPTS "$SOURCE_SCALA_DIR"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to analyze Scala source files with Scalafmt"
+        $EXITCODE = 1
+        return
+    }
 }
 
 function Compile
@@ -205,11 +225,11 @@ function Compile
     if (! (Test-Path -PathType Container -Path $CLASSES_DIR)) {
         $_ = New-Item -ItemType Directory -Path $CLASSES_DIR
     }
-    $TIMESTAMP_FILE = $TARGET_DIR + $SEP + '.latest-build'
-    if (Test-Action-Required -FilePath "$TIMESTAMP_FILE" -DirPath "$SOURCE_JAVA_DIR" '*.java') {
+    $TIMESTAMP_FILE = Join-Path -Path $TARGET_DIR -ChildPath '.latest-build'
+    if (Test-Action-Required -FilePath "$TIMESTAMP_FILE" -DirPath "$SOURCE_JAVA_DIR" -Pattern '*.java') {
         Compile-Java
     }
-    if (Test-Action-Required -FilePath "$TIMESTAMP_FILE" -DirPath "$SOURCE_SCALA_DIR" '*.scala') {
+    if (Test-Action-Required -FilePath "$TIMESTAMP_FILE" -DirPath "$SOURCE_SCALA_DIR" -Pattern '*.scala') {
         Compile-Scala
     }
     $_ = New-Item -ItemType File -Path $TIMESTAMP_FILE -Force
@@ -238,20 +258,22 @@ function Test-Action-Required
 
 function Compile-Java
 {
-    $OPTS_FILE = $TARGET_DIR + $SEP + 'javac_opts.txt'
-    $CPATH = $(Build-Classpath) + $CLASSES_DIR
-    Write-Output "-classpath ""$($CPATH.Replace('\', '\\'))"" -d ""$($CLASSES_DIR.Replace('\', '\\'))""" > $OPTS_FILE
+    $JAVAC_OPTS = @('-deprecation')
 
-    $FILES = (Get-ChildItem -Path $SOURCE_JAVA_DIR -Include "*.java" -Recurse).FullName
-    $N = $FILES.Count
+    $OPTS_FILE = Join-Path -Path $TARGET_DIR -ChildPath 'javac_opts.txt'
+    $CPATH = $(Build-Classpath) + $CLASSES_DIR
+    [System.IO.File]::WriteAllLines($OPTS_FILE, "$JAVAC_OPTS -classpath ""$($CPATH.Replace('\', '\\'))"" -d ""$($CLASSES_DIR.Replace('\', '\\'))""")
+
+    $SOURCE_FILES = (Get-ChildItem -Path $SOURCE_JAVA_DIR -Include "*.java" -Recurse).FullName
+    $N = $SOURCE_FILES.Count
     if ($N -eq 0) {
         Write-Warning "No Java source file found"
         return
     } elseif ($N -eq 1) { $N_FILES = "$N Java source file"
     } else { $N_FILES = "$N Java source files"
     }
-    $SOURCES_FILE = $TARGET_DIR + $SEP + 'javac_sources.txt'
-    Write-Output $FILES > $SOURCES_FILE
+    $SOURCES_FILE = Join-Path -Path $TARGET_DIR -ChildPath 'javac_sources.txt'
+    [System.IO.File]::WriteAllLines($SOURCES_FILE, $SOURCE_FILES)
 
     Write-Debug """$JAVAC_CMD"" ""@$OPTS_FILE"" ""@$SOURCES_FILE"""
     Write-Verbose "Compile $N_FILES to directory ""$($CLASSES_DIR.Replace($ROOT_DIR + $SEP, ''))"""
@@ -265,20 +287,22 @@ function Compile-Java
 
 function Compile-Scala
 {
-    $OPTS_FILE = $TARGET_DIR + $SEP + 'scalac_opts.txt'
-    $CPATH = $(Build-Classpath) + $CLASSES_DIR
-    Write-Output "-classpath ""$($CPATH.Replace('\', '\\'))"" -d ""$($CLASSES_DIR.Replace('\', '\\'))""" > $OPTS_FILE
+    $SCALAC_OPTS = @('-deprecation', '-language:postfixOps')
 
-    $FILES = (Get-ChildItem -Path $SOURCE_SCALA_DIR -Include "*.scala" -Recurse).FullName
-    $N = $FILES.Count
+    $OPTS_FILE = Join-Path -Path $TARGET_DIR -ChildPath 'scalac_opts.txt'
+    $CPATH = $(Build-Classpath) + $CLASSES_DIR
+    [System.IO.File]::WriteAllLines($OPTS_FILE, "$SCALAC_OPTS -classpath ""$($CPATH.Replace('\', '\\'))"" -d ""$($CLASSES_DIR.Replace('\', '\\'))""")
+
+    $SOURCE_FILES = (Get-ChildItem -Path $SOURCE_SCALA_DIR -Include "*.scala" -Recurse).FullName
+    $N = $SOURCE_FILES.Count
     if ($N -eq 0) {
         Write-Warning "No Scala source file found"
         return
     } elseif ($N -eq 1) { $N_FILES = "$N Scala source file"
     } else { $N_FILES = "$N Scala source files"
     }
-    $SOURCES_FILE = $TARGET_DIR + $SEP + 'scalac_sources.txt'
-    Write-Output $FILES > $SOURCES_FILE
+    $SOURCES_FILE = Join-Path -Path $TARGET_DIR -ChildPath 'scalac_sources.txt'
+    [System.IO.File]::WriteAllLines($SOURCES_FILE, $SOURCE_FILES)
 
     Write-Debug """$SCALAC_CMD"" ""@$OPTS_FILE"" ""@$SOURCES_FILE"""
     Write-Verbose "Compile $N_FILES to directory ""$($CLASSES_DIR.Replace($ROOT_DIR + $SEP, ''))"""
@@ -289,43 +313,26 @@ function Compile-Scala
         return
     }
 }
-
 function Build-Classpath
 {
-    $REPO_DIR = $Env:USERPROFILE + $SEP + '.m2' + $SEP + 'repository'
+    $CPATH = $null
+
+    $REPO_DIR = [IO.Path]::Combine($Env:USERPROFILE, '.m2', 'repository')
     if (! (Test-Path -PathType Container -PATH $REPO_DIR)) {
         Write-Error "Maven local repository not found"
         set $EXITCODE = 1
-        return ''
+        return $CPATH
     }
-    $CPATH = $null
-
-    ## https://mvnrepository.com/artifact/org.scala-lang/scala-library
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'scala-lang') -Include 'scala-library-2.13.*.jar' -Recurse)
-    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
-
     ## https://mvnrepository.com/artifact/com.typesafe/config
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe') -Include 'config-1.4.*.jar' -Recurse)
+    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe') -Include 'config*.jar' -Recurse)
     if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
 
     ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-actor_2.13-2.10.*.jar' -Recurse)
-    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
-
-    ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-actor-typed_2.13-2.10.*.jar' -Recurse)
-    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
-
-    ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'slf4j') -Include 'slf4j-api-2.0.*.jar' -Recurse)
+    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-actor_2.13*.jar' -Recurse)
     if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
 
     ## https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'slf4j') -Include 'slf4j-simple-2.0.*.jar' -Recurse)
-    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
-
-    ## https://mvnrepository.com/artifact/org.projectlombok/lombok
-    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'lombok-1.18.*.jar') -Include '' -Recurse)
+    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'slf4j') -Include 'slf4j-simple"*.jar' -Recurse)
     if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
 
     return $CPATH 
@@ -340,17 +347,17 @@ function Doc
     if (! (Test-Path -PathType Container -Path $TARGET_DOCS_DIR)) {
         $_ = New-Item -ItemType Directory -Path $TARGET_DOCS_DIR
     }
-    $TIMESTAMP_FILE = $TARGET_DOCS_DIR +$SEP + '.latest-build'
+    $TIMESTAMP_FILE = Join-Path -Path $TARGET_DOCS_DIR -ChildPath '.latest-build'
     if (! (Test-Action-Required -FilePath "$TIMESTAMP_FILE" -DirPath "$CLASSES_DIR" '*.tasty')) { return }
 
-    $SOURCES_FILE = $TARGET_DIR + $SEP + 'scaladoc_sources.txt'
+    $SOURCES_FILE = Join-Path -Path $TARGET_DIR -ChildPath 'scaladoc_sources.txt'
     if (Test-Path -Path $SOURCES_FILE) { Remove-Item $SOURCES_FILE }
 
     $FILES = (Get-ChildItem -Path $CLASSES_DIR -Include "*.tasty" -Recurse).FullName
     Write-Output > $SOURCES_FILE
 
-    $OPTS_FILE = $TARGET_DIR + $SEP + 'scaladoc_opts.txt'
-    Write-Output "-d ""$($TARGET_DOCS_DIR.Replace($SEP,$SEP + $SEP))"" -project ""$PROJECT_NAME"" -project-version ""$PROJECT_VERSION""" > $OPTS_FILE
+    $OPTS_FILE = Join-Path -Path $TARGET_DIR -ChildPath 'scaladoc_opts.txt'
+    Write-Output "-d ""$($TARGET_DOCS_DIR.Replace($SEP, $SEP + $SEP))"" -project ""$PROJECT_NAME"" -project-version ""$PROJECT_VERSION""" > $OPTS_FILE
     Write-Debug "$SCALADOC_CMD @$OPTS_FILE @$SOURCES_FILE"
     Write-Verbose "Generate HTML documentation into directory ""$($TARGET_DOCS_DIR.Replace($ROOT_DIR, ''))"""
 
@@ -367,24 +374,21 @@ function Doc
 
 function Run
 {
-    $MAIN_CLASS_FILE = $CLASSES_DIR + $SEP + $MAIN_CLASS.Replace('.', $SEP) + '.class'
+    $MAIN_CLASS_FILE = Join-Path -Path $CLASSES_DIR -ChildPath $($MAIN_CLASS.Replace('.', $SEP) + '.class')
     if (! (Test-Path -PathType Leaf -Path $MAIN_CLASS_FILE)) {
         Write-Error "Scala main class ""$MAIN_CLASS"" not found ($MAIN_CLASS_FILE)"
         Cleanup 1
     }
     $CPATH = $(Build-Classpath) + $CLASSES_DIR
-    $SCALA_OPTS = "-classpath ""$CPATH"""
+    $SCALA_OPTS = @('-classpath', """$CPATH""")
+    $SCALA_OPTS_DEBUG = @('-classpath', """$($CPATH.Replace($Env:USERPROFILE,'%USERPROFILE%'))""")
 
-    Write-Debug "$SCALA_CMD $SCALA_OPTS $MAIN_CLASS $MAIN_ARGS"
-    Write-Verbose "Execute Scala main class $MAIN_CLASS"
-    &"$SCALA_CMD" -classpath "$CPATH" $MAIN_CLASS $MAIN_ARGS
+    Write-Debug """$SCALA_CMD"" $SCALA_OPTS_DEBUG $MAIN_CLASS $MAIN_ARGS"
+    Write-Verbose "Execute Scala main class ""$MAIN_CLASS"""
+    &"$SCALA_CMD" $SCALA_OPTS $MAIN_CLASS $MAIN_ARGS
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Failed to execute Scala main class ""$MAIN_CLASS"""
         Cleanup 1
-    }
-    if ($TASTY) {
-        Write-Output "call :run_tasty"
-        #[[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
     }
 }
 

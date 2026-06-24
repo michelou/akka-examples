@@ -24,9 +24,20 @@ set "__LOCAL_REPO=%USERPROFILE%\.m2\repository"
 
 set "__TEMP_DIR=%TEMP%\lib"
 if not exist "%__TEMP_DIR%" mkdir "%__TEMP_DIR%"
-if %_DEBUG%==1 echo [%~n0] "__TEMP_DIR=%__TEMP_DIR%"
+if %_DEBUG%==1 echo [%~n0] "__TEMP_DIR=%__TEMP_DIR%" 1>&2
 
 set __SCALA_BINARY_VERSION=2.13
+
+set _AKKA_RESOLVER=
+for /f "delims=: tokens=1,*" %%i in ('findstr resolver "%USERPROFILE%\.akka\cache.yaml" 2^>NUL') do (
+    set "_AKKA_RESOLVER=%%~j"
+    set "_AKKA_RESOLVER=!_AKKA_RESOLVER:"=!"
+)
+if not defined _AKKA_RESOLVER (
+    echo [%~n0] Akka resolver not found in directory "%USERPROFILE%\.akka" 1>&2
+    set _EXITCODE=1
+    goto end
+)
 
 @rem #########################################################################
 @rem ## Libraries to be added to _LIBS_CPATH
@@ -35,8 +46,8 @@ set _LIBS_CPATH=
 
 set __AKKA_VERSION=2.10.9
 set __SCALA_VERSION=2.13.18
-set __SCALATEST_VERSION=3.2.19
-set __SLF4J_VERSION=2.0.17
+set __SCALATEST_VERSION=3.2.20
+set __SLF4J_VERSION=2.0.18
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "%__SCALA_VERSION%"
@@ -102,7 +113,7 @@ call :add_repo_jar "%__MAVEN_REPO%" "%__GROUP_ID%" "%__ARTIFACT_ID%" "%__VERSION
 goto :eof
 
 :add_akka_jar
-set __AKKA_REPO= https://repo.akka.io/maven
+set "__AKKA_REPO=%_AKKA_RESOLVER%"
 set __GROUP_ID=%~1
 set __ARTIFACT_ID=%~2
 set __VERSION=%~3

@@ -24,6 +24,7 @@ if %_HELP%==1 (
 )
 
 set _ANT_PATH=
+set _CLAUDE_PATH=
 set _GIT_PATH=
 set _GRADLE_PATH=
 set _GRPCURL_PATH=
@@ -35,6 +36,14 @@ set _VSCODE_PATH=
 call :ant
 if not %_EXITCODE%==0 goto end
 
+if %_USE_CLAUDE%==1 (
+    call :claude
+    if not !_EXITCODE!==0 (
+        @rem optional
+        echo %_WARNING_LABEL% Claude not installed 1>&2
+        set _EXITCODE=0
+    )
+)
 call :git
 if not %_EXITCODE%==0 goto end
 
@@ -72,6 +81,7 @@ if not %_EXITCODE%==0 goto end
 call :vscode
 if not %_EXITCODE%==0 (
     @rem optional
+    echo %_WARNING_LABEL% VS Code installation not found 1>&2
     set _EXITCODE=0
 )
 goto end
@@ -139,10 +149,11 @@ set _RESET=[0m
 goto :eof
 
 @rem input parameter: %*
-@rem output parameters: _BASH, _HELP, _VERBOSE
+@rem output parameters: _BASH, _HELP, _USE_CLAUDE, _VERBOSE
 :args
 set _BASH=0
 set _HELP=0
+set _USE_CLAUDE=0
 set _VERBOSE=0
 :args_loop
 set "__ARG=%~1"
@@ -151,6 +162,7 @@ if not defined __ARG goto args_done
 if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-bash" ( set _BASH=1
+    ) else if "%__ARG%"=="-claude" ( set _USE_CLAUDE=1
     ) else if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-help" ( set _HELP=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
@@ -174,7 +186,7 @@ goto args_loop
 call :drive_name "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _BASH=%_BASH% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _BASH=%_BASH% _USE_CLAUDE=%_USE_CLAUDE% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
     echo %_DEBUG_LABEL% Variables  : _DRIVE_NAME=%_DRIVE_NAME% 1>&2
 )
@@ -189,10 +201,20 @@ if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
-for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
-    set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
+@rem deprecated since Windows 11
+@rem for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
+@rem     set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
+@rem )
+@rem alternative in Windows 11
+for /f "delims=" %%i in ('fsutil fsinfo drives') do (
+    set "__LINE=%%i"
+    set "__DRIVES=!__LINE:Drives:=!"
+    set "__DRIVES=!__DRIVES:\=!"
+    for %%d in (!__DRIVES!) do (
+        set "__DRIVE_NAMES=!__DRIVE_NAMES:%%d=!"
+    )
 )
-if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(WMIC^) 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(fsutil^) 1>&2
 if not defined __DRIVE_NAMES (
     echo %_ERROR_LABEL% No more free drive name 1>&2
     set _EXITCODE=1
@@ -260,11 +282,42 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
+echo     %__BEG_O%-claude%__END%     add Claude command to the project environment
 echo     %__BEG_O%-debug%__END%      print commands executed by this script
 echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        print this help message
+goto :eof
+
+@rem output parameters: _CLAUDE_HOME, _CLAUDE_PATH
+:claude
+set _CLAUDE_HOME=
+set _CLAUDE_PATH=
+
+set __CLAUDE_CMD=
+for /f "delims=" %%f in ('where claude.exe 2^>NUL') do set "__CLAUDE_CMD=%%f"
+if defined __CLAUDE_CMD (
+    for /f "delims=" %%i in ("%__CLAUDE_CMD%") do set "__CLAUDE_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__CLAUDE_BIN_DIR!\.") do set "_CLAUDE_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Claude executable found in PATH 1>&2
+    @rem keep _CLAUDE_PATH undefined since executable already in path
+    goto :eof
+) else if defined CLAUDE_HOME (
+    set "_CLAUDE_HOME=%CLAUDE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CLAUDE_HOME 1>&2
+) else (
+    if exist "%USERPROFILE%\.local\bin" set "_CLAUDE_HOME=%USERPROFILE%\.local"
+    if defined _CLAUDE_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Claude installation directory "!_CLAUDE_HOME!" 1>&2
+    )
+)
+if not exist "%_CLAUDE_HOME%\bin\claude.exe" (
+    echo %_ERROR_LABEL% Claude executable not found ^("%_CLAUDE_HOME%"^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_CLAUDE_PATH=;%_CLAUDE_HOME%\bin"
 goto :eof
 
 @rem input parameters:%1=required version %2=vendor 
@@ -606,8 +659,8 @@ if defined __MAKE_CMD (
     set "_MAKE_HOME=%MAKE_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MAKE_HOME 1>&2
 ) else (
-    set _PATH=C:\opt
-    for /f "delims=" %%f in ('dir /ad /b "!_PATH!\make-3*" 2^>NUL') do set "_MAKE_HOME=!_PATH!\%%f"
+    set __PATH=C:\opt
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\make-3*" 2^>NUL') do set "_MAKE_HOME=!__PATH!\%%f"
     if defined _MAKE_HOME (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Make installation directory "!_MAKE_HOME!" 1>&2
     )
@@ -708,6 +761,7 @@ set _VSCODE_PATH=
 set __CODE_CMD=
 for /f "delims=" %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
 if defined __CODE_CMD (
+    for /f "delims=" %%i in ("%__CMD_CMD%") do set "_VSCODE_HOME=%%~dpi"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
     @rem keep _VSCODE_PATH undefined since executable already in path
     goto :eof
@@ -718,10 +772,10 @@ if defined __CODE_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\VSCode\" ( set "_VSCODE_HOME=!__PATH!\VSCode"
     ) else (
-        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
         if not defined _VSCODE_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -736,13 +790,16 @@ if not exist "%_VSCODE_HOME%\code.exe" (
 set "_VSCODE_PATH=;%_VSCODE_HOME%"
 goto :eof
 
-@rem input parameter: %1=verbose flag
+@rem input parameters: %1=use claude, %2=verbose
 :print_env
-set __VERBOSE=%~1
+set __USE_CLAUDE=%~1
+set __VERBOSE=%~2
 set __VERSIONS_LINE1=
 set __VERSIONS_LINE2=
 set __VERSIONS_LINE3=
 set __WHERE_ARGS=
+setlocal enabledelayedexpansion
+
 where /q "%JAVA_HOME%\bin:javac.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,*" %%i in ('"%JAVA_HOME%\bin\javac.exe" -version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% javac %%j,"
@@ -760,9 +817,16 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%SBT_HOME%\bin:sbt.bat"
 if %ERRORLEVEL%==0 (
-    for /f "delims=: tokens=1,*" %%i in ('call "%SBT_HOME%\bin\sbt.bat" -V ^| findstr version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% sbt%%~j,"
+    for /f "delims=: tokens=1,*" %%i in ('call "%SBT_HOME%\bin\sbt.bat" -V 2^>NUL ^| findstr version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% sbt%%~j,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%SBT_HOME%\bin:sbt.bat"
 )
+if %__USE_CLAUDE%==0 goto print_next
+where /q "%CLAUDE_HOME%\bin:claude.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,*" %%i in ('call "%CLAUDE_HOME%\bin\claude.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% Claude %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%CLAUDE_HOME%\bin:claude.exe"
+)
+:print_next
 where /q "%ANT_HOME%\bin:ant.bat"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,4,*" %%i in ('call "%ANT_HOME%\bin\ant.bat" -version ^| findstr version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% ant %%l,"
@@ -797,14 +861,14 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%GIT_HOME%\usr\bin:diff.exe"
 if %ERRORLEVEL%==0 (
-   for /f "tokens=1-3,*" %%i in ('diff.exe --version ^| findstr diff') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% diff %%l,"
+    for /f "tokens=1-3,*" %%i in ('diff.exe --version ^| findstr diff') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% diff %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% diff.exe
 )
 where /q "%GIT_HOME%\bin:bash.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do (
         set "__VERSION=%%l"
-        setlocal enabledelayedexpansion
+        @rem setlocal enabledelayedexpansion
         set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash !__VERSION:-release=!"
     )
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
@@ -817,11 +881,12 @@ if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
         set "__LINE=%%p"
-        setlocal enabledelayedexpansion
+        @rem setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
     echo Environment variables: 1>&2
     if defined ANT_HOME echo    "ANT_HOME=%ANT_HOME%" 1>&2
+    if defined CLAUDE_HOME echo    "CLAUDE_HOME=%CLAUDE_HOME%" 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     if defined GRPCURL_HOME echo    "GRPCURL_HOME=%GRPCURL_HOME%" 1>&2
@@ -838,10 +903,11 @@ if %__VERBOSE%==1 (
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
         set "__LINE=%%i"
-        setlocal enabledelayedexpansion
+        @rem setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
 )
+endlocal
 goto :eof
 
 @rem #########################################################################
@@ -851,6 +917,11 @@ goto :eof
 endlocal & (
     if %_EXITCODE%==0 (
         if not defined ANT_HOME set "ANT_HOME=%_ANT_HOME%"
+        if %_USE_CLAUDE%==1 (
+            if not defined CLAUDE_HOME set "CLAUDE_HOME=%_CLAUDE_HOME%"
+            @rem see https://wiip.fr/en/blog/claude-code-powershell-tool
+            set CLAUDE_CODE_USE_POWERSHELL_TOOL=1
+        )
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined GRPCURL_HOME set "GRPCURL_HOME=%_GRPCURL_HOME%"
@@ -866,15 +937,15 @@ endlocal & (
         if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe and C:\Windows\System32\curl.exe
         set "PATH=%_GIT_HOME%\bin;%PATH%%_ANT_PATH%%_GRADLE_PATH%%_GRPCURL_PATH%%_SBT_PATH%%_MAKE_PATH%%_MAVEN_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
-        call :print_env %_VERBOSE%
+        call :print_env %_USE_CLAUDE% %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
             cd /d %_DRIVE_NAME%
         )
         if %_BASH%==1 (
             @rem see https://conemu.github.io/en/GitForWindows.html
-            if %_DEBUG%==1 echo %_DEBUG_LABEL% %_GIT_HOME%\bin\bash.exe --login 1>&2
-            call "%_GIT_HOME%\bin\bash.exe --login"
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_GIT_HOME%\bin\bash.exe" --login 1>&2
+            call "%_GIT_HOME%\bin\bash.exe" --login
         )
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2

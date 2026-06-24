@@ -1,5 +1,5 @@
 ##
-## Copyright (c) 2018-2025 Stéphane Micheloud
+## Copyright (c) 2018-2026 Stéphane Micheloud
 ##
 ## Licensed under the MIT License.
 ##
@@ -7,9 +7,11 @@
 
 include ../Makefile.inc
 
-SOURCE_DIR  = src
-TARGET_DIR  = target
-CLASSES_DIR = $(TARGET_DIR)/classes
+SOURCE_DIR       = src
+SOURCE_JAVA_DIR  = $(SOURCE_DIR)/main/java
+SOURCE_SCALA_DIR = $(SOURCE_DIR)/main/scala
+TARGET_DIR       = target
+CLASSES_DIR      = $(TARGET_DIR)/classes
 
 CPATH       = $(SCALA_LIB_JAR)$(PSEP)$(CONFIG_JAR)$(PSEP)$(PEKKO_ACTOR_JAR)$(PSEP)$(PEKKO_ACTOR_TYPED_JAR)$(PSEP)$(PEKKO_SLF4J_JAR)$(PSEP)$(SLF4J_API_JAR)$(PSEP)$(SLF4J_SIMPLE_JAR)$(PSEP)$(CLASSES_DIR)
 SCALAC_FLAGS = -deprecation -feature -classpath "$(CPATH)"
@@ -18,7 +20,7 @@ SCALA_FLAGS  = -classpath "$(CPATH)"
 ##############################################################################
 ## main rules
 
-SOURCES   = $(shell $(FIND) "$(SOURCE_DIR)/main/scala" -type f -name "*.scala" 2>/dev/null)
+SOURCES   = $(shell $(FIND) "$(SOURCE_SCALA_DIR)" -type f -name "*.scala" 2>/dev/null)
 RESOURCES = $(shell $(FIND) "$(SOURCE_DIR)/main/resources" -type f -name "*.conf" -o -name "*.xml" 2>/dev/null)
 TARGET    = $(TARGET_DIR)/.latest-build
 

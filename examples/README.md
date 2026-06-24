@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://akka.io/" rel="external"><img style="border:0;" src="../docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://akka.io/" alt="Akka">Akka</a> code examples coming from various websites - mostly from the <a href="https://akka.io/" rel="external">Akka project</a>.
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://akka.io/" alt="Akka">Akka</a> code examples coming from various websites - mostly from the <a href="https://akka.io/" rel="external" title="https://akka.io/">Akka project</a>.
   </td>
   </tr>
 </table>
@@ -70,10 +70,10 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 We add 3 socks to a cart (see section [**6.1 Exercise the service**](https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/grpc-service.html#_exercise_the_service)) with the [grpcurl]<sup id="anchor_01">[1](#footnote_01)</sup> tool :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where">where</a> grpcurl</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where" rel="external" title="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where">where</a> grpcurl</b>
 C:\opt\grpcurl\grpcurl.exe
 &nbsp;
-<b>&gt; <a href="https://github.com/fullstorydev/grpcurl#invoking-rpcs">grpcurl</a> -d "{\"cartId\":\"cart1\", \"itemId\":\"socks\", \"quantity\":3}" -plaintext 127.0.0.1:8101 shoppingcart.ShoppingCartService.AddItem</b>
+<b>&gt; <a href="https://github.com/fullstorydev/grpcurl#invoking-rpcs" rel="external" title="https://github.com/fullstorydev/grpcurl#invoking-rpcs">grpcurl</a> -d "{\"cartId\":\"cart1\", \"itemId\":\"socks\", \"quantity\":3}" -plaintext 127.0.0.1:8101 shoppingcart.ShoppingCartService.AddItem</b>
 {
   "items": [
     {
@@ -133,7 +133,7 @@ Mouth: got a msg: Brain says hello to Mouth
 <span id="footnote_01">[1]</span> ***grpcurl*** [↩](#anchor_01)
 
 <dl><dd>
-<a href="https://sadique.io/blog/2018/04/04/command-line-clients-for-grpc-grpcurl/">Command line clients for gRPC - grpcurl</a>, April 2018.
+<a href="https://sadique.io/blog/2018/04/04/command-line-clients-for-grpc-grpcurl/" rel="external" title="https://sadique.io/blog/2018/04/04/command-line-clients-for-grpc-grpcurl/">Command line clients for gRPC - grpcurl</a>, April 2018.
 </dd></dl>
 
 ***
@@ -143,7 +143,7 @@ Mouth: got a msg: Brain says hello to Mouth
 
 <!-- link refs -->
 
-[akka]: https://akka.io/
+[akka]: https://akka.io/ "https://akka.io/"
 [gradle]: https://docs.gradle.org/current/userguide/what_is_gradle.html
 [grpcurl]: https://github.com/fullstorydev/grpcurl#grpcurl
-[maven]: https://maven.apache.org/what-is-maven.html
+[maven]: https://maven.apache.org/what-is-maven.html "https://maven.apache.org/what-is-maven.html"

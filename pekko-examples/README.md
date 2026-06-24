@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://pekko.apache.org/" rel="external"><img style="border:0;" src="../docs/images/pekko_logo.png" width="100" alt="Pekko project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>pekko-examples\</code></strong> contains <a href="https:///pekko.apache.org/" alt="Akka">Pekko</a> code examples coming from various websites - mostly from the <a href="https://pekko.apache.org/" rel="external">Pekko project</a>.
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>pekko-examples\</code></strong> contains <a href="https:///pekko.apache.org/" alt="Akka">Pekko</a> code examples coming from various websites - mostly from the <a href="https://pekko.apache.org/" rel="external" title="https://pekko.apache.org/">Pekko project</a>.
   </td>
   </tr>
 </table>
@@ -13,7 +13,7 @@
 This example is taken from the [Apache Pekko documentation](https://pekko.apache.org/docs/pekko/current/typed/actors.html#functional-style); it has the following directory structure :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
 |   <a href="./ChatRoom/00download.txt">00download.txt</a>
 |   <a href="./ChatRoom/build.bat">build.bat</a>
 |   <a href="./ChatRoom/build.sh">build.sh</a>
@@ -47,7 +47,7 @@ SLF4J(W): See also https://www.slf4j.org/codes.html#replay
 This example has the following directory structure :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
 |   <a href="./HelloWorld/00download.txt">00download.txt</a>
 |   <a href="./HelloWorld/build.bat">build.bat</a>
 |   <a href="./HelloWorld/build.sh">build.sh</a>

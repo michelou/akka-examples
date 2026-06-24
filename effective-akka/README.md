@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://akka.io/"><img style="border:0;" src="../docs/images/akka.svg" width="100" alt="Akka project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>effective-akka\</code></strong> contains <a href="https://akka.io/" alt="Akka">Akka</a> code examples from Allen's book <a href="https://www.oreilly.com/library/view/effective-akka/9781449360061/"><i>Effective Akka</i></a> (O'Reilly, 2013).
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>effective-akka\</code></strong> contains <a href="https://akka.io/" alt="Akka" title="https://akka.io/">Akka</a> code examples from Allen's book <a href="https://www.oreilly.com/library/view/effective-akka/9781449360061/"><i>Effective Akka</i></a> (O'Reilly, 2013).
   </td>
   </tr>
 </table>
@@ -39,16 +39,16 @@ It has the following directory structure :
 |   <a href="./Chapter02/ExtraPattern/gradle.properties">gradle.properties</a>
 |   <a href="./Chapter02/ExtraPattern/Makefile">Makefile</a>
 |   <a href="./Chapter02/ExtraPattern/pom.xml">pom.xml</a>
-+---project
++---<b>project</b>
 |       <a href="./Chapter02/ExtraPattern/project/build.properties">build.properties</a>
-\---src
-    +---main
-    |   +---resources
+\---<b>src</b>
+    +---<b>main</b>
+    |   +---<b>resources</b>
     |   |       <a href="./Chapter02/ExtraPattern/src/main/resources/application.conf">application.conf</a>
     |   |       <a href="./Chapter02/ExtraPattern/src/main/resources/logback.xml">logback.xml</a>
-    |   \---scala
-    |       \---org
-    |           \---jamieallen
+    |   \---<b>scala</b>
+    |       \---<b>org</b>
+    |           \---<b>jamieallen</b>
     |               \---effectiveakka
     |                   |   <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/ExtraPattern.scala">ExtraPattern.scala</a>
     |                   +---common
@@ -60,8 +60,8 @@ It has the following directory structure :
     |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/MoneyMarketAccountsActor.scala">MoneyMarketAccountsActor.scala</a>
     |                               <a href="./Chapter02/ExtraPattern/src/main/scala/org/jamieallen/effectiveakka/pattern/extra/SavingsAccountsActor.scala">SavingsAccountsActor.scala</a>
     \---<b>test</b>
-        \---scala
-            \---org
+        \---<b>scala</b>
+            \---<b>org</b>
                 \---jamieallen
                     \---effectiveakka
                         \---pattern

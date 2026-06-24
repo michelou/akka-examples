@@ -43,7 +43,9 @@ set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
 set "_SOURCE_DIR=%_ROOT_DIR%src"
-set "_SOURCE_MAIN_DIR=%_ROOT_DIR%src\main"
+set "_SOURCE_JAVA_DIR=%_SOURCE_DIR%\main\java"
+set "_SOURCE_RSRC_DIR=%__SOURCE_DIR%\main\resources"
+set "_SOURCE_SCALA_DIR=%_SOURCE_DIR%\main\scala"
 set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_CLASSES_DIR=%_TARGET_DIR%\classes"
 
@@ -166,7 +168,7 @@ set _MAIN_CLASS=akka.examples.ReceptionistApp
 set _MAIN_ARGS=
 
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _HELP=%_HELP% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: %_COMMANDS% 1>&2
     echo %_DEBUG_LABEL% Variables  : "GIT_HOME=%GIT_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
@@ -193,12 +195,14 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-help%__END%       print this help message
 echo     %__BEG_O%-timer%__END%      print total execution time
 echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
 echo     %__BEG_O%compile%__END%     compile Scala source files
+echo     %__BEG_O%help%__END%        print this help message
 echo     %__BEG_O%run%__END%         execute main class "%__BEG_O%%_MAIN_CLASS%%__END%"
 echo     %__BEG_O%test%__END%        execute unit tests with %__BEG_N%JUnit%__END%
 goto :eof
@@ -232,11 +236,11 @@ if not %_EXITCODE%==0 goto :eof
 call :compile_scala
 if not %_EXITCODE%==0 goto :eof
 
-if exist "%_SOURCE_MAIN_DIR%\resources\*" (
-    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% xcopy "%_SOURCE_MAIN_DIR%\resources\*" "%_CLASSES_DIR%" 1^>NUL 1>&2
+if exist "%_SOURCE_RSRC_DIR%\*" (
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% xcopy "%_SOURCE_RSRC_DIR%\*" "%_CLASSES_DIR%" 1^>NUL 1>&2
     ) else if %_VERBOSE%==1 ( echo Copy resource files to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     )
-    xcopy /q /y "%_SOURCE_MAIN_DIR%\resources\*" "%_CLASSES_DIR%" 1>NUL
+    xcopy /q /y "%_SOURCE_RSRC_DIR%\*" "%_CLASSES_DIR%" 1>NUL
     if not !ERRORLEVEL!==0 (
         echo %_ERROR_LABEL% Failed to copy resource files to directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
         set _EXITCODE=1
@@ -248,13 +252,13 @@ goto :eof
 :compile_java
 set "__TIMESTAMP_FILE=%_CLASSES_DIR%\.latest-build"
 
-call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_MAIN_DIR%\java\*.java"
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_JAVA_DIR%\*.java"
 if %_ACTION_REQUIRED%==0 goto :eof
 
 set "__SOURCES_FILE=%_TARGET_DIR%\javac_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f "delims=" %%i in ('dir /s /b "%_SOURCE_MAIN_DIR%\java\*.java" 2^>NUL') do (
+for /f "delims=" %%i in ('dir /s /b "%_SOURCE_JAVA_DIR%\*.java" 2^>NUL') do (
     echo %%i >> "%__SOURCES_FILE%"
     set /a __N+=1
 )
@@ -285,13 +289,13 @@ goto :eof
 :compile_scala
 set "__TIMESTAMP_FILE=%_CLASSES_DIR%\.latest-build-scala"
 
-call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_MAIN_DIR%\scala\*.scala"
+call :action_required "%__TIMESTAMP_FILE%" "%_SOURCE_SCALA_DIR%\*.scala"
 if %_ACTION_REQUIRED%==0 goto :eof
 
 set "__SOURCES_FILE=%_TARGET_DIR%\scalac_sources.txt"
 if exist "%__SOURCES_FILE%" del "%__SOURCES_FILE%" 1>NUL
 set __N=0
-for /f "delims=" %%i in ('dir /s /b "%_SOURCE_MAIN_DIR%\scala\*.scala" 2^>NUL') do (
+for /f "delims=" %%i in ('dir /s /b "%_SOURCE_SCALA_DIR%\*.scala" 2^>NUL') do (
     echo %%i >> "%__SOURCES_FILE%"
     set /a __N+=1
 )
