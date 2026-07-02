@@ -327,6 +327,10 @@ function Build-Classpath
     $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-actor_2.13*.jar' -Recurse)
     if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
 
+    ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
+    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-testkit_2.13*.jar' -Recurse)
+    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
+
     return $CPATH 
 }
 

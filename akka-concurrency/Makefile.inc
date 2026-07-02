@@ -46,7 +46,7 @@ TOUCH      = touch
 endif
 
 ## https://doc.akka.io/docs/akka/current/actors.html
-AKKA_VERSION = 2.10.9
+AKKA_VERSION = 2.10.20
 ## https://mvnrepository.com/artifact/com.typesafe/config
 CONFIG_VERSION = 1.4.3
 ## https://mvnrepository.com/artifact/org.scala-lang/scala-compiler

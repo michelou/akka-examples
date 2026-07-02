@@ -331,6 +331,14 @@ function Build-Classpath
     $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-actor_2.13*.jar' -Recurse)
     if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
 
+    ## https://mvnrepository.com/artifact/com.typesafe.akka/akka-slf4j
+    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'com' + $SEP + 'typesafe' + $SEP + 'akka') -Include 'akka-slf4j_2.13*.jar' -Recurse)
+    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
+
+    ## https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'slf4j') -Include 'slf4j-api"*.jar' -Recurse)
+    if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }
+
     ## https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     $JAR_FILE = (Get-ChildItem -Path ($REPO_DIR + $SEP + 'org' + $SEP + 'slf4j') -Include 'slf4j-simple"*.jar' -Recurse)
     if ($JAR_FILE.Count -gt 0) { $CPATH = $CPATH + $($JAR_FILE | Select-Object -Last 1).FullName + $PATH_SEP }

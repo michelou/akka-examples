@@ -197,7 +197,7 @@ compile_java() {
     local sources_file="$TARGET_DIR/javac_sources.txt"
     [[ -f "$sources_file" ]] && rm "$sources_file"
     local n=0
-    for f in $(find "$SOURCE_JAVA_DIR/" -name "*.java" 2>/dev/null); do
+    for f in $(find "$SOURCE_JAVA_DIR/" -type f -name "*.java" 2>/dev/null); do
         echo $(mixed_path $f) >> "$sources_file"
         n=$((n + 1))
     done
@@ -223,12 +223,27 @@ lib_cpath() {
     local cpath=
     local central_repo=https://repo1.maven.org/maven2
     local jar_file=
-    for f in $(find "$LOCAL_REPO/com/typesafe/" -name "config*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/com/typesafe/" -type f -name "config*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath=$cpath$jar_file$PSEP
     jar_file=
-    for f in $(find "$LOCAL_REPO/com/typesafe/akka/" -name "akka-actor*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/com/typesafe/akka/" -type f -name "akka-actor*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath=$cpath$jar_file$PSEP
+    jar_file=
+    for f in $(find "$LOCAL_REPO/com/typesafe/akka/" -type f -name "akka-slf4j*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath=$cpath$jar_file$PSEP
+    jar_file=
+    for f in $(find "$LOCAL_REPO/org/slf4j/slf4j-api" -type f -name "slf4j-api*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath=$cpath$jar_file$PSEP
+    jar_file=
+    for f in $(find "$LOCAL_REPO/org/slf4j/slf4j-simple/" -type f -name "slf4j-simple*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath=$cpath$jar_file$PSEP

@@ -21,7 +21,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.54][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.55][git_downloads] ([*release notes*][git_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8+) ([*release notes*][scala_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 <!--
@@ -39,10 +39,10 @@ Optionally one may also install the following software:
 - [GNU Make 3.81][gmake_install] (released in December 2006)
 - [Gradle 9.6][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [grpcurl 1.9][grpcurl_downloads]  ([*release notes*][grpcurl_relnotes])
-- [sbt 1.12][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
+- [sbt 2.0][sbt_downloads] (requires Java 8+) ([*release notes*][sbt_relnotes])
 - [Scala 3.3 LTS][scala3_lts_releases] ([*release notes*][scala3_lts_relnotes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk21_relnotes], [Java 21 API][oracle_openjdk21_api])
-- [Visual Studio Code 1.126][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.127][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 <!-- see https://archive.apache.org/dist/ant/
 1.10.0  -> https://archive.apache.org/dist/ant/RELEASE-NOTES-1.10.0.html
@@ -59,7 +59,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*June 2026*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*July 2026*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-ant\              <i>( 43 MB)</i>
@@ -71,11 +71,21 @@ C:\opt\grpcurl\                 <i>( 24 MB)</i>
 C:\opt\jdk-temurin-17.0.19_10\  <i>(302 MB)</i>
 C:\opt\jdk-temurin-21.0.11_10\  <i>(327 MB)</i>
 C:\opt\make-3.81\               <i>(  2 MB)</i>
-C:\opt\sbt\                     <i>(110 MB)</i>
+C:\opt\sbt-2.0\                 <i>(162 MB)</i>
 C:\opt\scala-2.13.18\           <i>( 25 MB)</i>
 C:\opt\scala3-3.3.8\            <i>( 38 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
+ <!-- sbt: 1.3.6 = 55.1 MB, 1.3.7 = 60.9 MB, 1.3.8 = 61.0 MB -->
+ <!-- sbt: 1.3.9 = 61.2 MB, 1.3.10 = 61.2 MB, 1.3.11 = 61.3 MB, 1.4.1 = 48.0 MB -->
+ <!-- sbt: 1.4.2 = 47.7 MB, 1.4.3 = 47.7 MB, 1.4.6 -> 48 MB, 1.4.6 = MB -->
+ <!-- sbt: 1.4.7 = 48.3 MB, 1.4.8 = 48.3 MB, 1.5.0 = 48.3 MB -->
+ <!-- sbt: 1.5.1 to 1.5.5 = 50.6 MB -->
+ <!-- sbt: 1.6.1 = 50.6 MB, 1.6.2 = 50.6 MB -->
+ <!-- sbt: 1.8.0 = 80.6 MB, 1.7.2 = 80.6 MB, 1.8.0 = 80.6 MB, 1.9.3 = 110.0 MB -->
+ <!-- sbt: 1.9.6 = 136 MB, 1.9.7 = 135 MB, 1.9.8 -> 135 MB, 1.9.9 = 136 MB -->
+ <!-- sbt: 1.10.0 = 137 MB, 1.10.1 = 137 MB, 1.10.3 = 137 MB, 1.12.11 = 162 MB -->
+ <!-- sbt: 2.0.1 = 162 MB -->
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [**`/opt/`**][linux_opt] directory on Unix).
@@ -129,9 +139,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   javac 17.0.19, scalac 2.13.18, sbt 1.12.11,
-   ant 1.10.17, gradle 9.6.0, mvn 3.9.16, grpcurl v1.9.3,
-   make 3.81, git 2.54.0, diff 3.12, bash 5.3.9(1)
+   javac 17.0.19, scalac 2.13.18, sbt 2.0.1,
+   ant 1.10.17, gradle 9.6.1, mvn 3.9.16, grpcurl v1.9.3,
+   code 1.127.0, make 3.81, git 2.55.0, diff 3.12, bash 5.3.9(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> ant git sbt</b>
 C:\opt\apache-ant\bin\ant
@@ -174,7 +184,7 @@ Searching for class "NotUsed" in files "%USERPROFILE%\.m2\repository\*.jar"
 <dl><dd>
 <table>
 <tr><th>Gradle version</th><th>Java&nbsp;version</th></tr>
-<tr><td><a href="https://docs.gradle.org/9.5.0/release-notes.html">9.5.0</a>, <a href="https://docs.gradle.org/9.5.1/release-notes.html">9.5.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_26">26</a></td></tr>
+<tr><td><a href="https://docs.gradle.org/9.5.0/release-notes.html">9.5.0</a>, <a href="https://docs.gradle.org/9.5.1/release-notes.html">9.5.1</a>, <a href="https://docs.gradle.org/9.6.0/release-notes.html">9.6.0</a>, <a href="https://docs.gradle.org/9.6.1/release-notes.html">9.6.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_26">26</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/9.4.1/release-notes.html">9.4.1</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_26">26</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/9.1.0/release-notes.html">9.1.0</a>, <a href="https://docs.gradle.org/9.2.0/release-notes.html">9.2.0</a>, <a href="https://docs.gradle.org/9.2.1/release-notes.html">9.2.1</td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html#VERSION_25">25</a></td></tr>
 <tr><td><a href="https://docs.gradle.org/8.10/release-notes.html" rel="external">8.10</a>, <a href="https://docs.gradle.org/8.11/release-notes.html" rel="external">8.11</a>, <a href="https://docs.gradle.org/8.12/release-notes.html" rel="external">8.12</a></td><td><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/JavaVersion.html">23</a></td></tr>
@@ -203,16 +213,16 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://ant.apache.org/bindownload.cgi" rel="external">apache-ant-1.10.17-bin.zip</a>                         <i>(  9 MB)</i>
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.16-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/releases/">gradle-9.6.0-bin.zip</a>                               <i>(130 MB)</i>
+<a href="https://gradle.org/releases/">gradle-9.6.1-bin.zip</a>                               <i>(130 MB)</i>
 <a href="https://github.com/fullstorydev/grpcurl/releases">grpcurl_1.9.3_windows_x86_64.zip</a>                   <i>(  6 MB)</i>
 <a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/">make-3.81-bin.zip</a>                                  <i>( 10 MB)</i>
 <a href="https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.19_10.zip</a>  <i>(188 MB)</i>
 <a href="https://adoptium.net/temurin/releases?version=21&os=windows&arch=x64">OpenJDK21U-jdk_x64_windows_hotspot_21.0.8_9.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.54.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-1.12.11.zip</a>                                    <i>( 45 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.55.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
+<a href="https://github.com/sbt/sbt/releases" rel="external">sbt-2.0.1.zip</a>                                      <i>( 45 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.18.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.8-RC2">scala3-3.3.8-RC2.zip</a>                               <i>( 34 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.126.0.zip</a>                       <i>(213 MB)</i>
+<a href="https://github.com/lampepfl/dotty/releases/tag/3.3.8">scala3-3.3.8.zip</a>                                   <i>( 34 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.127.0.zip</a>                       <i>(213 MB)</i>
 </pre>
 </dd></dl>
 
@@ -239,7 +249,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -275,13 +285,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_bash]: https://www.atlassian.com/git/tutorials/git-bash "https://www.atlassian.com/git/tutorials/git-bash"
 [git_cli]: https://git-scm.com/docs/git "https://git-scm.com/docs/git"
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.54.0.adoc
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.55.0.adoc
 [github_markdown]: https://github.github.com/gfm/ "https://github.github.com/gfm/"
 [gmake_install]: https://sourceforge.net/projects/gnuwin32/files/make/3.81/
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/ "https://gradle.org/install/"
-[gradle_relnotes]: https://docs.gradle.org/9.6.0/release-notes.html "https://docs.gradle.org/9.6.0/release-notes.html"
+[gradle_relnotes]: https://docs.gradle.org/9.6.1/release-notes.html "https://docs.gradle.org/9.6.1/release-notes.html"
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [grpcurl_downloads]: https://github.com/fullstorydev/grpcurl/releases
@@ -312,7 +322,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_libs]: https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.12.11
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v2.0.1
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.18
 [scala3_examples]: https://github.com/michelou/dotty-examples#top

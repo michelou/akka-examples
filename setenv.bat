@@ -53,6 +53,12 @@ if not %_EXITCODE%==0 goto end
 call :grpcurl
 if not %_EXITCODE%==0 goto end
 
+call :java 25 "temurin"
+if not %_EXITCODE%==0 (
+    @rem optional
+    echo %_WARNING_LABEL% JDK Temurin 25 not installed 1>&2
+    set _EXITCODE=0
+)
 call :java 21 "temurin"
 if not %_EXITCODE%==0 goto end
 
@@ -75,6 +81,7 @@ if not %_EXITCODE%==0 goto end
 call :maven
 if not %_EXITCODE%==0 goto end
 
+@rem version 2.x
 call :sbt
 if not %_EXITCODE%==0 goto end
 
@@ -626,10 +633,10 @@ if defined __SBT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\sbt\" ( set "_SBT_HOME=!__PATH!\sbt"
     ) else (
-        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-2*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         if not defined _SBT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-2*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         )
     )
     if defined _SBT_HOME (
@@ -761,10 +768,10 @@ set _VSCODE_PATH=
 set __CODE_CMD=
 for /f "delims=" %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
 if defined __CODE_CMD (
-    for /f "delims=" %%i in ("%__CMD_CMD%") do set "_VSCODE_HOME=%%~dpi"
+    for /f "delims=" %%i in ("%__CODE_CMD%") do set "_VSCODE_HOME=%%~dpi"
+    @rem remove trailing file separator if present
+    if "!_VSCODE_HOME:~-1!"=="\" set "_VSCODE_HOME=!_VSCODE_HOME:~0,-1!"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
-    @rem keep _VSCODE_PATH undefined since executable already in path
-    goto :eof
 ) else if defined VSCODE_HOME (
     set "_VSCODE_HOME=%VSCODE_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable VSCODE_HOME 1>&2
@@ -781,9 +788,6 @@ if defined __CODE_CMD (
 )
 if not exist "%_VSCODE_HOME%\code.exe" (
     echo %_WARNING_LABEL% VSCode executable not found ^("%_VSCODE_HOME%"^) 1>&2
-    if exist "%_VSCODE_HOME%\Code - Insiders.exe" (
-        echo %_WARNING_LABEL% It looks like you've installed an Insider version of VSCode 1>&2
-    )
     set _EXITCODE=1
     goto :eof
 )
@@ -837,15 +841,24 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=1,*" %%i in ('call "%GRADLE_HOME%\bin\gradle.bat" -version ^| findstr Gradle') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% gradle %%j,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%GRADLE_HOME%\bin:gradle.bat"
 )
+where /q "%GRPCURL_HOME%:grpcurl.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,*" %%i in ('"%GRPCURL_HOME%\grpcurl.exe" -version 2^>^&1') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% grpcurl %%j,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GRPCURL_HOME%:grpcurl.exe"
+)
 where /q "%MAVEN_HOME%\bin:mvn.cmd"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('"%MAVEN_HOME%\bin\mvn.cmd" -version ^| findstr Apache') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mvn %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%MAVEN_HOME%\bin:mvn.cmd"
 )
-where /q "%GRPCURL_HOME%:grpcurl.exe"
+where /q "%VSCODE_HOME%\bin:code.cmd"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,*" %%i in ('"%GRPCURL_HOME%\grpcurl.exe" -version 2^>^&1') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% grpcurl %%j,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%GRPCURL_HOME%:grpcurl.exe"
+    set __VERSION=
+    for /f "tokens=1,*" %%i in ('call "%VSCODE_HOME%\bin\code.cmd" --version') do (
+        if not defined __VERSION set __VERSION=%%i
+    )    
+    set "__VERSIONS_LINE3=%__VERSIONS_LINE3% code !__VERSION!,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%VSCODE_HOME%:code.exe"
 )
 where /q "%MAKE_HOME%\bin:make.exe"
 if %ERRORLEVEL%==0 (
@@ -868,7 +881,6 @@ where /q "%GIT_HOME%\bin:bash.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do (
         set "__VERSION=%%l"
-        @rem setlocal enabledelayedexpansion
         set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash !__VERSION:-release=!"
     )
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
@@ -881,7 +893,6 @@ if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
         set "__LINE=%%p"
-        @rem setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
     echo Environment variables: 1>&2
@@ -893,6 +904,7 @@ if %__VERBOSE%==1 (
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
     if defined JAVA17_HOME echo    "JAVA17_HOME=%JAVA17_HOME%" 1>&2
     if defined JAVA21_HOME echo    "JAVA21_HOME=%JAVA21_HOME%" 1>&2
+    if defined JAVA25_HOME echo    "JAVA25_HOME=%JAVA25_HOME%" 1>&2
     if defined KOTLIN_HOME echo    "KOTLIN_HOME=%KOTLIN_HOME%" 1>&2
     if defined MAKE_HOME echo    "MAKE_HOME=%MAKE_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
@@ -903,7 +915,6 @@ if %__VERBOSE%==1 (
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
         set "__LINE=%%i"
-        @rem setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
 )
@@ -928,13 +939,14 @@ endlocal & (
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
         if not defined JAVA17_HOME set "JAVA17_HOME=%_JAVA17_HOME%"
         if not defined JAVA21_HOME set "JAVA21_HOME=%_JAVA21_HOME%"
+        if not defined JAVA25_HOME set "JAVA25_HOME=%_JAVA25_HOME%"
         if not defined KOTLIN_HOME set "KOTLIN_HOME=%_KOTLIN_HOME%"
         if not defined MAKE_HOME set "MAKE_HOME=%_MAKE_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined SBT_HOME set "SBT_HOME=%_SBT_HOME%"
         if not defined SCALA_HOME set "SCALA_HOME=%_SCALA_HOME%"
         if not defined SCALA3_HOME set "SCALA3_HOME=%_SCALA3_HOME%"
-        if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
+        if not defined VSCODE_HOME set "VSCODE_HOME=%_VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe and C:\Windows\System32\curl.exe
         set "PATH=%_GIT_HOME%\bin;%PATH%%_ANT_PATH%%_GRADLE_PATH%%_GRPCURL_PATH%%_SBT_PATH%%_MAKE_PATH%%_MAVEN_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
         call :print_env %_USE_CLAUDE% %_VERBOSE%
